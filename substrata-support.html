@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substrata Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #2c5f2d;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7eb980;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Substrata Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Substrata is an environmental monitoring app that lets you explore potential connections between your surroundings and your well-being. It monitors ambient noise levels, displays health data from Apple Health alongside environmental readings, and highlights statistical correlations for your personal review — all processed entirely on your device.</p>
+            <p><em>Substrata is not a medical device. It does not diagnose conditions, provide medical advice, or replace professional healthcare guidance. Consult a healthcare professional for health concerns.</em></p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>Does Substrata record my voice or conversations?</dt>
+                <dd>No. Substrata measures ambient noise levels only. Audio is processed in real time on your device to calculate decibel readings. No audio is ever recorded, stored, or transmitted. The microphone data never leaves the audio processing buffer.</dd>
+
+                <dt>What health data does Substrata access?</dt>
+                <dd>With your permission, Substrata reads sleep analysis, heart rate, heart rate variability (HRV), and resting heart rate from Apple Health. This data is read-only — Substrata never writes to or modifies your health data.</dd>
+
+                <dt>Does Substrata send my data anywhere?</dt>
+                <dd>No. All data processing happens entirely on your device. Substrata has no servers, no cloud storage, no user accounts, and no analytics or tracking. Your data never leaves your iPhone.</dd>
+
+                <dt>Does Substrata use my location?</dt>
+                <dd>Only if you choose to enable zone detection, and only at a coarse level. Substrata never stores precise coordinates. You can use the app fully without granting location access.</dd>
+
+                <dt>How do I manage permissions?</dt>
+                <dd>You can manage all permissions (microphone, health data, location) in the iOS Settings app under Substrata. You can revoke any permission at any time without affecting other features of the app.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Substrata data is stored locally on your device. When you delete the app, all associated data is permanently removed by iOS. There is nothing to delete from any server because no data is ever transmitted off your device.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Substrata requires iOS 26 or later and is designed for iPhone.</dd>
+
+                <dt>Does Substrata work with Apple Watch?</dt>
+                <dd>Apple Watch enhances the experience by providing additional health metrics, but it is not required. Substrata works fully on iPhone alone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Substrata's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Health &amp; Fitness</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
