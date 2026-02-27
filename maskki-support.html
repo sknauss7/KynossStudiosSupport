@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maskki Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #1565C0;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #42A5F5;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maskki Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Maskki is a privacy-first iOS browser with on-device AI. It blocks trackers, explains privacy threats, and summarizes webpages — all powered by Apple Foundation Models running entirely on your device. No cloud processing, no accounts, no data collection. Just private, intelligent browsing.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>How does content blocking work?</dt>
+                <dd>Maskki uses bundled content blocking rules to filter trackers, ads, and known privacy-invasive scripts before they load. The block lists are included in the app itself — no server requests are made to fetch or update them. This means content blocking works instantly and entirely offline, with no external dependencies.</dd>
+
+                <dt>What AI features are included?</dt>
+                <dd>Maskki uses Apple Foundation Models to power on-device AI features including: privacy threat explanations (understand what trackers on a page are doing and why they matter), webpage summarization (get a quick summary of any article or page), and intelligent browsing assistance. All AI processing runs entirely on your iPhone — nothing is sent to a server.</dd>
+
+                <dt>What's the difference between free and Pro?</dt>
+                <dd>The free version includes full private browsing with content blocking and tracker protection. Maskki Pro unlocks AI-powered features including privacy threat explanations, page summarization, and advanced browsing intelligence. There are no ads in either version and no subscription — Pro is a one-time purchase.</dd>
+
+                <dt>Does Maskki collect any data?</dt>
+                <dd>No. Maskki has no servers, no accounts, no analytics, no ads, and no tracking of any kind. All browsing data, history, and settings are stored locally on your device using Apple's SwiftData framework. The only network activity is your actual web browsing. We cannot see, access, or collect your data — by design.</dd>
+
+                <dt>What devices support AI features?</dt>
+                <dd>Maskki's AI features require Apple Foundation Models, which are available on iPhone 15 Pro and later (devices with the A17 Pro chip or newer). On older devices, all core browsing and content blocking features work normally — AI-powered features like privacy explanations and page summaries are simply not available.</dd>
+
+                <dt>Does Maskki use iCloud or sync data between devices?</dt>
+                <dd>No. All data stays on the device where it was created. There is no cloud sync, no iCloud integration, and no server-side storage. This is by design — your browsing data never leaves your iPhone.</dd>
+
+                <dt>Does Maskki access my location, microphone, or camera?</dt>
+                <dd>No. Maskki does not request or use location services, microphone access, or camera access. It is a browser focused solely on private, intelligent web browsing.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Maskki data is stored locally on your device. When you delete the app, all browsing data, history, settings, and preferences are permanently removed by iOS. There is no server-side data to worry about — deletion is complete and immediate.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Maskki requires iOS 26 or later and is designed for iPhone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is the foundation of everything Maskki does. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/maskki-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Utilities</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/maskki-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
