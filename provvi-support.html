@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provvi Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #4CAF50;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #66BB6A;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Provvi Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Provvi is a privacy-first kitchen inventory app. Scan barcodes and receipts to track what's in your kitchen, get expiration reminders before food goes to waste, and receive AI-powered meal suggestions from what's about to expire. Everything runs on your device — no accounts, no cloud, no data collection.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>Does Provvi upload my data anywhere?</dt>
+                <dd>No. Provvi processes everything on your device. Your inventory, expiration dates, and meal suggestions are stored locally using Apple's SwiftData framework. No data is ever uploaded, transmitted, or shared. The only optional network request is barcode product lookup via Open Food Facts (an open-source, non-profit database) — and only when you explicitly tap to look up a product.</dd>
+
+                <dt>How does barcode scanning work?</dt>
+                <dd>Provvi uses Apple's Vision framework to read barcodes from your camera entirely on-device. Once scanned, the app checks its local cache for product information. If the product isn't cached, you can optionally look it up via Open Food Facts (a free, open-source database). All results are cached locally so future scans of the same product work offline.</dd>
+
+                <dt>How does receipt scanning work?</dt>
+                <dd>Point your camera at a grocery receipt, and Provvi uses Apple's Vision framework to read the text on-device. Then Apple's on-device AI (Foundation Models) extracts product names and prices into structured items. No receipt data is ever sent to any server. Receipt scanning is a Pro feature.</dd>
+
+                <dt>How does Provvi estimate expiration dates?</dt>
+                <dd>Provvi uses a bundled reference database based on USDA food safety guidelines to suggest expiration dates for common food categories. For leftovers, you describe what you made and the on-device AI matches it to the appropriate food category for a shelf-life estimate. <strong>Important:</strong> All expiration estimates are general guidelines based on food safety research. They are not a substitute for your own judgment. When in doubt, throw it out.</dd>
+
+                <dt>How do AI meal suggestions work?</dt>
+                <dd>Provvi uses Apple's on-device Foundation Models framework to suggest meals based on items in your inventory that are approaching expiration. The AI runs entirely on your iPhone — no data is sent to any server, including Apple's. Meal suggestions are a Pro feature.</dd>
+
+                <dt>What is the difference between free and Pro?</dt>
+                <dd>The free version includes barcode scanning, manual item entry, expiration tracking with notifications, and basic category organization for up to 50 items. The one-time $4.99 Pro upgrade unlocks unlimited items, receipt OCR scanning, AI meal suggestions, natural language search, AI item classification with shelf-life lookup, and data export.</dd>
+
+                <dt>Does Provvi work without an internet connection?</dt>
+                <dd>Yes. All core features work entirely offline — barcode scanning, expiration tracking, notifications, and AI features. The only feature that optionally uses the internet is barcode product lookup via Open Food Facts, and even that is cached locally after the first lookup.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Provvi data is stored locally on your device. When you delete the app, all associated data is permanently removed by iOS. There is nothing to delete from any server because no data is ever transmitted off your device.</dd>
+
+                <dt>Does Provvi give food safety or medical advice?</dt>
+                <dd>No. Provvi's expiration estimates are based on general food safety guidelines and are provided for informational purposes only. They are not a substitute for professional food safety advice, and Kynoss Studios is not liable for any food safety decisions made based on the app's suggestions. Always use your own judgment.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Provvi requires iOS 26 or later and is designed for iPhone. AI-powered features (receipt OCR, meal suggestions, natural language search) require a device with Apple Intelligence support (iPhone 15 Pro or later).</dd>
+
+                <dt>Can I export my inventory data?</dt>
+                <dd>Yes. Pro users can export their inventory data from within the app.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Provvi's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/provvi-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Food & Drink</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/provvi-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
