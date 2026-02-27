@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paeki Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #C88520;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #E8A030;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Paeki Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Paeki is a daily image puzzle game for iPhone. Each day, a hidden image is revealed tile by tile — guess what it depicts in as few tiles as possible to earn the highest score. Compete on Game Center leaderboards and challenge your friends. No ads, no tracking, no accounts.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>How does Paeki work?</dt>
+                <dd>Each day, Paeki presents a new hidden image broken into tiles. Tap tiles to reveal parts of the image, then type your guess for what the image shows. The fewer tiles you reveal before guessing correctly, the higher your score. Everyone gets the same puzzle each day.</dd>
+
+                <dt>Does Paeki accept synonyms and similar words?</dt>
+                <dd>Yes. Paeki uses Apple's on-device Natural Language framework to understand what you mean, not just what you type. If the answer is "cat," guesses like "kitten," "kitty," or "feline" will be accepted. You don't need to guess the exact word.</dd>
+
+                <dt>Does Paeki collect any data or track me?</dt>
+                <dd>No. Paeki has no servers, no accounts, no analytics, no ads, and no tracking. All game data (scores, streaks, statistics) is stored locally on your device using Apple's SwiftData framework. The only external service is Game Center, which is managed entirely by Apple.</dd>
+
+                <dt>Does Paeki require an internet connection?</dt>
+                <dd>No. All puzzles are bundled in the app and all guess validation happens on-device. You can play completely offline. Game Center leaderboard syncing requires a connection but is not required for gameplay.</dd>
+
+                <dt>What is the difference between free and Paeki Pro?</dt>
+                <dd>The free version gives you the full daily puzzle every day with Game Center leaderboards and shareable results. Paeki Pro ($2.99, one-time purchase) unlocks the puzzle archive (play any past puzzle), detailed statistics, practice mode, and visual themes. There are no subscriptions and no ads in either version.</dd>
+
+                <dt>When does the daily puzzle reset?</dt>
+                <dd>A new puzzle is available every day at midnight in your local time zone.</dd>
+
+                <dt>Can I replay today's puzzle?</dt>
+                <dd>Each daily puzzle can only be played once for leaderboard scoring. Paeki Pro unlocks practice mode where you can replay any puzzle without affecting your leaderboard score.</dd>
+
+                <dt>How does Game Center work with Paeki?</dt>
+                <dd>If you're signed into Game Center, your daily scores are automatically submitted to the daily leaderboard. You can view leaderboards and achievements through the Game Center button in the app. Game Center sign-in is optional — you can play without it.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Paeki data is stored locally on your device. When you delete the app, all game data (scores, streaks, statistics) is permanently removed by iOS. Game Center achievements and leaderboard entries are retained by Apple in your Game Center profile and will reappear if you reinstall.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Paeki requires iOS 26 or later and is designed for iPhone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Paeki's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/paeki-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Games — Puzzle</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/paeki-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
