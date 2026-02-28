@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reapyr Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #E07810;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #F0A030;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reapyr Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Reapyr is a privacy-first macOS app that extracts structured data from recurring PDF report types. Drop a PDF, and Reapyr uses Apple Vision and on-device AI to detect tables and document structure, map values to your custom templates, and export clean CSV files or copy data to your clipboard. All processing happens entirely on your Mac — your sensitive documents never leave your device.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your Mac model and macOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>Does Reapyr send my documents to a server?</dt>
+                <dd>No. All PDF processing, text extraction, and AI analysis happen entirely on your Mac using Apple's on-device Vision and Foundation Models frameworks. Your documents, extracted data, and templates never leave your device. Reapyr has no servers, no cloud storage, and no user accounts.</dd>
+
+                <dt>What Macs does Reapyr support?</dt>
+                <dd>Reapyr requires a Mac running macOS 26 or later. The on-device AI features require Apple's Foundation Models framework, which is available on Apple Silicon Macs with macOS 26.</dd>
+
+                <dt>What types of PDFs can Reapyr process?</dt>
+                <dd>Reapyr can process both digital PDFs (with embedded text) and scanned PDFs (images). For digital PDFs, Reapyr uses direct text extraction for speed. For scanned documents, Reapyr renders each page and uses Apple Vision OCR to detect text, tables, and document structure.</dd>
+
+                <dt>What are templates?</dt>
+                <dd>Templates define the fields you want to extract from a recurring report type. For example, a bank statement template might have fields for Date, Description, and Amount. Once created, you can reuse a template every time you process the same type of report — Reapyr's AI automatically maps the extracted data to your defined fields.</dd>
+
+                <dt>What does Reapyr Pro include?</dt>
+                <dd>The free version includes 3 extractions per day, 1 template, and clipboard export. Reapyr Pro ($19.99 one-time purchase) unlocks unlimited extractions, unlimited templates, CSV file export, and batch processing.</dd>
+
+                <dt>Is there a subscription?</dt>
+                <dd>No. Reapyr Pro is a one-time purchase. There are no recurring charges, no subscription fees, and no hidden costs. Pay once, use forever.</dd>
+
+                <dt>What export formats are supported?</dt>
+                <dd>Reapyr can export extracted data as CSV files (Pro feature) or copy tab-separated data to your clipboard for pasting directly into spreadsheets like Numbers or Excel.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Reapyr data is stored locally on your Mac. When you delete the app, all associated data — templates, extraction history, and settings — is permanently removed. There is nothing to delete from any server because no data is ever transmitted off your device.</dd>
+
+                <dt>How do I restore my purchase on a new Mac?</dt>
+                <dd>Open Reapyr and use the "Restore Purchase" button on the upgrade screen. Your purchase is linked to your Apple ID and can be restored on any Mac signed into the same account.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Reapyr's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/reapyr-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> Mac (macOS 26+)</li>
+                <li><strong>Category:</strong> Productivity</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/reapyr-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
