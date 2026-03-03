@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandemoni Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #CC0080;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #FF00A0;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pandemoni Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Pandemoni is a party game platform that turns your iPhone or iPad into a game console. Host a game, put the game board on any TV via AirPlay or HDMI, and let everyone else join by scanning a QR code on their phone — no app download, no account, no internet required. Choose from a growing collection of game modes spanning trivia, social deduction, creative challenges, and more. Also available as a native Apple TV app.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS/tvOS version</li>
+                <li>A description of the issue or question</li>
+                <li>How many players were in the session (if applicable)</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>How do players join a game?</dt>
+                <dd>The host starts a game on their iPhone or iPad, and a QR code appears on the TV. Other players scan the QR code with any phone's camera — it opens a webpage served directly from the host's device over your local WiFi. No app download is needed. Players just enter a display name and they're in.</dd>
+
+                <dt>Do players need to download an app?</dt>
+                <dd>No. Only the host needs the Pandemoni app. All other players join through their phone's web browser by scanning a QR code. It works on any phone — iPhone, Android, or anything else with a camera and a browser.</dd>
+
+                <dt>Do I need an internet connection?</dt>
+                <dd>No. Pandemoni runs entirely over your local WiFi network. The host's device serves the game directly to other players — no internet connection is needed. This makes it great for cabins, flights, or anywhere WiFi exists but internet doesn't.</dd>
+
+                <dt>What TVs work with Pandemoni?</dt>
+                <dd>Any TV that supports AirPlay 2 (most Samsung, LG, Sony, and Vizio TVs from 2019 onward) works wirelessly. You can also connect with a USB-C to HDMI adapter for a wired connection. On Apple TV, Pandemoni runs as a native tvOS app. You can even play without a TV — the host's device shows the game board.</dd>
+
+                <dt>How many players can join?</dt>
+                <dd>Most game modes support 3 to 15 players, though exact player counts vary by mode. The game selection screen shows the player range for each mode.</dd>
+
+                <dt>Players can't connect to the game. What should I do?</dt>
+                <dd>Make sure all devices are on the same WiFi network. Check that the host has granted Pandemoni local network permission (Settings → Privacy & Security → Local Network → Pandemoni). Guest WiFi networks with "client isolation" enabled will block connections — try a regular WiFi network instead. If the host's phone locks or the app goes to the background, the server pauses — keep the app in the foreground during gameplay.</dd>
+
+                <dt>Does Pandemoni collect any data?</dt>
+                <dd>No. Pandemoni has no servers, no accounts, no analytics, no ads, and no tracking. All game communication happens directly between devices on your local WiFi. Player names exist only during the active game session and are discarded when it ends. For complete details, read our <a href="https://sknauss7.github.io/KynossStudiosSupport/pandemoni-privacy.html">Privacy Policy</a>.</dd>
+
+                <dt>What game modes are included for free?</dt>
+                <dd>The base app includes several free game modes. Additional modes can be unlocked individually or as part of a bundle through one-time in-app purchases — no subscriptions.</dd>
+
+                <dt>How do I restore my purchases on a new device?</dt>
+                <dd>Open Pandemoni and go to the store. Use the "Restore Purchases" option to restore any previously purchased game modes. Your purchases are linked to your Apple ID and can be restored on any device signed into the same account. Pandemoni is a universal purchase — buy it once and it works on iPhone, iPad, and Apple TV.</dd>
+
+                <dt>What is Game Night mode?</dt>
+                <dd>Game Night lets you play back-to-back games with a persistent leaderboard tracking wins across the whole session. Play different game modes in any order — the overall standings carry over between games until you end the Game Night.</dd>
+
+                <dt>The game feels laggy or unresponsive. What can I do?</dt>
+                <dd>Make sure the host device is on a strong WiFi connection. If many devices are on the network, performance may improve by moving closer to the WiFi router. Closing other apps on the host device can also help, as the game server runs on the host's device.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Pandemoni's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/pandemoni-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platforms:</strong> iPhone, iPad (iOS 18+), Apple TV (tvOS 18+)</li>
+                <li><strong>Category:</strong> Games — Party</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/pandemoni-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
