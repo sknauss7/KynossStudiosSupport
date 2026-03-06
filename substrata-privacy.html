@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -197,7 +197,7 @@
         <header>
             <h1>Substrata Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: February 25, 2026 &middot; Last Updated: February 25, 2026</p>
+            <p class="effective-date">Effective Date: February 25, 2026 &middot; Last Updated: March 6, 2026</p>
         </header>
 
         <main>
@@ -209,7 +209,7 @@
                 <h2>Contents</h2>
                 <ol>
                     <li><a href="#overview">Overview</a></li>
-                    <li><a href="#microphone">Microphone &amp; Audio Data</a></li>
+                    <li><a href="#microphone">Noise &amp; Audio Exposure Data</a></li>
                     <li><a href="#healthkit">Health Data (HealthKit)</a></li>
                     <li><a href="#location">Location Data</a></li>
                     <li><a href="#weather">Weather Data</a></li>
@@ -228,33 +228,31 @@
 
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
-            <p>Substrata ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Substrata is an environmental monitoring app for iPhone (iOS 26 and later) that lets you explore potential connections between your surroundings and your well-being. Substrata is not a medical device. It does not diagnose conditions, provide medical advice, or replace professional healthcare guidance.</p>
+            <p>Substrata ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Substrata is an environmental health intelligence app for iPhone (iOS 26 and later) that layers environmental data (weather, barometric pressure, noise exposure) against health data from Apple Health to reveal hidden correlations affecting your wellbeing. It includes headache tracking, a statistical correlation engine, and comprehensive weather monitoring. Substrata is not a medical device. It does not diagnose conditions, provide medical advice, or replace professional healthcare guidance.</p>
             <p>This Privacy Policy explains what data Substrata accesses, how that data is processed, and your rights regarding your information. We are committed to transparency and to protecting your privacy.</p>
             <p><strong>Substrata operates entirely on your device.</strong> We do not operate servers, databases, or cloud services. We do not create user accounts. We have no mechanism to collect, receive, view, or store your personal data. The data Substrata works with exists solely on your iPhone, under your control.</p>
 
-            <!-- 2. MICROPHONE & AUDIO DATA -->
-            <h2 id="microphone">2. Microphone &amp; Audio Data</h2>
+            <!-- 2. NOISE & AUDIO DATA -->
+            <h2 id="microphone">2. Noise &amp; Audio Exposure Data</h2>
 
             <div class="highlight">
                 <p><strong>Substrata does not record audio. Ever.</strong></p>
-                <p>The microphone is used exclusively to measure ambient noise levels in real time. No audio content is captured, saved, stored, transmitted, or made accessible in any form. It is technically impossible for Substrata to play back, retrieve, or reconstruct any sound from your environment.</p>
+                <p>Noise data comes primarily from Apple Watch environmental audio exposure readings via Apple Health. These are pre-processed decibel averages — no raw audio is involved. No audio content is captured, saved, stored, transmitted, or made accessible in any form.</p>
             </div>
 
             <h3>How It Works</h3>
-            <p>Substrata uses Apple's audio framework to access the microphone input and calculate a real-time decibel (dB) reading using root-mean-square (RMS) signal processing. The audio signal is analyzed as a numerical amplitude value only. The process works as follows:</p>
-            <ol>
-                <li>The microphone input feeds a short audio buffer (a fraction of a second of signal data).</li>
-                <li>The buffer is processed mathematically to compute an RMS amplitude value.</li>
-                <li>The amplitude is converted to a decibel reading.</li>
-                <li>The buffer is immediately overwritten by the next sample. No audio content is retained.</li>
-            </ol>
-            <p>The only data Substrata derives from the microphone is a single numerical value: the noise level in decibels. This number cannot be reversed or decoded back into audio. No speech, conversation, music, or any identifiable sound is ever captured or stored.</p>
+            <p>Substrata reads noise exposure data from Apple Health, which includes:</p>
+            <ul>
+                <li><strong>Environmental Audio Exposure</strong> (Apple Watch) — averaged dBA readings recorded by your Watch's calibrated microphone, delivered as HealthKit samples approximately every 30 minutes.</li>
+                <li><strong>Headphone Audio Exposure</strong> (iPhone/Watch) — volume levels when listening through headphones, also delivered as HealthKit samples.</li>
+            </ul>
+            <p>These readings are pre-computed by Apple's hardware and delivered as numerical decibel values through HealthKit. Substrata never accesses raw audio from any source.</p>
 
             <h3>What We Store</h3>
-            <p>Substrata stores only timestamped decibel readings (e.g., "72 dB at 2:35 PM"). These numerical measurements contain no audio content whatsoever.</p>
+            <p>Substrata stores only timestamped decibel readings (e.g., "72 dBA at 2:35 PM") from HealthKit. These numerical measurements contain no audio content whatsoever.</p>
 
             <h3>Your Control</h3>
-            <p>Microphone access requires your explicit permission via the iOS permission prompt. You can revoke microphone access at any time in Settings &gt; Substrata. The app will continue to function for other features without microphone access.</p>
+            <p>Noise data access is controlled through HealthKit permissions. You can revoke access at any time in Settings &gt; Health &gt; Substrata. The app will continue to function for other features without noise data.</p>
 
             <!-- 3. HEALTH DATA (HEALTHKIT) -->
             <h2 id="healthkit">3. Health Data (HealthKit)</h2>
@@ -271,22 +269,47 @@
                 <tbody>
                     <tr>
                         <td>Sleep Analysis</td>
-                        <td>Display sleep patterns alongside environmental conditions</td>
+                        <td>Sleep quality scoring and correlation with environmental conditions</td>
                         <td>Read only</td>
                     </tr>
                     <tr>
                         <td>Heart Rate</td>
-                        <td>Display alongside environmental data for personal review</td>
+                        <td>Display and correlate with environmental data</td>
                         <td>Read only</td>
                     </tr>
                     <tr>
                         <td>Heart Rate Variability (HRV)</td>
-                        <td>Display alongside environmental data for personal review</td>
+                        <td>Display and correlate with environmental data</td>
                         <td>Read only</td>
                     </tr>
                     <tr>
                         <td>Resting Heart Rate</td>
-                        <td>Display alongside environmental data for personal review</td>
+                        <td>Display and correlate with environmental data</td>
+                        <td>Read only</td>
+                    </tr>
+                    <tr>
+                        <td>Respiratory Rate</td>
+                        <td>Display alongside health and environmental data (Apple Watch)</td>
+                        <td>Read only</td>
+                    </tr>
+                    <tr>
+                        <td>Blood Oxygen (SpO2)</td>
+                        <td>Display alongside health and environmental data (Apple Watch)</td>
+                        <td>Read only</td>
+                    </tr>
+                    <tr>
+                        <td>Wrist Temperature</td>
+                        <td>Display alongside health and environmental data (Apple Watch S8+)</td>
+                        <td>Read only</td>
+                    </tr>
+                    <tr>
+                        <td>Environmental Audio Exposure</td>
+                        <td>Noise level monitoring (Apple Watch)</td>
+                        <td>Read only</td>
+                    </tr>
+                    <tr>
+                        <td>Headphone Audio Exposure</td>
+                        <td>Headphone volume monitoring</td>
                         <td>Read only</td>
                     </tr>
                 </tbody>
@@ -323,7 +346,7 @@
 
             <!-- 5. WEATHER DATA -->
             <h2 id="weather">5. Weather Data</h2>
-            <p>Substrata uses Apple's WeatherKit service to retrieve local weather conditions (temperature, humidity, barometric pressure) to display alongside your other environmental and health readings.</p>
+            <p>Substrata uses Apple's WeatherKit service to retrieve comprehensive local weather conditions — temperature, humidity, barometric pressure, UV index, wind speed and direction, dew point, cloud cover, visibility, precipitation, sunrise/sunset times, daylight hours, and moon phase — to display alongside your health readings and feed the correlation engine.</p>
             <ul>
                 <li>Weather requests are made directly from your device to Apple's WeatherKit service using Apple's first-party API.</li>
                 <li>Kynoss Studios does not operate any intermediary server in this process.</li>
@@ -447,9 +470,9 @@
             <h3>Information We Collect</h3>
             <p>Under CCPA/CPRA definitions, Substrata processes the following categories of information <strong>on your device only</strong>:</p>
             <ul>
-                <li>Sensory data (decibel readings derived from microphone input)</li>
-                <li>Health information (HealthKit data, with your permission)</li>
-                <li>Geolocation data (coarse location for zone detection, with your permission)</li>
+                <li>Health information (HealthKit data including noise exposure, sleep, heart rate, with your permission)</li>
+                <li>Geolocation data (coarse location for weather and zone detection, with your permission)</li>
+                <li>User-reported health events (headache logs entered voluntarily)</li>
             </ul>
             <p>However, because all processing occurs on your device and we never collect, receive, or access this information, Kynoss Studios does not "collect" personal information as defined by the CCPA/CPRA.</p>
 
