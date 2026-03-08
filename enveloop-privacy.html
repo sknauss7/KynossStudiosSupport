@@ -1,6 +1,6 @@
 # Privacy Policy for Enveloop
 
-**Last Updated: February 13, 2026**
+**Last Updated: March 8, 2026**
 
 ## Introduction
 
@@ -10,19 +10,20 @@ Enveloop ("we," "our," or "the app") is committed to protecting your privacy. Th
 
 **We collect ZERO data.**
 
-Enveloop stores all your financial information locally on your device using Apple's SwiftData framework. We have no servers, no backend, no analytics, no tracking, and absolutely no access to your data.
+Enveloop stores all your financial information locally on your device using Apple's Core Data framework. We have no servers, no backend, no analytics, no tracking, and absolutely no access to your data.
 
 ## Information Stored on Your Device
 
-The following information is stored locally on your device only:
+The following information is stored locally on your device:
 
 - Your paycheck amount and frequency
-- Your account balance
+- Your account balances
 - Bills you create (name, amount, due date, recurrence, notes, icon)
 - Envelope allocation amounts
+- Transaction and balance history
 - App settings and preferences (such as appearance/dark mode)
 
-**This data never leaves your device.**
+**This data stays on your device unless you choose to use iCloud sharing** (see iCloud section below).
 
 ## Data Sharing and Third Parties
 
@@ -36,9 +37,15 @@ Enveloop does not use:
 - Cloud backup services (unless you enable iCloud on your device)
 - Any third-party SDKs or libraries that collect data
 
-## iCloud
+## iCloud & Family Sharing
 
-If you have iCloud enabled on your device, iOS may automatically back up the app's data as part of your device backup. This is controlled by your device settings, not by Enveloop. We do not directly access or control iCloud backups.
+Enveloop uses Apple's CloudKit to sync your data across your devices and to enable family budget sharing. When you share a budget account with another person, the shared account data is stored in Apple's iCloud infrastructure and synced between participants. This data is protected by Apple's iCloud security and is not accessible to us.
+
+If you choose not to use the sharing feature, your data remains on your device (and in your personal iCloud backup, if iCloud Backup is enabled in your device settings).
+
+## In-App Purchase
+
+Enveloop offers a 2-week free trial followed by a one-time $4.99 in-app purchase. Purchase transactions are handled entirely by Apple's StoreKit framework. We do not collect or store any payment information — all billing is managed by Apple through your Apple ID.
 
 ## Data Security
 
