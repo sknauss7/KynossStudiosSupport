@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intuii Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #7B6EF6;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #A78BFA;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Intuii Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Intuii is a daily Fermi estimation challenge for iPhone. Each day, five questions test your ability to estimate numerical quantities and calibrate your confidence. Enter your best guess, set a confidence range, and discover how well-calibrated your intuition really is. No ads, no tracking, no accounts.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>How does Intuii work?</dt>
+                <dd>Each day, Intuii presents five numerical estimation questions. For each question, you enter your best guess and set a confidence range — the interval you believe the true answer falls within. After all five questions, your results are revealed with a visual log-scale number line showing your estimate, the true answer, and whether your confidence range was accurate.</dd>
+
+                <dt>What is calibration?</dt>
+                <dd>Calibration measures how well your stated confidence matches reality. If you say you're 90% confident and the true answer falls within your range 90% of the time, you're perfectly calibrated. Most people are overconfident — they set narrow ranges that miss the true answer more often than expected. Intuii tracks your calibration over time so you can see how it improves.</dd>
+
+                <dt>How is scoring calculated?</dt>
+                <dd>You earn two types of points per question. An estimation score rewards accuracy — how close your guess is to the true answer on a logarithmic scale. A calibration bonus rewards well-sized confidence ranges — narrow ranges that capture the true answer earn more than wide safety ranges. Your daily total combines both scores across all five questions.</dd>
+
+                <dt>Does everyone get the same puzzle each day?</dt>
+                <dd>Yes. Intuii uses a date-based system so every player worldwide sees the same five questions each day. This makes daily scores directly comparable.</dd>
+
+                <dt>Does Intuii collect any data or track me?</dt>
+                <dd>No. Intuii has no servers, no accounts, no analytics, no ads, and no tracking. All game data (scores, streaks, statistics, calibration history) is stored locally on your device using Apple's SwiftData framework. The only external service is Game Center, which is managed entirely by Apple.</dd>
+
+                <dt>Does Intuii require an internet connection?</dt>
+                <dd>No. All questions are selected on-device and all gameplay happens offline. Game Center leaderboard syncing requires a connection but is not required for gameplay.</dd>
+
+                <dt>What is the difference between free and Intuii Pro?</dt>
+                <dd>The free version gives you the full daily puzzle (all five questions) every day with Game Center leaderboards and shareable results. Intuii Pro ($2.99, one-time purchase) unlocks the puzzle archive (play any past day), practice mode with unlimited random questions, detailed statistics with calibration trend charts, calibration training mode, and streak freeze. There are no subscriptions and no ads in either version.</dd>
+
+                <dt>When does the daily puzzle reset?</dt>
+                <dd>A new set of five questions is available every day at midnight in your local time zone.</dd>
+
+                <dt>How do I share my results?</dt>
+                <dd>After completing the daily puzzle, tap the share button on the summary screen. Intuii generates a visual share card showing miniature number lines for each question — your estimate, the true answer, and whether your confidence range hit or missed. Your calibration percentage is shown prominently. The card is designed to spark conversation about estimation and confidence.</dd>
+
+                <dt>Do I need specialized knowledge to play?</dt>
+                <dd>No. Every question in Intuii can be approached through reasoning and estimation from everyday knowledge. You don't need to memorize facts — the game rewards the ability to think through a problem and arrive at the right order of magnitude. Questions span geography, science, human behavior, economics, nature, technology, and history.</dd>
+
+                <dt>How does Game Center work with Intuii?</dt>
+                <dd>If you're signed into Game Center, your daily scores are automatically submitted to the daily leaderboard. You can view leaderboards and achievements through the Game Center button in the app. Game Center sign-in is optional — you can play without it.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Intuii data is stored locally on your device. When you delete the app, all game data (scores, streaks, statistics, calibration history) is permanently removed by iOS. Game Center achievements and leaderboard entries are retained by Apple in your Game Center profile and will reappear if you reinstall.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Intuii requires iOS 18 or later and is designed for iPhone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Intuii's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/intuii-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 18+)</li>
+                <li><strong>Category:</strong> Games — Puzzle</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/intuii-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
