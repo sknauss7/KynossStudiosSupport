@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirrius Support</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #1E1B4B;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #F59E0B;
+                --card-bg: #242424;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 680px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.95rem; }
+        h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 2.5rem; }
+        p, li { font-size: 0.95rem; color: var(--fg); margin-bottom: 0.75rem; }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email { font-size: 1.1rem; font-weight: 500; }
+        .response-time { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+        .faq dt { font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.25rem; }
+        .faq dd { font-size: 0.95rem; margin-bottom: 1rem; padding-left: 0; }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p { color: var(--muted); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sirrius Support</h1>
+            <p class="subtitle">Pet Health &mdash; Private &amp; Smart</p>
+        </header>
+
+        <main>
+            <p>Sirrius is a privacy-first pet health tracker with on-device AI. It keeps your pet's health records, medication reminders, vet history, and symptom journals in one place &mdash; with smart features that spot patterns and check food safety, all without sending data anywhere.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What can I track in Sirrius?</dt>
+                <dd>Pet profiles (species, breed, age, weight, photo), health records, vet visits, vaccinations, medications, feeding schedules, weight history, and a symptom journal. You can track up to 2 pets for free, or upgrade to Sirrius Pro for unlimited pets.</dd>
+
+                <dt>What are the AI features?</dt>
+                <dd>Sirrius Pro includes on-device AI powered by Apple Intelligence: symptom pattern analysis (spots trends across journal entries), food and plant safety checking (ask in plain English if something is safe for your pet), and natural language health search. All AI processing happens entirely on your iPhone &mdash; nothing is sent to any server.</dd>
+
+                <dt>Which devices support the AI features?</dt>
+                <dd>AI features require an iPhone 15 Pro or newer running iOS 26 or later (devices with Apple Intelligence). The core tracking features work on any iPhone running iOS 17 or later, with or without AI.</dd>
+
+                <dt>Does Sirrius send my data anywhere?</dt>
+                <dd>No. All data is stored on your device. If you enable household sharing, pet data syncs through your personal iCloud account using Apple's CloudKit &mdash; encrypted and controlled by you. We have no servers, no accounts, and no way to see your data.</dd>
+
+                <dt>How does household sharing work?</dt>
+                <dd>You can invite family members to share pet records via iCloud. Everyone in the household can see and update the same pet profiles, log medications, and track vet visits. Sharing uses Apple's CloudKit &mdash; data syncs through your iCloud accounts, not through our servers.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All local data is permanently removed by iOS when you delete the app. Shared data in iCloud persists for other household members who still have the app. There is nothing to delete from our servers because we don't have any.</dd>
+
+                <dt>Is the food safety checker reliable?</dt>
+                <dd>The food and plant safety checker uses a curated database of known toxic and safe items for dogs and cats, combined with on-device AI for natural language understanding. It is a reference tool, not veterinary advice. Always consult your vet for health concerns.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Sirrius requires iOS 17 or later. AI features require iOS 26 or later on an Apple Intelligence-capable device (iPhone 15 Pro or newer).</dd>
+
+                <dt>How much does Sirrius Pro cost?</dt>
+                <dd>Sirrius Pro is a one-time purchase of $4.99. No subscription. You pay once and keep all features forever, including future updates.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Sirrius. For complete details, read our <a href="https://sknauss7.github.io/KynossStudiosSupport/sirrius-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Platform:</strong> iPhone (iOS 17+, AI features require iOS 26+)</li>
+                <li><strong>Category:</strong> Lifestyle</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/sirrius-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
