@@ -110,12 +110,12 @@
         <header>
             <h1>HomeBaseAI Privacy Policy</h1>
             <p class="subtitle">Your Home, In One Conversation</p>
-            <p class="effective-date">Effective Date: March 25, 2026</p>
+            <p class="effective-date">Effective Date: April 1, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> HomeBaseAI processes everything on your device. We have no servers, no accounts, no analytics, no ads, and no tracking. We cannot see, access, or collect your data. Your home information never leaves your iPhone unless you choose to share with family via iCloud.</p>
+                <p><strong>The short version:</strong> HomeBaseAI stores all your home data on your device. We have no accounts, no analytics, no ads, and no tracking. AI conversation is powered by OpenAI's API &mdash; your messages are processed to generate responses but are not stored or used for training. Your home information stays on your iPhone and in your private iCloud.</p>
             </div>
 
             <nav class="toc">
@@ -156,35 +156,46 @@
             </ul>
             <p>All data is entered by you through conversation, camera scanning, or voice input. HomeBaseAI does not access your photo library, contacts, or location without your explicit action.</p>
 
-            <h2 id="ai">3. AI Processing &mdash; Apple Intelligence</h2>
+            <h2 id="ai">3. AI Processing</h2>
             <div class="highlight">
-                <p><strong>HomeBaseAI uses Apple Intelligence &mdash; Apple's built-in AI system &mdash; for all AI features.</strong> Apple Intelligence is provided by Apple Inc. as part of iOS. HomeBaseAI does not use OpenAI, Google, or any other third-party AI service.</p>
+                <p><strong>HomeBaseAI uses OpenAI's GPT-4o-mini model for AI conversation features.</strong> When you send a message, relevant context from your home inventory is included so the AI can respond accurately. OpenAI processes the request and returns a response. Your data is not stored by OpenAI and is not used to train their models (per OpenAI's API data usage policy).</p>
             </div>
-            <h3>What data is processed</h3>
-            <p>The following data is provided to Apple Intelligence so it can understand your requests and respond accurately:</p>
+            <h3>What data is sent to the AI</h3>
+            <p>When you send a message in the conversation, the following is transmitted to OpenAI's API:</p>
             <ul>
-                <li>Your conversation messages (text you type or speak)</li>
-                <li>Text recognized from scanned labels (OCR output)</li>
-                <li>A summary of your home inventory (item names, brands, model numbers, rooms) for context</li>
+                <li>Your conversation message (text you type or speak)</li>
+                <li>Text recognized from scanned labels (OCR output), if you used the camera</li>
+                <li>Relevant items from your home inventory (only items matching your query &mdash; not your entire inventory)</li>
+                <li>Your home name, type, and room list for context</li>
+                <li>Recent conversation history (last 10 messages, summarized)</li>
+            </ul>
+            <h3>What is NOT sent</h3>
+            <ul>
+                <li>Your full home inventory (only relevant items are included)</li>
+                <li>Photos or image data (only OCR-extracted text)</li>
+                <li>Your Apple ID, device ID, or any personal identifiers</li>
+                <li>Your address or location</li>
             </ul>
             <h3>How it is processed</h3>
-            <p>Apple Intelligence processes data on your device using Apple's Foundation Models framework. Your data is processed in memory and is not stored, logged, or transmitted to any external service. HomeBaseAI does not send your data to any third-party AI provider.</p>
-            <h3>What Apple Intelligence is used for</h3>
+            <p>Messages are sent via HTTPS to OpenAI's API (api.openai.com). OpenAI processes the request using GPT-4o-mini and returns a structured response. Per OpenAI's API data usage policy, API inputs and outputs are not used to train their models and are retained for up to 30 days for abuse monitoring, then deleted.</p>
+            <h3>What AI is used for</h3>
             <ul>
                 <li><strong>Conversational intent classification:</strong> Understanding what you want to save, query, update, or ask about.</li>
                 <li><strong>Data extraction:</strong> Pulling structured fields (brand, model, serial) from natural language or OCR text.</li>
                 <li><strong>Maintenance coaching:</strong> Providing personalized advice based on your inventory.</li>
             </ul>
-            <h3>Other on-device processing</h3>
+            <h3>On-device processing (no data transmitted)</h3>
             <ul>
                 <li><strong>OCR text recognition:</strong> Reading text from photos of product labels using Apple's Vision framework (on-device).</li>
-                <li><strong>Speech recognition:</strong> Converting voice input to text using Apple's on-device Speech framework (requiresOnDeviceRecognition enabled).</li>
+                <li><strong>Speech recognition:</strong> Converting voice input to text using Apple's on-device Speech framework.</li>
+                <li><strong>Maintenance scheduling:</strong> Template matching and task creation happen entirely on-device.</li>
+                <li><strong>Home health scoring:</strong> Calculated locally from your maintenance data.</li>
             </ul>
-            <h3>Data protection</h3>
-            <p>Apple Intelligence processes data locally on your device. Apple does not store your prompts or responses, and your data is not used to train AI models. AI features require iOS 26 or later. The app works fully without AI on older devices using keyword-based matching.</p>
+            <h3>When AI is active</h3>
+            <p>AI features require an active subscription and an internet connection. Without internet, the app provides basic keyword-based search of your inventory. Your vault data is always accessible offline.</p>
 
             <h2 id="subscriptions">4. Subscriptions &amp; Purchases</h2>
-            <p>HomeBaseAI offers an optional HomeBase Pro subscription ($5.99/month or $49.99/year) for advanced features. Subscriptions are processed entirely through Apple's App Store and StoreKit framework.</p>
+            <p>HomeBaseAI requires a subscription ($5.99/month or $49.99/year) after a 7-day free trial. Subscriptions are processed entirely through Apple's App Store and StoreKit framework.</p>
             <ul>
                 <li>We do not collect payment information. Apple handles all billing.</li>
                 <li>Subscription status is checked on-device via StoreKit's cached entitlements &mdash; no server verification.</li>
@@ -205,7 +216,7 @@
 
             <h2 id="storage">6. Data Storage</h2>
             <div class="highlight">
-                <p><strong>All data is stored locally on your iPhone.</strong> We have no servers, no cloud infrastructure, no databases, and no backend of any kind. We literally cannot access your data because we have no system to receive it.</p>
+                <p><strong>All your home data is stored locally on your iPhone.</strong> We do not operate databases or cloud storage. Your items, materials, tasks, and photos live on your device and optionally in your private iCloud.</p>
             </div>
             <p>Data is stored using Apple's Core Data framework, protected by:</p>
             <ul>
@@ -215,7 +226,6 @@
             </ul>
             <p>HomeBaseAI does not use:</p>
             <ul>
-                <li>Any third-party SDKs, frameworks, or libraries</li>
                 <li>Analytics services (no Firebase, no Mixpanel, no Amplitude)</li>
                 <li>Advertising SDKs or ad networks</li>
                 <li>Crash reporting services</li>
@@ -231,15 +241,15 @@
 
             <h2 id="sharing">8. Data Sharing &amp; Third Parties</h2>
             <div class="highlight">
-                <p><strong>HomeBaseAI does not share your data with anyone.</strong></p>
+                <p><strong>HomeBaseAI shares data only with OpenAI for AI conversation processing, and only while you are actively using the conversation feature.</strong></p>
             </div>
             <ul>
+                <li><strong>OpenAI:</strong> Conversation messages and relevant inventory context are sent to OpenAI's API for processing. OpenAI does not use API data for model training. Data is retained up to 30 days for abuse monitoring, then deleted. See <a href="https://openai.com/policies/api-data-usage-policies">OpenAI's API Data Usage Policy</a>.</li>
                 <li>We do not sell your data.</li>
-                <li>We do not share your data with third parties.</li>
-                <li>We do not transmit your data off your device (except to iCloud if you enable family sharing).</li>
-                <li>We do not use third-party SDKs that could collect data.</li>
                 <li>We do not serve advertisements.</li>
+                <li>We do not use analytics, tracking, or advertising SDKs.</li>
                 <li>We do not engage in data mining or profiling.</li>
+                <li>Your vault data (items, materials, tasks) is stored only on your device and in your private iCloud.</li>
             </ul>
 
             <h2 id="security">9. Data Security</h2>
@@ -277,7 +287,7 @@
 
             <h2 id="apple">13. Apple Platform Disclosures</h2>
             <h3>App Privacy Nutrition Label</h3>
-            <p>HomeBaseAI declares "No Data Collected" on the App Store. This accurately reflects that no data is collected by us or transmitted off your device.</p>
+            <p>HomeBaseAI's App Store privacy label reflects that conversation messages are sent to OpenAI for AI processing. This data is not linked to your identity and is not used for tracking.</p>
             <h3>CloudKit</h3>
             <p>If you enable family sharing, data syncs through Apple's CloudKit under your iCloud account. This is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
             <h3>StoreKit</h3>
