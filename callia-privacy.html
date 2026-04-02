@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callia Privacy Policy</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #4338CA;
+            --card-bg: #fff;
+            --highlight-bg: #f0f0fa;
+            --highlight-border: #4338CA;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7c6ff7;
+                --card-bg: #242424;
+                --highlight-bg: #1f1a35;
+                --highlight-border: #7c6ff7;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.95rem; }
+        .effective-date { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { font-size: 0.95rem; margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p { margin-bottom: 0; }
+        .highlight p + p { margin-top: 0.5rem; }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .toc h2 { border: none; margin-top: 0; padding-bottom: 0; }
+        .toc ol { margin-bottom: 0; }
+        .toc a { color: var(--fg); }
+        .toc a:hover { color: var(--accent); }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p { color: var(--muted); font-size: 0.8rem; }
+        strong { font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Callia Privacy Policy</h1>
+            <p class="subtitle">AI Call, Text &amp; Email Screener</p>
+            <p class="effective-date">Effective Date: April 2, 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>The short version:</strong> Callia processes your inbound calls, texts, and emails using AI to screen, classify, and draft replies. This requires server infrastructure. We store only what&rsquo;s needed to provide the service: contact summaries, event metadata, and your rules. We never store full message content beyond processing. We never sell your data, serve ads, or use your data for AI training. When you cancel, everything is deleted.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#collected">Data We Collect</a></li>
+                    <li><a href="#ai">AI Processing &amp; Third-Party Services</a></li>
+                    <li><a href="#stored">What We Store</a></li>
+                    <li><a href="#not-stored">What We Do NOT Store</a></li>
+                    <li><a href="#telephony">Phone Numbers &amp; Telephony</a></li>
+                    <li><a href="#subscriptions">Subscriptions &amp; Purchases</a></li>
+                    <li><a href="#icloud">iCloud Sync</a></li>
+                    <li><a href="#retention">Data Retention &amp; Deletion</a></li>
+                    <li><a href="#sharing">Data Sharing &amp; Third Parties</a></li>
+                    <li><a href="#security">Data Security</a></li>
+                    <li><a href="#children">Children&rsquo;s Privacy (COPPA)</a></li>
+                    <li><a href="#gdpr">Your Rights Under GDPR</a></li>
+                    <li><a href="#ccpa">Your Rights Under CCPA/CPRA</a></li>
+                    <li><a href="#apple">Apple Platform Disclosures</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="overview">1. Overview</h2>
+            <p>Callia (&ldquo;the App&rdquo;) is an AI-powered communication screening service for iPhone. It screens inbound calls, texts, and emails across multiple personas, classifies them by urgency, drafts replies in your voice, and learns your preferences over time.</p>
+            <p><strong>Callia requires server infrastructure to function.</strong> Unlike our other apps, Callia processes your communications through secure cloud services to provide AI classification, drafting, and call handling. This policy explains exactly what data is processed, where, and by whom.</p>
+
+            <h2 id="collected">2. Data We Collect</h2>
+            <p>When you use Callia, the following data is collected and processed:</p>
+
+            <h3>Data you provide</h3>
+            <ul>
+                <li><strong>Persona configuration:</strong> Names, assistant names, tone preferences, forwarding numbers, language preferences</li>
+                <li><strong>Rules:</strong> Custom screening rules you create or approve</li>
+                <li><strong>Feedback:</strong> Swipe decisions on events (needed/not needed) used to improve your rules</li>
+                <li><strong>Draft edits:</strong> Changes you make to AI-drafted replies before sending</li>
+            </ul>
+
+            <h3>Data collected automatically</h3>
+            <ul>
+                <li><strong>Inbound message metadata:</strong> Sender identity (name, email, phone number), timestamp, channel (call/text/email), subject line</li>
+                <li><strong>AI-generated summaries:</strong> Brief summaries of inbound messages, generated by AI during classification</li>
+                <li><strong>Contact profiles:</strong> Name, company, role, and interaction history &mdash; extracted by AI from your communications</li>
+                <li><strong>Event classifications:</strong> Urgency level, category, action taken, detected language</li>
+                <li><strong>Usage data:</strong> Event counts, feature usage (for subscription metering only)</li>
+            </ul>
+
+            <h2 id="ai">3. AI Processing &amp; Third-Party Services</h2>
+            <div class="highlight">
+                <p><strong>Callia uses Anthropic&rsquo;s Claude API for text classification and drafting.</strong> Inbound message content is sent to Claude for processing. Anthropic does not use API inputs for model training. Data is processed and discarded &mdash; Anthropic does not retain your message content.</p>
+            </div>
+
+            <h3>Classification (Claude Haiku)</h3>
+            <p>When an inbound message arrives, the following is sent to Anthropic&rsquo;s API:</p>
+            <ul>
+                <li>The message content (email body, SMS text, or call transcript)</li>
+                <li>Sender information (name, email, phone number)</li>
+                <li>Your persona configuration (tone, rules) &mdash; no personal identifiers</li>
+                <li>Contact history with this sender (if they&rsquo;ve contacted you before)</li>
+            </ul>
+            <p>Claude classifies the message and returns structured metadata (urgency, category, action). The original message content is not stored after classification.</p>
+
+            <h3>Drafting (Claude Sonnet)</h3>
+            <p>When Callia drafts a reply, the message content and persona context are sent to Claude Sonnet. The draft is returned and held for your review. The original message content is not stored after drafting.</p>
+
+            <h3>Voice calls (Complete tier)</h3>
+            <p>When Callia answers a call, the audio is processed in real time by a voice AI provider. The conversation is processed to generate responses and is not recorded or stored. A brief AI-generated summary is created after the call ends.</p>
+
+            <h3>Telephony (Twilio)</h3>
+            <p>Phone number provisioning, SMS delivery, and voice call routing are handled by Twilio. Twilio processes call and SMS metadata as described in <a href="https://www.twilio.com/legal/privacy">Twilio&rsquo;s Privacy Policy</a>.</p>
+
+            <h3>Infrastructure (Cloudflare)</h3>
+            <p>Our server infrastructure runs on Cloudflare Workers. Your per-user data is stored in Cloudflare&rsquo;s edge infrastructure with encryption at rest. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare&rsquo;s Privacy Policy</a>.</p>
+
+            <h2 id="stored">4. What We Store</h2>
+            <ul>
+                <li><strong>Contact profiles:</strong> Name, company, role, interaction summaries, learned patterns</li>
+                <li><strong>Event metadata:</strong> Timestamp, sender, channel, urgency, category, action taken, AI-generated summary</li>
+                <li><strong>Your rules and preferences:</strong> Screening rules, persona configurations, feedback history</li>
+                <li><strong>Draft replies:</strong> AI-generated drafts awaiting your review</li>
+                <li><strong>Subscription status:</strong> Plan tier, usage counts, cycle dates</li>
+            </ul>
+
+            <h2 id="not-stored">5. What We Do NOT Store</h2>
+            <div class="highlight">
+                <p><strong>We do not store full message content.</strong> Email bodies, SMS text, and call audio are processed in real time for classification and drafting, then discarded. Only AI-generated summaries are retained.</p>
+            </div>
+            <ul>
+                <li>Full email bodies (only AI-generated summaries)</li>
+                <li>Full SMS message text (only summaries)</li>
+                <li>Call recordings or full transcripts (only post-call summaries)</li>
+                <li>Sensitive data (SSN, credit card numbers, medical information &mdash; the AI is instructed to never capture these)</li>
+                <li>Your Apple ID or device identifiers</li>
+                <li>Advertising identifiers</li>
+            </ul>
+
+            <h2 id="telephony">6. Phone Numbers &amp; Telephony</h2>
+            <p>If you enable phone or SMS features (Standard or Complete tier), Callia provisions a phone number through Twilio:</p>
+            <ul>
+                <li>The number is assigned to your persona and used exclusively for your inbound communications</li>
+                <li>If your subscription lapses, the number is reserved for 30 days, then released back to the pool</li>
+                <li>You are notified 7 days before a number is released</li>
+                <li>Call and SMS metadata (timestamps, sender numbers) are logged by Twilio as part of standard telephony operations</li>
+            </ul>
+
+            <h2 id="subscriptions">7. Subscriptions &amp; Purchases</h2>
+            <p>Callia subscriptions and consumable packs are processed through Apple&rsquo;s App Store and StoreKit framework.</p>
+            <ul>
+                <li>We do not collect payment information. Apple handles all billing.</li>
+                <li>Subscription status is verified via StoreKit to determine your tier and usage limits.</li>
+                <li>We have no visibility into your Apple ID, payment method, or transaction history.</li>
+                <li>You can manage or cancel your subscription through iOS Settings &gt; your Apple ID &gt; Subscriptions.</li>
+            </ul>
+
+            <h2 id="icloud">8. iCloud Sync</h2>
+            <p>The Callia iOS app syncs your local data (personas, rules, contacts, event summaries) with iCloud using Apple&rsquo;s CloudKit framework. This ensures your settings persist across devices and app reinstalls.</p>
+            <ul>
+                <li>iCloud data is encrypted in transit and at rest by Apple.</li>
+                <li>We have no access to your iCloud data.</li>
+                <li>iCloud sync is governed by <a href="https://www.apple.com/legal/privacy/">Apple&rsquo;s Privacy Policy</a>.</li>
+            </ul>
+
+            <h2 id="retention">9. Data Retention &amp; Deletion</h2>
+            <ul>
+                <li><strong>Active subscription:</strong> Your data (contacts, event summaries, rules) is retained while your subscription is active.</li>
+                <li><strong>Inactive contacts:</strong> Contacts with no interaction for 6 months are automatically compressed &mdash; only the profile and last interaction are kept.</li>
+                <li><strong>Account cancellation:</strong> When you cancel your subscription and request account deletion, all your data is permanently deleted from our servers within 30 days.</li>
+                <li><strong>App deletion:</strong> Removing the app deletes all local data. Server-side data persists until you request deletion or your account is inactive for 90 days.</li>
+                <li><strong>In-app deletion:</strong> You can delete individual contacts, events, rules, or entire personas at any time.</li>
+            </ul>
+
+            <h2 id="sharing">10. Data Sharing &amp; Third Parties</h2>
+            <div class="highlight">
+                <p><strong>We share data only with the service providers required to operate Callia.</strong> We never sell your data, serve ads, or share data for marketing purposes.</p>
+            </div>
+            <ul>
+                <li><strong>Anthropic (Claude API):</strong> Message content for classification and drafting. Not stored or used for training. See <a href="https://www.anthropic.com/privacy">Anthropic&rsquo;s Privacy Policy</a>.</li>
+                <li><strong>Voice AI provider:</strong> Call audio for real-time voice conversations. Not recorded or stored.</li>
+                <li><strong>Twilio:</strong> Phone number provisioning and call/SMS routing. See <a href="https://www.twilio.com/legal/privacy">Twilio&rsquo;s Privacy Policy</a>.</li>
+                <li><strong>Cloudflare:</strong> Server infrastructure and data storage. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare&rsquo;s Privacy Policy</a>.</li>
+                <li><strong>Apple:</strong> Subscription management via StoreKit, iCloud sync via CloudKit.</li>
+            </ul>
+            <p>We do not share data with any other third parties. We do not use analytics SDKs, advertising networks, or tracking services.</p>
+
+            <h2 id="security">11. Data Security</h2>
+            <ul>
+                <li><strong>Encryption in transit:</strong> All communication between the app, our servers, and third-party APIs uses HTTPS/TLS.</li>
+                <li><strong>Encryption at rest:</strong> Your per-user data is stored in Cloudflare&rsquo;s infrastructure with encryption at rest.</li>
+                <li><strong>Per-user isolation:</strong> Each user&rsquo;s data is isolated in its own storage instance. No user can access another user&rsquo;s data.</li>
+                <li><strong>No persistent credentials:</strong> We do not store your email passwords. Email forwarding uses a unique address, not OAuth access to your inbox.</li>
+                <li><strong>iOS app security:</strong> Local data is protected by iOS Data Protection and app sandboxing.</li>
+            </ul>
+
+            <h2 id="children">12. Children&rsquo;s Privacy (COPPA)</h2>
+            <p>Callia is not directed at children under 13. We do not knowingly collect personal information from children. The service requires a paid subscription and processes adult communications. If you believe a child has used Callia, contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a> and we will delete the data promptly.</p>
+
+            <h2 id="gdpr">13. Your Rights Under GDPR</h2>
+            <p>If you are in the European Economic Area:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of all data we hold about you.</li>
+                <li><strong>Rectification:</strong> Edit your persona settings, contacts, and rules within the app.</li>
+                <li><strong>Erasure:</strong> Request deletion of all your data at any time.</li>
+                <li><strong>Restrict processing:</strong> Disable specific channels or personas.</li>
+                <li><strong>Portability:</strong> Request your data in a machine-readable format.</li>
+                <li><strong>Object:</strong> Stop all processing by cancelling your subscription and requesting deletion.</li>
+            </ul>
+            <p><strong>Legal basis for processing:</strong> Contract performance (providing the screening service you subscribed to) and legitimate interest (improving service quality).</p>
+            <p><strong>Cross-border transfers:</strong> Your data is processed by Cloudflare (global edge network), Anthropic (USA), and Twilio (USA). These transfers are necessary to provide the service.</p>
+            <p>To exercise your rights, contact <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>. We will respond within 30 days.</p>
+
+            <h2 id="ccpa">14. Your Rights Under CCPA/CPRA</h2>
+            <p>If you are a California resident:</p>
+            <ul>
+                <li><strong>Right to know:</strong> This policy describes all data we collect and process.</li>
+                <li><strong>Right to delete:</strong> Request deletion of all your data at any time.</li>
+                <li><strong>Right to opt out of sale:</strong> We do not sell your personal information. Never have, never will.</li>
+                <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising privacy rights.</li>
+            </ul>
+
+            <h2 id="apple">15. Apple Platform Disclosures</h2>
+            <h3>App Privacy Nutrition Label</h3>
+            <p>Callia&rsquo;s App Store privacy label reflects the following data collection:</p>
+            <ul>
+                <li><strong>Contact Info (email, phone):</strong> Collected for email forwarding and phone provisioning. Linked to identity. Not used for tracking.</li>
+                <li><strong>User Content (emails, messages):</strong> Processed for app functionality (classification, drafting). Not stored beyond processing. Not used for tracking.</li>
+                <li><strong>Identifiers:</strong> Not collected.</li>
+                <li><strong>Usage Data:</strong> Event counts for subscription metering. Linked to identity. Not used for tracking.</li>
+                <li><strong>Diagnostics:</strong> Crash data if available. Not linked to identity.</li>
+            </ul>
+            <h3>App Tracking Transparency</h3>
+            <p>Callia does not track users across apps or websites. The App Tracking Transparency framework is not used because no tracking occurs.</p>
+
+            <h2 id="changes">16. Changes to This Policy</h2>
+            <p>We may update this policy to reflect changes in functionality, service providers, or legal requirements. The effective date will be revised. Material changes will be communicated through the app. Continued use constitutes acceptance.</p>
+
+            <h2 id="contact">17. Contact Us</h2>
+            <p>For privacy questions, data requests, or concerns:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Support:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/callia-support.html">Callia Support</a></li>
+            </ul>
+            <p>We will respond to privacy inquiries within 30 days.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/callia-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/callia-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

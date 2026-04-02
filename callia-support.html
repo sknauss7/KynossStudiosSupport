@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callia Support</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #4338CA;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7c6ff7;
+                --card-bg: #242424;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 680px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.95rem; }
+        h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 2.5rem; }
+        p, li { font-size: 0.95rem; color: var(--fg); margin-bottom: 0.75rem; }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email { font-size: 1.1rem; font-weight: 500; }
+        .response-time { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+        .faq dt { font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.25rem; }
+        .faq dd { font-size: 0.95rem; margin-bottom: 1rem; padding-left: 0; }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p { color: var(--muted); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Callia Support</h1>
+            <p class="subtitle">AI Call, Text &amp; Email Screener</p>
+        </header>
+
+        <main>
+            <p>Callia screens your calls, texts, and emails &mdash; learns what needs you and what doesn&rsquo;t &mdash; and handles the rest in your voice. Set up separate personas for work and personal, and let Callia manage the noise.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What does Callia do?</dt>
+                <dd>Callia is an AI assistant that screens your inbound calls, texts, and emails. She classifies each message by urgency, drafts replies in your voice, and learns your preferences over time. You set the rules &mdash; Callia handles the rest.</dd>
+
+                <dt>How does the AI work?</dt>
+                <dd>Inbound messages are classified by AI (Anthropic&rsquo;s Claude) to determine urgency, category, and the right action. For messages that need a reply, Callia drafts one matching your persona&rsquo;s tone. For voice calls (Complete tier), an AI voice assistant answers and takes messages. Your data is processed only to provide the service and is never used for AI training.</dd>
+
+                <dt>What are personas?</dt>
+                <dd>Personas let you separate your communications. Create a &ldquo;Work&rdquo; persona with a professional tone and a &ldquo;Personal&rdquo; persona with a casual tone. Each gets its own rules, contacts, and assistant behavior. Callia keeps them completely isolated.</dd>
+
+                <dt>How does Callia learn my preferences?</dt>
+                <dd>Swipe left on events that didn&rsquo;t need you, swipe right on ones that did. Callia proposes rules based on your patterns. Over time, she handles more automatically and forwards less to you.</dd>
+
+                <dt>What does the free demo include?</dt>
+                <dd>The free demo shows you how Callia works using pre-loaded sample events. You can swipe through them and see how classification and drafting work &mdash; no email connection needed. Subscribe to connect your real email and go live.</dd>
+
+                <dt>How much does Callia cost?</dt>
+                <dd>Essentials (email only): $4.99/month or $49.99/year. Standard (email + SMS): $12.99/month or $129.99/year. Complete (all channels + voice): $24.99/month or $249.99/year. Additional event and voice packs available as needed.</dd>
+
+                <dt>What happens when I run out of events?</dt>
+                <dd>Callia drops to classification-only mode &mdash; she still labels and sorts your messages, but won&rsquo;t draft replies or auto-handle until your cycle resets or you purchase an event pack. No surprise charges, ever.</dd>
+
+                <dt>Does Callia support multiple languages?</dt>
+                <dd>Yes. Set your preferred language per persona. When someone contacts you in a different language, Callia responds to them in their language but delivers summaries to you in yours.</dd>
+
+                <dt>Is my data private?</dt>
+                <dd>Your message content is processed by our servers to provide classification and drafting. We do not store message content beyond what&rsquo;s needed for your contact memory and event summaries. We never sell your data, use it for advertising, or share it with third parties beyond our AI providers. All data is deleted when you cancel your account. See our <a href="https://sknauss7.github.io/KynossStudiosSupport/callia-privacy.html">Privacy Policy</a> for full details.</dd>
+
+                <dt>How do I set up email forwarding?</dt>
+                <dd>After subscribing, Callia gives you a forwarding address for each persona. Set up auto-forwarding in your email provider (Gmail, Outlook, iCloud, etc.) and Callia starts screening immediately. The app includes step-by-step instructions for each provider.</dd>
+
+                <dt>How do I manage my subscription?</dt>
+                <dd>Go to Settings on your iPhone &gt; your Apple ID &gt; Subscriptions &gt; Callia. You can also tap &ldquo;Manage Subscription&rdquo; in the app&rsquo;s Settings screen.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Callia requires iOS 17 or later.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>For complete details about how Callia handles your data, read our <a href="https://sknauss7.github.io/KynossStudiosSupport/callia-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Platform:</strong> iPhone (iOS 17+)</li>
+                <li><strong>Category:</strong> Utilities</li>
+                <li><strong>Price:</strong> Free demo, subscriptions from $4.99/month</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/callia-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
