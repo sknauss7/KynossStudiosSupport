@@ -110,12 +110,12 @@
         <header>
             <h1>Sirrius Privacy Policy</h1>
             <p class="subtitle">Pet Health &mdash; Private &amp; Smart</p>
-            <p class="effective-date">Effective Date: March 16, 2026</p>
+            <p class="effective-date">Effective Date: April 13, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Sirrius processes everything on your device. We have no servers, no accounts, no analytics, no ads, and no tracking. We cannot see, access, or collect your data. Your pet's information never leaves your iPhone unless you choose to share with your household via iCloud.</p>
+                <p><strong>The short version:</strong> Your pet's health records live on your iPhone. We have no servers, no accounts, no analytics, no ads, and no tracking. The only data that ever leaves your device is (1) optional household sync via your personal iCloud and (2) the text of questions you send from the Pro AI chat tab, which are passed through OpenAI's API for processing and are not stored, logged for training, or shared with us.</p>
             </div>
 
             <nav class="toc">
@@ -139,9 +139,9 @@
             </nav>
 
             <h2 id="overview">1. Overview</h2>
-            <p>Sirrius ("the App") is a privacy-first pet health tracker for iPhone. It helps you manage pet profiles, health records, medication reminders, vet visits, vaccinations, weight tracking, symptom journals, and food safety checking. Optional AI features provide symptom pattern analysis and natural language search, all processed on your device.</p>
+            <p>Sirrius ("the App") is a privacy-first pet health tracker for iPhone. It helps you manage pet profiles, health records, medication reminders, vet visits, vaccinations, weight tracking, symptom journals, and food safety checking.</p>
             <p>Sirrius is not a veterinary tool. It does not diagnose conditions, provide medical advice, or replace professional veterinary guidance. Always consult your veterinarian for health concerns about your pet.</p>
-            <p><strong>Sirrius operates entirely on your device.</strong> We do not operate servers, databases, or cloud services. We do not create user accounts. We have no mechanism to collect, receive, view, or store your personal data.</p>
+            <p><strong>We (Kynoss Studios) operate no servers, databases, or cloud services ourselves. We do not create user accounts. We have no mechanism to collect, receive, view, or store your personal data.</strong> Your pet records live on your device (and, optionally, in your personal iCloud for household sharing). The Pro AI chat tab sends the text of your questions through OpenAI's API for processing &mdash; this is described in detail in Section 3.</p>
 
             <h2 id="pet-data">2. Pet Health Data</h2>
             <p>Sirrius stores the following types of data, all entered by you:</p>
@@ -155,18 +155,35 @@
             </ul>
             <p>All data is entered manually by you. Sirrius does not access your camera roll, contacts, microphone, location, or any other device sensor. The only photo access is when you explicitly choose to add a pet profile photo.</p>
 
-            <h2 id="ai">3. On-Device AI Processing</h2>
+            <h2 id="ai">3. AI Chat Processing</h2>
             <div class="highlight">
-                <p><strong>All AI processing happens entirely on your iPhone.</strong> No pet data, symptom entries, or health records are ever sent to any server, cloud service, or third-party AI provider.</p>
+                <p><strong>Pet health records stay on your device.</strong> The only AI-related data that leaves your iPhone is the text of questions you type (or dictate) into the Pro AI chat tab. That text is sent over HTTPS to OpenAI's API, processed in memory to generate a response, and is not stored, retained, or used to train models. We never see it &mdash; we have no servers.</p>
             </div>
-            <p>Sirrius Pro includes AI features powered by Apple's Foundation Models framework (Apple Intelligence):</p>
+
+            <h3>What the AI chat sends to OpenAI</h3>
+            <p>When a Pro subscriber sends a message in the Chat tab, Sirrius calls OpenAI's API (the <code>gpt-4o-mini</code> model) directly over HTTPS. The request contains:</p>
             <ul>
-                <li><strong>Symptom pattern analysis:</strong> Analyzes your symptom journal entries to detect recurring patterns and trends.</li>
-                <li><strong>Food &amp; plant safety checker:</strong> Parses natural language queries ("Can my dog eat grapes?") and checks against a curated local database of toxic and safe items.</li>
-                <li><strong>Natural language search:</strong> Lets you search health records using conversational queries.</li>
+                <li><strong>The exact text of your question</strong> (for example, "Can Luna have grapes?" or "Summarize Mochi's recent symptoms").</li>
+                <li><strong>A minimal pet context block</strong> assembled on your device &mdash; pet name, species, and age &mdash; so the response is relevant. This context is not your full record; it is a short summary built at request time and discarded when the request completes.</li>
+                <li><strong>Recent turns of your in-app conversation</strong> so multi-turn answers stay coherent. These turns live only in memory during the session and are not persisted anywhere by us.</li>
             </ul>
-            <p>These features use Apple's on-device language model, which runs locally on your iPhone's neural engine. Your data is processed in memory and never transmitted. The food safety database is bundled with the app and does not require network access.</p>
-            <p>AI features require an iPhone 15 Pro or newer running iOS 26 or later. The app works fully without AI on older devices.</p>
+            <p>The request does <strong>not</strong> contain your vet visit records, medications, weight history, photos, symptom entries, or any other stored pet data. None of that leaves your device.</p>
+
+            <h3>What OpenAI does with your queries</h3>
+            <p>OpenAI is used as a processor under its standard API terms. Per those terms, API requests are not used to train OpenAI's models and are not retained for training. OpenAI's privacy practices are described at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a>.</p>
+            <p>OpenAI may transiently retain API request data for abuse monitoring for up to 30 days before deletion. Sirrius does not pass any account, device, user, or advertising identifier to OpenAI &mdash; requests are authenticated with the app's developer API key, not a per-user identifier, so individual users are not identifiable at the OpenAI layer.</p>
+
+            <h3>Free tier</h3>
+            <p>The free tier of Sirrius does not call the OpenAI API at all. Free users' chat messages are handled entirely on-device by keyword matching and the local food safety database. If you never subscribe to Pro, no text you type in Sirrius ever leaves your device.</p>
+
+            <h3>Food &amp; plant safety checker</h3>
+            <p>The food and plant safety checker works for all users &mdash; free and Pro &mdash; and runs entirely offline against a curated local database bundled with the app. Food safety queries never leave your device.</p>
+
+            <h3>Stored records and journals</h3>
+            <p>Your symptom journal entries, vet records, medications, weights, photos, and pet profiles remain in local storage (plus iCloud if you enable household sharing). We do not transmit any stored record to OpenAI, to any other third party, or to any server we operate.</p>
+
+            <h3>Disabling AI entirely</h3>
+            <p>To stop all AI API calls, simply don't subscribe to Pro, or cancel an existing Pro subscription. The app remains fully functional for record-keeping, safety checks, reminders, and household sharing without any subscription.</p>
 
             <h2 id="icloud">4. iCloud &amp; Household Sharing</h2>
             <p>Sirrius offers optional household sharing so family members can view and update the same pet records.</p>
@@ -207,17 +224,20 @@
 
             <h2 id="sharing">7. Data Sharing &amp; Third Parties</h2>
             <div class="highlight">
-                <p><strong>Sirrius does not share your data with anyone.</strong></p>
+                <p><strong>We do not sell your data, share your data with advertisers, or use any analytics, tracking, or advertising SDKs.</strong> Two narrowly-scoped third parties are involved, and only at your explicit opt-in:</p>
             </div>
             <ul>
+                <li><strong>Apple iCloud (optional):</strong> If you enable household sharing, your pet records sync through your own iCloud account via Apple's CloudKit framework. This is a peer-to-peer connection between iCloud accounts managed by Apple &mdash; we have no access. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</li>
+                <li><strong>OpenAI (Pro chat only):</strong> If you subscribe to Sirrius Pro and use the AI Chat tab, the text of your chat messages plus a minimal pet context block is sent over HTTPS to OpenAI's API for processing. OpenAI does not train on API data and does not retain it for training. See Section 3 for the exact scope of what is sent. Governed by <a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI's Privacy Policy</a>.</li>
+            </ul>
+            <ul>
                 <li>We do not sell your data.</li>
-                <li>We do not share your data with third parties.</li>
-                <li>We do not transmit your data off your device (except to iCloud if you enable household sharing).</li>
+                <li>We do not share your data with advertisers or data brokers.</li>
                 <li>We do not use third-party SDKs that could collect data.</li>
                 <li>We do not serve advertisements.</li>
                 <li>We do not engage in data mining or profiling.</li>
+                <li>We do not transmit your stored pet records (vet visits, medications, weights, photos, symptom entries) to any third party, ever.</li>
             </ul>
-            <p>The only network activity Sirrius performs is iCloud sync (if you enable household sharing), which communicates directly with Apple's CloudKit servers under your iCloud account.</p>
 
             <h2 id="security">8. Data Security</h2>
             <ul>
@@ -254,11 +274,16 @@
 
             <h2 id="apple">12. Apple Platform Disclosures</h2>
             <h3>App Privacy Nutrition Label</h3>
-            <p>Sirrius declares "No Data Collected" on the App Store. This accurately reflects that no data is collected by us or transmitted off your device.</p>
+            <p>Sirrius declares "No Data Collected" on the App Store. Under Apple's <a href="https://developer.apple.com/app-store/app-privacy-details/" target="_blank">App Privacy definitions</a>, data that is only processed in memory on your device (or in a third-party processor's ephemeral memory) and is not used to track you, build a profile, or persist beyond a single request does not count as "collected." This label covers:</p>
+            <ul>
+                <li><strong>Kynoss Studios (us):</strong> We collect nothing. We have no servers.</li>
+                <li><strong>OpenAI (Pro chat processor):</strong> API calls are used only to generate the current response; data is not linked to your identity (no account, no device ID, no advertising ID is passed), is not used to train models, and is not retained beyond OpenAI's short-term abuse-monitoring window.</li>
+                <li><strong>Apple CloudKit (optional household sharing):</strong> Runs under your iCloud account; governed by Apple's own policies.</li>
+            </ul>
             <h3>CloudKit</h3>
-            <p>If you enable household sharing, data syncs through Apple's CloudKit under your iCloud account. This is governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+            <p>If you enable household sharing, data syncs through Apple's CloudKit under your iCloud account. This is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</p>
             <h3>App Tracking Transparency</h3>
-            <p>Sirrius does not track users. The App Tracking Transparency framework is not used because no tracking occurs.</p>
+            <p>Sirrius does not track users across apps or websites, does not pass any identifier to any third party, and does not use the App Tracking Transparency framework because no tracking occurs.</p>
 
             <h2 id="changes">13. Changes to This Policy</h2>
             <p>We may update this policy to reflect changes in functionality or legal requirements. The effective date will be revised. Continued use constitutes acceptance.</p>
