@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortfall Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #7a5a1f;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #C9A858;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Shortfall Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Shortfall reads your car paperwork on your phone and catches every charge that's too high for your state. It compares an imported buyer's-order PDF or scanned retail installment contract against state-specific doc-fee rules, credit-tier APR bands, and F&I add-on price ranges — entirely on your device. No uploads, no accounts, no tracking.</p>
+            <p><em>Shortfall is not legal or financial advice. It reports factual deltas against publicly available benchmarks. You remain the decision-maker for anything you choose to sign.</em></p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your iPhone model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>If relevant: a redacted copy of the buyer's order PDF that caused the issue (remove your name, SSN, VIN, and any identifying information)</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What does Shortfall do?</dt>
+                <dd>Shortfall extracts the key fields from your car buyer's-order or retail installment contract — doc fee, APR, term, monthly payment, GAP, vehicle service contract, and more — then compares each value against a bundled database of state-specific norms. It produces color-coded per-field verdicts (green = within typical, amber = above fair, red = well above typical) and a shareable Walkaway Card summarizing the total above-typical charges on your deal.</dd>
+
+                <dt>Does Shortfall upload my contract?</dt>
+                <dd>No. Every step — extraction, verdict comparison, Walkaway Card rendering — runs entirely on your iPhone. Shortfall has no server. Your contract, VIN, address, credit tier, and extracted field values never leave your device.</dd>
+
+                <dt>Why does Shortfall require an Apple Intelligence iPhone?</dt>
+                <dd>Shortfall uses Apple's on-device Foundation Models framework as a fallback when the deterministic field-extraction pipeline can't resolve a particular field. Foundation Models is only available on iPhone 15 Pro, iPhone 15 Pro Max, and any iPhone 16 or iPhone 17 model. On older iPhones, Shortfall cannot be installed from the App Store.</dd>
+
+                <dt>What does the free audit include?</dt>
+                <dd>One complete audit — full extraction, verdict cards with state-specific benchmarks, and a shareable Walkaway Card. It's the full product experience, once. Unlocking unlimited additional audits and multi-purchase history is a one-time $4.99 in-app purchase. No subscription.</dd>
+
+                <dt>Which states does Shortfall support?</dt>
+                <dd>At launch: California, Texas, New York, Florida, Illinois, Pennsylvania, Ohio, Georgia, North Carolina, and Michigan — the top 10 U.S. states by new-car sales. If your state isn't supported, Shortfall will tell you so rather than give you misleading numbers. Email us with your state and we'll prioritize adding it.</dd>
+
+                <dt>Where do Shortfall's benchmarks come from?</dt>
+                <dd>Each verdict card and the Walkaway Card footer show the data source and effective date. Doc-fee rules come from state statutes (for states with legal caps) and the CarEdge 2026 State Dealer Doc Fee survey (for uncapped states). APR bands are from Experian's State of the Automotive Finance Market quarterly report. GAP and VSC pricing ranges are compiled from published 2026 market surveys. Benchmarks are updated with each app release.</dd>
+
+                <dt>A field was extracted wrong. What should I do?</dt>
+                <dd>Tap the field to correct it before it feeds the verdict engine. Real-world contract layouts vary by dealer and state, and some dealer-specific forms fall outside our current sample corpus. Please email us the PDF (with personal information redacted) so we can improve extraction accuracy for that layout.</dd>
+
+                <dt>Why doesn't Shortfall have iCloud sync?</dt>
+                <dd>By design. Your audit history records what you considered buying, from which dealer, at what price. Keeping it local means there's no server for anyone (including us) to breach, subpoena, or be compelled to share. If iCloud sync becomes a commonly requested feature in the future, we'd add it as strictly opt-in with a clear disclosure.</dd>
+
+                <dt>Does Shortfall tell me what to sign?</dt>
+                <dd>No. Shortfall reports factual deltas ("$X above your state's typical doc fee") based on publicly available benchmarks. It never names individual dealers, never characterizes charges as "fraud" or "scams," and never recommends you sign or not sign a specific contract. The goal is to give you the numbers; the decision is yours.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Shortfall requires iOS 26 or later and an Apple Intelligence-capable iPhone (15 Pro, 15 Pro Max, or any 16 or 17 series model).</dd>
+
+                <dt>What about Truth-in-Lending box layouts?</dt>
+                <dd>Federal Reg Z disclosure boxes column-align APR, Finance Charge, Amount Financed, and Total of Payments in a way that's inherently ambiguous for position-based extraction. When Shortfall detects a TILA box layout, those four fields are flagged as "awaiting your confirmation" rather than guessed — you enter them manually from the box on the contract.</dd>
+            </dl>
+
+            <h2>Known limitations</h2>
+            <ul>
+                <li><strong>Stacked F&I line items</strong> (e.g., "GAP + ETCH + KEY Protect + Tire Bundle" as one $3,899 charge) aren't broken down into individual add-ons. The total is extracted; the breakdown isn't.</li>
+                <li><strong>Photographed contracts</strong> with heavy skew, crease shadows, or poor lighting may require the imported-PDF path instead of the camera path.</li>
+                <li><strong>Leasing contracts</strong> and <strong>wholesale transactions</strong> are not supported — Shortfall targets retail installment sales contracts and buyer's orders for consumer car purchases.</li>
+            </ul>
+
+            <h2>Reporting an issue</h2>
+            <p>Shortfall is new, and real-world contracts vary more than any synthetic test set can cover. If you see a wrong extraction, a wrong verdict, or a layout Shortfall doesn't understand, we want to hear about it. Email us a redacted PDF and we'll add it to our sample corpus so the issue gets caught in tests for the next release.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/shortfall-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/shortfall-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
