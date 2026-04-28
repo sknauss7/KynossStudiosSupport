@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rusti Privacy Policy — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #722F37;
+            --card-bg: #fff;
+            --highlight-bg: #fdf3f4;
+            --highlight-border: #722F37;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #A24F58;
+                --card-bg: #242424;
+                --highlight-bg: #2a1a1d;
+                --highlight-border: #A24F58;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .effective-date {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        .highlight p + p {
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--card-bg);
+            font-weight: 600;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .toc ol {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--fg);
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rusti Privacy Policy</h1>
+            <p class="subtitle">Kynoss Studios</p>
+            <p class="effective-date">Effective Date: April 28, 2026 &middot; Last Updated: April 28, 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>The short version:</strong> Rusti uses Apple's CloudKit for daily-quiz delivery, leaderboards, family households, and head-to-head challenges — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers and stores no data. The only adult identifier in your records is your Game Center player ID (an Apple-managed opaque token); kid sub-accounts in family households use display names only and never leave the household. Kynoss Studios cannot see your name, email, or any other personal information. We have no analytics, no tracking, no ads.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#game-data">Game Data &amp; What's Stored Where</a></li>
+                    <li><a href="#game-center">Game Center</a></li>
+                    <li><a href="#cloudkit">CloudKit (Daily Quiz, Leaderboards, Challenges)</a></li>
+                    <li><a href="#ckshare">CKShare (Family Household)</a></li>
+                    <li><a href="#apns">Push Notifications (APNs)</a></li>
+                    <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
+                    <li><a href="#data-sharing">Data Sharing &amp; Third Parties</a></li>
+                    <li><a href="#data-security">Data Security</a></li>
+                    <li><a href="#children">Children's Privacy (COPPA) &amp; Kid Sub-Accounts</a></li>
+                    <li><a href="#gdpr">Your Rights Under GDPR</a></li>
+                    <li><a href="#ccpa">Your Rights Under CCPA/CPRA</a></li>
+                    <li><a href="#apple-requirements">Apple Platform Disclosures</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </nav>
+
+            <!-- 1. OVERVIEW -->
+            <h2 id="overview">1. Overview</h2>
+            <p>Rusti ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Rusti is a daily-quiz iPhone app (iOS 25 and later). Each morning all players receive the same ten-question quiz on foundational subjects (math, English, science, social studies, geography). Players can compete on Game Center friend leaderboards, set up a CKShare family household leaderboard, and — for Rusti+ subscribers — initiate subtopic-targeted head-to-head challenges with friends.</p>
+            <p>This Privacy Policy explains exactly what data Rusti accesses, where that data is stored, and what Kynoss Studios can or cannot see. Because Rusti uses Apple's CloudKit infrastructure for some features, more data leaves your device than for an offline-only app — but Kynoss Studios still operates no servers, stores no data, and cannot see any personally identifying information.</p>
+            <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CloudKit-resident data Rusti creates lives in your iCloud account and Apple's public CloudKit container — Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
+
+            <!-- 2. GAME DATA & WHAT'S STORED WHERE -->
+            <h2 id="game-data">2. Game Data &amp; What's Stored Where</h2>
+
+            <p>Rusti's data model spans three locations: your device (private to you), Apple's CloudKit (managed by Apple under your iCloud identity), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
+
+            <h3>What's stored on your device (SwiftData, encrypted at rest)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Purpose</th>
+                        <th>Visible to Kynoss?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Local quiz history (your completed dailies, archive cache)</td>
+                        <td>Display your past quizzes and statistics in-app</td>
+                        <td>No — never transmitted</td>
+                    </tr>
+                    <tr>
+                        <td>Local question-shown registry (which question IDs you've already seen)</td>
+                        <td>Prevent the same daily-quiz question from repeating for you</td>
+                        <td>No — mirrored to your private CloudKit container only</td>
+                    </tr>
+                    <tr>
+                        <td>App preferences (push time, theme, audio toggles)</td>
+                        <td>App configuration</td>
+                        <td>No — never transmitted</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>What's stored in Apple's CloudKit public database (world-readable, no PII)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Purpose</th>
+                        <th>Visible to Kynoss?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DailyQuiz records (one per day): quiz_id, question IDs, subject mix</td>
+                        <td>Daily quiz delivery to all players globally</td>
+                        <td>Public CloudKit container — no PII</td>
+                    </tr>
+                    <tr>
+                        <td>UserSubmission records: quiz_id, your Game Center player ID, your answers, your score, time bonus, optional per-question thumbs</td>
+                        <td>Friend leaderboards, global percentile, Wordle-model scoring distribution</td>
+                        <td>Game Center player ID is an Apple-managed opaque token — Kynoss cannot resolve it to your name or email</td>
+                    </tr>
+                    <tr>
+                        <td>GlobalPercentileAggregate: per-quiz_id score distribution + sample size</td>
+                        <td>Display your global percentile relative to all players</td>
+                        <td>Aggregate only — no per-user data exposed</td>
+                    </tr>
+                    <tr>
+                        <td>ChallengeMatch records (Rusti+ Challenge Mode): challenge ID, challenger Game Center ID, invited Game Center IDs, subtopic, question IDs, 24h window</td>
+                        <td>Set up async head-to-head challenges between friends</td>
+                        <td>Game Center IDs only — no PII</td>
+                    </tr>
+                    <tr>
+                        <td>ChallengeSubmission records: one per player per challenge — answers, score, time bonus</td>
+                        <td>Reveal challenge results when both players have submitted</td>
+                        <td>Game Center ID only — no PII</td>
+                    </tr>
+                    <tr>
+                        <td>QuestionDispute records (optional, append-only): question ID, your Game Center ID, dispute category (ambiguous / wrong / too-hard / too-easy)</td>
+                        <td>Quality-improve the question bank via your feedback</td>
+                        <td>Game Center ID only — no PII</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>What's stored in your private CloudKit container (your iCloud only)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Purpose</th>
+                        <th>Visible to Kynoss?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Your question-shown registry (mirror of the on-device version, for cross-device sync)</td>
+                        <td>Prevents repeats across your iPhone + iPad if you use Rusti on both</td>
+                        <td>No — Apple's private CloudKit is end-to-end encrypted under your iCloud account</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>What's stored in CKShare (your family household, if enrolled)</h3>
+            <p>See <a href="#ckshare">Section 5 (CKShare)</a> for the full disclosure. Briefly: household membership + display names + per-member scores, scoped to the household participants only.</p>
+
+            <h3>What's stored with Apple StoreKit (Rusti+ purchase)</h3>
+            <p>Apple processes the Rusti+ in-app purchase. Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
+
+            <!-- 3. GAME CENTER -->
+            <h2 id="game-center">3. Game Center</h2>
+            <p>Rusti integrates with Apple's Game Center for friend leaderboards and friend invitations to Challenge Mode. Game Center is managed entirely by Apple and is subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
+            <ul>
+                <li><strong>What Rusti sends to Game Center:</strong> Your daily-quiz score (as a leaderboard entry) and any achievement completions. Nothing else.</li>
+                <li><strong>What Rusti reads from Game Center:</strong> Your Game Center player ID (Apple-managed opaque token used as your identifier in CloudKit records) and your friends list (only when you open the friend leaderboard or initiate a Challenge Mode invitation). The friends list is read on-device by Apple's GameKit framework and is not transmitted to Kynoss Studios or stored in CloudKit.</li>
+                <li><strong>Game Center is recommended but not strictly required for the daily quiz.</strong> Without Game Center sign-in you can play today's quiz on-device; you cannot appear on friend leaderboards, participate in Challenge Mode, or sync your streak across devices.</li>
+                <li><strong>Game Center data is managed by Apple.</strong> Kynoss Studios cannot resolve a Game Center player ID to a real name, email, or any other personally identifying information.</li>
+            </ul>
+
+            <!-- 4. CLOUDKIT -->
+            <h2 id="cloudkit">4. CloudKit (Daily Quiz, Leaderboards, Challenges)</h2>
+            <p>Rusti uses two CloudKit databases:</p>
+            <ul>
+                <li><strong>Public CloudKit container:</strong> world-readable storage for daily quizzes, user submissions, percentile aggregates, challenges, and dispute records. Records are tagged with Game Center player IDs (Apple-managed opaque tokens), never with names, emails, or other PII.</li>
+                <li><strong>Private CloudKit container:</strong> your personal iCloud-encrypted store for the cross-device question-shown registry. Apple manages encryption; Kynoss has no access.</li>
+            </ul>
+            <p>Apple operates CloudKit on Kynoss Studios' behalf. Kynoss has dashboard access to query record counts and schema, but cannot read individual user records by player ID — Apple's CloudKit access controls require the requesting party to be the record creator, which Kynoss is not.</p>
+
+            <h3>CloudKit Function (global percentile aggregation)</h3>
+            <p>Rusti uses a CloudKit Function (Apple-managed serverless compute) to aggregate UserSubmission scores into the GlobalPercentileAggregate per quiz_id. The function reads UserSubmission records and writes back the aggregate; it does not transmit data anywhere outside CloudKit. Apple operates the function infrastructure; Kynoss writes the function code but has no inspection access to its execution.</p>
+
+            <!-- 5. CKSHARE -->
+            <h2 id="ckshare">5. CKShare (Family Household)</h2>
+            <p>If you choose to set up a family household, Rusti uses Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the household participants only.</p>
+            <ul>
+                <li><strong>Household membership:</strong> stored in CKShare under the household creator's iCloud account. Other adults in the household join via standard CKShare invitations and authenticate with their own Game Center.</li>
+                <li><strong>Kid sub-accounts:</strong> live <em>inside</em> the household record as display-name-only entries. Kids do not have separate accounts, do not enter email addresses or birthdates, and are not exposed to anyone outside the household. See <a href="#children">Section 10 (COPPA)</a> for full COPPA discussion.</li>
+                <li><strong>Per-member scores:</strong> family leaderboard entries are stored inside the CKShare record and visible only to household participants.</li>
+                <li><strong>Kynoss visibility:</strong> Kynoss Studios cannot read CKShare records — Apple's CKShare access model restricts visibility to the participants themselves.</li>
+                <li><strong>Family household is optional.</strong> You can use Rusti's daily quiz, friend leaderboard, and Challenge Mode without ever setting up a family household.</li>
+            </ul>
+
+            <!-- 6. APNS -->
+            <h2 id="apns">6. Push Notifications (APNs)</h2>
+            <p>Rusti sends push notifications via Apple Push Notification service (APNs) for two purposes:</p>
+            <ul>
+                <li><strong>Daily quiz reminder:</strong> a single midnight-local push letting you know today's quiz is ready (Rusti+ lets you customize the time).</li>
+                <li><strong>Challenge Mode reveal:</strong> when the last submission lands in a Challenge Mode match, all participants receive a reveal-time push.</li>
+            </ul>
+            <p>Push notifications are entirely opt-in via standard iOS prompt at first launch. Apple operates APNs; Kynoss does not receive notification-delivery telemetry beyond Apple's standard error response (e.g., "device token invalid"). No notification content is logged.</p>
+
+            <!-- 7. DATA RETENTION & DELETION -->
+            <h2 id="data-retention">7. Data Retention &amp; Deletion</h2>
+
+            <h3>Retention Policy</h3>
+            <ul>
+                <li>Local data on your device (LocalQuizHistory, archive cache, app preferences) is retained until you delete the app.</li>
+                <li>CloudKit public records (UserSubmission, ChallengeMatch, etc.) are retained for the operational lifetime of the service. Records are immutable after submission.</li>
+                <li>Game Center data (leaderboard entries, achievements) is retained by Apple per Apple's data retention policies.</li>
+                <li>CKShare household records persist as long as the household creator's iCloud account is active and the household exists.</li>
+            </ul>
+
+            <h3>Deletion</h3>
+            <ul>
+                <li><strong>Delete the app:</strong> Removes all local data on your device. CloudKit records remain in your iCloud and the public container.</li>
+                <li><strong>Sign out of iCloud:</strong> Disconnects your CloudKit private container. Public CloudKit records tagged with your Game Center player ID remain unless explicitly removed.</li>
+                <li><strong>Delete CKShare household:</strong> The household creator can dissolve the household via in-app settings; this removes the household record and all kid sub-accounts inside it.</li>
+                <li><strong>Request public-record deletion:</strong> Contact <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a> with your Game Center player ID. We will use Kynoss's CloudKit dashboard to delete UserSubmission, ChallengeMatch, ChallengeSubmission, and QuestionDispute records tagged with that player ID. Allow up to 30 days for completion.</li>
+                <li><strong>Apple's Privacy &amp; Data settings:</strong> Apple provides system-level data export and deletion for iCloud data via Settings → [your name] → iCloud → Apps Using iCloud.</li>
+            </ul>
+
+            <!-- 8. DATA SHARING & THIRD PARTIES -->
+            <h2 id="data-sharing">8. Data Sharing &amp; Third Parties</h2>
+
+            <div class="highlight">
+                <p><strong>Kynoss Studios does not share your data with anyone.</strong> The only third party involved in Rusti is Apple, which provides the platform infrastructure (CloudKit, CKShare, Game Center, APNs, StoreKit) Rusti relies on. Apple's handling of this data is governed by Apple's Privacy Policy.</p>
+            </div>
+
+            <ul>
+                <li>We do not sell your data.</li>
+                <li>We do not share your data with marketing, advertising, or analytics third parties.</li>
+                <li>We do not use third-party SDKs, frameworks, or libraries that could collect data.</li>
+                <li>We do not serve advertisements.</li>
+                <li>We do not engage in cross-app tracking, fingerprinting, or user profiling.</li>
+                <li>We have no parent companies, subsidiaries, or related entities (Kynoss Studios is an independent sole developer).</li>
+            </ul>
+
+            <!-- 9. DATA SECURITY -->
+            <h2 id="data-security">9. Data Security</h2>
+            <p>Rusti relies on Apple's built-in security infrastructure to protect your data:</p>
+            <ul>
+                <li><strong>Encryption at rest:</strong> Local data is protected by iOS Data Protection (encryption tied to your device passcode). Private CloudKit data is encrypted under your iCloud account.</li>
+                <li><strong>Encryption in transit:</strong> All CloudKit, Game Center, CKShare, and APNs traffic uses Apple's TLS-encrypted transport.</li>
+                <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing Rusti's local data store.</li>
+                <li><strong>Public CloudKit access controls:</strong> Records are world-readable but only writable by the record creator (Game Center-authenticated). No password-style credentials exist to steal.</li>
+                <li><strong>No Kynoss-operated infrastructure:</strong> Because Kynoss does not operate servers, databases, or backend services, there are no Kynoss credentials to breach and no Kynoss systems to compromise.</li>
+            </ul>
+
+            <!-- 10. CHILDREN'S PRIVACY (COPPA) -->
+            <h2 id="children">10. Children's Privacy (COPPA) &amp; Kid Sub-Accounts</h2>
+
+            <p>Rusti is rated 4+ and is suitable for all ages. The family household feature is specifically designed to be COPPA-clean by construction.</p>
+
+            <h3>Adult users (Game Center sign-in)</h3>
+            <p>Adults using Rusti directly authenticate via Game Center, which is Apple-managed and not subject to Kynoss data collection. Kynoss does not knowingly collect personal information from any user under 13 who has independently signed in with Game Center; Apple's Game Center has its own age-verification requirements.</p>
+
+            <h3>Kid sub-accounts inside CKShare family households</h3>
+            <p>Kids participate in Rusti exclusively through display-name-only sub-accounts inside a parent or guardian's CKShare household. These sub-accounts are designed to be COPPA-clean by construction:</p>
+            <ul>
+                <li><strong>No separate accounts:</strong> Kid sub-accounts have no email addresses, no Game Center sign-ins, no passwords, no birthdates, and no separate identity outside the household record.</li>
+                <li><strong>Display names only:</strong> The only kid-identifying information is a display name chosen by the parent or guardian — typically a first name or nickname (e.g., "Maya" or "Buddy").</li>
+                <li><strong>Household-scoped visibility:</strong> Kid sub-accounts and their scores are visible only to other household participants. They never appear on friend leaderboards, global percentile aggregates, or Challenge Mode public reveal screens.</li>
+                <li><strong>No data leaves the household:</strong> Kid sub-account scores live inside the CKShare household record. They are not written to the public CloudKit container.</li>
+                <li><strong>No third-party sharing:</strong> Kid data is never transmitted to Kynoss Studios or any third party. Apple manages CKShare; Kynoss has no access.</li>
+                <li><strong>Parent/guardian control:</strong> The household creator (a verified adult Game Center account) is the sole authority over kid sub-accounts. Adding, renaming, or removing kid sub-accounts requires household-creator action.</li>
+            </ul>
+            <p>If you are a parent or guardian and have questions about Rusti's family household feature or want to delete a kid sub-account, please contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 11. GDPR -->
+            <h2 id="gdpr">11. Your Rights Under GDPR (European Economic Area)</h2>
+            <p>If you are located in the European Economic Area (EEA), the General Data Protection Regulation (GDPR) provides specific rights regarding your personal data. Rusti's architecture means most data subject to GDPR is held under your iCloud account by Apple — not by Kynoss Studios. Where Kynoss does act as a data controller (the public CloudKit records tagged with your Game Center player ID), we honor the GDPR rights described below.</p>
+
+            <h3>Legal Basis for Processing</h3>
+            <ul>
+                <li><strong>Legitimate interest:</strong> Processing CloudKit submissions and challenges to deliver the app's core gameplay functionality.</li>
+                <li><strong>Consent:</strong> Game Center sign-in, CKShare household enrollment, Challenge Mode participation, and push notifications are all opt-in. You may decline any of them and continue using the daily quiz.</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right of access:</strong> Your local data is accessible to you in the app; your iCloud data is accessible via Apple's Privacy &amp; Data settings; your public CloudKit submissions are tagged with your Game Center player ID and we will provide a record dump on request.</li>
+                <li><strong>Right to erasure:</strong> See <a href="#data-retention">Section 7 (Data Retention &amp; Deletion)</a> for the deletion paths.</li>
+                <li><strong>Right to restrict processing:</strong> Decline Game Center sign-in to prevent any submissions from being written to public CloudKit.</li>
+                <li><strong>Right to data portability:</strong> Your Game Center records are portable via Apple's iCloud export tools; CloudKit submissions are exportable on request via the contact below.</li>
+                <li><strong>Right to object:</strong> Stop using Rusti and request deletion via the contact below.</li>
+            </ul>
+
+            <h3>Data Transfers</h3>
+            <p>Apple operates CloudKit globally; Apple is GDPR-compliant. Kynoss Studios does not directly transfer personal data outside your device or your iCloud account.</p>
+
+            <h3>Data Protection Officer</h3>
+            <p>Due to the small scale of Kynoss Studios (sole-developer, no PII collection), we are not required to appoint a Data Protection Officer. For privacy inquiries, contact <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 12. CCPA/CPRA -->
+            <h2 id="ccpa">12. Your Rights Under CCPA/CPRA (California)</h2>
+            <p>If you are a California resident, the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA) provides you with specific rights.</p>
+
+            <h3>Information We Collect</h3>
+            <p>Under CCPA/CPRA definitions, Rusti processes the following categories of information:</p>
+            <ul>
+                <li>Game activity data (scores, streaks, challenge results) tagged with Game Center player IDs (Apple-managed opaque tokens, not directly identifiable as personal information by Kynoss).</li>
+                <li>No name, email, postal address, phone number, IP address, or other directly identifying information is collected by Kynoss Studios.</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right to know:</strong> This Privacy Policy describes all data Rusti processes.</li>
+                <li><strong>Right to delete:</strong> See <a href="#data-retention">Section 7</a>.</li>
+                <li><strong>Right to opt out of sale:</strong> <strong>We do not sell personal information.</strong> We never have and never will.</li>
+                <li><strong>Right to opt out of sharing:</strong> We do not share personal information with third parties for cross-context behavioral advertising or any other purpose.</li>
+                <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
+            </ul>
+
+            <h3>"Do Not Sell or Share My Personal Information"</h3>
+            <p>Rusti does not sell or share personal information. There is no sale or sharing to opt out of.</p>
+
+            <!-- 13. APPLE PLATFORM DISCLOSURES -->
+            <h2 id="apple-requirements">13. Apple Platform Disclosures</h2>
+            <p>In compliance with Apple's App Store Review Guidelines and platform requirements:</p>
+
+            <h3>Game Center</h3>
+            <ul>
+                <li>Rusti uses GameKit to authenticate players, submit scores to leaderboards, and present friend invitations for Challenge Mode.</li>
+                <li>Game Center sign-in is recommended but not strictly required for the daily quiz.</li>
+                <li>Game Center data is managed by Apple under Apple's Privacy Policy.</li>
+            </ul>
+
+            <h3>CloudKit (Public + Private)</h3>
+            <ul>
+                <li>Rusti writes UserSubmission, ChallengeMatch, ChallengeSubmission, and QuestionDispute records to the public CloudKit container, tagged with Game Center player IDs.</li>
+                <li>Rusti writes the per-user question-shown registry to your private CloudKit container.</li>
+                <li>CloudKit is operated by Apple; Apple's Privacy Policy and CloudKit security model apply.</li>
+            </ul>
+
+            <h3>CKShare</h3>
+            <ul>
+                <li>Rusti uses CKShare for the optional family household feature. CKShare is Apple-managed.</li>
+                <li>Kid sub-accounts inside CKShare households are display-name-only and never transmitted outside the household.</li>
+            </ul>
+
+            <h3>StoreKit 2 (In-App Purchases)</h3>
+            <ul>
+                <li>Rusti uses StoreKit 2 to offer a one-time "Rusti+" in-app purchase.</li>
+                <li>All transaction processing is handled by Apple. Kynoss Studios does not receive, store, or have access to payment information.</li>
+                <li>Purchase status is verified locally using Apple's on-device <code>Transaction.currentEntitlements</code> API.</li>
+            </ul>
+
+            <h3>Push Notifications (APNs)</h3>
+            <ul>
+                <li>Rusti uses Apple Push Notification service for daily-quiz reminders and Challenge Mode reveal pushes.</li>
+                <li>Push notifications are opt-in; you can disable them at any time in iOS Settings.</li>
+            </ul>
+
+            <h3>Required Reason APIs</h3>
+            <p>Rusti uses only Apple's first-party frameworks. Any Required Reason API usage is declared in the app's privacy manifest (<code>PrivacyInfo.xcprivacy</code>) and reflected in the App Store privacy nutrition label.</p>
+
+            <h3>App Tracking Transparency</h3>
+            <p>Rusti does not track users across apps or websites owned by other companies. The App Tracking Transparency framework is not used because no tracking occurs.</p>
+
+            <h3>App Privacy Nutrition Label</h3>
+            <p>Rusti's App Store privacy nutrition label declares: User Content (gameplay) + Identifiers (Game Center player ID) tied to your Apple ID for app functionality only — not used for tracking, analytics, or advertising.</p>
+
+            <!-- 14. CHANGES -->
+            <h2 id="changes">14. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in the app's functionality or legal requirements. When we make changes:</p>
+            <ul>
+                <li>The "Last Updated" date at the top of this page will be revised.</li>
+                <li>Material changes will be communicated through the app or its App Store listing.</li>
+                <li>Continued use of Rusti after changes constitutes acceptance of the updated policy.</li>
+            </ul>
+            <p>We encourage you to review this policy periodically.</p>
+
+            <!-- 15. CONTACT -->
+            <h2 id="contact">15. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, your privacy rights, or Rusti's data practices, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Support Page:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-support.html">Rusti Support</a></li>
+            </ul>
+            <p>We respond to privacy inquiries within 30 days.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
