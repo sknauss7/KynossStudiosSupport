@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tylde — Support</title>
+  <style>
+    :root {
+      --gold: #D4A24C;
+      --navy: #1A4F8B;
+      --bg: #F4F1EA;
+      --text: #1A1815;
+      --muted: #5C5749;
+      --border: #DED9CC;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0E1A2E;
+        --text: #F4F1EA;
+        --muted: #A8A293;
+        --border: #1F3354;
+        --navy: #5BA0E5;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    h1 span.gold { color: var(--gold); }
+    .tagline { color: var(--muted); margin-bottom: 2rem; }
+    h2 {
+      font-size: 1.15rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25rem;
+    }
+    p, li { margin-bottom: 0.5rem; }
+    ul { padding-left: 1.25rem; }
+    a { color: var(--navy); }
+    code { background: var(--border); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .footer a { color: var(--muted); }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { margin-right: 1rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Kynoss Studios</a>
+  <a href="tylde-privacy.html">Tylde Privacy</a>
+</nav>
+
+<h1><span class="gold">Tylde</span> Support</h1>
+<p class="tagline">Async word duel for friends. If you've hit a snag, here's how to get help.</p>
+
+<h2>Contact</h2>
+<p>Email: <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></p>
+<p>Please include your iOS version, device model, and a description of what happened. Screenshots help.</p>
+
+<h2>Common questions</h2>
+
+<p><strong>I can't sign in to Game Center.</strong><br>
+Tylde uses Game Center for friend matches and identity. Open <em>Settings → Game Center</em> on your iPhone and confirm you're signed in. If Game Center is signed out, friend matches won't work — but you can still play bot matches in Tylde.</p>
+
+<p><strong>I'm not getting reveal-time push notifications.</strong><br>
+Open <em>Settings → Notifications → Tylde</em> and confirm notifications are allowed. Push delivery is best-effort — if you miss one, the match still resolves correctly when you next open the app.</p>
+
+<p><strong>My friend invited me but I don't see the match.</strong><br>
+Pull to refresh on the home screen. CloudKit can take a few seconds to sync. If the match still doesn't appear, ask your friend to confirm the invite went out via Game Center.</p>
+
+<p><strong>I submitted a real word and it was rejected.</strong><br>
+Tylde uses a TWL-derived word list with a public-domain offensive-word filter. If you think a valid word was rejected, email us with the word and we'll review.</p>
+
+<p><strong>I want to delete my data.</strong><br>
+Local match history lives on your device — delete the app to remove it. CloudKit public match records that include your participation can be expired by emailing us; we'll initiate the deletion within 30 days.</p>
+
+<p><strong>I bought Tylde Pro on a different device.</strong><br>
+Tap the Pro screen → "Restore Purchase". This pulls your entitlement from your Apple ID.</p>
+
+<h2>Bug reports & feature requests</h2>
+<p>Email <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a> with the subject prefix <code>[Tylde]</code>. We read every message.</p>
+
+<h2>Privacy</h2>
+<p>See our <a href="tylde-privacy.html">Privacy Policy</a>.</p>
+
+<div class="footer">
+<p>Tylde is built by Kynoss Studios — a one-person iOS studio. Thanks for playing.</p>
+</div>
+
+</body>
+</html>

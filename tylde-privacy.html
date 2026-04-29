@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tylde — Privacy Policy</title>
+  <style>
+    :root {
+      --gold: #D4A24C;
+      --navy: #1A4F8B;
+      --bg: #F4F1EA;
+      --text: #1A1815;
+      --muted: #5C5749;
+      --border: #DED9CC;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0E1A2E;
+        --text: #F4F1EA;
+        --muted: #A8A293;
+        --border: #1F3354;
+        --navy: #5BA0E5;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    h1 span.gold { color: var(--gold); }
+    .tagline { color: var(--muted); margin-bottom: 2rem; }
+    h2 {
+      font-size: 1.15rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25rem;
+    }
+    h3 { font-size: 1rem; margin-top: 1.25rem; margin-bottom: 0.4rem; }
+    p { margin-bottom: 0.75rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.35rem; }
+    a { color: var(--navy); }
+    code { background: var(--border); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .footer a { color: var(--muted); }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+    nav a { margin-right: 1rem; }
+    .effective { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Kynoss Studios</a>
+  <a href="tylde-support.html">Tylde Support</a>
+</nav>
+
+<h1><span class="gold">Tylde</span> Privacy Policy</h1>
+<p class="effective">Last updated: 2026-04-28</p>
+
+<h2>The short version</h2>
+<ul>
+<li>No accounts. No analytics SDKs. No advertising. No tracking.</li>
+<li>Game Center is your identity — Apple handles that, not Tylde.</li>
+<li>Match data lives in your iCloud and Apple's CloudKit public records.</li>
+<li>We don't have a server. We don't run analytics. We don't sell anything to anyone.</li>
+</ul>
+
+<h2>What Tylde collects</h2>
+
+<h3>From Game Center</h3>
+<p>When you sign in to Game Center, Tylde reads your Game Center player identifier. This is a stable, anonymized identifier maintained by Apple — it is not your name, email, or contact info. Tylde uses this identifier to attribute your submissions to your match seat and to look up your friends list within Game Center for friend invites.</p>
+<p>Tylde does not collect, store, or transmit your Apple ID, email address, full name, or any contact information.</p>
+
+<h3>From your device</h3>
+<p>Tylde stores your local match history (boards you've played, words you've submitted, scores) on your device using SwiftData. This data does not leave your device unless it is part of a match's public record (see below).</p>
+
+<h3>In CloudKit public records</h3>
+<p>Match data — the shared 5×5 board, each player's submitted words, and reveal-time score breakdowns — is stored in Apple's CloudKit public database. These records are keyed by the anonymized Game Center player identifier described above. The records are world-readable to other Tylde players who participate in the same match.</p>
+<p>Tylde does not store any personally identifying information in these records. Apple operates CloudKit; Kynoss Studios does not run any servers.</p>
+
+<h3>Push notifications (APNs)</h3>
+<p>If you enable notifications, Tylde uses Apple Push Notification service (APNs) to deliver reveal-time and friend-invite alerts. The push payload contains only minimal match state (e.g., which match has reached its reveal cutoff). It does not contain personal information.</p>
+
+<h3>Purchases</h3>
+<p>If you purchase Tylde Pro, the transaction is handled entirely by Apple's StoreKit. Tylde verifies your purchase via Apple's transaction record and unlocks the Pro entitlement on your device. Tylde does not see your payment information.</p>
+
+<h2>What Tylde does NOT collect</h2>
+<ul>
+<li>Your name, email address, phone number, or any contact info.</li>
+<li>Your location.</li>
+<li>Your contacts list.</li>
+<li>Your photos, microphone, camera, or other device sensors.</li>
+<li>Analytics events. Tylde does not include any analytics SDK (no Firebase, no Mixpanel, no AppsFlyer, no Segment, no Sentry, none).</li>
+<li>Advertising identifiers. Tylde does not display ads and does not request the App Tracking Transparency permission.</li>
+</ul>
+
+<h2>How match data is shared</h2>
+<p>By design, the match data you generate (your submitted words, your score, your final placement) is visible to other Tylde players who participated in the same match. This is the gameplay loop — it's not a data leak. The data does not include any personal identifier from outside Game Center.</p>
+
+<h2>Data retention</h2>
+<ul>
+<li><strong>Local data:</strong> stays on your device until you delete the app or clear app data.</li>
+<li><strong>CloudKit public match records:</strong> retained indefinitely while the match is part of historical match data. To request deletion of records you participated in, email us — we'll initiate deletion within 30 days.</li>
+</ul>
+
+<h2>Children's privacy</h2>
+<p>Tylde is rated 4+. We do not knowingly collect any personal data from any user, including children. Game Center identity is provided by Apple and is anonymized.</p>
+
+<h2>Changes to this policy</h2>
+<p>If we make material changes to this policy, we'll update the "Last updated" date at the top and surface a notice in the app on next launch. Continued use after the update constitutes acceptance.</p>
+
+<h2>Contact</h2>
+<p>Privacy questions: <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a> with subject prefix <code>[Tylde Privacy]</code>.</p>
+
+<div class="footer">
+<p>Tylde is built by Kynoss Studios. Tylde was deliberately architected to collect as little data as possible. The privacy stack (Game Center identity + CloudKit public records + StoreKit + no analytics) is the structural reason this policy is short.</p>
+</div>
+
+</body>
+</html>
