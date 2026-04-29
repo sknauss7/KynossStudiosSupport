@@ -203,7 +203,8 @@
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Rusti uses Apple's CloudKit for daily-quiz delivery, leaderboards, family households, and head-to-head challenges — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers and stores no data. The only adult identifier in your records is your Game Center player ID (an Apple-managed opaque token); kid sub-accounts in family households use display names only and never leave the household. Kynoss Studios cannot see your name, email, or any other personal information. We have no analytics, no tracking, no ads.</p>
+                <p><strong>The short version:</strong> Rusti uses Apple's CloudKit for daily-quiz delivery, leaderboards, and head-to-head challenges — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers and stores no data. The only identifier in your records is your Game Center player ID (an Apple-managed opaque token). Kynoss Studios cannot see your name, email, or any other personal information. We have no analytics, no tracking, no ads.</p>
+                <p><strong>Family households &amp; kid sub-accounts:</strong> not enabled in Rusti 1.0. Sections 5 and 10 below describe our planned approach for a future release; no family-household or kid-related data is collected or stored at v1.0.</p>
             </div>
 
             <nav class="toc">
@@ -229,7 +230,7 @@
 
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
-            <p>Rusti ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Rusti is a daily-quiz iPhone app (iOS 25 and later). Each morning all players receive the same ten-question quiz on foundational subjects (math, English, science, social studies, geography). Players can compete on Game Center friend leaderboards, set up a CKShare family household leaderboard, and — for Rusti+ subscribers — initiate subtopic-targeted head-to-head challenges with friends.</p>
+            <p>Rusti ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Rusti is a daily-quiz iPhone app (iOS 26 and later). Each morning all players receive the same ten-question quiz on foundational subjects (math, English, science, social studies, geography). Players can compete on Game Center friend leaderboards and — for Rusti+ subscribers — initiate subtopic-targeted head-to-head challenges with friends. A CKShare family-household leaderboard with kid sub-accounts is planned for a future release; see Sections 5 and 10 for the planned approach. <strong>Family households are not enabled in Rusti 1.0.</strong></p>
             <p>This Privacy Policy explains exactly what data Rusti accesses, where that data is stored, and what Kynoss Studios can or cannot see. Because Rusti uses Apple's CloudKit infrastructure for some features, more data leaves your device than for an offline-only app — but Kynoss Studios still operates no servers, stores no data, and cannot see any personally identifying information.</p>
             <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CloudKit-resident data Rusti creates lives in your iCloud account and Apple's public CloudKit container — Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
 
@@ -327,8 +328,8 @@
                 </tbody>
             </table>
 
-            <h3>What's stored in CKShare (your family household, if enrolled)</h3>
-            <p>See <a href="#ckshare">Section 5 (CKShare)</a> for the full disclosure. Briefly: household membership + display names + per-member scores, scoped to the household participants only.</p>
+            <h3>What's stored in CKShare (planned)</h3>
+            <p>The CKShare family-household feature is not enabled in Rusti 1.0; nothing is stored in CKShare today. See <a href="#ckshare">Section 5 (CKShare)</a> for the planned approach.</p>
 
             <h3>What's stored with Apple StoreKit (Rusti+ purchase)</h3>
             <p>Apple processes the Rusti+ in-app purchase. Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
@@ -357,7 +358,8 @@
 
             <!-- 5. CKSHARE -->
             <h2 id="ckshare">5. CKShare (Family Household)</h2>
-            <p>If you choose to set up a family household, Rusti uses Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the household participants only.</p>
+            <div class="highlight"><p><strong>Status as of Rusti 1.0:</strong> the family-household feature described in this section is <strong>not yet enabled</strong>. The text below describes our planned approach for a future release. Rusti 1.0 collects, stores, and transmits no CKShare or household data of any kind.</p></div>
+            <p>If you choose to set up a family household once this feature ships, Rusti will use Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the household participants only.</p>
             <ul>
                 <li><strong>Household membership:</strong> stored in CKShare under the household creator's iCloud account. Other adults in the household join via standard CKShare invitations and authenticate with their own Game Center.</li>
                 <li><strong>Kid sub-accounts:</strong> live <em>inside</em> the household record as display-name-only entries. Kids do not have separate accounts, do not enter email addresses or birthdates, and are not exposed to anyone outside the household. See <a href="#children">Section 10 (COPPA)</a> for full COPPA discussion.</li>
@@ -425,13 +427,14 @@
             <!-- 10. CHILDREN'S PRIVACY (COPPA) -->
             <h2 id="children">10. Children's Privacy (COPPA) &amp; Kid Sub-Accounts</h2>
 
-            <p>Rusti is rated 4+ and is suitable for all ages. The family household feature is specifically designed to be COPPA-clean by construction.</p>
+            <p>Rusti is rated 4+ and is suitable for all ages.</p>
 
             <h3>Adult users (Game Center sign-in)</h3>
             <p>Adults using Rusti directly authenticate via Game Center, which is Apple-managed and not subject to Kynoss data collection. Kynoss does not knowingly collect personal information from any user under 13 who has independently signed in with Game Center; Apple's Game Center has its own age-verification requirements.</p>
 
             <h3>Kid sub-accounts inside CKShare family households</h3>
-            <p>Kids participate in Rusti exclusively through display-name-only sub-accounts inside a parent or guardian's CKShare household. These sub-accounts are designed to be COPPA-clean by construction:</p>
+            <div class="highlight"><p><strong>Status as of Rusti 1.0:</strong> kid sub-accounts are <strong>not yet enabled</strong>. The text below describes our planned approach for a future release. Rusti 1.0 collects, stores, and transmits no kid-related data of any kind.</p></div>
+            <p>When the family-household feature ships, kids will participate in Rusti exclusively through display-name-only sub-accounts inside a parent or guardian's CKShare household. These sub-accounts are designed to be COPPA-clean by construction:</p>
             <ul>
                 <li><strong>No separate accounts:</strong> Kid sub-accounts have no email addresses, no Game Center sign-ins, no passwords, no birthdates, and no separate identity outside the household record.</li>
                 <li><strong>Display names only:</strong> The only kid-identifying information is a display name chosen by the parent or guardian — typically a first name or nickname (e.g., "Maya" or "Buddy").</li>
