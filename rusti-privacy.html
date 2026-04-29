@@ -229,7 +229,7 @@
 
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
-            <p>Rusti ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Rusti is a daily-quiz iPhone app (iOS 25 and later). Each morning all players receive the same ten-question quiz on foundational subjects (math, English, science, social studies, geography). Players can compete on Game Center friend leaderboards, set up a CKShare family household leaderboard, and — for Rusti+ subscribers — initiate subtopic-targeted head-to-head challenges with friends.</p>
+            <p>Rusti ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Rusti is a daily-quiz iPhone app (iOS 26 and later). Each morning all players receive the same ten-question quiz on foundational subjects (math, English, science, social studies, geography). Players can compete on Game Center friend leaderboards, set up a CKShare family household leaderboard, and — for Rusti+ subscribers — initiate subtopic-targeted head-to-head challenges with friends.</p>
             <p>This Privacy Policy explains exactly what data Rusti accesses, where that data is stored, and what Kynoss Studios can or cannot see. Because Rusti uses Apple's CloudKit infrastructure for some features, more data leaves your device than for an offline-only app — but Kynoss Studios still operates no servers, stores no data, and cannot see any personally identifying information.</p>
             <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CloudKit-resident data Rusti creates lives in your iCloud account and Apple's public CloudKit container — Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
 
@@ -283,13 +283,8 @@
                     </tr>
                     <tr>
                         <td>UserSubmission records: quiz_id, your Game Center player ID, your answers, your score, time bonus, optional per-question thumbs</td>
-                        <td>Friend leaderboards, global percentile, Wordle-model scoring distribution</td>
+                        <td>Friend leaderboards, calibration of question difficulty, Wordle-model scoring distribution</td>
                         <td>Game Center player ID is an Apple-managed opaque token — Kynoss cannot resolve it to your name or email</td>
-                    </tr>
-                    <tr>
-                        <td>GlobalPercentileAggregate: per-quiz_id score distribution + sample size</td>
-                        <td>Display your global percentile relative to all players</td>
-                        <td>Aggregate only — no per-user data exposed</td>
                     </tr>
                     <tr>
                         <td>ChallengeMatch records (Rusti+ Challenge Mode): challenge ID, challenger Game Center ID, invited Game Center IDs, subtopic, question IDs, 24h window</td>
@@ -310,22 +305,7 @@
             </table>
 
             <h3>What's stored in your private CloudKit container (your iCloud only)</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Purpose</th>
-                        <th>Visible to Kynoss?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Your question-shown registry (mirror of the on-device version, for cross-device sync)</td>
-                        <td>Prevents repeats across your iPhone + iPad if you use Rusti on both</td>
-                        <td>No — Apple's private CloudKit is end-to-end encrypted under your iCloud account</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>If you create a family household (Section 5), the host-side household record lives in your private CloudKit container. Apple's private CloudKit is encrypted under your iCloud account; Kynoss has no access. If you do not create a household, Rusti writes nothing to your private CloudKit container at v1.</p>
 
             <h3>What's stored in CKShare (your family household, if enrolled)</h3>
             <p>See <a href="#ckshare">Section 5 (CKShare)</a> for the full disclosure. Briefly: household membership + display names + per-member scores, scoped to the household participants only.</p>
@@ -347,13 +327,10 @@
             <h2 id="cloudkit">4. CloudKit (Daily Quiz, Leaderboards, Challenges)</h2>
             <p>Rusti uses two CloudKit databases:</p>
             <ul>
-                <li><strong>Public CloudKit container:</strong> world-readable storage for daily quizzes, user submissions, percentile aggregates, challenges, and dispute records. Records are tagged with Game Center player IDs (Apple-managed opaque tokens), never with names, emails, or other PII.</li>
-                <li><strong>Private CloudKit container:</strong> your personal iCloud-encrypted store for the cross-device question-shown registry. Apple manages encryption; Kynoss has no access.</li>
+                <li><strong>Public CloudKit container:</strong> world-readable storage for daily quizzes, user submissions, challenges, and dispute records. Records are tagged with Game Center player IDs (Apple-managed opaque tokens), never with names, emails, or other PII.</li>
+                <li><strong>Private CloudKit container:</strong> your personal iCloud-encrypted store, used at v1 only when you create a family household (the host-side household record lives there). Apple manages encryption; Kynoss has no access.</li>
             </ul>
             <p>Apple operates CloudKit on Kynoss Studios' behalf. Kynoss has dashboard access to query record counts and schema, but cannot read individual user records by player ID — Apple's CloudKit access controls require the requesting party to be the record creator, which Kynoss is not.</p>
-
-            <h3>CloudKit Function (global percentile aggregation)</h3>
-            <p>Rusti uses a CloudKit Function (Apple-managed serverless compute) to aggregate UserSubmission scores into the GlobalPercentileAggregate per quiz_id. The function reads UserSubmission records and writes back the aggregate; it does not transmit data anywhere outside CloudKit. Apple operates the function infrastructure; Kynoss writes the function code but has no inspection access to its execution.</p>
 
             <!-- 5. CKSHARE -->
             <h2 id="ckshare">5. CKShare (Family Household)</h2>
@@ -435,7 +412,7 @@
             <ul>
                 <li><strong>No separate accounts:</strong> Kid sub-accounts have no email addresses, no Game Center sign-ins, no passwords, no birthdates, and no separate identity outside the household record.</li>
                 <li><strong>Display names only:</strong> The only kid-identifying information is a display name chosen by the parent or guardian — typically a first name or nickname (e.g., "Maya" or "Buddy").</li>
-                <li><strong>Household-scoped visibility:</strong> Kid sub-accounts and their scores are visible only to other household participants. They never appear on friend leaderboards, global percentile aggregates, or Challenge Mode public reveal screens.</li>
+                <li><strong>Household-scoped visibility:</strong> Kid sub-accounts and their scores are visible only to other household participants. They never appear on friend leaderboards or Challenge Mode public reveal screens.</li>
                 <li><strong>No data leaves the household:</strong> Kid sub-account scores live inside the CKShare household record. They are not written to the public CloudKit container.</li>
                 <li><strong>No third-party sharing:</strong> Kid data is never transmitted to Kynoss Studios or any third party. Apple manages CKShare; Kynoss has no access.</li>
                 <li><strong>Parent/guardian control:</strong> The household creator (a verified adult Game Center account) is the sole authority over kid sub-accounts. Adding, renaming, or removing kid sub-accounts requires household-creator action.</li>
@@ -504,7 +481,7 @@
             <h3>CloudKit (Public + Private)</h3>
             <ul>
                 <li>Rusti writes UserSubmission, ChallengeMatch, ChallengeSubmission, and QuestionDispute records to the public CloudKit container, tagged with Game Center player IDs.</li>
-                <li>Rusti writes the per-user question-shown registry to your private CloudKit container.</li>
+                <li>If you set up a family household, the host-side household record is written to your private CloudKit container; CKShare propagates it to invitees.</li>
                 <li>CloudKit is operated by Apple; Apple's Privacy Policy and CloudKit security model apply.</li>
             </ul>
 
