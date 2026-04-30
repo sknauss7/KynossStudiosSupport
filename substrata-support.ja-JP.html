@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substrata サポート — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #2c5f2d;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7eb980;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Substrata サポート</h1>
+            <p class="subtitle">Kynoss Studios 制作</p>
+        </header>
+
+        <main>
+            <p>Substrata は、環境データ（天候状況、気圧、騒音への暴露など）を Apple Health の健康データと重ね合わせて、ウェルビーイングに影響している可能性のある隠れた関連性を探索する、環境ヘルスインテリジェンスアプリです。頭痛の記録と要因候補の特定機能、統計的な相関分析エンジン、詳細な気象モニタリング機能を備えており、すべての処理はお使いのデバイス上で完結します。</p>
+            <p><em>Substrata は医療機器ではありません。疾患を診断したり、医療上の助言を提供したり、医療専門職による診療や指導に代わるものではありません。健康に関する不安や症状がある場合は、必ず医師などの医療専門職に相談してください。</em></p>
+
+            <h2>お問い合わせ</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">通常、48時間以内にご返信いたします。</p>
+            </div>
+
+            <p>サポートにご連絡いただく際は、次の情報をお知らせください。</p>
+            <ul>
+                <li>ご利用のデバイスのモデルと iOS バージョン</li>
+                <li>発生している問題またはご質問の内容</li>
+                <li>問題を再現する手順（該当する場合）</li>
+                <li>関連するスクリーンショットがあれば添付</li>
+            </ul>
+
+            <h2>よくあるご質問</h2>
+
+            <dl class="faq">
+                <dt>Substrata はどのようなデータを記録しますか？</dt>
+                <dd>Substrata は、Apple Weather を介して環境条件（天候、気圧、気温、湿度、UV インデックス、風、日照時間、月相）を、Apple Health を介して健康データ（睡眠状態、心拍数、HRV、安静時心拍数、呼吸数、血中酸素濃度、手首の温度）を取得します。Apple Watch をお使いの場合は、環境騒音への暴露レベルも読み取ります。さらに、頭痛を記録して、ご自身の要因候補を特定することができます。</dd>
+
+                <dt>Substrata はどの健康データにアクセスしますか？</dt>
+                <dd>お客様の許可を得たうえで、Substrata は Apple Health から、睡眠分析、心拍数、心拍変動（HRV）、安静時心拍数、呼吸数、血中酸素濃度、手首の温度、オーディオへの暴露レベルを読み取ります。このデータは読み取り専用であり、Substrata が健康データに書き込んだり、変更したりすることはありません。</dd>
+
+                <dt>相関エンジンはどのように機能しますか？</dt>
+                <dd>少なくとも14日分のデータが収集されると、Substrata はデバイス上で統計的分析（ベイズ回帰）を行い、環境条件と健康指標とのあいだに見られる可能性のある関連パターンを推定します。すべての分析は iPhone 上だけで実行され、データが外部に送信されることはありません。データ量が増えるほど（30日以上で傾向が把握しやすくなり、60日以上でより詳細な分析が可能になり）、関連性に関する推定は安定しやすくなります。</dd>
+
+                <dt>Substrata は私のデータをどこかへ送信しますか？</dt>
+                <dd>いいえ。すべてのデータ処理はお使いのデバイス上だけで行われます。ネットワーク通信は、天気情報を取得するための Apple Weather へのリクエストのみです。Substrata にはサーバーやクラウドストレージ、ユーザーアカウント、分析・トラッキング機能は一切ありません。お客様のデータが iPhone の外部に送信されることはありません。</dd>
+
+                <dt>Substrata は位置情報を使用しますか？</dt>
+                <dd>位置情報は、Apple Weather からお住まいの地域の天気データを取得するため、およびオプションとしてゾーン検出（例：自宅、職場）のために利用されます。使用するのはおおよその位置情報のみであり、Substrata が正確な座標を保存することはありません。位置情報へのアクセスを許可しなくてもアプリは利用できますが、その場合は天気データが利用できません。</dd>
+
+                <dt>権限はどのように管理できますか？</dt>
+                <dd>健康データ、位置情報、通知など、すべての権限は iOS の「設定」アプリ内の Substrata の項目から管理できます。任意の権限は、他の機能に影響を与えずに、いつでも取り消すことができます。</dd>
+
+                <dt>アプリを削除すると、私のデータはどうなりますか？</dt>
+                <dd>Substrata のデータはすべて、お使いのデバイス上にローカル保存されています。アプリを削除すると、関連するデータは iOS によって完全に削除されます。データがサーバーに送信されることはないため、サーバー側で削除する必要がある情報も存在しません。</dd>
+
+                <dt>必要な iOS バージョンは何ですか？</dt>
+                <dd>Substrata は iOS 26 以降が必要で、iPhone 向けに設計されています。</dd>
+
+                <dt>Substrata は Apple Watch に対応していますか？</dt>
+                <dd>Apple Watch をお使いいただくと、環境騒音レベル（dBA）、心拍数、HRV、呼吸数、血中酸素濃度、手首の温度などを取得できるため、Substrata の体験が大きく向上すると考えられます。Watch がない場合でも、Substrata は天気データ、睡眠時間、ヘッドフォンのオーディオ、アクティビティ分類などと連携して動作します。</dd>
+
+                <dt>頭痛トラッカーとは何ですか？</dt>
+                <dd>頭痛イベントを、重症度やタイプ（片頭痛、緊張型、群発など）とともに記録できます。20～30件程度のイベントを記録すると、相関エンジンがご自身の環境要因候補を統計的に推定し、過去の頭痛パターンと似た条件が見られる場合に、通知でお知らせできるようになります。これはあくまで傾向把握と自己管理支援を目的とした機能であり、医療的判断や診断を行うものではありません。</dd>
+            </dl>
+
+            <h2>プライバシー</h2>
+            <p>お客様のプライバシーは、Substrata の設計思想の中核にあります。お客様のデータの取り扱いについての詳細は、<a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">プライバシーポリシー</a>を必ずご確認ください。</p>
+
+            <h2>アプリ情報</h2>
+            <ul>
+                <li><strong>デベロッパ：</strong> Kynoss Studios</li>
+                <li><strong>プラットフォーム：</strong> iPhone（iOS 26 以降）</li>
+                <li><strong>カテゴリ：</strong> ヘルスケア／フィットネス</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. 無断複写・転載等を禁じます。</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">プライバシーポリシー</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

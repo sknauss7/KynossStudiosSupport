@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substrata Informativa sulla privacy — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #2c5f2d;
+            --card-bg: #fff;
+            --highlight-bg: #f0f7f0;
+            --highlight-border: #2c5f2d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7eb980;
+                --card-bg: #242424;
+                --highlight-bg: #1e2e1e;
+                --highlight-border: #7eb980;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .effective-date {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        .highlight p + p {
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--card-bg);
+            font-weight: 600;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .toc ol {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--fg);
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Substrata Informativa sulla privacy</h1>
+            <p class="subtitle">Kynoss Studios</p>
+            <p class="effective-date">Data di entrata in vigore: 25 febbraio 2026 &middot; Ultimo aggiornamento: 6 marzo 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>In sintesi:</strong> Substrata elabora tutto sul tuo dispositivo. Non abbiamo server, né account, né sistemi di analisi, né pubblicità, né sistemi di tracciamento. Non possiamo visualizzare, accedere o raccogliere i tuoi dati. Le tue informazioni non lasciano mai il tuo iPhone.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contenuti</h2>
+                <ol>
+                    <li><a href="#overview">Panoramica</a></li>
+                    <li><a href="#microphone">Dati su rumore e esposizione audio</a></li>
+                    <li><a href="#healthkit">Dati sanitari (HealthKit)</a></li>
+                    <li><a href="#location">Dati di localizzazione</a></li>
+                    <li><a href="#weather">Dati meteo</a></li>
+                    <li><a href="#data-storage">Archiviazione dei dati e elaborazione sul dispositivo</a></li>
+                    <li><a href="#data-retention">Conservazione e cancellazione dei dati</a></li>
+                    <li><a href="#data-sharing">Condivisione dei dati e terze parti</a></li>
+                    <li><a href="#data-security">Sicurezza dei dati</a></li>
+                    <li><a href="#children">Tutela dei minori (COPPA)</a></li>
+                    <li><a href="#gdpr">I tuoi diritti ai sensi del GDPR</a></li>
+                    <li><a href="#ccpa">I tuoi diritti ai sensi del CCPA/CPRA</a></li>
+                    <li><a href="#apple-requirements">Informative richieste da Apple</a></li>
+                    <li><a href="#changes">Modifiche alla presente Informativa</a></li>
+                    <li><a href="#contact">Contattaci</a></li>
+                </ol>
+            </nav>
+
+            <!-- 1. OVERVIEW -->
+            <h2 id="overview">1. Panoramica</h2>
+            <p>Substrata ("l'App") è sviluppata e pubblicata da Kynoss Studios ("noi" o "nostro/nostra/nostri/nostre"). Substrata è un'app di analisi dell'ambiente e del benessere per iPhone (iOS 26 e versioni successive) che combina dati ambientali (meteo, pressione barometrica, esposizione al rumore) con dati sanitari da Apple Health per mettere in evidenza correlazioni non evidenti che potrebbero essere associate al tuo benessere. Include il monitoraggio del mal di testa, un motore di correlazione statistica e un sistema completo di monitoraggio delle condizioni meteo. Substrata non è un dispositivo medico. Non formula diagnosi, non fornisce consulenze mediche e non sostituisce in alcun modo il parere o l'assistenza di professionisti sanitari.</p>
+            <p>La presente Informativa sulla privacy descrive a quali dati Substrata accede, in che modo tali dati vengono elaborati e quali sono i tuoi diritti in relazione alle tue informazioni. Ci impegniamo a garantire la massima trasparenza e a tutelare la tua privacy.</p>
+            <p><strong>Substrata funziona interamente sul tuo dispositivo.</strong> Non gestiamo server, database o servizi cloud. Non creiamo account utente. Non abbiamo alcun meccanismo per raccogliere, ricevere, visualizzare o archiviare i tuoi dati personali. I dati con cui Substrata opera esistono esclusivamente sul tuo iPhone, sotto il tuo controllo.</p>
+
+            <!-- 2. NOISE & AUDIO DATA -->
+            <h2 id="microphone">2. Dati su rumore e esposizione audio</h2>
+
+            <div class="highlight">
+                <p><strong>Substrata non registra mai audio.</strong></p>
+                <p>I dati sul rumore provengono principalmente dalle misurazioni di esposizione audio ambientale rilevate da Apple Watch tramite Apple Health. Si tratta di medie pre-elaborate dei livelli in decibel: non sono coinvolti flussi audio grezzi. Nessun contenuto audio viene acquisito, salvato, archiviato, trasmesso o reso accessibile in alcuna forma.</p>
+            </div>
+
+            <h3>Come funziona</h3>
+            <p>Substrata legge i dati sull'esposizione al rumore da Apple Health, che includono:</p>
+            <ul>
+                <li><strong>Esposizione audio ambientale</strong> (Apple Watch) — letture medie in dBA registrate dal microfono calibrato del tuo Watch, fornite come campioni HealthKit approssimativamente ogni 30 minuti.</li>
+                <li><strong>Esposizione audio tramite cuffie</strong> (iPhone/Watch) — livelli di volume durante l'ascolto con cuffie, anch'essi forniti come campioni HealthKit.</li>
+            </ul>
+            <p>Queste misurazioni sono pre-calcolate dall'hardware Apple e fornite come valori numerici in decibel tramite HealthKit. Substrata non accede mai ad audio grezzo da nessuna fonte.</p>
+
+            <h3>Cosa conserviamo</h3>
+            <p>Substrata memorizza solo letture dei decibel associate a un orario (ad esempio, "72 dBA alle 14:35") provenienti da HealthKit. Queste misurazioni numeriche non contengono alcun contenuto audio.</p>
+
+            <h3>Il tuo controllo</h3>
+            <p>L'accesso ai dati sul rumore è gestito tramite le autorizzazioni di HealthKit. Puoi revocare l'accesso in qualsiasi momento in Impostazioni &gt; Salute &gt; Substrata. L'app continuerà a funzionare per le altre funzionalità anche senza i dati sul rumore.</p>
+
+            <!-- 3. HEALTH DATA (HEALTHKIT) -->
+            <h2 id="healthkit">3. Dati sanitari (HealthKit)</h2>
+            <p>Con il tuo consenso esplicito, Substrata legge i seguenti tipi di dati da Apple Health tramite il framework HealthKit:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo di dato</th>
+                        <th>Finalità</th>
+                        <th>Accesso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Analisi del sonno</td>
+                        <td>Valutazione indicativa della qualità del sonno e correlazione con le condizioni ambientali</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Frequenza cardiaca</td>
+                        <td>Visualizzazione e correlazione con i dati ambientali</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Variabilità della frequenza cardiaca (HRV)</td>
+                        <td>Visualizzazione e correlazione con i dati ambientali</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Frequenza cardiaca a riposo</td>
+                        <td>Visualizzazione e correlazione con i dati ambientali</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Frequenza respiratoria</td>
+                        <td>Visualizzazione insieme ai dati sanitari e ambientali (Apple Watch)</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Saturazione di ossigeno nel sangue (SpO2)</td>
+                        <td>Visualizzazione insieme ai dati sanitari e ambientali (Apple Watch)</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Temperatura del polso</td>
+                        <td>Visualizzazione insieme ai dati sanitari e ambientali (Apple Watch S8+)</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Esposizione audio ambientale</td>
+                        <td>Monitoraggio dei livelli di rumore (Apple Watch)</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                    <tr>
+                        <td>Esposizione audio tramite cuffie</td>
+                        <td>Monitoraggio del volume in cuffia</td>
+                        <td>Solo lettura</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Come vengono utilizzati i dati sanitari</h3>
+            <ul>
+                <li>I dati sanitari vengono utilizzati esclusivamente per visualizzare le tue metriche di salute insieme alle misurazioni ambientali e per calcolare correlazioni statistiche da visualizzare a te, per tuo uso personale.</li>
+                <li>Tutta l'elaborazione dei dati sanitari avviene interamente sul tuo dispositivo.</li>
+                <li>Substrata <strong>non scrive mai</strong> né modifica i tuoi dati in Apple Health.</li>
+                <li>I dati sanitari <strong>non</strong> vengono mai utilizzati per pubblicità, marketing, data mining o per finalità diverse dalla presentazione dei dati e delle correlazioni statistiche direttamente a te all'interno dell'app.</li>
+                <li>I dati sanitari <strong>non</strong> vengono mai condivisi con terze parti.</li>
+                <li>I dati sanitari <strong>non</strong> vengono mai archiviati su iCloud o su altri servizi cloud.</li>
+                <li>I dati sanitari <strong>non</strong> vengono mai trasmessi al di fuori del tuo dispositivo.</li>
+            </ul>
+
+            <h3>Il tuo controllo</h3>
+            <p>L'accesso a HealthKit è completamente facoltativo. Decidi tu esattamente quali tipi di dati condividere tramite la schermata standard delle autorizzazioni Salute di iOS. Puoi modificare o revocare l'accesso in qualsiasi momento in Impostazioni &gt; Salute &gt; Substrata. L'app offre funzionalità utili anche senza alcun accesso ai dati sanitari.</p>
+
+            <!-- 4. LOCATION DATA -->
+            <h2 id="location">4. Dati di localizzazione</h2>
+            <p>Substrata offre una funzionalità opzionale di rilevamento delle zone che utilizza la localizzazione approssimativa (coarse) per aiutarti a categorizzare gli ambienti (ad esempio, "casa", "ufficio", "tragitto").</p>
+
+            <h3>Come viene utilizzata la localizzazione</h3>
+            <ul>
+                <li>I dati di localizzazione vengono utilizzati <strong>solo</strong> per la classificazione delle zone sul dispositivo.</li>
+                <li>Substrata utilizza una precisione ridotta della posizione (localizzazione approssimativa). Le coordinate GPS precise non vengono richieste.</li>
+                <li><strong>Substrata non memorizza mai coordinate di latitudine/longitudine o dati di localizzazione precisi.</strong> Viene memorizzata solo l'etichetta di zona che assegni (ad esempio, "Casa") insieme alle tue misurazioni ambientali.</li>
+                <li>I dati di localizzazione non vengono mai trasmessi al di fuori del tuo dispositivo né condivisi con terze parti.</li>
+            </ul>
+
+            <h3>Il tuo controllo</h3>
+            <p>L'accesso alla localizzazione è completamente facoltativo ed è disattivato per impostazione predefinita. Substrata non richiede i permessi di localizzazione a meno che tu non attivi esplicitamente il rilevamento delle zone. Puoi revocare in qualsiasi momento l'accesso alla localizzazione in Impostazioni &gt; Substrata. L'app funziona pienamente anche senza accesso alla localizzazione, utilizzando la selezione manuale della zona.</p>
+
+            <!-- 5. WEATHER DATA -->
+            <h2 id="weather">5. Dati meteo</h2>
+            <p>Substrata utilizza il servizio WeatherKit di Apple per recuperare informazioni meteo locali complete — temperatura, umidità, pressione barometrica, indice UV, velocità e direzione del vento, punto di rugiada, copertura nuvolosa, visibilità, precipitazioni, orari di alba/tramonto, ore di luce diurna e fase lunare — da visualizzare insieme alle tue misurazioni sanitarie e alimentare il motore di correlazione.</p>
+            <ul>
+                <li>Le richieste meteo vengono inviate direttamente dal tuo dispositivo al servizio WeatherKit di Apple tramite l'API di Apple.</li>
+                <li>Kynoss Studios non gestisce alcun server intermedio in questo processo.</li>
+                <li>Le richieste di dati meteo possono includere la tua posizione approssimativa (se autorizzata) per ottenere condizioni locali pertinenti. Ciò è regolato dall'<a href="https://www.apple.com/legal/privacy/">Informativa sulla privacy di Apple</a> applicabile a WeatherKit.</li>
+                <li>Nessuna informazione personale viene inviata a WeatherKit oltre a quanto richiesto dall'API Apple per restituire i dati meteo locali.</li>
+            </ul>
+
+            <!-- 6. DATA STORAGE & ON-DEVICE PROCESSING -->
+            <h2 id="data-storage">6. Archiviazione dei dati e elaborazione sul dispositivo</h2>
+
+            <div class="highlight">
+                <p><strong>Tutta l'elaborazione dei dati avviene interamente sul tuo iPhone.</strong> Substrata non dispone di server, infrastruttura cloud, database né di alcun backend. Non abbiamo materialmente la possibilità di accedere ai tuoi dati perché non esiste alcun sistema in grado di riceverli.</p>
+            </div>
+
+            <p>I dati vengono archiviati localmente sul tuo dispositivo utilizzando il framework SwiftData di Apple. Questi dati sono protetti da:</p>
+            <ul>
+                <li>iOS Data Protection (crittografia a riposo, collegata al codice di sblocco del dispositivo)</li>
+                <li>Sandboxing delle app (solo Substrata può accedere al proprio archivio dati)</li>
+                <li>Architettura di sicurezza standard di iOS</li>
+            </ul>
+
+            <p>Substrata non utilizza:</p>
+            <ul>
+                <li>iCloud o altri sistemi di archiviazione cloud</li>
+                <li>SDK, framework o librerie di terze parti</li>
+                <li>Servizi di analisi (nessun Firebase, Mixpanel, Amplitude, ecc.)</li>
+                <li>SDK pubblicitari o reti pubblicitarie</li>
+                <li>Servizi di segnalazione degli arresti anomali</li>
+                <li>Qualsiasi forma di tracciamento o fingerprinting degli utenti</li>
+            </ul>
+
+            <!-- 7. DATA RETENTION & DELETION -->
+            <h2 id="data-retention">7. Conservazione e cancellazione dei dati</h2>
+
+            <h3>Politica di conservazione</h3>
+            <ul>
+                <li><strong>Dati di misurazione grezzi</strong> (singole letture dei decibel, snapshot dei dati sanitari e misurazioni ambientali) sono conservati sul tuo dispositivo per <strong>90 giorni</strong>.</li>
+                <li>Trascorsi 90 giorni, i dati grezzi vengono automaticamente aggregati in riepiloghi statistici (medie, tendenze, schemi ricorrenti). I singoli punti dati originari vengono quindi cancellati dall'archiviazione locale.</li>
+                <li><strong>Dati aggregati</strong> (riepiloghi statistici e dati sulle tendenze) sono conservati a tempo indeterminato sul tuo dispositivo per preservare la cronologia a lungo termine e i riepiloghi delle tendenze.</li>
+            </ul>
+
+            <h3>Cancellazione</h3>
+            <ul>
+                <li><strong>Eliminare l'app:</strong> Disinstallando Substrata dal tuo dispositivo, tutti i dati associati vengono rimossi in modo permanente. Poiché non esistono copie dei dati al di fuori del tuo dispositivo, la cancellazione è completa e irreversibile.</li>
+                <li><strong>Gestione dei dati dall'interno dell'app:</strong> Puoi anche cancellare determinati dati dalle impostazioni dell'app.</li>
+                <li>Non esiste alcun dato lato server da cancellare, nessun account da chiudere e nessuna procedura di richiesta necessaria. Hai un controllo pieno e immediato.</li>
+            </ul>
+
+            <!-- 8. DATA SHARING & THIRD PARTIES -->
+            <h2 id="data-sharing">8. Condivisione dei dati e terze parti</h2>
+
+            <div class="highlight">
+                <p><strong>Substrata non condivide i tuoi dati con nessuno.</strong></p>
+            </div>
+
+            <ul>
+                <li>Non vendiamo i tuoi dati.</li>
+                <li>Non condividiamo i tuoi dati con terze parti.</li>
+                <li>Non trasmettiamo i tuoi dati al di fuori del tuo dispositivo.</li>
+                <li>Non utilizziamo SDK di terze parti che potrebbero raccogliere dati.</li>
+                <li>Non mostriamo pubblicità.</li>
+                <li>Non effettuiamo attività di data mining o profilazione basata sull'uso.</li>
+                <li>Non condividiamo i dati con società controllanti, controllate o collegate (Kynoss Studios è uno sviluppatore indipendente individuale).</li>
+            </ul>
+
+            <p>Le uniche richieste di rete effettuate da Substrata sono verso il servizio WeatherKit di Apple per i dati meteo, tramite il framework Apple. Nessun dato personale o dato specifico di Substrata è incluso in queste richieste.</p>
+
+            <!-- 9. DATA SECURITY -->
+            <h2 id="data-security">9. Sicurezza dei dati</h2>
+            <p>Substrata si basa sull'infrastruttura di sicurezza integrata di Apple per proteggere i tuoi dati:</p>
+            <ul>
+                <li><strong>Crittografia a riposo:</strong> Tutti i dati locali sono protetti da iOS Data Protection, che cripta i dati utilizzando chiavi collegate al codice di sblocco del tuo dispositivo.</li>
+                <li><strong>Sandboxing dell'app:</strong> iOS impedisce ad altre app di accedere all'archivio dati di Substrata.</li>
+                <li><strong>Nessuna esposizione in rete:</strong> Poiché Substrata non trasmette dati personali tramite reti, non si configura il rischio di intercettazione dei dati, violazioni di server o accessi remoti non autorizzati.</li>
+                <li><strong>Nessun account:</strong> Non esistono credenziali da sottrarre, password da violare o account da compromettere.</li>
+            </ul>
+
+            <!-- 10. CHILDREN'S PRIVACY (COPPA) -->
+            <h2 id="children">10. Tutela dei minori (COPPA)</h2>
+            <p>Substrata non è rivolta a minori di età inferiore a 13 anni. Non raccogliamo consapevolmente informazioni personali da bambini di età inferiore a 13 anni.</p>
+            <p>Poiché Substrata non raccoglie, non trasmette e non archivia informazioni personali su server e poiché tutti i dati restano esclusivamente sul dispositivo dell'utente, Substrata tendenzialmente non genera i rischi di raccolta dati che la normativa COPPA intende affrontare. Tuttavia:</p>
+            <ul>
+                <li>Substrata non raccoglie informazioni personali da alcun utente, compresi i minori.</li>
+                <li>Substrata non richiede né supporta la creazione di account.</li>
+                <li>Substrata non contiene pubblicità, acquisti in-app rivolti ai minori o funzionalità social.</li>
+                <li>Substrata non trasmette alcun dato a Kynoss Studios né a terze parti.</li>
+            </ul>
+            <p>Se sei un genitore o tutore e ritieni che un minore di 13 anni abbia fornito informazioni personali tramite l'app, puoi contattarci all'indirizzo <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>. Tieni tuttavia presente che Substrata non dispone di alcun meccanismo per ricevere o accedere ai dati presenti sul dispositivo di un qualsiasi utente.</p>
+
+            <!-- 11. GDPR -->
+            <h2 id="gdpr">11. I tuoi diritti ai sensi del GDPR (Spazio economico europeo)</h2>
+            <p>Se ti trovi nello Spazio economico europeo (SEE), il Regolamento generale sulla protezione dei dati (GDPR) ti riconosce specifici diritti in merito ai tuoi dati personali. Rispettiamo tali diritti, anche se, a causa dell'architettura interamente sul dispositivo di Substrata, non agiamo in qualità di titolare o responsabile del trattamento dei tuoi dati personali in senso tradizionale — poiché i tuoi dati non ci vengono trasmessi.</p>
+
+            <h3>Base giuridica del trattamento</h3>
+            <p>Nella misura in cui qualsiasi elaborazione sul dispositivo possa configurarsi come "trattamento" ai sensi del GDPR, la base giuridica è:</p>
+            <ul>
+                <li><strong>Consenso:</strong> Concedi esplicitamente l'autorizzazione per ciascun tipo di dato (microfono, dati sanitari, localizzazione) tramite le richieste di permesso di iOS. Puoi revocare il consenso in qualsiasi momento tramite le Impostazioni di iOS.</li>
+                <li><strong>Legittimo interesse:</strong> Elaborare i tuoi dati sul tuo dispositivo per fornire direttamente a te le funzionalità dell'app.</li>
+            </ul>
+
+            <h3>I tuoi diritti</h3>
+            <ul>
+                <li><strong>Diritto di accesso:</strong> Tutti i dati sono archiviati sul tuo dispositivo e sono accessibili in qualsiasi momento all'interno dell'app.</li>
+                <li><strong>Diritto di rettifica:</strong> Puoi gestire e modificare i tuoi dati all'interno dell'app.</li>
+                <li><strong>Diritto alla cancellazione:</strong> Puoi eliminare tutti i dati disinstallando l'app o gestire specifici dati dalle impostazioni dell'app.</li>
+                <li><strong>Diritto di limitare il trattamento:</strong> Puoi revocare in qualsiasi momento le singole autorizzazioni (microfono, dati sanitari, localizzazione) senza compromettere le altre funzionalità dell'app.</li>
+                <li><strong>Diritto alla portabilità dei dati:</strong> I tuoi dati sono archiviati localmente sul tuo dispositivo e sono accessibili a te.</li>
+                <li><strong>Diritto di opposizione:</strong> Puoi interrompere ogni trattamento dei dati revocando le autorizzazioni o disinstallando l'app.</li>
+            </ul>
+
+            <h3>Trasferimenti di dati</h3>
+            <p>Substrata non trasferisce dati personali al di fuori del tuo dispositivo. Non avvengono trasferimenti transfrontalieri di dati, poiché nessun dato viene trasmesso a server, ovunque essi si trovino.</p>
+
+            <h3>Responsabile della protezione dei dati</h3>
+            <p>In considerazione della natura del nostro trattamento (interamente sul dispositivo, senza raccolta di dati), non siamo tenuti a nominare un Responsabile della protezione dei dati. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all'indirizzo <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 12. CCPA/CPRA -->
+            <h2 id="ccpa">12. I tuoi diritti ai sensi del CCPA/CPRA (California)</h2>
+            <p>Se risiedi in California, il California Consumer Privacy Act (CCPA), come modificato dal California Privacy Rights Act (CPRA), ti riconosce specifici diritti.</p>
+
+            <h3>Informazioni che trattiamo</h3>
+            <p>Ai sensi delle definizioni del CCPA/CPRA, Substrata elabora le seguenti categorie di informazioni <strong>solo sul tuo dispositivo</strong>:</p>
+            <ul>
+                <li>Informazioni sanitarie (dati HealthKit, inclusa l'esposizione al rumore, il sonno, la frequenza cardiaca, con il tuo consenso)</li>
+                <li>Dati di geolocalizzazione (posizione approssimativa per dati meteo e rilevamento delle zone, con il tuo consenso)</li>
+                <li>Eventi sanitari segnalati dall'utente (registri dei mal di testa inseriti volontariamente)</li>
+            </ul>
+            <p>Tuttavia, poiché tutta l'elaborazione avviene sul tuo dispositivo e noi non raccogliamo, riceviamo né accediamo a tali informazioni, Kynoss Studios non "raccoglie" informazioni personali così come definito dal CCPA/CPRA.</p>
+
+            <h3>I tuoi diritti</h3>
+            <ul>
+                <li><strong>Diritto di sapere:</strong> La presente Informativa sulla privacy descrive tutti i dati che l'app elabora. Non trattiamo ulteriori dati rispetto a quanto qui indicato.</li>
+                <li><strong>Diritto alla cancellazione:</strong> Disinstalla l'app per rimuovere tutti i dati oppure utilizza le funzionalità di gestione dei dati presenti nell'app.</li>
+                <li><strong>Diritto di rinuncia alla vendita:</strong> <strong>Non vendiamo le tue informazioni personali.</strong> Non lo abbiamo mai fatto e non lo faremo mai.</li>
+                <li><strong>Diritto di rinuncia alla condivisione:</strong> Non condividiamo le tue informazioni personali con terze parti per pubblicità comportamentale contestuale o per qualsiasi altra finalità.</li>
+                <li><strong>Diritto alla non discriminazione:</strong> Non ti discrimineremo in alcun modo se eserciti i tuoi diritti in materia di privacy.</li>
+                <li><strong>Diritto di limitare l'utilizzo di informazioni personali sensibili:</strong> I dati sanitari e la geolocalizzazione precisa sono considerati sensibili ai sensi del CPRA. Sei tu a controllare l'accesso a questi tipi di dati tramite le autorizzazioni di iOS e puoi revocarlo in qualsiasi momento.</li>
+            </ul>
+
+            <h3>"Do Not Sell or Share My Personal Information"</h3>
+            <p>Substrata non vende né condivide informazioni personali. Poiché nessun dato viene trasmesso dal tuo dispositivo a noi o a terze parti, non vi sono attività di vendita o condivisione dalle quali sia necessario effettuare l'opt-out. Rispettiamo pienamente il CCPA/CPRA senza richiedere alcuna azione da parte tua.</p>
+
+            <!-- 13. APPLE PLATFORM DISCLOSURES -->
+            <h2 id="apple-requirements">13. Informative richieste da Apple</h2>
+            <p>In conformità alle App Store Review Guidelines e ai requisiti di piattaforma di Apple:</p>
+
+            <h3>HealthKit (Linee guida 27.0)</h3>
+            <ul>
+                <li>Substrata utilizza i dati HealthKit esclusivamente per visualizzare le metriche sanitarie insieme ai dati ambientali e per calcolare correlazioni statistiche a beneficio dell'utente, per sua consultazione personale.</li>
+                <li>I dati sanitari non vengono mai utilizzati per pubblicità o attività di data mining basato sull'uso.</li>
+                <li>I dati sanitari non vengono mai comunicati a terze parti.</li>
+                <li>I dati sanitari non vengono mai venduti a nessun soggetto per alcuna finalità.</li>
+                <li>I dati sanitari non vengono mai archiviati su iCloud.</li>
+                <li>Substrata non scrive dati falsi o inaccurati su HealthKit.</li>
+                <li>Substrata richiede solo i tipi di dati HealthKit minimi necessari per le proprie funzionalità.</li>
+            </ul>
+
+            <h3>Required Reason API</h3>
+            <p>Substrata utilizza unicamente i framework nativi di Apple e non accede ad API che richiedano motivazioni dichiarate oltre quelle già descritte nella presente informativa e nell'App Store privacy nutrition label dell'app.</p>
+
+            <h3>App Tracking Transparency</h3>
+            <p>Substrata non traccia gli utenti tra app o siti web di altre società. Il framework App Tracking Transparency non viene utilizzato poiché non avviene alcun tracciamento.</p>
+
+            <h3>App Privacy Nutrition Label</h3>
+            <p>L'App Store privacy nutrition label di Substrata indica correttamente che l'app non raccoglie dati collegati all'identità dell'utente e non effettua tracciamento degli utenti.</p>
+
+            <!-- 14. CHANGES -->
+            <h2 id="changes">14. Modifiche alla presente Informativa</h2>
+            <p>Potremmo aggiornare periodicamente la presente Informativa sulla privacy per riflettere modifiche alle funzionalità dell'app o agli obblighi legali. In caso di modifiche:</p>
+            <ul>
+                <li>La data di "Ultimo aggiornamento" nella parte superiore di questa pagina verrà aggiornata.</li>
+                <li>Le modifiche rilevanti saranno comunicate tramite l'app o nella scheda dell'app sull'App Store.</li>
+                <li>L'uso continuato di Substrata dopo le modifiche implica l'accettazione dell'informativa aggiornata.</li>
+            </ul>
+            <p>Ti invitiamo a consultare periodicamente questa informativa. Il presente documento verrà aggiornato almeno una volta all'anno.</p>
+
+            <!-- 15. CONTACT -->
+            <h2 id="contact">15. Contattaci</h2>
+            <p>Se hai domande sulla presente Informativa sulla privacy, sui tuoi diritti in materia di privacy o sulle modalità con cui Substrata tratta i dati, puoi contattarci:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Sviluppatore:</strong> Kynoss Studios</li>
+                <li><strong>Pagina di supporto:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-support.html">Substrata Support</a></li>
+            </ul>
+            <p>Risponderemo alle richieste relative alla privacy entro 30 giorni.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. Tutti i diritti riservati.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-support.html">Supporto</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Informativa sulla privacy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

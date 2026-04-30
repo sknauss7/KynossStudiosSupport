@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supporto Substrata — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #2c5f2d;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7eb980;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Supporto Substrata</h1>
+            <p class="subtitle">di Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Substrata è un’app di intelligence per la salute ambientale che sovrappone i dati ambientali — condizioni meteo, pressione barometrica, esposizione al rumore e altro — ai tuoi dati sanitari da Apple Health per mettere in evidenza correlazioni nascoste che potrebbero essere associate al tuo benessere. Include un sistema per il monitoraggio delle cefalee e l’identificazione dei potenziali fattori scatenanti, un motore di correlazione statistica e un monitoraggio meteo completo — tutto elaborato interamente sul tuo dispositivo.</p>
+            <p><em>Substrata non è un dispositivo medico. Non formula diagnosi, non fornisce consigli medici e non sostituisce in alcun modo il parere di un professionista sanitario. Per qualsiasi problema di salute, consulta sempre un professionista sanitario qualificato.</em></p>
+
+            <h2>Contattaci</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">In genere rispondiamo entro 48 ore.</p>
+            </div>
+
+            <p>Quando contatti l’assistenza, ti invitiamo a includere:</p>
+            <ul>
+                <li>Il modello del tuo dispositivo e la versione di iOS</li>
+                <li>Una descrizione del problema o della domanda</li>
+                <li>I passaggi per riprodurre il problema (se applicabile)</li>
+                <li>Eventuali screenshot rilevanti</li>
+            </ul>
+
+            <h2>Domande frequenti</h2>
+
+            <dl class="faq">
+                <dt>Quali dati registra Substrata?</dt>
+                <dd>Substrata monitora le condizioni ambientali (meteo, pressione barometrica, temperatura, umidità, indice UV, vento, ore di luce, fase lunare) tramite Apple Weather e i dati sanitari (qualità del sonno, frequenza cardiaca, HRV, frequenza cardiaca a riposo, frequenza respiratoria, ossigenazione del sangue, temperatura del polso) tramite Apple Health. Se disponi di un Apple Watch, l’app legge anche i livelli di esposizione al rumore ambientale. Puoi inoltre registrare gli episodi di cefalea per identificare i tuoi potenziali fattori scatenanti personali.</dd>
+
+                <dt>A quali dati sanitari accede Substrata?</dt>
+                <dd>Con il tuo consenso, Substrata legge da Apple Health l’analisi del sonno, la frequenza cardiaca, la variabilità della frequenza cardiaca (HRV), la frequenza cardiaca a riposo, la frequenza respiratoria, l’ossigenazione del sangue, la temperatura del polso e i livelli di esposizione all’audio. Questo accesso è solo in lettura — Substrata non scrive né modifica in alcun modo i tuoi dati sanitari.</dd>
+
+                <dt>Come funziona il motore di correlazione?</dt>
+                <dd>Dopo aver raccolto almeno 14 giorni di dati, Substrata utilizza analisi statistiche sul dispositivo (regressione bayesiana) per individuare possibili collegamenti tra le condizioni ambientali e le tue metriche di salute. Tutta l’analisi viene eseguita interamente sul tuo iPhone — nessun dato viene inviato altrove. Le correlazioni tendono a diventare più affidabili con più dati (oltre 30 giorni per risultati più affidabili, oltre 60 per un’analisi completa).</dd>
+
+                <dt>Substrata invia i miei dati da qualche parte?</dt>
+                <dd>No. Tutto l’elaborato dei dati avviene esclusivamente sul tuo dispositivo. Le uniche richieste di rete sono verso Apple Weather per le condizioni meteo. Substrata non utilizza server propri, non prevede archiviazione nel cloud, non richiede account utente e non integra sistemi di analytics o tracciamento. I tuoi dati non lasciano mai il tuo iPhone.</dd>
+
+                <dt>Substrata utilizza la mia posizione?</dt>
+                <dd>La posizione viene utilizzata per recuperare i dati meteo locali da Apple Weather e, facoltativamente, per il rilevamento di zone (ad esempio casa, lavoro). Viene utilizzata solo la posizione approssimativa — Substrata non memorizza mai le coordinate precise. Puoi usare l’app anche senza concedere l’accesso alla posizione, ma in tal caso i dati meteo non saranno disponibili.</dd>
+
+                <dt>Come posso gestire le autorizzazioni?</dt>
+                <dd>Puoi gestire tutte le autorizzazioni (dati sanitari, posizione, notifiche) nell’app Impostazioni di iOS, alla voce Substrata. Puoi revocare in qualsiasi momento qualunque autorizzazione senza compromettere le altre funzionalità dell’app.</dd>
+
+                <dt>Cosa succede ai miei dati se elimino l’app?</dt>
+                <dd>Tutti i dati di Substrata sono archiviati localmente sul tuo dispositivo. Quando elimini l’app, tutti i dati associati vengono rimossi in modo permanente da iOS. Non c’è nulla da cancellare su alcun server, perché i dati non vengono mai trasmessi al di fuori del tuo dispositivo.</dd>
+
+                <dt>Quale versione di iOS è richiesta?</dt>
+                <dd>Substrata richiede iOS 26 o versioni successive ed è progettata per iPhone.</dd>
+
+                <dt>Substrata funziona con Apple Watch?</dt>
+                <dd>Apple Watch migliora sensibilmente l’esperienza — fornisce i livelli di rumore ambientale (dBA), la frequenza cardiaca, l’HRV, la frequenza respiratoria, l’ossigenazione del sangue e la temperatura del polso. Senza un Apple Watch, Substrata funziona comunque con i dati meteo, la durata del sonno, l’audio in cuffia e la classificazione dell’attività.</dd>
+
+                <dt>Che cos’è il sistema di monitoraggio delle cefalee?</dt>
+                <dd>Puoi registrare gli episodi di cefalea indicando intensità e tipologia (emicrania, tensione, a grappolo). Dopo aver registrato circa 20–30 episodi, il motore di correlazione tende a individuare i tuoi potenziali fattori scatenanti ambientali personali e può avvisarti quando le condizioni somigliano a quelle associate ai precedenti episodi di cefalea.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>La tua privacy è fondamentale nel progetto di Substrata. Per i dettagli completi su come trattiamo i tuoi dati in conformità alla normativa applicabile in materia di protezione dei dati personali, consulta la nostra <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Informativa sulla privacy</a>.</p>
+
+            <h2>Informazioni sull’app</h2>
+            <ul>
+                <li><strong>Sviluppatore:</strong> Kynoss Studios</li>
+                <li><strong>Piattaforma:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Categoria:</strong> Salute e benessere</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. Tutti i diritti riservati.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Informativa sulla privacy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

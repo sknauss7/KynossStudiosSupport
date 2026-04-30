@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substrata Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #2c5f2d;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7eb980;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Substrata Support</h1>
+            <p class="subtitle">por Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Substrata es una app de inteligencia en salud ambiental que superpone datos ambientales — condiciones meteorológicas, presión barométrica, exposición al ruido y más — con tus datos de salud de Apple Health para mostrar posibles correlaciones ocultas que podrían estar relacionadas con tu bienestar. Incluye un sistema de registro de dolores de cabeza e identificación de desencadenantes, un motor de correlación estadística y un monitoreo integral del clima, todo procesado por completo en tu dispositivo.</p>
+            <p><em>Substrata no es un dispositivo médico. No diagnostica enfermedades, no proporciona consejos médicos ni sustituye la orientación de profesionales de la salud. Consulta a un profesional de la salud ante cualquier duda o problema médico.</em></p>
+
+            <h2>Contáctanos</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">Normalmente respondemos en un plazo de 48 horas.</p>
+            </div>
+
+            <p>Al ponerte en contacto con soporte, incluye lo siguiente:</p>
+            <ul>
+                <li>El modelo de tu dispositivo y la versión de iOS</li>
+                <li>Una descripción del problema o pregunta</li>
+                <li>Los pasos para reproducir el problema (si aplica)</li>
+                <li>Cualquier captura de pantalla relevante</li>
+            </ul>
+
+            <h2>Preguntas frecuentes</h2>
+
+            <dl class="faq">
+                <dt>¿Qué datos registra Substrata?</dt>
+                <dd>Substrata supervisa condiciones ambientales (clima, presión barométrica, temperatura, humedad, índice UV, viento, horas de luz diurna, fase lunar) a través de Apple Weather, y datos de salud (calidad del sueño, frecuencia cardiaca, HRV, frecuencia cardiaca en reposo, frecuencia respiratoria, oxígeno en sangre, temperatura de la muñeca) a través de Apple Health. Si tienes un Apple Watch, también lee los niveles de exposición al ruido ambiental. También puedes registrar dolores de cabeza para identificar tus desencadenantes personales.</dd>
+
+                <dt>¿A qué datos de salud accede Substrata?</dt>
+                <dd>Con tu autorización, Substrata lee análisis de sueño, frecuencia cardiaca, variabilidad de la frecuencia cardiaca (HRV), frecuencia cardiaca en reposo, frecuencia respiratoria, oxígeno en sangre, temperatura de la muñeca y niveles de exposición al audio desde Apple Health. Este acceso es solo de lectura: Substrata nunca escribe ni modifica tus datos de salud.</dd>
+
+                <dt>¿Cómo funciona el motor de correlación?</dt>
+                <dd>Después de recopilar por lo menos 14 días de datos, Substrata utiliza análisis estadístico en el dispositivo (regresión bayesiana) para identificar posibles relaciones entre las condiciones ambientales y tus métricas de salud. Todo el análisis se ejecuta completamente en tu iPhone; no se envían datos a ningún lugar. Las correlaciones tienden a ser más confiables con más datos (más de 30 días para resultados más sólidos, más de 60 para un análisis más completo).</dd>
+
+                <dt>¿Substrata envía mis datos a algún lado?</dt>
+                <dd>No. Todo el procesamiento de datos ocurre por completo en tu dispositivo. Las únicas solicitudes de red son a Apple Weather para obtener condiciones meteorológicas. Substrata no tiene servidores, ni almacenamiento en la nube, ni cuentas de usuario, ni análisis ni rastreo. Tus datos no salen de tu iPhone.</dd>
+
+                <dt>¿Substrata utiliza mi ubicación?</dt>
+                <dd>La ubicación se utiliza para obtener datos meteorológicos locales desde Apple Weather y, de forma opcional, para la detección de zonas (por ejemplo, casa, trabajo). Solo se usa ubicación aproximada: Substrata nunca almacena coordenadas precisas. Puedes usar la app sin acceso a la ubicación, pero los datos del clima no estarán disponibles.</dd>
+
+                <dt>¿Cómo administro los permisos?</dt>
+                <dd>Puedes administrar todos los permisos (datos de salud, ubicación, notificaciones) en la app Configuración de iOS, en la sección de Substrata. Puedes revocar cualquier permiso en cualquier momento sin afectar otras funciones de la app.</dd>
+
+                <dt>¿Qué pasa con mis datos si elimino la app?</dt>
+                <dd>Todos los datos de Substrata se almacenan localmente en tu dispositivo. Cuando eliminas la app, iOS elimina de forma permanente todos los datos asociados. No hay nada que eliminar en ningún servidor porque ningún dato se transmite fuera de tu dispositivo.</dd>
+
+                <dt>¿Qué versión de iOS se requiere?</dt>
+                <dd>Substrata requiere iOS 26 o posterior y está diseñada para iPhone.</dd>
+
+                <dt>¿Substrata funciona con Apple Watch?</dt>
+                <dd>Apple Watch mejora la experiencia de forma importante: proporciona niveles de ruido ambiental (dBA), frecuencia cardiaca, HRV, frecuencia respiratoria, oxígeno en sangre y temperatura de la muñeca. Sin un Watch, Substrata sigue funcionando con datos del clima, duración del sueño, audio en audífonos y clasificación de actividad.</dd>
+
+                <dt>¿Qué es el registrador de dolores de cabeza?</dt>
+                <dd>Puedes registrar episodios de dolor de cabeza con su intensidad y tipo (migraña, tensión, racimos). Después de registrar aproximadamente entre 20 y 30 episodios, el motor de correlación tiende a identificar tus desencadenantes ambientales personales y puede avisarte cuando las condiciones se parezcan a patrones de dolores de cabeza previos.</dd>
+            </dl>
+
+            <h2>Privacidad</h2>
+            <p>Tu privacidad es fundamental para el diseño de Substrata. Para obtener todos los detalles sobre cómo tratamos tus datos, consulta nuestro <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Aviso de privacidad</a>.</p>
+
+            <h2>Información de la app</h2>
+            <ul>
+                <li><strong>Desarrollador:</strong> Kynoss Studios</li>
+                <li><strong>Plataforma:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Categoría:</strong> Salud y ejercicio</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/substrata-privacy.html">Aviso de privacidad</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
