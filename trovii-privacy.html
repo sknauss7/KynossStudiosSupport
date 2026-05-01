@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trovii Privacy Policy — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #3D3F73;
+            --card-bg: #fff;
+            --highlight-bg: #f1f1f7;
+            --highlight-border: #3D3F73;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #7B7DC4;
+                --card-bg: #242424;
+                --highlight-bg: #1f1f2c;
+                --highlight-border: #7B7DC4;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .effective-date {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        .highlight p + p {
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--card-bg);
+            font-weight: 600;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .toc ol {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--fg);
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Trovii Privacy Policy</h1>
+            <p class="subtitle">Kynoss Studios</p>
+            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 1, 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone. Photos do not leave your device unless you choose to share a monthly digest with grandparents — that uses Apple's CloudKit family sharing (the same iCloud infrastructure your Photos and Notes use). Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#what-stored">What Trovii Stores &amp; Where</a></li>
+                    <li><a href="#camera-photos">Camera &amp; Photo Access</a></li>
+                    <li><a href="#ckshare">CKShare (Grandparent Digest)</a></li>
+                    <li><a href="#apns">Push Notifications (APNs)</a></li>
+                    <li><a href="#storekit">In-App Purchases (StoreKit 2)</a></li>
+                    <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
+                    <li><a href="#data-sharing">Data Sharing &amp; Third Parties</a></li>
+                    <li><a href="#data-security">Data Security</a></li>
+                    <li><a href="#children">Children's Privacy (COPPA)</a></li>
+                    <li><a href="#gdpr">Your Rights Under GDPR</a></li>
+                    <li><a href="#ccpa">Your Rights Under CCPA/CPRA</a></li>
+                    <li><a href="#apple-requirements">Apple Platform Disclosures</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </nav>
+
+            <!-- 1. OVERVIEW -->
+            <h2 id="overview">1. Overview</h2>
+            <p>Trovii ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Trovii is a privacy-first kids' artwork archive for iPhone (iOS 26 and later). Parents capture photos of their kids' drawings, paintings, and crafts; Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface; the artwork is organized by sibling group and capture date; and at year-end you can export a multi-kid PDF photobook. An optional monthly "digest" feature lets you send a 5-card highlight to grandparents through Apple's secure family-sharing.</p>
+            <p>This Privacy Policy explains exactly what data Trovii accesses, where that data is stored, and what Kynoss Studios can or cannot see. The default architecture is on-device — your kids' artwork lives on your iPhone in a sandboxed SwiftData store. The only time data leaves your device is when you actively choose to share a monthly digest, and even then it travels through Apple's CloudKit family-sharing infrastructure (CKShare) — never to a Kynoss server.</p>
+            <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CKShare-resident data Trovii creates — only when you opt in to sharing — lives in your iCloud account and is shared with the grandparent iCloud accounts you designate. Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
+
+            <!-- 2. WHAT TROVII STORES & WHERE -->
+            <h2 id="what-stored">2. What Trovii Stores &amp; Where</h2>
+
+            <p>Trovii's data model spans three locations: your device (private to you, the default for everything), Apple's CKShare (only when you opt in to grandparent sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
+
+            <h3>What's stored on your device (SwiftData, encrypted at rest)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Purpose</th>
+                        <th>Visible to Kynoss?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sibling group + per-kid metadata (display names, kid colors, capture dates)</td>
+                        <td>Organize artwork by kid; render the cross-sibling joint timeline</td>
+                        <td>No — never transmitted</td>
+                    </tr>
+                    <tr>
+                        <td>Artwork photos (original + auto-cropped versions)</td>
+                        <td>Display in the family timeline; export to year-end photobook PDF</td>
+                        <td>No — never transmitted unless you opt in to a CKShare digest</td>
+                    </tr>
+                    <tr>
+                        <td>Optional voice-memo transcripts (on-device speech recognition)</td>
+                        <td>Caption artworks with the kid's own description; transcribed locally via Apple's <code>SFSpeechRecognizer</code></td>
+                        <td>No — never transmitted</td>
+                    </tr>
+                    <tr>
+                        <td>Favorite flags + capture dates</td>
+                        <td>Generate the monthly digest's 5-card highlight selection; sort the timeline</td>
+                        <td>No — never transmitted</td>
+                    </tr>
+                    <tr>
+                        <td>App preferences (digest send-day, theme, audio toggles)</td>
+                        <td>App configuration</td>
+                        <td>No — never transmitted</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>What's stored in Apple's CKShare — only if you opt in to grandparent sharing</h3>
+            <p>If you choose to set up a grandparent digest (Section 4), the shared records live in a separate <code>NSPersistentCloudKitContainer</code> tied to your iCloud account, with explicit CKShare participants you designate. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable grandparent sharing, Trovii writes nothing to CloudKit — the app is completely on-device.</p>
+
+            <h3>What's stored with Apple StoreKit (Trovii Pro)</h3>
+            <p>Apple processes Trovii's in-app purchase tiers (monthly subscription, yearly subscription, or one-time lifetime). Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
+
+            <h3>What's NOT stored anywhere</h3>
+            <ul>
+                <li>No analytics events leave your device. Trovii uses Apple's <code>OSLog</code> and <code>MetricKit</code> signposts internally for paywall and feature instrumentation; those signposts stay on-device unless you have separately opted into Apple's system-wide diagnostics sharing in iOS Settings, in which case Apple receives them — never Kynoss.</li>
+                <li>No advertising identifier (IDFA) is read.</li>
+                <li>No third-party SDKs are bundled — Trovii uses only Apple's first-party frameworks.</li>
+                <li>No keystrokes, no clipboard reads, no contacts access, no location, no microphone access (voice memos use the speech-recognition path which only needs <code>SFSpeechRecognizer</code> permission, not raw microphone), no photo library access beyond what you explicitly pick.</li>
+            </ul>
+
+            <!-- 3. CAMERA & PHOTOS -->
+            <h2 id="camera-photos">3. Camera &amp; Photo Access</h2>
+            <p>Trovii needs the iOS Camera permission to capture artwork photos. This is the standard <code>NSCameraUsageDescription</code> permission — iOS prompts you at first capture. Captured photos are written directly to Trovii's sandboxed SwiftData store; they are not added to your system Photos library unless you explicitly choose "Save to Photos" from the artwork detail menu.</p>
+            <p>If you prefer not to grant the Camera permission, you can import existing photos from your Photo Library. Trovii uses <code>PHPickerViewController</code> for this, which Apple sandboxes — Trovii receives only the specific photos you pick, not access to the rest of your library.</p>
+
+            <!-- 4. CKSHARE -->
+            <h2 id="ckshare">4. CKShare (Grandparent Digest)</h2>
+            <p>If you choose to set up a grandparent digest, Trovii uses Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the participants you designate.</p>
+
+            <h3>What's shared</h3>
+            <p>Each month (or on-demand), Trovii prepares a <code>MonthlyDigest</code> record containing five highlight artworks — these are the artworks you've favorited, or the most recent if no favorites are set. The <code>MonthlyDigest</code> contains:</p>
+            <ul>
+                <li>Five processed artwork images (the cropped versions Trovii produced via Vision auto-crop)</li>
+                <li>The capture month and year</li>
+                <li>Per-artwork metadata: kid display name (only the first name you entered locally), capture date, optional caption</li>
+            </ul>
+            <p>The original (unprocessed) artworks, the rest of your timeline, your sibling group structure, and any non-highlight artworks <strong>are not shared</strong>. Only the five-card digest is.</p>
+
+            <h3>Who can see the digest</h3>
+            <ul>
+                <li><strong>Only the iCloud accounts you designate</strong> as CKShare participants. You initiate sharing by tapping "Share with Grandparents" in Settings; Trovii calls Apple's <code>NSPersistentCloudKitContainer.share()</code> and presents a standard iOS share-sheet so you can send the share URL via Mail, iMessage, AirDrop, or any system-supported channel.</li>
+                <li>Recipients must accept the share via Apple's standard "Accept Shared Content" prompt; until they accept, they cannot see the digest.</li>
+                <li>You can revoke the share or remove a participant at any time from the in-app sharing settings.</li>
+            </ul>
+
+            <h3>Who CANNOT see the digest</h3>
+            <ul>
+                <li><strong>Kynoss Studios cannot see CKShare records.</strong> Apple's CKShare access model restricts visibility to the participants themselves. Kynoss has no dashboard view, no API access, and no operational ability to read shared records.</li>
+                <li><strong>Other users of Trovii cannot see your digest.</strong> CKShare is scoped per-share — there is no public CloudKit container, no global feed, no cross-user surfacing.</li>
+                <li><strong>Apple cannot read CKShare content under normal operation.</strong> Apple operates the CKShare infrastructure but the content is encrypted under your iCloud account; Apple's standard iCloud privacy posture applies.</li>
+            </ul>
+
+            <h3>CKShare is optional</h3>
+            <p>You can use Trovii's full local feature set — capture, auto-crop, sibling timeline, year-end PDF photobook export — without ever setting up a grandparent digest. The digest is opt-in.</p>
+
+            <!-- 5. APNS -->
+            <h2 id="apns">5. Push Notifications (APNs)</h2>
+            <p>Trovii sends push notifications via Apple Push Notification service (APNs) for two purposes:</p>
+            <ul>
+                <li><strong>Monthly digest reminder:</strong> if you've set up grandparent sharing, a single push at your chosen send-day reminds you that this month's digest is ready to review and send.</li>
+                <li><strong>New shared digest received (recipient-side):</strong> grandparents who have accepted a CKShare invitation receive a push when you send a new digest. This uses Apple's standard CloudKit subscription mechanism — Trovii doesn't operate the push-delivery server; Apple does.</li>
+            </ul>
+            <p>Push notifications are entirely opt-in via the standard iOS prompt at first launch. Apple operates APNs; Kynoss does not receive notification-delivery telemetry beyond Apple's standard error response (e.g., "device token invalid"). No notification content is logged.</p>
+
+            <!-- 6. STOREKIT -->
+            <h2 id="storekit">6. In-App Purchases (StoreKit 2)</h2>
+            <p>Trovii Pro is sold three ways:</p>
+            <ul>
+                <li><strong>Monthly subscription</strong> (<code>trovii_pro_monthly</code>) with a 3-day free trial</li>
+                <li><strong>Yearly subscription</strong> (<code>trovii_pro_yearly</code>) with a 3-day free trial — paywall default</li>
+                <li><strong>Lifetime non-consumable</strong> (<code>trovii_lifetime</code>) — one-time purchase, no trial</li>
+            </ul>
+            <p>All three unlock the same Pro feature set — unlimited captures, sibling timelines, monthly grandparent digest sharing, and year-end photobook PDF export. There is no tier asymmetry.</p>
+            <p>All transaction processing is handled by Apple. Kynoss Studios does not receive, store, or have access to payment information. Purchase status is verified locally using Apple's on-device <code>Transaction.currentEntitlements</code> API. Subscription management (cancellation, refunds) is handled through Apple's standard <a href="https://apps.apple.com/account/subscriptions">Subscription Settings</a> in the App Store.</p>
+
+            <!-- 7. DATA RETENTION & DELETION -->
+            <h2 id="data-retention">7. Data Retention &amp; Deletion</h2>
+
+            <h3>Retention Policy</h3>
+            <ul>
+                <li>Local data on your device (artwork photos, sibling groups, app preferences) is retained until you delete the app or remove the data via in-app controls.</li>
+                <li>CKShare digest records persist as long as the share is active. Removing a digest from your in-app history removes it from all participants' views.</li>
+                <li>StoreKit purchase records are retained by Apple per Apple's data retention policies.</li>
+            </ul>
+
+            <h3>Deletion</h3>
+            <ul>
+                <li><strong>Delete an artwork:</strong> in-app long-press or the artwork detail menu. The photo and metadata are removed locally. If the artwork was part of an already-sent CKShare digest, that digest record retains the included photo unless you also remove the digest.</li>
+                <li><strong>Delete a digest:</strong> Settings → "Share with Grandparents" → digest history. Removing a digest removes the share record from your account and all participants' views.</li>
+                <li><strong>Stop sharing with a grandparent:</strong> Settings → "Share with Grandparents" → Participants → remove. The participant loses access immediately.</li>
+                <li><strong>Delete the app:</strong> removes all local data on your device (artwork photos, sibling groups, preferences). CKShare records remain in your iCloud account until you separately remove them or sign out of iCloud.</li>
+                <li><strong>Sign out of iCloud:</strong> disconnects your CKShare records. You can re-sign-in later and CKShare records are restored to the same participants if Apple's iCloud sync resumes.</li>
+                <li><strong>Apple's Privacy &amp; Data settings:</strong> Apple provides system-level data export and deletion for iCloud data via iOS Settings → [your name] → iCloud → Apps Using iCloud.</li>
+            </ul>
+
+            <!-- 8. DATA SHARING & THIRD PARTIES -->
+            <h2 id="data-sharing">8. Data Sharing &amp; Third Parties</h2>
+
+            <div class="highlight">
+                <p><strong>Kynoss Studios does not share your data with anyone.</strong> The only third party involved in Trovii is Apple, which provides the platform infrastructure (CloudKit, CKShare, APNs, StoreKit) Trovii relies on. Apple's handling of this data is governed by Apple's Privacy Policy.</p>
+            </div>
+
+            <ul>
+                <li>We do not sell your data.</li>
+                <li>We do not share your data with marketing, advertising, or analytics third parties.</li>
+                <li>We do not bundle third-party SDKs, frameworks, or libraries that could collect data. (Trovii uses only Apple's first-party frameworks: SwiftUI, SwiftData, Vision, Core Image, PDFKit, AVFoundation, SFSpeechRecognizer, StoreKit 2, CloudKit, CKShare, OSLog, MetricKit.)</li>
+                <li>We do not bundle third-party analytics SDKs (no RevenueCat, no Adapty, no Superwall, no Mixpanel, no Amplitude, no Firebase). Apple-native paywall instrumentation via <code>OSLog</code> + <code>MetricKit</code> stays on-device unless you have opted into Apple's system-wide diagnostics sharing.</li>
+                <li>We do not serve advertisements.</li>
+                <li>We do not engage in cross-app tracking, fingerprinting, or user profiling.</li>
+                <li>We have no parent companies, subsidiaries, or related entities (Kynoss Studios is an independent sole developer).</li>
+            </ul>
+
+            <!-- 9. DATA SECURITY -->
+            <h2 id="data-security">9. Data Security</h2>
+            <p>Trovii relies on Apple's built-in security infrastructure to protect your data:</p>
+            <ul>
+                <li><strong>Encryption at rest:</strong> Local artwork data is protected by iOS Data Protection (encryption tied to your device passcode). CKShare data is encrypted under your iCloud account.</li>
+                <li><strong>Encryption in transit:</strong> All CloudKit, CKShare, and APNs traffic uses Apple's TLS-encrypted transport.</li>
+                <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing Trovii's local data store.</li>
+                <li><strong>CKShare access controls:</strong> CKShare records are only readable by participants you explicitly designate — Apple enforces this access model.</li>
+                <li><strong>No Kynoss-operated infrastructure:</strong> Because Kynoss does not operate servers, databases, or backend services, there are no Kynoss credentials to breach and no Kynoss systems to compromise.</li>
+            </ul>
+
+            <!-- 10. CHILDREN'S PRIVACY (COPPA) -->
+            <h2 id="children">10. Children's Privacy (COPPA)</h2>
+
+            <p>Trovii is rated 4+ and is suitable for all ages. Trovii is operated <strong>by parents, on behalf of</strong> their kids — children are not direct users of the app. The COPPA-relevant analysis follows.</p>
+
+            <h3>Trovii's user is the parent</h3>
+            <p>Trovii has no kid-facing sign-in surface, no kid-targeted ads, no kid-targeted content, and no in-app messaging or social features. The app is operated entirely by an adult parent or guardian, who chooses to capture photos of their kids' artwork and may choose to share them via CKShare with grandparents.</p>
+
+            <h3>What kid data Trovii touches</h3>
+            <ul>
+                <li><strong>Kid display names:</strong> a first name or nickname the parent enters during onboarding (e.g., "Maya," "Buddy"). Stored on-device by default. Included in shared digests only when a digest is sent.</li>
+                <li><strong>Kid artwork photos:</strong> photos taken by the parent of artwork the kids have made. Stored on-device by default. Included in shared digests only when a digest is sent.</li>
+                <li><strong>Kid voice memos (optional):</strong> if the parent enables voice memos and the kid records a description, the audio is transcribed on-device via <code>SFSpeechRecognizer</code> and the original audio is discarded. Only the transcript is stored.</li>
+            </ul>
+
+            <h3>What kid data Trovii does NOT collect</h3>
+            <ul>
+                <li>No kid email addresses, postal addresses, phone numbers, real names beyond the parent-entered display name, birthdates, schools, classmates, friends, or any other personal information.</li>
+                <li>No kid-facing ads.</li>
+                <li>No kid-targeted in-app content or messaging.</li>
+                <li>No kid contact information shared with third parties.</li>
+            </ul>
+
+            <h3>Parent control</h3>
+            <p>Parents have complete control over their kids' artwork data in Trovii. The parent can:</p>
+            <ul>
+                <li>Edit or delete a kid's display name at any time</li>
+                <li>Delete individual artworks</li>
+                <li>Stop sharing or remove participants from a CKShare digest</li>
+                <li>Delete the app to remove all local kid data</li>
+            </ul>
+            <p>If you are a parent or guardian and have questions about Trovii's handling of your kids' artwork data, please contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 11. GDPR -->
+            <h2 id="gdpr">11. Your Rights Under GDPR (European Economic Area)</h2>
+            <p>If you are located in the European Economic Area (EEA), the General Data Protection Regulation (GDPR) provides specific rights regarding your personal data. Trovii's architecture means most data subject to GDPR is held on your device or under your iCloud account by Apple — not by Kynoss Studios.</p>
+
+            <h3>Legal Basis for Processing</h3>
+            <ul>
+                <li><strong>Legitimate interest:</strong> Processing on-device artwork photos to deliver the app's core functionality.</li>
+                <li><strong>Consent:</strong> Camera access, photo library access, CKShare grandparent enrollment, and push notifications are all opt-in. You may decline any of them and continue using on-device features.</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right of access:</strong> Your local data is accessible to you in the app; your iCloud data is accessible via Apple's Privacy &amp; Data settings.</li>
+                <li><strong>Right to erasure:</strong> See <a href="#data-retention">Section 7 (Data Retention &amp; Deletion)</a> for the deletion paths.</li>
+                <li><strong>Right to restrict processing:</strong> Decline Camera access and CKShare to keep all processing on-device.</li>
+                <li><strong>Right to data portability:</strong> Photos can be exported via the share sheet to any iOS-supported destination (Mail, AirDrop, system Photos library, etc.).</li>
+                <li><strong>Right to object:</strong> Stop using Trovii and request deletion via the contact below.</li>
+            </ul>
+
+            <h3>Data Transfers</h3>
+            <p>Apple operates CloudKit and CKShare globally; Apple is GDPR-compliant. Kynoss Studios does not directly transfer personal data outside your device or your iCloud account.</p>
+
+            <h3>Data Protection Officer</h3>
+            <p>Due to the small scale of Kynoss Studios (sole-developer, no PII collection), we are not required to appoint a Data Protection Officer. For privacy inquiries, contact <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 12. CCPA/CPRA -->
+            <h2 id="ccpa">12. Your Rights Under CCPA/CPRA (California)</h2>
+            <p>If you are a California resident, the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA) provides you with specific rights.</p>
+
+            <h3>Information We Collect</h3>
+            <p>Under CCPA/CPRA definitions, Trovii processes the following categories of information:</p>
+            <ul>
+                <li>Photos of artwork (User Content) and parent-entered kid display names, stored on-device by default and shared via CKShare only with the participants you explicitly designate.</li>
+                <li>No name, email, postal address, phone number, IP address, or other directly identifying information about the parent is collected by Kynoss Studios. Apple manages StoreKit purchase identifiers; Kynoss does not receive them.</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right to know:</strong> This Privacy Policy describes all data Trovii processes.</li>
+                <li><strong>Right to delete:</strong> See <a href="#data-retention">Section 7</a>.</li>
+                <li><strong>Right to opt out of sale:</strong> <strong>We do not sell personal information.</strong> We never have and never will.</li>
+                <li><strong>Right to opt out of sharing:</strong> We do not share personal information with third parties for cross-context behavioral advertising or any other purpose.</li>
+                <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
+            </ul>
+
+            <h3>"Do Not Sell or Share My Personal Information"</h3>
+            <p>Trovii does not sell or share personal information. There is no sale or sharing to opt out of.</p>
+
+            <!-- 13. APPLE PLATFORM DISCLOSURES -->
+            <h2 id="apple-requirements">13. Apple Platform Disclosures</h2>
+            <p>In compliance with Apple's App Store Review Guidelines and platform requirements:</p>
+
+            <h3>Camera + Photos</h3>
+            <ul>
+                <li>Trovii requests Camera access (<code>NSCameraUsageDescription</code>) for capturing artwork photos.</li>
+                <li>Trovii uses <code>PHPickerViewController</code> for importing existing photos — Apple sandboxes this so Trovii receives only the specific photos you pick.</li>
+            </ul>
+
+            <h3>Vision (on-device document segmentation)</h3>
+            <ul>
+                <li>Trovii uses Apple's Vision framework (<code>VNDetectDocumentSegmentationRequest</code>) to detect artwork paper edges in captured photos. This runs entirely on-device — no photo data is transmitted to Apple or to any third party for this processing.</li>
+            </ul>
+
+            <h3>Speech Recognition (optional)</h3>
+            <ul>
+                <li>If you enable voice memos, Trovii uses Apple's <code>SFSpeechRecognizer</code> with the on-device speech recognition mode. Audio is processed locally; only the transcript text is stored.</li>
+            </ul>
+
+            <h3>CloudKit + CKShare</h3>
+            <ul>
+                <li>Trovii uses CloudKit for the optional grandparent digest feature only. If you do not enable digest sharing, Trovii does not write anything to CloudKit.</li>
+                <li>CKShare records are scoped to participants you designate; Kynoss has no access.</li>
+                <li>CloudKit is operated by Apple; Apple's Privacy Policy and CloudKit security model apply.</li>
+            </ul>
+
+            <h3>StoreKit 2 (In-App Purchases)</h3>
+            <ul>
+                <li>Trovii uses StoreKit 2 to offer monthly + yearly subscriptions and a one-time lifetime non-consumable.</li>
+                <li>All transaction processing is handled by Apple. Kynoss Studios does not receive, store, or have access to payment information.</li>
+                <li>Purchase status is verified locally using Apple's on-device <code>Transaction.currentEntitlements</code> API.</li>
+            </ul>
+
+            <h3>Push Notifications (APNs)</h3>
+            <ul>
+                <li>Trovii uses Apple Push Notification service for digest reminders and (recipient-side) new-digest-received notifications.</li>
+                <li>Push notifications are opt-in; you can disable them at any time in iOS Settings.</li>
+            </ul>
+
+            <h3>Required Reason APIs</h3>
+            <p>Trovii uses only Apple's first-party frameworks. Any Required Reason API usage is declared in the app's privacy manifest (<code>PrivacyInfo.xcprivacy</code>) and reflected in the App Store privacy nutrition label.</p>
+
+            <h3>App Tracking Transparency</h3>
+            <p>Trovii does not track users across apps or websites owned by other companies. The App Tracking Transparency framework is not used because no tracking occurs.</p>
+
+            <h3>App Privacy Nutrition Label</h3>
+            <p>Trovii's App Store privacy nutrition label declares: User Content (artwork photos + parent-entered kid display names) used for app functionality only; Purchases (Apple-managed entitlement) used for app functionality only — neither linked to user identity, neither used for tracking, analytics, or advertising. Usage Data is declared "Not Collected" — Trovii's <code>OSLog</code> and <code>MetricKit</code> signposts stay on-device unless you have separately opted into Apple's system-wide diagnostics sharing.</p>
+
+            <!-- 14. CHANGES -->
+            <h2 id="changes">14. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in the app's functionality or legal requirements. When we make changes:</p>
+            <ul>
+                <li>The "Last Updated" date at the top of this page will be revised.</li>
+                <li>Material changes will be communicated through the app or its App Store listing.</li>
+                <li>Continued use of Trovii after changes constitutes acceptance of the updated policy.</li>
+            </ul>
+            <p>We encourage you to review this policy periodically.</p>
+
+            <!-- 15. CONTACT -->
+            <h2 id="contact">15. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, your privacy rights, or Trovii's data practices, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Support Page:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-support.html">Trovii Support</a></li>
+            </ul>
+            <p>We respond to privacy inquiries within 30 days.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
