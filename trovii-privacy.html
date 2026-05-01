@@ -198,7 +198,7 @@
         <header>
             <h1>Trovii Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 1, 2026</p>
+            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 2, 2026</p>
         </header>
 
         <main>
@@ -259,11 +259,6 @@
                         <td>No — never transmitted unless you opt in to a CKShare digest</td>
                     </tr>
                     <tr>
-                        <td>Optional voice-memo transcripts (on-device speech recognition)</td>
-                        <td>Caption artworks with the kid's own description; transcribed locally via Apple's <code>SFSpeechRecognizer</code></td>
-                        <td>No — never transmitted</td>
-                    </tr>
-                    <tr>
                         <td>Favorite flags + capture dates</td>
                         <td>Generate the monthly digest's 5-card highlight selection; sort the timeline</td>
                         <td>No — never transmitted</td>
@@ -287,7 +282,7 @@
                 <li>No analytics events leave your device. Trovii uses Apple's <code>OSLog</code> and <code>MetricKit</code> signposts internally for paywall and feature instrumentation; those signposts stay on-device unless you have separately opted into Apple's system-wide diagnostics sharing in iOS Settings, in which case Apple receives them — never Kynoss.</li>
                 <li>No advertising identifier (IDFA) is read.</li>
                 <li>No third-party SDKs are bundled — Trovii uses only Apple's first-party frameworks.</li>
-                <li>No keystrokes, no clipboard reads, no contacts access, no location, no microphone access (voice memos use the speech-recognition path which only needs <code>SFSpeechRecognizer</code> permission, not raw microphone), no photo library access beyond what you explicitly pick.</li>
+                <li>No keystrokes, no clipboard reads, no contacts access, no location, no microphone access, no photo library access beyond what you explicitly pick.</li>
             </ul>
 
             <!-- 3. CAMERA & PHOTOS -->
@@ -375,7 +370,7 @@
             <ul>
                 <li>We do not sell your data.</li>
                 <li>We do not share your data with marketing, advertising, or analytics third parties.</li>
-                <li>We do not bundle third-party SDKs, frameworks, or libraries that could collect data. (Trovii uses only Apple's first-party frameworks: SwiftUI, SwiftData, Vision, Core Image, PDFKit, AVFoundation, SFSpeechRecognizer, StoreKit 2, CloudKit, CKShare, OSLog, MetricKit.)</li>
+                <li>We do not bundle third-party SDKs, frameworks, or libraries that could collect data. (Trovii uses only Apple's first-party frameworks: SwiftUI, SwiftData, Vision, Core Image, PDFKit, AVFoundation, StoreKit 2, CloudKit, CKShare, OSLog, MetricKit.)</li>
                 <li>We do not bundle third-party analytics SDKs (no RevenueCat, no Adapty, no Superwall, no Mixpanel, no Amplitude, no Firebase). Apple-native paywall instrumentation via <code>OSLog</code> + <code>MetricKit</code> stays on-device unless you have opted into Apple's system-wide diagnostics sharing.</li>
                 <li>We do not serve advertisements.</li>
                 <li>We do not engage in cross-app tracking, fingerprinting, or user profiling.</li>
@@ -405,7 +400,6 @@
             <ul>
                 <li><strong>Kid display names:</strong> a first name or nickname the parent enters during onboarding (e.g., "Maya," "Buddy"). Stored on-device by default. Included in shared digests only when a digest is sent.</li>
                 <li><strong>Kid artwork photos:</strong> photos taken by the parent of artwork the kids have made. Stored on-device by default. Included in shared digests only when a digest is sent.</li>
-                <li><strong>Kid voice memos (optional):</strong> if the parent enables voice memos and the kid records a description, the audio is transcribed on-device via <code>SFSpeechRecognizer</code> and the original audio is discarded. Only the transcript is stored.</li>
             </ul>
 
             <h3>What kid data Trovii does NOT collect</h3>
@@ -487,11 +481,6 @@
             <h3>Vision (on-device document segmentation)</h3>
             <ul>
                 <li>Trovii uses Apple's Vision framework (<code>VNDetectDocumentSegmentationRequest</code>) to detect artwork paper edges in captured photos. This runs entirely on-device — no photo data is transmitted to Apple or to any third party for this processing.</li>
-            </ul>
-
-            <h3>Speech Recognition (optional)</h3>
-            <ul>
-                <li>If you enable voice memos, Trovii uses Apple's <code>SFSpeechRecognizer</code> with the on-device speech recognition mode. Audio is processed locally; only the transcript text is stored.</li>
             </ul>
 
             <h3>CloudKit + CKShare</h3>
