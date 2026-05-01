@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markki Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #2D6A4F;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #5BA47F;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Markki Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Markki turns a 5-minute property walk-through into a numbered PDF report. Auto-numbered callouts stay consistent across every photo, with one auto-aggregating legend on the cover. Privacy-first: everything stays on your iPhone — no account, no cloud, no analytics.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>Does Markki upload my reports or photos anywhere?</dt>
+                <dd>No. Markki processes everything entirely on your iPhone. Photos, callouts, transcripts, and PDFs never leave your device. We have no servers to receive them.</dd>
+
+                <dt>Why does Markki need camera access?</dt>
+                <dd>To capture photos directly into a report during a property walk-through. The camera is the primary input for the workflow. Camera frames are processed in-app only and never transmitted anywhere.</dd>
+
+                <dt>Why does Markki need photo library access?</dt>
+                <dd>So you can add existing photos to a report (a photo you already took, or photos a colleague AirDropped to you). Markki only reads photos you explicitly pick from the library. The app never reads your library in bulk and never copies anything off your device.</dd>
+
+                <dt>Why does Markki ask for location?</dt>
+                <dd>To stamp each photo with the property address (reverse-geocoded from GPS coordinates) and to overlay coordinates on the PDF cover page. Location is read at capture time only — never stored beyond the report itself, never transmitted, and never shared. You can decline location and Markki will still produce reports without the address overlay.</dd>
+
+                <dt>What's the difference between the trial and paying?</dt>
+                <dd>Markki has no permanent free tier. When you launch the app for the first time, you'll see three Pro options: monthly with a 3-day free trial, yearly with a 3-day free trial, or a one-time lifetime purchase (no trial). All three give you the same Pro experience: unlimited reports, all templates, and no watermarks. Pick the one that fits how you work — there's no "Pro+" tier waiting to upsell you later.</dd>
+
+                <dt>Does Markki work without an internet connection?</dt>
+                <dd>Yes. All capture, callout placement, PDF rendering, and export work entirely offline. Markki makes no network requests except to App Store servers for purchase verification.</dd>
+
+                <dt>What templates are included?</dt>
+                <dd>Three templates ship in v1: Property Inspection (broad), HOA Inspection (community-manager / volunteer-board use case), and Punch List (independent contractor / handyman). Each carries default callout categories, cover-page metadata, and area prompts tuned to that workflow.</dd>
+
+                <dt>How do I export a report?</dt>
+                <dd>Open the report, tap Export. Markki composes a multi-photo PDF with cover page (template metadata + property info), photos with annotations, and one numbered legend that aggregates every callout across the report. The PDF appears in the iOS share sheet — send via email, Messages, AirDrop, save to Files, etc.</dd>
+
+                <dt>The PDF is large — how do I email it?</dt>
+                <dd>Markki automatically compresses photos at PDF assembly so a typical 10–50-photo report lands under email-attachment limits. For larger reports, use Mail.app — it transparently uses Apple's Mail Drop to deliver files up to 5 GB via an iCloud link. You can also share via Messages or AirDrop, which handle large files natively.</dd>
+
+                <dt>Can I reorder photos in a report?</dt>
+                <dd>Yes — drag to reorder, and the cross-image legend stays in sync. Markki keeps callout 1 as callout 1 whether it's on photo 1 or photo 23.</dd>
+
+                <dt>Can I edit a callout after I've placed it?</dt>
+                <dd>Yes. Tap any callout to edit its label, drag to reposition, or delete it. The legend updates automatically on the next render.</dd>
+
+                <dt>What happens to my reports if I delete the app?</dt>
+                <dd>All Markki reports are stored locally on your device via Apple's SwiftData framework. When you delete the app, all reports are permanently removed by iOS. Your photos in the Photos app are unaffected. There's nothing to delete from any server because no data is ever transmitted off your device. If you want to keep your archive, export PDFs to Files or iCloud Drive before deleting the app.</dd>
+
+                <dt>How do I cancel my subscription?</dt>
+                <dd>iOS Settings → tap your name → Subscriptions → Markki → Cancel. Cancellation takes effect at the end of your current billing period; you keep Pro access until then. If you're in the 3-day free trial, cancel any time before the trial ends to avoid being charged.</dd>
+
+                <dt>How do I restore a previous purchase?</dt>
+                <dd>Tap Restore Purchases on the paywall or in Settings → Restore Purchases. As long as you're signed in to the same Apple ID that made the original purchase, your Pro entitlement (or lifetime purchase) is recovered immediately.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Markki requires iOS 18 or later and is designed for iPhone. iPad layout is planned for a future update.</dd>
+
+                <dt>How is Markki different from Annotable, iMark, or Snap Markup?</dt>
+                <dd>Those tools place callouts per photo, but the numbers reset on every image. If you want a single legend that indexes all callouts across a 12-photo report, you have to manually renumber and re-export. Markki keeps callouts numbered consistently across the whole report and aggregates them into one legend automatically. That's the entire wedge.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Markki's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/markki-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 18+)</li>
+                <li><strong>Category:</strong> Productivity</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/markki-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
