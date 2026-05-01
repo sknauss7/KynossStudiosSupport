@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tippsi Privacy Policy — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fbf6ee;
+            --fg: #1a1a1a;
+            --muted: #6b6258;
+            --border: #e6dccc;
+            --accent: #7B1F35;
+            --card-bg: #ffffff;
+            --highlight-bg: #f5e9eb;
+            --highlight-border: #7B1F35;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1011;
+                --fg: #efe6dc;
+                --muted: #a39990;
+                --border: #3a2730;
+                --accent: #d27a8a;
+                --card-bg: #25181c;
+                --highlight-bg: #2a181d;
+                --highlight-border: #d27a8a;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .effective-date {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        .highlight p + p {
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--card-bg);
+            font-weight: 600;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .toc ol {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--fg);
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        code {
+            font-family: "SF Mono", Menlo, Consolas, monospace;
+            font-size: 0.85em;
+            background: var(--highlight-bg);
+            padding: 0.1em 0.35em;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tippsi Privacy Policy</h1>
+            <p class="subtitle">Kynoss Studios</p>
+            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 1, 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>The short version:</strong> Tippsi processes everything on your device. We have no servers, no accounts, no third-party analytics SDKs, no ads, and no tracking. Your camera frames, hand photos, and saved looks never leave your iPhone. The only data we record is anonymous on-device paywall lifecycle events (e.g., "paywall viewed") via Apple's standard OSLog and MetricKit frameworks; these stay on your device unless you have opted into sharing diagnostics with Apple in iOS Settings.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#camera">Camera Access</a></li>
+                    <li><a href="#ar">On-Device AR Processing</a></li>
+                    <li><a href="#data-storage">Data Storage</a></li>
+                    <li><a href="#analytics">On-Device Paywall Analytics</a></li>
+                    <li><a href="#purchases">In-App Purchase</a></li>
+                    <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
+                    <li><a href="#data-sharing">Data Sharing &amp; Third Parties</a></li>
+                    <li><a href="#data-security">Data Security</a></li>
+                    <li><a href="#children">Children's Privacy (COPPA)</a></li>
+                    <li><a href="#gdpr">Your Rights Under GDPR</a></li>
+                    <li><a href="#ccpa">Your Rights Under CCPA/CPRA</a></li>
+                    <li><a href="#apple-requirements">Apple Platform Disclosures</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </nav>
+
+            <!-- 1. OVERVIEW -->
+            <h2 id="overview">1. Overview</h2>
+            <p>Tippsi ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Tippsi is an iPhone app (iOS 17 and later) that uses your camera and on-device computer vision to render nail polish colors on your own nails in real time, so you can preview a polish before you buy or apply it.</p>
+            <p>This Privacy Policy explains what data Tippsi accesses, how that data is processed, and your rights regarding your information. We are committed to transparency and to protecting your privacy.</p>
+            <p><strong>Tippsi operates entirely on your device.</strong> We do not operate servers, databases, or cloud services. We do not create user accounts. We have no mechanism to receive, view, or store your camera frames, photos, or saved looks. The data Tippsi works with exists solely on your iPhone, under your control.</p>
+
+            <!-- 2. CAMERA ACCESS -->
+            <h2 id="camera">2. Camera Access</h2>
+
+            <div class="highlight">
+                <p><strong>Tippsi never records, copies, uploads, or transmits your camera frames or photos.</strong></p>
+                <p>The live camera feed is read frame-by-frame, analyzed on your device's Neural Engine, rendered with the polish color overlay, and immediately discarded. Frames are not written to disk and never leave your iPhone.</p>
+            </div>
+
+            <h3>Why Camera Access Is Needed</h3>
+            <p>Tippsi requests camera access (<code>NSCameraUsageDescription</code>) because the entire purpose of the app is to render polish color overlays on your real, live hand. Without camera access there is nothing to render onto.</p>
+
+            <h3>How Camera Frames Are Used</h3>
+            <ul>
+                <li>Frames are read in real time from your iPhone's rear camera using Apple's AVFoundation framework.</li>
+                <li>Each frame is analyzed on your device using a bundled CoreML nail-segmentation model (derived from the open-source <code>nails_seg_yolov8</code> dataset, CC-BY-4.0) that runs on Apple's Neural Engine via the Vision framework.</li>
+                <li>The detected nail regions are composited with the polish color you have selected and shown to you in the camera preview.</li>
+                <li>Each processed frame is released from memory immediately after rendering. No frame is stored, copied, transmitted, or persisted.</li>
+                <li>The camera session pauses automatically when you leave the Try On screen or when the app is backgrounded.</li>
+            </ul>
+
+            <h3>Saved Looks</h3>
+            <p>When you tap the bookmark button to save a look, Tippsi composites the polish overlay onto the most-recent camera frame and stores the resulting image as a JPEG <strong>only on your device</strong>, using Apple's SwiftData framework. Saved looks never leave your iPhone unless you explicitly tap the share button (Pro feature) and choose a destination yourself via the iOS share sheet.</p>
+
+            <h3>Your Control</h3>
+            <p>Camera access requires your explicit permission via the iOS permission prompt. You can revoke access at any time in Settings &gt; Tippsi &gt; Camera. Without camera access the AR try-on feature will not work, but the app will still load and your saved looks remain accessible.</p>
+
+            <!-- 3. ON-DEVICE AR PROCESSING -->
+            <h2 id="ar">3. On-Device AR Processing</h2>
+            <p>Tippsi uses Apple's built-in frameworks plus a bundled machine-learning model for all AR processing:</p>
+            <ul>
+                <li><strong>AVFoundation:</strong> Captures the live camera feed.</li>
+                <li><strong>Vision &amp; CoreML:</strong> Runs the bundled YOLOv8-segmentation model on your device's Neural Engine to detect each nail in the frame and produce a precise mask.</li>
+                <li><strong>UIKit / Core Graphics:</strong> Composites the polish color and finish onto the detected nail masks.</li>
+            </ul>
+            <p>No AR processing involves any external service, API call, or network request. The bundled model is shipped inside the app binary and runs locally. No model weights, frames, masks, or rendering output are sent to any server, including ours or Apple's.</p>
+
+            <!-- 4. DATA STORAGE -->
+            <h2 id="data-storage">4. Data Storage</h2>
+
+            <div class="highlight">
+                <p><strong>All data storage occurs entirely on your iPhone.</strong> Tippsi has no servers, no cloud infrastructure, no databases, and no backend of any kind. We literally cannot access your data because we have no system to receive it.</p>
+            </div>
+
+            <p>Saved looks and color preferences are stored locally on your device using Apple's SwiftData framework. This data is protected by:</p>
+            <ul>
+                <li>iOS Data Protection (encrypted at rest, tied to your device passcode)</li>
+                <li>App sandboxing (only Tippsi can access its own data store)</li>
+                <li>Standard iOS security architecture</li>
+            </ul>
+
+            <p>What is stored on your device:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data Stored</th>
+                        <th>Purpose</th>
+                        <th>Leaves Your Device?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Saved-look JPEGs (composited hand + polish)</td>
+                        <td>So you can revisit looks you liked</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Polish color, finish, capture date for each saved look</td>
+                        <td>Display in the gallery</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Recently-tried colors</td>
+                        <td>Quick re-selection in the palette</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Custom color palettes you create</td>
+                        <td>Reuse across sessions</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Pro-unlock entitlement</td>
+                        <td>Tracks whether you have purchased Tippsi Pro</td>
+                        <td>Managed by Apple StoreKit (see Section 6)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 5. ON-DEVICE PAYWALL ANALYTICS -->
+            <h2 id="analytics">5. On-Device Paywall Analytics</h2>
+            <p>Tippsi uses Apple's standard <code>Logger</code> (OSLog) and <code>OSSignposter</code> APIs to record anonymous paywall lifecycle events on your device. These events are:</p>
+            <ul>
+                <li><code>paywall_view</code> — the upgrade screen was opened</li>
+                <li><code>paywall_dismiss</code> — the upgrade screen was closed without purchase</li>
+                <li><code>paywall_purchase_attempt</code> / <code>paywall_purchase_success</code> / <code>paywall_purchase_fail</code> — purchase outcome (the failure reason is recorded as a stable category like "user_cancelled" or "pending"; no error message text is recorded)</li>
+                <li><code>paywall_restore_attempt</code> / <code>paywall_restore_success</code> — restore-purchase outcome</li>
+            </ul>
+            <p>Each event is tagged with which in-app entry point opened the paywall (for example, "third save attempt" vs "share button tap" vs "Settings upgrade tap"). No identifiers, no photo data, no contact info, no purchase amount, and no IP address are recorded. The events do not contain any personal data and cannot be tied back to you.</p>
+            <p>These events are written to Apple's standard system log on your device. They stay on your device unless <strong>you</strong> have opted into "Share With App Developers" in Settings &gt; Privacy &amp; Security &gt; Analytics &amp; Improvements &gt; Analytics Data. If you have, Apple may include them in the aggregated diagnostic reports it shares with us via App Store Connect. Even in that case, the data we see is aggregated by Apple — never raw events tied to an individual user.</p>
+            <p>We use this information to understand which paywall entry points convert best so we can improve them. We do <strong>not</strong> use Firebase, Mixpanel, Amplitude, RevenueCat, Adapty, or any other third-party analytics, attribution, or tracking SDK.</p>
+
+            <!-- 6. IN-APP PURCHASE -->
+            <h2 id="purchases">6. In-App Purchase</h2>
+            <p>Tippsi offers a single one-time in-app purchase, "Tippsi Pro" (<code>tippsi_pro_lifetime</code>), that unlocks unlimited saved looks, custom color palettes, and look sharing. There is no subscription. Once you buy, it is yours forever on the Apple ID that purchased it.</p>
+            <p>The purchase is processed entirely by Apple via StoreKit 2. We never see your payment information, Apple ID, or billing address. We only receive a verified entitlement signal from Apple confirming whether or not you have unlocked Pro on this device. You can restore your purchase at any time on a new device by tapping "Restore purchases" on the upgrade screen.</p>
+
+            <!-- 7. DATA RETENTION & DELETION -->
+            <h2 id="data-retention">7. Data Retention &amp; Deletion</h2>
+
+            <h3>Retention Policy</h3>
+            <ul>
+                <li>Saved looks, custom palettes, and recently-tried colors remain on your device until you delete them or delete the app.</li>
+                <li>Camera frames are never retained — each frame is released from memory immediately after rendering.</li>
+                <li>Paywall analytics events are written to Apple's system log on your device and rotate out of the log according to iOS's standard retention behavior.</li>
+            </ul>
+
+            <h3>Deletion</h3>
+            <ul>
+                <li><strong>Delete a single saved look:</strong> Open the look in the gallery and tap the delete button.</li>
+                <li><strong>Delete the app:</strong> Deleting Tippsi from your device permanently removes all saved looks, palettes, and on-device data.</li>
+                <li>There is no server-side data to delete, no account to close, and no request process needed. You have full and immediate control.</li>
+            </ul>
+
+            <!-- 8. DATA SHARING & THIRD PARTIES -->
+            <h2 id="data-sharing">8. Data Sharing &amp; Third Parties</h2>
+
+            <div class="highlight">
+                <p><strong>Tippsi does not share your data with anyone.</strong></p>
+            </div>
+
+            <ul>
+                <li>We do not sell your data.</li>
+                <li>We do not share your data with third parties.</li>
+                <li>We do not transmit your camera frames, photos, or saved looks off your device.</li>
+                <li>We do not use third-party analytics, attribution, or advertising SDKs.</li>
+                <li>We do not serve advertisements.</li>
+                <li>We do not engage in data mining or user profiling.</li>
+                <li>We do not share data with parent companies, subsidiaries, or related entities (Kynoss Studios is an independent sole developer).</li>
+            </ul>
+
+            <p>Tippsi makes no network requests for its core try-on functionality. The only network activity is Apple's StoreKit transactions when you purchase or restore Tippsi Pro, which Apple handles directly.</p>
+
+            <!-- 9. DATA SECURITY -->
+            <h2 id="data-security">9. Data Security</h2>
+            <p>Tippsi relies on Apple's built-in security infrastructure to protect your data:</p>
+            <ul>
+                <li><strong>Encryption at rest:</strong> All local data is protected by iOS Data Protection, which encrypts data using keys tied to your device passcode.</li>
+                <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing Tippsi's data store.</li>
+                <li><strong>No network exposure of user content:</strong> Because Tippsi does not transmit camera frames, photos, or saved looks over any network, there is no risk of data interception or unauthorized remote access for that content.</li>
+                <li><strong>No accounts:</strong> There are no credentials to steal, no passwords to breach, and no accounts to compromise.</li>
+            </ul>
+
+            <!-- 10. CHILDREN'S PRIVACY (COPPA) -->
+            <h2 id="children">10. Children's Privacy (COPPA)</h2>
+            <p>Tippsi is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+            <p>Because Tippsi does not collect, transmit, or store personal information on any server, and because all data remains solely on the user's device, Tippsi does not create the data collection risks that COPPA is designed to address. Nonetheless:</p>
+            <ul>
+                <li>Tippsi does not collect personal information from any user, including children.</li>
+                <li>Tippsi does not require or support account creation.</li>
+                <li>Tippsi contains no advertising or social features.</li>
+                <li>Tippsi does not transmit any data to Kynoss Studios or any third party.</li>
+            </ul>
+            <p>If you are a parent or guardian and have questions about this policy, please contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 11. GDPR -->
+            <h2 id="gdpr">11. Your Rights Under GDPR (European Economic Area)</h2>
+            <p>If you are located in the European Economic Area (EEA), the General Data Protection Regulation (GDPR) provides you with specific rights regarding your personal data. We respect these rights, even though Tippsi's on-device architecture means we do not act as a data controller or processor of your personal data in the traditional sense — because your data never reaches us.</p>
+
+            <h3>Legal Basis for Processing</h3>
+            <p>To the extent any on-device processing constitutes "processing" under the GDPR, the legal basis is:</p>
+            <ul>
+                <li><strong>Consent:</strong> You explicitly grant permission for camera access through the iOS permission prompt. You may withdraw consent at any time via iOS Settings.</li>
+                <li><strong>Legitimate interest:</strong> Processing your data on your own device to provide the app's functionality directly to you.</li>
+            </ul>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right of access:</strong> All data is stored on your device and accessible to you at all times within the app.</li>
+                <li><strong>Right to rectification:</strong> You can edit or replace your saved looks and palettes at any time within the app.</li>
+                <li><strong>Right to erasure:</strong> You can delete individual saved looks within the app, or delete all data by deleting the app.</li>
+                <li><strong>Right to restrict processing:</strong> You can revoke camera permission at any time without affecting other app functionality.</li>
+                <li><strong>Right to data portability:</strong> Your saved looks are JPEG images on your device and can be exported via the iOS share sheet (Pro feature).</li>
+                <li><strong>Right to object:</strong> You can stop all data processing by revoking permissions or deleting the app.</li>
+            </ul>
+
+            <h3>Data Transfers</h3>
+            <p>Tippsi does not transfer personal data outside your device. No cross-border data transfers occur because no user content is transmitted to any server, anywhere.</p>
+
+            <h3>Data Protection Officer</h3>
+            <p>Due to the nature of our data processing (entirely on-device, no data collection), we are not required to appoint a Data Protection Officer. For any privacy-related inquiries, please contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <!-- 12. CCPA/CPRA -->
+            <h2 id="ccpa">12. Your Rights Under CCPA/CPRA (California)</h2>
+            <p>If you are a California resident, the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA) provides you with specific rights.</p>
+
+            <h3>Information We Collect</h3>
+            <p>Under CCPA/CPRA definitions, Tippsi processes the following categories of information <strong>on your device only</strong>:</p>
+            <ul>
+                <li>Camera frames (accessed for on-device AR rendering, never copied or stored)</li>
+                <li>Saved-look images you choose to save (stored on your device, never transmitted)</li>
+            </ul>
+            <p>Because all processing occurs on your device and we never receive or access this information, Kynoss Studios does not "collect" personal information as defined by the CCPA/CPRA.</p>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right to know:</strong> This Privacy Policy describes all data the app processes. We do not collect additional data beyond what is described here.</li>
+                <li><strong>Right to delete:</strong> Delete the app to remove all saved-look data, or delete individual looks within the app.</li>
+                <li><strong>Right to opt out of sale:</strong> <strong>We do not sell your personal information.</strong> We never have and never will.</li>
+                <li><strong>Right to opt out of sharing:</strong> We do not share your personal information with third parties for cross-context behavioral advertising or any other purpose.</li>
+                <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
+            </ul>
+
+            <h3>"Do Not Sell or Share My Personal Information"</h3>
+            <p>Tippsi does not sell or share personal information. Because no user content is transmitted from your device to us or any third party, there is no sale or sharing to opt out of. We fully comply with the CCPA/CPRA without requiring any user action.</p>
+
+            <!-- 13. APPLE PLATFORM DISCLOSURES -->
+            <h2 id="apple-requirements">13. Apple Platform Disclosures</h2>
+            <p>In compliance with Apple's App Store Review Guidelines and platform requirements:</p>
+
+            <h3>Camera (AVFoundation)</h3>
+            <ul>
+                <li>Tippsi uses AVFoundation to access the live camera feed for the sole purpose of rendering nail polish color overlays on your nails in real time.</li>
+                <li>Camera frames are processed in memory and discarded; they are never written to disk, copied, uploaded, or transmitted.</li>
+                <li>Saved looks are produced only when you explicitly tap the bookmark button, and are stored only on your device.</li>
+            </ul>
+
+            <h3>Required Reason APIs</h3>
+            <p>Tippsi uses only Apple's first-party frameworks plus a bundled CoreML model. We do not access any APIs that require declared reasons beyond those already disclosed in this policy and in the app's App Store privacy nutrition label.</p>
+
+            <h3>App Tracking Transparency</h3>
+            <p>Tippsi does not track users across apps or websites owned by other companies. The App Tracking Transparency framework is not used because no tracking occurs.</p>
+
+            <h3>App Privacy Nutrition Label</h3>
+            <p>Tippsi's App Store privacy nutrition label accurately reflects that the app does not collect data linked to user identity and does not track users.</p>
+
+            <!-- 14. CHANGES -->
+            <h2 id="changes">14. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in the app's functionality or legal requirements. When we make changes:</p>
+            <ul>
+                <li>The "Last Updated" date at the top of this page will be revised.</li>
+                <li>Material changes will be communicated through the app or its App Store listing.</li>
+                <li>Continued use of Tippsi after changes constitutes acceptance of the updated policy.</li>
+            </ul>
+            <p>We encourage you to review this policy periodically.</p>
+
+            <!-- 15. CONTACT -->
+            <h2 id="contact">15. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, your privacy rights, or Tippsi's data practices, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Support Page:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/tippsi-support.html">Tippsi Support</a></li>
+            </ul>
+            <p>We will respond to privacy inquiries within 30 days.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/tippsi-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/tippsi-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

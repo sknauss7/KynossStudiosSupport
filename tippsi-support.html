@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tippsi Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fbf6ee;
+            --fg: #1a1a1a;
+            --muted: #6b6258;
+            --border: #e6dccc;
+            --accent: #7B1F35;
+            --card-bg: #ffffff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1011;
+                --fg: #efe6dc;
+                --muted: #a39990;
+                --border: #3a2730;
+                --accent: #d27a8a;
+                --card-bg: #25181c;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tippsi Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Tippsi is a privacy-first nail polish AR try-on app. Point your iPhone camera at your hand and see any polish color rendered live on your own nails. All processing happens entirely on your device — your camera frames and saved looks never leave your iPhone.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>Does Tippsi upload my camera frames or photos anywhere?</dt>
+                <dd>No. Tippsi processes everything entirely on your device using Apple's AVFoundation, Vision, and CoreML frameworks. No camera frames, no photos, no saved looks are ever uploaded, transmitted, or shared. We have no servers to receive them.</dd>
+
+                <dt>Why does Tippsi need camera access?</dt>
+                <dd>The whole point of the app is to render nail polish colors on your real, live hand in real time. Without camera access there's nothing to render onto. Tippsi only reads camera frames in memory for AR rendering — frames are released immediately after the polish overlay is composited and shown to you.</dd>
+
+                <dt>Where are my saved looks stored?</dt>
+                <dd>Saved looks are stored only on your iPhone, in Tippsi's local SwiftData store. They are not backed up to iCloud (in v1), not synced across devices, and not transmitted to anyone. If you delete the app, all saved looks are permanently removed.</dd>
+
+                <dt>What's the difference between free and Tippsi Pro?</dt>
+                <dd>The free version lets you try on every polish color in the curated palette and save up to 3 looks. The one-time Tippsi Pro upgrade unlocks unlimited saved looks, custom color palettes, and the ability to share your saved looks with anyone via the iOS share sheet. There are no subscriptions and no recurring charges — pay once, yours forever.</dd>
+
+                <dt>I purchased Tippsi Pro on another device. How do I unlock it here?</dt>
+                <dd>Open the upgrade screen (from the third save attempt, the share button on a saved look, or from Settings &gt; Unlock Pro), then tap "Restore purchases." Apple's StoreKit will verify your purchase using the Apple ID signed in on this device.</dd>
+
+                <dt>The AR overlay isn't appearing on my nails. What's wrong?</dt>
+                <dd>Tippsi uses on-device computer vision to detect nails. Detection works best with: good lighting (avoid heavy shadows on the hand), the back of your hand facing the camera, fingers spread slightly, and the camera held about 8–12 inches away. If detection still fails, try cleaning the camera lens and confirming Tippsi has camera permission in Settings &gt; Tippsi.</dd>
+
+                <dt>Does Tippsi work without an internet connection?</dt>
+                <dd>Yes. The AR try-on, palette browsing, and saved-looks gallery all work entirely offline. The only feature that needs internet is purchasing or restoring Tippsi Pro, which Apple's StoreKit handles directly.</dd>
+
+                <dt>Does Tippsi use any analytics or tracking?</dt>
+                <dd>Tippsi does not use any third-party analytics, attribution, or advertising SDKs (no Firebase, no Mixpanel, no Amplitude, no RevenueCat). The app does record anonymous on-device events for paywall lifecycle (e.g., "paywall viewed," "purchase succeeded") via Apple's standard OSLog and MetricKit frameworks; these stay on your device unless you have opted into "Share With App Developers" in iOS Settings &gt; Privacy &amp; Security &gt; Analytics &amp; Improvements. Even when shared, the data Apple gives us back is fully aggregated. See our <a href="https://sknauss7.github.io/KynossStudiosSupport/tippsi-privacy.html">Privacy Policy</a> Section 5 for details.</dd>
+
+                <dt>How do I delete a saved look?</dt>
+                <dd>Open the look from the Saved tab and tap the Delete button. Tippsi will ask you to confirm before removing it.</dd>
+
+                <dt>Can I share a saved look with friends?</dt>
+                <dd>Yes — sharing is a Tippsi Pro feature. Open a saved look and tap Share to bring up the standard iOS share sheet. You choose where the image goes (Messages, Photos, AirDrop, etc.); Tippsi never sees the destination.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Tippsi requires iOS 17 or later and is designed for iPhone.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Tippsi data is stored locally on your device. When you delete the app, all saved looks, custom palettes, and recent colors are permanently removed by iOS. There is nothing to delete from any server because no data is ever transmitted off your device.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Tippsi's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/tippsi-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 17+)</li>
+                <li><strong>Category:</strong> Lifestyle</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/tippsi-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
