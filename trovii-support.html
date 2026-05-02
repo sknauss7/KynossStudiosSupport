@@ -148,7 +148,7 @@
         </header>
 
         <main>
-            <p>Trovii is a privacy-first kids' artwork archive for parents of multiple kids. Capture every drawing, painting, and craft, see all your kids' art in one family timeline, send a 5-card monthly digest to grandparents through Apple's secure family sharing, and turn each year into a beautiful PDF photobook. No accounts, no third-party analytics SDKs, no ads.</p>
+            <p>Trovii is a privacy-first kids' artwork archive for parents of multiple kids. Capture every drawing, painting, and craft, see all your kids' art in one family timeline, share a 5-card monthly digest with family through Apple's secure family sharing, and turn each year into a beautiful PDF photobook. No accounts, no third-party analytics SDKs, no ads.</p>
 
             <h2>Contact Us</h2>
 
@@ -171,28 +171,28 @@
 
             <dl class="faq">
                 <dt>How does Trovii work?</dt>
-                <dd>Open Trovii at the fridge, snap a photo of your kid's drawing or painting, and Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface. The artwork is saved to a per-kid + cross-sibling timeline. Once a month, Trovii prepares a 5-card highlight digest you can choose to send to grandparents through Apple's family-sharing infrastructure. At year-end, you can export a multi-kid PDF photobook with all of the year's saved artwork.</dd>
+                <dd>Open Trovii at the fridge, snap a photo of your kid's drawing or painting, and Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface. The artwork is saved to a per-kid + cross-sibling timeline. Once a month, Trovii prepares a 5-card highlight digest you can choose to share with family through Apple's family-sharing infrastructure. At year-end, you can export a multi-kid PDF photobook with all of the year's saved artwork.</dd>
 
                 <dt>What's the difference between the free experience and Trovii Pro?</dt>
-                <dd>Trovii Pro is sold three ways — monthly subscription ($2.99/mo with 3-day free trial), yearly subscription ($19.99/yr with 3-day free trial), or one-time lifetime ($59.99, no trial). All three unlock the same Pro feature set: unlimited captures, sibling timelines, the monthly grandparent digest, and the year-end PDF photobook export. There is no free tier — instead, the 3-day free trial on monthly or yearly lets you try the full experience before committing.</dd>
+                <dd>Trovii Pro is sold three ways — monthly subscription ($2.99/mo with 3-day free trial), yearly subscription ($19.99/yr with 3-day free trial), or one-time lifetime ($59.99, no trial). All three unlock the same Pro feature set: unlimited captures, sibling timelines, the monthly family digest, and the year-end PDF photobook export. There is no free tier — instead, the 3-day free trial on monthly or yearly lets you try the full experience before committing.</dd>
 
                 <dt>How does the family timeline work?</dt>
                 <dd>Trovii is built sibling-aware from the ground up. During onboarding you tell Trovii how many kids you have. Every artwork you capture is tagged with the kid (or kids — joint drawings are supported) and the date. The Family Timeline tab shows everyone's artwork together in chronological order. You can filter to one kid at any time, but the joint cross-sibling view is the default — that's the wedge most other kids' art apps don't offer.</dd>
 
-                <dt>How does the grandparent digest work?</dt>
-                <dd>Settings → "Share with Grandparents" walks you through setting up a CKShare. CKShare is Apple's family-sharing infrastructure — the same kind of share you might use for an iCloud photo album. Trovii sends the share URL via your iOS share sheet (Mail, iMessage, AirDrop). The grandparent accepts the share through Apple's standard prompt; once accepted, they receive a 5-card digest of the family's best new artwork each month, with a push notification when a new digest is available. They don't need to install Trovii — the digest is visible directly in their iCloud-synced apps. You can revoke or remove participants at any time.</dd>
+                <dt>How does the family digest work?</dt>
+                <dd>Settings → "Share with Family" walks you through setting up a CKShare. CKShare is Apple's family-sharing infrastructure — the same kind of share you might use for an iCloud photo album. Trovii sends the share URL via your iOS share sheet (Mail, iMessage, AirDrop). Each recipient accepts the share through Apple's standard prompt; once accepted, they receive a 5-card digest of the family's best new artwork each month, with a push notification when a new digest is available. They don't need to install Trovii — the digest is visible directly in their iCloud-synced apps. You can revoke or remove participants at any time.</dd>
 
                 <dt>How does the year-end photobook work?</dt>
                 <dd>The Photobook tab generates a multi-kid PDF photobook from the year's saved artwork. Both kids' (or all your kids') art is interleaved chronologically across the pages. The PDF is fully on-device — exported via your iOS share sheet to Mail, Messages, AirDrop, iCloud Drive, or any photo-printing service that accepts PDF. v1 ships PDF-only; v1.1 will add multiple template options and direct print fulfillment.</dd>
 
                 <dt>Does Trovii collect any data or track me?</dt>
-                <dd>Trovii has no operator-managed accounts, no third-party analytics SDKs (no RevenueCat, Mixpanel, Firebase, etc.), no third-party trackers, and no ads. Your kids' artwork lives on your iPhone in a sandboxed SwiftData store. The only time data leaves your device is if you opt in to grandparent digest sharing — and even then it travels through Apple's CKShare infrastructure, never to a Kynoss server. Trovii uses Apple's <code>OSLog</code> and <code>MetricKit</code> signposts internally for paywall instrumentation; those signposts stay on-device unless you've opted into Apple's system-wide diagnostics sharing in iOS Settings, in which case Apple receives them — never Kynoss. See our <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-privacy.html">Privacy Policy</a> for the full disclosure.</dd>
+                <dd>Trovii has no operator-managed accounts, no third-party analytics SDKs (no RevenueCat, Mixpanel, Firebase, etc.), no third-party trackers, and no ads. Your kids' artwork lives on your iPhone in a sandboxed SwiftData store. The only time data leaves your device is if you opt in to family digest sharing — and even then it travels through Apple's CKShare infrastructure, never to a Kynoss server. Trovii uses Apple's <code>OSLog</code> and <code>MetricKit</code> signposts internally for paywall instrumentation; those signposts stay on-device unless you've opted into Apple's system-wide diagnostics sharing in iOS Settings, in which case Apple receives them — never Kynoss. See our <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-privacy.html">Privacy Policy</a> for the full disclosure.</dd>
 
                 <dt>Does Trovii require an internet connection?</dt>
-                <dd>No internet connection is required for the core capture-save-organize-photobook flow. Trovii's auto-crop runs on-device using Apple's Vision framework. PDF photobook export is fully on-device. The only feature that needs the internet is the optional grandparent digest sharing — that uses Apple's CloudKit and CKShare infrastructure, which requires iCloud sign-in and an internet connection.</dd>
+                <dd>No internet connection is required for the core capture-save-organize-photobook flow. Trovii's auto-crop runs on-device using Apple's Vision framework. PDF photobook export is fully on-device. The only feature that needs the internet is the optional family digest sharing — that uses Apple's CloudKit and CKShare infrastructure, which requires iCloud sign-in and an internet connection.</dd>
 
                 <dt>What happens to my data if I delete the app?</dt>
-                <dd>Local data on your device (artwork photos, sibling group, kid display names, app preferences) is permanently removed by iOS when you delete the app. CKShare records (any digests you've sent to grandparents) remain in your iCloud account and the recipients' iCloud accounts until you separately remove them. You can dissolve CKShare digest history before deleting the app if you want to remove everything.</dd>
+                <dd>Local data on your device (artwork photos, sibling group, kid display names, app preferences) is permanently removed by iOS when you delete the app. CKShare records (any digests you've shared with family) remain in your iCloud account and the recipients' iCloud accounts until you separately remove them. You can dissolve CKShare digest history before deleting the app if you want to remove everything.</dd>
 
                 <dt>Can I export my photos out of Trovii?</dt>
                 <dd>Yes. Each artwork has a "Save to Photos" option that copies the original (or auto-cropped) photo to your iOS Photos library. The year-end PDF photobook can be exported via the share sheet to any iOS-supported destination. Your data is portable.</dd>
@@ -202,7 +202,7 @@
             </dl>
 
             <h2>Privacy</h2>
-            <p>Privacy is fundamental to Trovii's design. For complete details on what's stored where, what Apple manages versus what Kynoss Studios sees (nothing personally identifying), and how the grandparent digest stays scoped to the participants you choose, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-privacy.html">Privacy Policy</a>.</p>
+            <p>Privacy is fundamental to Trovii's design. For complete details on what's stored where, what Apple manages versus what Kynoss Studios sees (nothing personally identifying), and how the family digest stays scoped to the participants you choose, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/trovii-privacy.html">Privacy Policy</a>.</p>
 
             <h2>App Information</h2>
             <ul>
