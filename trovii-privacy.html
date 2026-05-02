@@ -203,7 +203,7 @@
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone. Photos do not leave your device unless you choose to share a monthly digest with grandparents — that uses Apple's CloudKit family sharing (the same iCloud infrastructure your Photos and Notes use). Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
+                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone. Photos do not leave your device unless you choose to share a monthly digest with family members you designate — that uses Apple's CloudKit family sharing (the same iCloud infrastructure your Photos and Notes use). Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
             </div>
 
             <nav class="toc">
@@ -212,7 +212,7 @@
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#what-stored">What Trovii Stores &amp; Where</a></li>
                     <li><a href="#camera-photos">Camera &amp; Photo Access</a></li>
-                    <li><a href="#ckshare">CKShare (Grandparent Digest)</a></li>
+                    <li><a href="#ckshare">CKShare (Family Digest)</a></li>
                     <li><a href="#apns">Push Notifications (APNs)</a></li>
                     <li><a href="#storekit">In-App Purchases (StoreKit 2)</a></li>
                     <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
@@ -229,14 +229,14 @@
 
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
-            <p>Trovii ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Trovii is a privacy-first kids' artwork archive for iPhone (iOS 26 and later). Parents capture photos of their kids' drawings, paintings, and crafts; Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface; the artwork is organized by sibling group and capture date; and at year-end you can export a multi-kid PDF photobook. An optional monthly "digest" feature lets you send a 5-card highlight to grandparents through Apple's secure family-sharing.</p>
+            <p>Trovii ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Trovii is a privacy-first kids' artwork archive for iPhone (iOS 26 and later). Parents capture photos of their kids' drawings, paintings, and crafts; Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface; the artwork is organized by sibling group and capture date; and at year-end you can export a multi-kid PDF photobook. An optional monthly "digest" feature lets you share a 5-card highlight with family through Apple's secure family-sharing.</p>
             <p>This Privacy Policy explains exactly what data Trovii accesses, where that data is stored, and what Kynoss Studios can or cannot see. The default architecture is on-device — your kids' artwork lives on your iPhone in a sandboxed SwiftData store. The only time data leaves your device is when you actively choose to share a monthly digest, and even then it travels through Apple's CloudKit family-sharing infrastructure (CKShare) — never to a Kynoss server.</p>
-            <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CKShare-resident data Trovii creates — only when you opt in to sharing — lives in your iCloud account and is shared with the grandparent iCloud accounts you designate. Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
+            <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CKShare-resident data Trovii creates — only when you opt in to sharing — lives in your iCloud account and is shared with the family iCloud accounts you designate. Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
 
             <!-- 2. WHAT TROVII STORES & WHERE -->
             <h2 id="what-stored">2. What Trovii Stores &amp; Where</h2>
 
-            <p>Trovii's data model spans three locations: your device (private to you, the default for everything), Apple's CKShare (only when you opt in to grandparent sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
+            <p>Trovii's data model spans three locations: your device (private to you, the default for everything), Apple's CKShare (only when you opt in to family digest sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
 
             <h3>What's stored on your device (SwiftData, encrypted at rest)</h3>
             <table>
@@ -271,8 +271,8 @@
                 </tbody>
             </table>
 
-            <h3>What's stored in Apple's CKShare — only if you opt in to grandparent sharing</h3>
-            <p>If you choose to set up a grandparent digest (Section 4), the shared records live in a separate <code>NSPersistentCloudKitContainer</code> tied to your iCloud account, with explicit CKShare participants you designate. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable grandparent sharing, Trovii writes nothing to CloudKit — the app is completely on-device.</p>
+            <h3>What's stored in Apple's CKShare — only if you opt in to family digest sharing</h3>
+            <p>If you choose to set up a family digest (Section 4), the shared records live in a separate <code>NSPersistentCloudKitContainer</code> tied to your iCloud account, with explicit CKShare participants you designate. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable family digest sharing, Trovii writes nothing to CloudKit — the app is completely on-device.</p>
 
             <h3>What's stored with Apple StoreKit (Trovii Pro)</h3>
             <p>Apple processes Trovii's in-app purchase tiers (monthly subscription, yearly subscription, or one-time lifetime). Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
@@ -291,8 +291,8 @@
             <p>If you prefer not to grant the Camera permission, you can import existing photos from your Photo Library. Trovii uses <code>PHPickerViewController</code> for this, which Apple sandboxes — Trovii receives only the specific photos you pick, not access to the rest of your library.</p>
 
             <!-- 4. CKSHARE -->
-            <h2 id="ckshare">4. CKShare (Grandparent Digest)</h2>
-            <p>If you choose to set up a grandparent digest, Trovii uses Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the participants you designate.</p>
+            <h2 id="ckshare">4. CKShare (Family Digest)</h2>
+            <p>If you choose to set up a family digest, Trovii uses Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the participants you designate.</p>
 
             <h3>What's shared</h3>
             <p>Each month (or on-demand), Trovii prepares a <code>MonthlyDigest</code> record containing five highlight artworks — these are the artworks you've favorited, or the most recent if no favorites are set. The <code>MonthlyDigest</code> contains:</p>
@@ -305,7 +305,7 @@
 
             <h3>Who can see the digest</h3>
             <ul>
-                <li><strong>Only the iCloud accounts you designate</strong> as CKShare participants. You initiate sharing by tapping "Share with Grandparents" in Settings; Trovii calls Apple's <code>NSPersistentCloudKitContainer.share()</code> and presents a standard iOS share-sheet so you can send the share URL via Mail, iMessage, AirDrop, or any system-supported channel.</li>
+                <li><strong>Only the iCloud accounts you designate</strong> as CKShare participants. You initiate sharing by tapping "Share with Family" in Settings; Trovii calls Apple's <code>NSPersistentCloudKitContainer.share()</code> and presents a standard iOS share-sheet so you can send the share URL via Mail, iMessage, AirDrop, or any system-supported channel.</li>
                 <li>Recipients must accept the share via Apple's standard "Accept Shared Content" prompt; until they accept, they cannot see the digest.</li>
                 <li>You can revoke the share or remove a participant at any time from the in-app sharing settings.</li>
             </ul>
@@ -318,14 +318,14 @@
             </ul>
 
             <h3>CKShare is optional</h3>
-            <p>You can use Trovii's full local feature set — capture, auto-crop, sibling timeline, year-end PDF photobook export — without ever setting up a grandparent digest. The digest is opt-in.</p>
+            <p>You can use Trovii's full local feature set — capture, auto-crop, sibling timeline, year-end PDF photobook export — without ever setting up a family digest. The digest is opt-in.</p>
 
             <!-- 5. APNS -->
             <h2 id="apns">5. Push Notifications (APNs)</h2>
             <p>Trovii sends push notifications via Apple Push Notification service (APNs) for two purposes:</p>
             <ul>
-                <li><strong>Monthly digest reminder:</strong> if you've set up grandparent sharing, a single push at your chosen send-day reminds you that this month's digest is ready to review and send.</li>
-                <li><strong>New shared digest received (recipient-side):</strong> grandparents who have accepted a CKShare invitation receive a push when you send a new digest. This uses Apple's standard CloudKit subscription mechanism — Trovii doesn't operate the push-delivery server; Apple does.</li>
+                <li><strong>Monthly digest reminder:</strong> if you've set up family digest sharing, a single push at your chosen send-day reminds you that this month's digest is ready to review and send.</li>
+                <li><strong>New shared digest received (recipient-side):</strong> family members who have accepted a CKShare invitation receive a push when you send a new digest. This uses Apple's standard CloudKit subscription mechanism — Trovii doesn't operate the push-delivery server; Apple does.</li>
             </ul>
             <p>Push notifications are entirely opt-in via the standard iOS prompt at first launch. Apple operates APNs; Kynoss does not receive notification-delivery telemetry beyond Apple's standard error response (e.g., "device token invalid"). No notification content is logged.</p>
 
@@ -337,7 +337,7 @@
                 <li><strong>Yearly subscription</strong> (<code>trovii_pro_yearly</code>) with a 3-day free trial — paywall default</li>
                 <li><strong>Lifetime non-consumable</strong> (<code>trovii_lifetime</code>) — one-time purchase, no trial</li>
             </ul>
-            <p>All three unlock the same Pro feature set — unlimited captures, sibling timelines, monthly grandparent digest sharing, and year-end photobook PDF export. There is no tier asymmetry.</p>
+            <p>All three unlock the same Pro feature set — unlimited captures, sibling timelines, monthly family digest sharing, and year-end photobook PDF export. There is no tier asymmetry.</p>
             <p>All transaction processing is handled by Apple. Kynoss Studios does not receive, store, or have access to payment information. Purchase status is verified locally using Apple's on-device <code>Transaction.currentEntitlements</code> API. Subscription management (cancellation, refunds) is handled through Apple's standard <a href="https://apps.apple.com/account/subscriptions">Subscription Settings</a> in the App Store.</p>
 
             <!-- 7. DATA RETENTION & DELETION -->
@@ -353,8 +353,8 @@
             <h3>Deletion</h3>
             <ul>
                 <li><strong>Delete an artwork:</strong> in-app long-press or the artwork detail menu. The photo and metadata are removed locally. If the artwork was part of an already-sent CKShare digest, that digest record retains the included photo unless you also remove the digest.</li>
-                <li><strong>Delete a digest:</strong> Settings → "Share with Grandparents" → digest history. Removing a digest removes the share record from your account and all participants' views.</li>
-                <li><strong>Stop sharing with a grandparent:</strong> Settings → "Share with Grandparents" → Participants → remove. The participant loses access immediately.</li>
+                <li><strong>Delete a digest:</strong> Settings → "Share with Family" → digest history. Removing a digest removes the share record from your account and all participants' views.</li>
+                <li><strong>Stop sharing with a family member:</strong> Settings → "Share with Family" → Participants → remove. The participant loses access immediately.</li>
                 <li><strong>Delete the app:</strong> removes all local data on your device (artwork photos, sibling groups, preferences). CKShare records remain in your iCloud account until you separately remove them or sign out of iCloud.</li>
                 <li><strong>Sign out of iCloud:</strong> disconnects your CKShare records. You can re-sign-in later and CKShare records are restored to the same participants if Apple's iCloud sync resumes.</li>
                 <li><strong>Apple's Privacy &amp; Data settings:</strong> Apple provides system-level data export and deletion for iCloud data via iOS Settings → [your name] → iCloud → Apps Using iCloud.</li>
@@ -394,7 +394,7 @@
             <p>Trovii is rated 4+ and is suitable for all ages. Trovii is operated <strong>by parents, on behalf of</strong> their kids — children are not direct users of the app. The COPPA-relevant analysis follows.</p>
 
             <h3>Trovii's user is the parent</h3>
-            <p>Trovii has no kid-facing sign-in surface, no kid-targeted ads, no kid-targeted content, and no in-app messaging or social features. The app is operated entirely by an adult parent or guardian, who chooses to capture photos of their kids' artwork and may choose to share them via CKShare with grandparents.</p>
+            <p>Trovii has no kid-facing sign-in surface, no kid-targeted ads, no kid-targeted content, and no in-app messaging or social features. The app is operated entirely by an adult parent or guardian, who chooses to capture photos of their kids' artwork and may choose to share them via CKShare with family members.</p>
 
             <h3>What kid data Trovii touches</h3>
             <ul>
@@ -427,7 +427,7 @@
             <h3>Legal Basis for Processing</h3>
             <ul>
                 <li><strong>Legitimate interest:</strong> Processing on-device artwork photos to deliver the app's core functionality.</li>
-                <li><strong>Consent:</strong> Camera access, photo library access, CKShare grandparent enrollment, and push notifications are all opt-in. You may decline any of them and continue using on-device features.</li>
+                <li><strong>Consent:</strong> Camera access, photo library access, CKShare family digest enrollment, and push notifications are all opt-in. You may decline any of them and continue using on-device features.</li>
             </ul>
 
             <h3>Your Rights</h3>
@@ -485,7 +485,7 @@
 
             <h3>CloudKit + CKShare</h3>
             <ul>
-                <li>Trovii uses CloudKit for the optional grandparent digest feature only. If you do not enable digest sharing, Trovii does not write anything to CloudKit.</li>
+                <li>Trovii uses CloudKit for the optional family digest feature only. If you do not enable digest sharing, Trovii does not write anything to CloudKit.</li>
                 <li>CKShare records are scoped to participants you designate; Kynoss has no access.</li>
                 <li>CloudKit is operated by Apple; Apple's Privacy Policy and CloudKit security model apply.</li>
             </ul>
