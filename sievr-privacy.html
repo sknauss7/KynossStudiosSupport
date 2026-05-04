@@ -197,12 +197,12 @@
         <header>
             <h1>Sievr Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: February 26, 2026 &middot; Last Updated: February 26, 2026</p>
+            <p class="effective-date">Effective Date: February 26, 2026 &middot; Last Updated: May 4, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Sievr processes everything on your device. We have no servers, no accounts, no analytics, no ads, and no tracking. We cannot see, access, or collect your data. Your photos and information never leave your iPhone.</p>
+                <p><strong>The short version:</strong> Sievr processes everything on your device. We have no servers, no accounts, no third-party analytics SDKs, no ads, and no tracking. We cannot see, access, or collect your data. Your photos and information never leave your iPhone. Apple's standard StoreKit framework handles in-app purchases over Apple's network, and Apple's diagnostics framework collects optional, anonymous performance signals only if you have opted into <em>Share iPhone Analytics</em> in iOS Settings — see Sections 4 and 6 for details.</p>
             </div>
 
             <nav class="toc">
@@ -226,7 +226,7 @@
 
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
-            <p>Sievr ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Sievr is a photo cleanup app for iPhone (iOS 26 and later) that helps you find duplicate and similar photos, score their quality, and clean up your photo library.</p>
+            <p>Sievr ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Sievr is a photo cleanup app for iPhone (iOS 17 and later) that helps you find duplicate and similar photos, score their quality, and clean up your photo library.</p>
             <p>This Privacy Policy explains what data Sievr accesses, how that data is processed, and your rights regarding your information. We are committed to transparency and to protecting your privacy.</p>
             <p><strong>Sievr operates entirely on your device.</strong> We do not operate servers, databases, or cloud services. We do not create user accounts. We have no mechanism to collect, receive, view, or store your personal data. The data Sievr works with exists solely on your iPhone, under your control.</p>
 
@@ -290,8 +290,8 @@
             <h2 id="ai">3. On-Device AI Processing</h2>
             <p>Sievr uses Apple's built-in frameworks for all AI and machine learning features:</p>
             <ul>
-                <li><strong>Vision framework:</strong> Computes perceptual similarity fingerprints, aesthetic quality scores, face quality assessments, and lens smudge detection. All processing runs on your device's Neural Engine.</li>
-                <li><strong>Foundation Models framework:</strong> Generates plain-language explanations of quality scores (e.g., "This photo has sharper focus and better lighting"). This model runs entirely on your device — no data is sent to any server, including Apple's.</li>
+                <li><strong>Vision framework:</strong> Computes perceptual similarity fingerprints (using <code>VNGenerateImageFeaturePrintRequest</code>) and face quality assessments (using <code>VNDetectFaceCaptureQualityRequest</code>) on every supported iOS version (iOS 17+). On iOS 26 and later, Sievr additionally computes aesthetic quality scores (<code>CalculateImageAestheticsScoresRequest</code>) and lens smudge detection (<code>DetectLensSmudgeRequest</code>). All processing runs on your device's Neural Engine.</li>
+                <li><strong>Foundation Models framework (iOS 26 and later only):</strong> Generates plain-language explanations of quality scores (e.g., "This photo has sharper focus and better lighting"). This model runs entirely on your device — no data is sent to any server, including Apple's. On iOS 17 through iOS 25, Sievr generates equivalent explanations from a built-in template that uses the same on-device quality scores; the user-facing experience is the same.</li>
             </ul>
             <p>No AI processing involves any external service, API call, or network request. All intelligence is computed locally using Apple's on-device frameworks.</p>
 
@@ -312,12 +312,17 @@
             <p>Sievr does not use:</p>
             <ul>
                 <li>iCloud or any cloud storage</li>
-                <li>Any third-party SDKs, frameworks, or libraries (beyond Apple's NSHipster DBSCAN package for clustering)</li>
-                <li>Analytics services (no Firebase, no Mixpanel, no Amplitude, etc.)</li>
+                <li>Any third-party SDKs, frameworks, or libraries (beyond the NSHipster DBSCAN open-source package for clustering, which runs entirely on-device and makes no network calls)</li>
+                <li>Third-party analytics services (no Firebase, no Mixpanel, no Amplitude, no RevenueCat, no Adapty, no Superwall, etc.)</li>
                 <li>Advertising SDKs or ad networks</li>
-                <li>Crash reporting services</li>
+                <li>Third-party crash reporting services</li>
                 <li>Any form of user tracking or fingerprinting</li>
             </ul>
+
+            <h3>Apple-Native Diagnostic Signposts</h3>
+            <p>Sievr emits anonymous diagnostic signposts to <strong>Apple's first-party logging stack</strong> (<code>OSLog</code>, <code>OSSignposter</code>, and MetricKit's <code>os_signpost</code> events) at key points during scans, cleanups, and the in-app upgrade flow. These signposts contain only event names and short event tags (for example, <code>scan_completed</code>, <code>paywall_view trigger=first_launch</code>, <code>paywall_purchase_success product=sievr.pro.lifetime</code>). They never include photo data, photo identifiers, or any personally-identifying information.</p>
+            <p>By default these signposts stay on your device and are visible only to you (in <em>Settings &gt; Privacy &amp; Security &gt; Analytics &amp; Improvements &gt; Analytics Data</em> and in macOS Console.app while your iPhone is connected). They are transmitted to Apple <strong>only if</strong> you have enabled <em>Share iPhone Analytics</em> in iOS Settings, which is an opt-in iOS-wide setting. If you have enabled that setting, Apple aggregates the signposts and may share anonymous, aggregated diagnostic reports with developers via Apple's MetricKit framework. Apple's privacy classifier does not treat this opt-in diagnostic flow as "Usage Data Collected" by Sievr.</p>
+            <p>Kynoss Studios does not operate any analytics endpoint and never receives the signpost data directly. We rely on Apple's aggregated MetricKit reports and App Store Connect's existing per-app analytics (impressions, page views, downloads, purchases, subscription status) for any product-improvement insights — all of which are Apple-managed and anonymized by Apple before we see them.</p>
 
             <!-- 5. DATA RETENTION & DELETION -->
             <h2 id="data-retention">5. Data Retention &amp; Deletion</h2>
@@ -346,14 +351,18 @@
             <ul>
                 <li>We do not sell your data.</li>
                 <li>We do not share your data with third parties.</li>
-                <li>We do not transmit your data off your device.</li>
+                <li>We do not transmit your photo data, scan results, or fingerprints off your device.</li>
                 <li>We do not use third-party SDKs that could collect data.</li>
                 <li>We do not serve advertisements.</li>
                 <li>We do not engage in data mining or user profiling.</li>
                 <li>We do not share data with parent companies, subsidiaries, or related entities (Kynoss Studios is an independent sole developer).</li>
             </ul>
 
-            <p>Sievr makes no network requests whatsoever. The app functions entirely offline.</p>
+            <h3>Network Use</h3>
+            <p>Sievr functions entirely offline for all photo analysis, scoring, clustering, cleanup, and in-app navigation. The only network traffic Sievr generates is initiated by Apple's first-party StoreKit framework when you tap a purchase, restore, or subscription-management action — and that traffic flows directly between your iPhone and Apple's App Store servers; Sievr does not see, route, or store any of it. If you have enabled <em>Share iPhone Analytics</em> (see Section 4), Apple's MetricKit daemon may also send anonymous diagnostic signposts to Apple. No other network use occurs.</p>
+
+            <h3>In-App Purchases &amp; Subscriptions</h3>
+            <p>Sievr offers in-app purchases through Apple's StoreKit framework. Available products may include a one-time lifetime upgrade (non-consumable), an auto-renewable weekly subscription with a free introductory trial, and (for legacy customers) the original one-time Sievr Pro upgrade — exact products and prices are shown on the in-app upgrade screen and on the App Store listing. All payment processing, receipt validation, subscription renewal, trial management, and cancellation are handled by Apple, not by Kynoss Studios. We never see, store, or process your payment information. To manage or cancel an active subscription, open <em>Settings &gt; [your name] &gt; Subscriptions</em> on your iPhone; you can also tap "Manage Subscription" inside Sievr's settings, which deep-links to the same iOS surface.</p>
 
             <!-- 7. DATA SECURITY -->
             <h2 id="data-security">7. Data Security</h2>

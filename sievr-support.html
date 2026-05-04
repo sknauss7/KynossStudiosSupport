@@ -171,7 +171,7 @@
 
             <dl class="faq">
                 <dt>Does Sievr upload my photos anywhere?</dt>
-                <dd>No. Sievr processes everything entirely on your device using Apple's Vision framework and Foundation Models. No photos, thumbnails, or image data are ever uploaded, transmitted, or shared. We have no servers to receive them.</dd>
+                <dd>No. Sievr processes everything entirely on your device using Apple's Vision framework (and, on iOS 26 and later, the Foundation Models framework). No photos, thumbnails, or image data are ever uploaded, transmitted, or shared. We have no servers to receive them.</dd>
 
                 <dt>Why does Sievr need full photo library access?</dt>
                 <dd>To scan your entire library for similar and duplicate photos, Sievr needs to analyze all your photos — not just a selected few. Limited access would only let the app see photos you manually pick, making automatic scanning impossible. Sievr only reads your photos for analysis; it never copies or stores the actual image data.</dd>
@@ -180,13 +180,13 @@
                 <dd>Photos deleted through Sievr are moved to your Recently Deleted album in the Photos app, where they remain recoverable for 30 days. Sievr never permanently deletes photos. You can recover any photo within that 30-day window through the Photos app.</dd>
 
                 <dt>How does the quality scoring work?</dt>
-                <dd>Sievr evaluates each photo across multiple factors: sharpness and focus, aesthetic composition, face quality (for photos with people), and lens clarity. Each factor contributes to an overall quality score. When available, Sievr uses on-device AI to explain in plain language why one photo scored higher than another.</dd>
+                <dd>Sievr evaluates each photo across multiple factors: face quality (for photos with people), sharpness and resolution, and how recently the photo was taken. On iOS 26 and later, Sievr also uses Apple's aesthetic-composition scoring and lens-smudge detection, which are weighted into the overall score. Each factor contributes to an overall quality score, and Sievr explains in plain language why one photo scored higher than another (using on-device AI on iOS 26+, and a built-in template that uses the same on-device scores on iOS 17–25).</dd>
 
                 <dt>What is the difference between free and paid?</dt>
-                <dd>The free version lets you scan your entire library, see all quality scores and similarity groups, and delete up to 50 photos per month. The one-time $4.99 upgrade unlocks unlimited deletions, bulk cleanup, and cleanup reports. There are no subscriptions.</dd>
+                <dd>The free experience scans the most recent photos in your library, shows you the similarity groups it finds, and lets you clean up that batch in one tap — at no cost. To unlock unlimited cleanups across your full library, bulk-select tooling, and cleanup reports, Sievr offers two upgrade options: an auto-renewable weekly subscription with a free introductory trial, and a one-time lifetime purchase for users who prefer to pay once. Existing customers who bought the original $4.99 Sievr Pro one-time upgrade keep their lifetime access automatically — no action needed. Exact prices are shown on the in-app upgrade screen and on the App Store listing. You can manage or cancel a subscription at any time from <em>Settings &gt; [your name] &gt; Subscriptions</em>.</dd>
 
                 <dt>Does Sievr work without an internet connection?</dt>
-                <dd>Yes. All scanning, scoring, and cleanup features work entirely offline. Sievr makes no network requests.</dd>
+                <dd>Yes for everything except in-app purchase actions. All scanning, scoring, cleanup, review, and navigation features work entirely offline. The only network traffic Sievr generates is when you tap a purchase, restore, or manage-subscription action — that traffic is handled directly by Apple's StoreKit framework between your iPhone and Apple's App Store servers, and Sievr never sees or stores it.</dd>
 
                 <dt>What data does Sievr store?</dt>
                 <dd>Sievr stores only scan metadata: references to your photos (not copies), quality scores, and similarity groupings. This data is stored locally on your device using Apple's SwiftData framework. No actual photo data is ever copied or stored by Sievr.</dd>
@@ -195,7 +195,7 @@
                 <dd>All Sievr data is stored locally on your device. When you delete the app, all associated scan data is permanently removed by iOS. Your photos remain untouched in your Photos library. There is nothing to delete from any server because no data is ever transmitted off your device.</dd>
 
                 <dt>What iOS version is required?</dt>
-                <dd>Sievr requires iOS 26 or later and is designed for iPhone.</dd>
+                <dd>Sievr requires iOS 17 or later and is designed for iPhone. The full feature set, including AI-generated quality explanations, aesthetic scoring, and lens-smudge detection, is available on iOS 26 and later. On iOS 17 through 25, Sievr scores photos using face quality, sharpness, and recency, and explains its picks using a built-in template — the cleanup workflow itself is identical.</dd>
 
                 <dt>Does Sievr support RAW photos?</dt>
                 <dd>Yes. Sievr works with all photo formats supported by your iPhone, including HEIF, JPEG, PNG, and RAW.</dd>
@@ -207,7 +207,7 @@
             <h2>App Information</h2>
             <ul>
                 <li><strong>Developer:</strong> Kynoss Studios</li>
-                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Platform:</strong> iPhone (iOS 17+; full feature set on iOS 26+)</li>
                 <li><strong>Category:</strong> Utilities</li>
             </ul>
         </main>
