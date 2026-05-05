@@ -109,13 +109,13 @@
     <div class="container">
         <header>
             <h1>HomeBaseAI Privacy Policy</h1>
-            <p class="subtitle">Your Home, In One Conversation</p>
-            <p class="effective-date">Effective Date: April 1, 2026</p>
+            <p class="subtitle">Ask anything about your home.</p>
+            <p class="effective-date">Effective Date: May 4, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> HomeBaseAI stores all your home data on your device. We have no accounts, no analytics, no ads, and no tracking. AI conversation is powered by OpenAI's API &mdash; your messages are processed to generate responses but are not stored or used for training. Your home information stays on your iPhone and in your private iCloud.</p>
+                <p><strong>The short version:</strong> HomeBaseAI stores all your home data on your device. We have no accounts, no third-party analytics SDKs, no ads, and no third-party tracking. Paywall flow diagnostics use Apple-native instrumentation only (OSLog and MetricKit signposts) that stays on your device unless you have opted into Apple's system-wide diagnostics sharing in iOS Settings &mdash; in which case Apple receives those signposts, never us. AI conversation is powered by OpenAI's API &mdash; your messages are processed to generate responses but are not stored or used for training. Your home information stays on your iPhone and in your private iCloud.</p>
             </div>
 
             <nav class="toc">
@@ -226,11 +226,12 @@
             </ul>
             <p>HomeBaseAI does not use:</p>
             <ul>
-                <li>Analytics services (no Firebase, no Mixpanel, no Amplitude)</li>
+                <li>Third-party analytics SDKs (no Firebase, no Mixpanel, no Amplitude, no RevenueCat)</li>
                 <li>Advertising SDKs or ad networks</li>
-                <li>Crash reporting services</li>
+                <li>Third-party crash reporting or telemetry services</li>
                 <li>Any form of user tracking or fingerprinting</li>
             </ul>
+            <p>For paywall flow diagnostics &mdash; understanding which paywall surfaces users see and how the StoreKit purchase flow performs &mdash; HomeBaseAI emits Apple-native OSLog <code>Logger</code>, <code>OSSignposter</code>, and MetricKit <code>mxSignpost</code> events under the <code>studios.kynoss.homebase</code> subsystem. These signposts stay on your device unless you have opted into Apple's system-wide diagnostics sharing in iOS Settings &mdash; in which case Apple receives them, never us. The Apple Privacy Nutrition Label "Usage Data: Not Collected" remains accurate under Apple's classifier.</p>
 
             <h2 id="retention">7. Data Retention &amp; Deletion</h2>
             <ul>
@@ -247,7 +248,7 @@
                 <li><strong>OpenAI:</strong> Conversation messages and relevant inventory context are sent to OpenAI's API for processing. OpenAI does not use API data for model training. Data is retained up to 30 days for abuse monitoring, then deleted. See <a href="https://openai.com/policies/api-data-usage-policies">OpenAI's API Data Usage Policy</a>.</li>
                 <li>We do not sell your data.</li>
                 <li>We do not serve advertisements.</li>
-                <li>We do not use analytics, tracking, or advertising SDKs.</li>
+                <li>We do not use third-party analytics, tracking, or advertising SDKs.</li>
                 <li>We do not engage in data mining or profiling.</li>
                 <li>Your vault data (items, materials, tasks) is stored only on your device and in your private iCloud.</li>
             </ul>
