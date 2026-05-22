@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thresh Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #D8453F;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #FF7A78;
+                --card-bg: #242424;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 680px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.95rem; }
+        h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 2.5rem; }
+        p, li { font-size: 0.95rem; color: var(--fg); margin-bottom: 0.75rem; }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email { font-size: 1.1rem; font-weight: 500; }
+        .response-time { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+        .faq dt { font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.25rem; }
+        .faq dd { font-size: 0.95rem; margin-bottom: 1rem; padding-left: 0; }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+        footer p { color: var(--muted); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Thresh Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Thresh screens the people who walk up to you in real life. Instead of handing out your phone number, you share a structured profile; your own private dealbreaker criteria quietly decide whether someone is a match — and only you ever see your standards. Friends can vouch for a person as a trust signal. Privacy-first: no operator-managed servers, no tracking, no ads.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours. Reports of objectionable content or behavior are reviewed within 24 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>How does Thresh work?</dt>
+                <dd>When you meet someone in person, you share a Thresh profile instead of your number. Your private dealbreaker criteria — the standards you set for things like age, height, smoking, kids, and distance — run quietly and show you whether that person is a match. They only ever see match or miss, never the criteria themselves.</dd>
+
+                <dt>What are the two modes?</dt>
+                <dd>Cold approach is the zero-prep flow for the moment two strangers meet — share your profile in seconds, no setup. Bouncer mode lets you keep a personal code anywhere people find you; applicants reach you only if they clear your criteria first.</dd>
+
+                <dt>Does the other person need the app?</dt>
+                <dd>To submit an application and actually reach you, yes — they install Thresh (free) and apply. An App Clip lets someone preview a shared profile before installing.</dd>
+
+                <dt>What does vouching do?</dt>
+                <dd>Friends can vouch for you. When your profile reaches someone, it carries an aggregate trust signal — for example "Vouched by 3+" — so you arrive as more than a face. Vouches are free for everyone and expire after 24 months unless re-confirmed.</dd>
+
+                <dt>What's free and what's paid?</dt>
+                <dd>You can hold a profile, give and receive vouches, and take part in a handoff when the other person is subscribed — all free. A subscription means your handoffs always complete, you can run your own gate on your terms anytime, and you get bouncer mode, advanced filters, and screening history. Thresh offers a monthly plan, an annual plan, and a one-time lifetime purchase.</dd>
+
+                <dt>Can I report or block someone?</dt>
+                <dd>Yes. Every profile can be reported, and any user can be blocked. Blocking is immediate — a blocked user can no longer reach you. Reports are reviewed within 24 hours.</dd>
+
+                <dt>Are my dealbreaker criteria ever shown to anyone?</dt>
+                <dd>No. Your criteria are stored on your device and used only to compute a result. Nobody else ever sees the standards you set — or which one they failed. They see only match or miss.</dd>
+
+                <dt>Does Thresh collect any data or track me?</dt>
+                <dd>Thresh has no operator-managed servers, no analytics SDKs, no third-party trackers, and no ads. Your shared profile, applications, and vouches are written to Apple's CloudKit (the same iCloud infrastructure your Photos and Notes use) so the handoff works — but records carry only an Apple-managed opaque identifier, never your name or email. See our <a href="https://sknauss7.github.io/KynossStudiosSupport/thresh-privacy.html">Privacy Policy</a> for the full disclosure.</dd>
+
+                <dt>How do I delete my account?</dt>
+                <dd>Thresh includes an in-app account deletion option. It removes your on-device data and deletes your profile, applications, and vouches from CloudKit. Allow up to 30 days for full propagation. You can also email us to request deletion.</dd>
+
+                <dt>Does Thresh need an internet connection?</dt>
+                <dd>An internet connection is needed to share a profile, submit or receive applications, and sync vouches. There is no Kynoss server — only Apple's CloudKit.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Thresh requires iOS 26 or later and is designed for iPhone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Privacy is fundamental to Thresh's design — your dealbreaker criteria are never shown to anyone, and Kynoss Studios cannot see your name or email. For the complete disclosure of what's stored where, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/thresh-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Social Networking</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/thresh-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
