@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thresh Privacy Policy — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #D8453F;
+            --card-bg: #fff;
+            --highlight-bg: #fdf2f1;
+            --highlight-border: #D8453F;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #FF7A78;
+                --card-bg: #242424;
+                --highlight-bg: #2a1614;
+                --highlight-border: #FF7A78;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+        .subtitle { color: var(--muted); font-size: 0.95rem; }
+        .effective-date { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { font-size: 0.95rem; margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight p { margin-bottom: 0; }
+        .highlight p + p { margin-top: 0.5rem; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 0.75rem; border: 1px solid var(--border); vertical-align: top; }
+        th { background: var(--card-bg); font-weight: 600; }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .toc h2 { border: none; margin-top: 0; padding-bottom: 0; }
+        .toc ol { margin-bottom: 0; }
+        .toc a { color: var(--fg); }
+        .toc a:hover { color: var(--accent); }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+        footer p { color: var(--muted); font-size: 0.8rem; }
+        strong { font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Thresh Privacy Policy</h1>
+            <p class="subtitle">Kynoss Studios</p>
+            <p class="effective-date">Effective Date: May 21, 2026 &middot; Last Updated: May 21, 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>The short version:</strong> Thresh uses Apple's CloudKit — the same iCloud infrastructure your Photos and Notes use — to carry the profile you choose to share, the applications people send you, and friend vouches. Kynoss Studios operates no servers and stores no data. Records are tagged with an Apple-managed opaque iCloud identifier, never with your name or email, so Kynoss cannot see who you are. Your private dealbreaker criteria are used only to compute a match-or-miss result and are never shown to anyone else. No analytics, no tracking, no ads.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#data-map">What Thresh Stores &amp; Where</a></li>
+                    <li><a href="#cloudkit">CloudKit</a></li>
+                    <li><a href="#dealbreakers">Your Private Dealbreaker Criteria</a></li>
+                    <li><a href="#other-people">Information About Other People</a></li>
+                    <li><a href="#apns">Push Notifications (APNs)</a></li>
+                    <li><a href="#reporting">Reporting &amp; Blocking</a></li>
+                    <li><a href="#retention">Data Retention, Deletion &amp; Account Deletion</a></li>
+                    <li><a href="#sharing">Data Sharing &amp; Third Parties</a></li>
+                    <li><a href="#security">Data Security</a></li>
+                    <li><a href="#children">Children's Privacy</a></li>
+                    <li><a href="#gdpr">Your Rights Under GDPR</a></li>
+                    <li><a href="#ccpa">Your Rights Under CCPA/CPRA</a></li>
+                    <li><a href="#apple">Apple Platform Disclosures</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="overview">1. Overview</h2>
+            <p>Thresh ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Thresh is an in-person dating-handoff utility for iPhone (iOS 26 and later). When you meet someone in real life, you can share a structured profile instead of your phone number; a private set of "dealbreaker" criteria you define screens the people who approach you and shows you — not them — whether they are a match. Friends can vouch for a person as a trust signal.</p>
+            <p>This Privacy Policy explains exactly what data Thresh handles, where it is stored, and what Kynoss Studios can and cannot see. Because Thresh uses Apple's CloudKit infrastructure, more data leaves your device than for an offline-only app — but Kynoss Studios still operates no servers, stores no data, and cannot see any personally identifying information.</p>
+            <p><strong>Kynoss Studios is a sole-developer studio.</strong> We run no servers, databases, analytics pipelines, or marketing infrastructure. The CloudKit-resident data Thresh creates lives in Apple's CloudKit container; Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
+
+            <h2 id="data-map">2. What Thresh Stores &amp; Where</h2>
+            <p>Thresh's data spans two locations: your device (private to you) and Apple's CloudKit (managed by Apple under your iCloud identity). The tables below are a complete inventory.</p>
+
+            <h3>On your device (Core Data, encrypted at rest)</h3>
+            <table>
+                <thead><tr><th>Data</th><th>Purpose</th><th>Visible to Kynoss?</th></tr></thead>
+                <tbody>
+                    <tr><td>Your private dealbreaker criteria</td><td>Compute match-or-miss when someone shares a profile with you or applies to reach you</td><td>No — see Section 4</td></tr>
+                    <tr><td>Draft of your own shareable profile (first name, photo, age range, short bio)</td><td>The profile you choose to hand out</td><td>No — only the version you publish reaches CloudKit</td></tr>
+                    <tr><td>App preferences and your blocked list</td><td>App configuration; suppressing blocked users</td><td>No — never transmitted</td></tr>
+                </tbody>
+            </table>
+
+            <h3>In Apple's CloudKit public database (no name, no email)</h3>
+            <table>
+                <thead><tr><th>Data</th><th>Purpose</th><th>Visible to Kynoss?</th></tr></thead>
+                <tbody>
+                    <tr><td>Your shared Profile: first name, photo, age range, short bio</td><td>Lets a person you hand off to view your card</td><td>Tagged with an Apple-managed opaque iCloud identifier — no name or email</td></tr>
+                    <tr><td>Application records: the attributes a person submits against a screener's criteria, plus the computed match-or-miss result</td><td>Deliver an application to the person being screened</td><td>Opaque identifiers only — no PII</td></tr>
+                    <tr><td>Vouch records: voucher identifier, vouched identifier, timestamp</td><td>Show an aggregate trust signal ("Vouched by 3+")</td><td>Opaque identifiers only — no PII</td></tr>
+                </tbody>
+            </table>
+
+            <h3>With Apple StoreKit (subscription &amp; lifetime purchase)</h3>
+            <p>Apple processes the Thresh subscription and the one-time lifetime purchase. Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
+
+            <h2 id="cloudkit">3. CloudKit</h2>
+            <p>Thresh uses Apple's CloudKit public database — world-readable storage so that a profile you hand off can be viewed, and an application can reach the person it was sent to. Records are tagged with Apple-managed opaque iCloud identifiers, never with names, emails, or other directly identifying information.</p>
+            <p>Apple operates CloudKit on Kynoss Studios' behalf. Kynoss has dashboard access to query record counts and schema, but cannot read individual user records — Apple's CloudKit access controls require the requesting party to be the record creator, which Kynoss is not.</p>
+            <p>Thresh stores nothing in your private CloudKit container at this version.</p>
+
+            <h2 id="dealbreakers">4. Your Private Dealbreaker Criteria</h2>
+            <p>Your dealbreaker criteria — the standards you set for things such as age, height, smoking, kids, and distance preferences — are the most sensitive data in Thresh, and they are treated accordingly:</p>
+            <ul>
+                <li>Your criteria are stored on your device. They are used only to compute a match-or-miss result for the people you screen.</li>
+                <li>The criteria themselves are <strong>never displayed to anyone else.</strong> Another person only ever sees whether they were a match or a miss — never the values you set, and never which criterion they failed.</li>
+                <li>Kynoss Studios never receives your dealbreaker criteria.</li>
+            </ul>
+
+            <h2 id="other-people">5. Information About Other People</h2>
+            <p>Thresh is a tool for an interaction between two people, so the App necessarily handles some information about people other than you:</p>
+            <ul>
+                <li>When someone shares a profile with you, you receive their structured profile (first name, photo, age range, short bio) — the information they chose to share.</li>
+                <li>When someone applies to reach you, you receive the attributes they submitted for screening, together with the match-or-miss result.</li>
+                <li>You are responsible for handling other people's shared information respectfully and lawfully. Thresh does not permit posting content, allegations, or claims about non-consenting third parties.</li>
+            </ul>
+
+            <h2 id="apns">6. Push Notifications (APNs)</h2>
+            <p>Thresh sends push notifications via Apple Push Notification service (APNs) — for example, to let you know that a new application has cleared your criteria and is waiting for you. Push notifications are opt-in via the standard iOS prompt and can be disabled at any time in iOS Settings. Apple operates APNs; Kynoss receives no notification-delivery telemetry beyond Apple's standard error responses, and no notification content is logged.</p>
+
+            <h2 id="reporting">7. Reporting &amp; Blocking</h2>
+            <p>Thresh includes tools to report a profile and to block a user. Blocking is enforced on your device; a blocked user can no longer reach you. When you submit a report, the reported profile reference and your report reason are sent to Kynoss Studios so we can review it and act on objectionable content or behavior. We aim to act on reports within 24 hours.</p>
+
+            <h2 id="retention">8. Data Retention, Deletion &amp; Account Deletion</h2>
+            <h3>Retention</h3>
+            <ul>
+                <li>On-device data is retained until you delete it in-app or delete the App.</li>
+                <li>CloudKit records are retained for the operational lifetime of the service. Vouch records expire automatically 24 months after creation unless re-confirmed.</li>
+            </ul>
+            <h3>Deletion &amp; in-app account deletion</h3>
+            <ul>
+                <li><strong>In-app account deletion:</strong> Thresh provides an in-app option to delete your account. This removes your on-device data and deletes your Profile, your Application records, and Vouch records you created from CloudKit. Allow up to 30 days for full propagation.</li>
+                <li><strong>Delete the App:</strong> removes all local data on your device. CloudKit records remain until you use in-app account deletion or the contact path below.</li>
+                <li><strong>By request:</strong> contact <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a> and we will delete your CloudKit records. Allow up to 30 days.</li>
+            </ul>
+
+            <h2 id="sharing">9. Data Sharing &amp; Third Parties</h2>
+            <div class="highlight">
+                <p><strong>Kynoss Studios does not share your data with anyone.</strong> The only third party involved in Thresh is Apple, which provides the platform infrastructure (CloudKit, APNs, StoreKit) the App relies on. Apple's handling of this data is governed by Apple's Privacy Policy.</p>
+            </div>
+            <ul>
+                <li>We do not sell your data.</li>
+                <li>We do not share your data with marketing, advertising, or analytics third parties.</li>
+                <li>We use no third-party SDKs, frameworks, or libraries that could collect data.</li>
+                <li>We do not serve advertisements.</li>
+                <li>We do not engage in cross-app tracking, fingerprinting, or user profiling.</li>
+            </ul>
+
+            <h2 id="security">10. Data Security</h2>
+            <ul>
+                <li><strong>Encryption at rest:</strong> local data is protected by iOS Data Protection (encryption tied to your device passcode).</li>
+                <li><strong>Encryption in transit:</strong> all CloudKit, APNs, and StoreKit traffic uses Apple's TLS-encrypted transport.</li>
+                <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing Thresh's local data store.</li>
+                <li><strong>Public CloudKit access controls:</strong> records are world-readable but only writable by their creator (iCloud-authenticated).</li>
+                <li><strong>No Kynoss-operated infrastructure:</strong> Kynoss runs no servers, so there are no Kynoss credentials to breach and no Kynoss systems to compromise.</li>
+            </ul>
+
+            <h2 id="children">11. Children's Privacy</h2>
+            <p>Thresh is intended for adults and is rated 17+. It is not directed at children, and we do not knowingly collect personal information from anyone under the age required to use the App. If you believe a minor has used Thresh, contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a> and we will remove the associated data.</p>
+
+            <h2 id="gdpr">12. Your Rights Under GDPR (European Economic Area)</h2>
+            <p>If you are located in the European Economic Area, the General Data Protection Regulation provides specific rights regarding your personal data. Most data subject to GDPR is held under your iCloud account by Apple — not by Kynoss Studios. Where Kynoss acts as a data controller (the public CloudKit records tagged with your opaque identifier), we honor the rights below.</p>
+            <h3>Legal Basis for Processing</h3>
+            <ul>
+                <li><strong>Legitimate interest:</strong> processing CloudKit records to deliver the App's core functionality.</li>
+                <li><strong>Consent:</strong> sharing a profile, applying, vouching, and push notifications are all opt-in actions you take.</li>
+            </ul>
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right of access:</strong> your on-device data is visible to you in the App; we will provide a dump of your CloudKit records on request.</li>
+                <li><strong>Right to erasure:</strong> use in-app account deletion or the contact path in Section 8.</li>
+                <li><strong>Right to restrict / object:</strong> stop sharing profiles and applications, or stop using Thresh and request deletion.</li>
+                <li><strong>Right to data portability:</strong> CloudKit records are exportable on request.</li>
+            </ul>
+            <p>Apple operates CloudKit globally and is GDPR-compliant. Due to the small scale of Kynoss Studios, we are not required to appoint a Data Protection Officer; for privacy inquiries contact <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
+
+            <h2 id="ccpa">13. Your Rights Under CCPA/CPRA (California)</h2>
+            <p>If you are a California resident, the CCPA as amended by the CPRA provides specific rights.</p>
+            <ul>
+                <li><strong>Information collected:</strong> profile fields, application attributes, and vouch records, tagged with Apple-managed opaque identifiers. No name, email, postal address, phone number, or IP address is collected by Kynoss Studios.</li>
+                <li><strong>Right to know &amp; right to delete:</strong> described throughout this policy; see Section 8 for deletion.</li>
+                <li><strong>Right to opt out of sale or sharing:</strong> <strong>we do not sell or share personal information.</strong> There is nothing to opt out of.</li>
+                <li><strong>Right to non-discrimination:</strong> we will not discriminate against you for exercising any privacy right.</li>
+            </ul>
+
+            <h2 id="apple">14. Apple Platform Disclosures</h2>
+            <h3>CloudKit</h3>
+            <ul>
+                <li>Thresh writes Profile, Application, and Vouch records to the public CloudKit container, tagged with Apple-managed opaque iCloud identifiers.</li>
+                <li>CloudKit is operated by Apple; Apple's Privacy Policy and CloudKit security model apply.</li>
+            </ul>
+            <h3>StoreKit 2</h3>
+            <ul>
+                <li>Thresh uses StoreKit 2 for an auto-renewable subscription and a one-time lifetime purchase.</li>
+                <li>All transaction processing is handled by Apple. Kynoss Studios does not receive, store, or access payment information.</li>
+            </ul>
+            <h3>Push Notifications (APNs)</h3>
+            <ul>
+                <li>Thresh uses APNs for application and activity notifications. Push is opt-in and can be disabled at any time in iOS Settings.</li>
+            </ul>
+            <h3>Required Reason APIs &amp; App Tracking Transparency</h3>
+            <p>Thresh uses only Apple's first-party frameworks. Any Required Reason API usage is declared in the app's privacy manifest (<code>PrivacyInfo.xcprivacy</code>). Thresh does not track users across apps or websites owned by other companies, so the App Tracking Transparency framework is not used.</p>
+
+            <h2 id="changes">15. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in the App's functionality or legal requirements. The "Last Updated" date will be revised, material changes will be communicated through the App or its App Store listing, and continued use after changes constitutes acceptance of the updated policy.</p>
+
+            <h2 id="contact">16. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, your privacy rights, or Thresh's data practices, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Support Page:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/thresh-support.html">Thresh Support</a></li>
+            </ul>
+            <p>We respond to privacy inquiries within 30 days.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/thresh-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/thresh-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
