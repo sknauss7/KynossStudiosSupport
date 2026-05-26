@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-itunes-app" content="app-id=6764300697">
+    <title>You got a Rusti challenge — Rusti</title>
+    <style>
+        :root {
+            --wine: #6E1E2C;
+            --mustard: #C99A2E;
+            --bg: #FAF8F4;
+            --text: #1F1A19;
+            --muted: #6A625F;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 36px 28px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+        }
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--wine);
+            margin-bottom: 14px;
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.18;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 15px;
+            line-height: 1.45;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        .cta {
+            display: inline-block;
+            background: var(--wine);
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            transition: opacity 0.15s ease;
+        }
+        .cta:hover { opacity: 0.92; }
+        .secondary {
+            margin-top: 14px;
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        .secondary:hover { color: var(--wine); }
+        footer {
+            margin-top: 28px;
+            font-size: 11px;
+            color: var(--muted);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">Rusti Challenge</div>
+        <h1>Someone sent you a daily challenge.</h1>
+        <p>Rusti is a daily-quiz iPhone app — 10 questions on elementary knowledge, 60 seconds per question, head-to-head with friends. Open this link on your iPhone after installing the app to accept the challenge.</p>
+        <a href="https://apps.apple.com/app/id6764300697" class="cta">Get Rusti on the App Store</a>
+        <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-support.html" class="secondary">Learn more about Rusti</a>
+    </div>
+    <footer>Kynoss Studios · Rusti</footer>
+</body>
+</html>
