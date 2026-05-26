@@ -197,12 +197,12 @@
         <header>
             <h1>Shortfall Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: April 22, 2026 &middot; Last Updated: April 22, 2026</p>
+            <p class="effective-date">Effective Date: April 22, 2026 &middot; Last Updated: May 26, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Shortfall processes everything on your iPhone. We have no servers, no accounts, no analytics, no ads, and no third-party AI. We cannot see, access, or collect your contract data, extracted values, verdicts, or audit history. The only network request Shortfall makes is to Apple's StoreKit for processing the optional $4.99 unlock purchase.</p>
+                <p><strong>The short version:</strong> Shortfall processes everything on your iPhone. We have no servers, no accounts, no third-party SDKs, no ads, and no third-party AI. Shortfall uses Apple-native diagnostic signposts (OSLog and MetricKit) so we can learn what's working in the audit and paywall flows — these stay on your device unless you've opted into Apple's system-wide diagnostics sharing. We cannot see, access, or collect your contract data, extracted values, verdicts, or audit history. The only network request Shortfall makes is to Apple's StoreKit for processing the optional $4.99 unlock purchase.</p>
             </div>
 
             <nav class="toc">
@@ -331,6 +331,16 @@
 
             <h3>App Privacy Nutrition Label</h3>
             <p>Shortfall's App Store privacy nutrition label accurately reflects that the app does not collect data linked to user identity and does not track users. All three privacy-label sections — "Data Used to Track You," "Data Linked to You," and "Data Not Linked to You" — show as <strong>None</strong>.</p>
+
+            <h3>Apple-Native Diagnostic Signposts (OSLog &amp; MetricKit)</h3>
+            <p>Shortfall emits Apple-native diagnostic signposts using <code>OSLog</code> and <code>MetricKit</code> (via <code>os_signpost</code> on the <code>PointsOfInterest</code> log) so we can learn what's working in the audit and paywall flows over time. These signposts:</p>
+            <ul>
+                <li>Stay on your device by default. They are written to the system log and to MetricKit's daily diagnostic payload, both of which Apple stores locally.</li>
+                <li>Are <strong>not</strong> sent to Kynoss Studios — we run no servers and have no analytics endpoint to receive them.</li>
+                <li>May be sampled into Apple's anonymized, aggregate diagnostic stream only if you have opted into Apple's system-wide "Share with App Developers" diagnostics setting (off by default). Even then, what Kynoss Studios receives is anonymized and aggregated by Apple, not raw events tied to you.</li>
+                <li>Contain no contract data, no extracted fields, no audit history, no Apple-ID, and no IDFA — only event labels like <code>paywall_view</code> and per-trigger funnel markers.</li>
+            </ul>
+            <p>Per Apple's classifier, these are not "Usage Data Collected" because they don't leave the device under default settings.</p>
 
             <h3>Financial Advice Framing (Guideline 5.1.1)</h3>
             <p>Shortfall reports factual deltas against publicly available benchmark data. It does not provide legal or financial advice, does not name individual dealers, and does not characterize charges as fraud or scams. Every verdict includes source attribution and an effective date. The user remains the decision-maker.</p>
