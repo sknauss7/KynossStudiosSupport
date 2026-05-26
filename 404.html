@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not found — Kynoss Studios</title>
+    <script>
+        // GitHub Pages doesn't support path-rewriting, so Universal-Link
+        // share URLs under /rusti/challenge/<id> 404 here when the
+        // recipient doesn't have Rusti installed. Detect that case and
+        // hand off to the proper fallback so they hit the App Store
+        // instead of a generic Not Found page. Same pattern can be
+        // added for future apps' deep-link fallbacks.
+        (function() {
+            var path = window.location.pathname || "";
+            // Strip the GitHub-Pages project prefix if present.
+            var p = path.replace(/^\/KynossStudiosSupport\//, "/");
+            // Match /rusti/challenge/<anything>
+            if (/^\/rusti\/challenge\//.test(p)) {
+                window.location.replace("/KynossStudiosSupport/rusti/challenge/");
+                return;
+            }
+            // Future apps: add similar branches here.
+        })();
+    </script>
+    <style>
+        :root { --bg: #FAF8F4; --text: #1F1A19; --muted: #6A625F; --link: #6E1E2C; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+            background: var(--bg); color: var(--text);
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 24px; text-align: center;
+        }
+        h1 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+        p { font-size: 15px; color: var(--muted); margin-bottom: 16px; max-width: 360px; }
+        a { color: var(--link); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Page not found</h1>
+    <p>This page doesn't exist — but you can still find privacy and support pages for each Kynoss Studios app from the index.</p>
+    <a href="/KynossStudiosSupport/">Back to support index →</a>
+</body>
+</html>
