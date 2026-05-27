@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collekt Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #D4A949;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #E5BD5F;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-email a {
+            color: var(--accent);
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Collekt Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Collekt counts the moments other trackers miss — the temptation you resisted, the thing you did anyway. Tap once when it happens; watch it accumulate into a private visual artifact that never resets. No streaks, no guilt, no accounts, no tracking.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What is Collekt for?</dt>
+                <dd>Collekt is for the small moments of discipline that don't fit a habit list — the temptation you resisted, the small thing you completed despite friction. Tap once when it happens. Collekt holds onto it.</dd>
+
+                <dt>What's the difference between Resisted and Completed?</dt>
+                <dd>Use Resisted when you said no to a temptation (skipped the late snack, scrolled past the thing, didn't send the message). Use Completed when you did something despite friction (got out of bed, sent the hard email, took the walk). Both count. Both compound. The two types are visually distinct in every accumulator mode.</dd>
+
+                <dt>Why no streaks?</dt>
+                <dd>Streaks punish a single miss by resetting everything you built. That mechanic drives off everyone who slips once. Collekt's lifetime tally never resets — miss a day, lose nothing. The jar always remembers.</dd>
+
+                <dt>What's the optional journal note for?</dt>
+                <dd>If you want to remember the specifics of a moment, you can add a one-line note when you log. It's never prompted, never required — just a place to leave context for your future self when you're scrolling History.</dd>
+
+                <dt>How do the visualization modes work?</dt>
+                <dd>The Visualize tab shows your accumulated moments as a gravity-fill visualization. Marbles (free) is the default — colored marbles fill a jar, with a tangible weight readout (1 marble ≈ 0.01 lb). Collekt Premium adds four more modes: Paperclips, Currency, Rocket, and Garden. Each mode is structurally designed for the Resisted/Completed asymmetry — not just a re-skin.</dd>
+
+                <dt>What's in Collekt Premium?</dt>
+                <dd>One-time $4.99 unlock. You get four additional visualization modes (Paperclips, Currency, Rocket, Garden), extended History beyond the 14-day free window, and any future Pro features (like a home-screen widget). No subscription, no trial — buy once, keep forever.</dd>
+
+                <dt>Does Collekt collect any data or track me?</dt>
+                <dd>No. Collekt has no servers, no accounts, no analytics, no ads, no tracking. All log data is stored locally on your device using Apple's SwiftData framework. There is no cloud, no sync, no third-party SDK of any kind.</dd>
+
+                <dt>Does Collekt require an internet connection?</dt>
+                <dd>No. Collekt is fully offline. The only network use is StoreKit when you make the one-time Pro purchase (managed by Apple, not by us).</dd>
+
+                <dt>How do I move my data to a new iPhone?</dt>
+                <dd>Open Settings in Collekt → tap Export → choose where to save the JSON file (Files app, AirDrop to your new iPhone, iCloud Drive, email to yourself). On your new device, install Collekt → Settings → Import → choose the file. Your full lifetime log moves with you, and Kynoss Studios receives nothing.</dd>
+
+                <dt>How does the milestone system work?</dt>
+                <dd>When you open the Visualize tab and a meaningful delta has accumulated since you last viewed it, Collekt shows a single mode-specific milestone message (for Marbles: "Your marbles now weigh about 1 lb"). It's a quiet acknowledgment, not a notification — Collekt never pushes anything to your lock screen.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Collekt data is stored locally on your device. When you delete the app, all data (logs, notes, visualization preferences) is permanently removed by iOS. If you want a backup first, use Settings → Export to save a JSON file outside the app.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Collekt requires iOS 26 or later and is designed for iPhone. iPad layout and Apple Watch complication are not in version 1; they may come later.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Collekt's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/collekt-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Lifestyle</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/collekt-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
