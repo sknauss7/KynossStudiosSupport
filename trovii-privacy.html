@@ -198,12 +198,12 @@
         <header>
             <h1>Trovii Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 2, 2026</p>
+            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 27, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone. Photos do not leave your device unless you choose to share a monthly digest with family members you designate — that uses Apple's CloudKit family sharing (the same iCloud infrastructure your Photos and Notes use). Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
+                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone. Photos do not leave your device unless you opt in to one of two sharing surfaces: a co-parent invite (full archive, read-write across both parents' phones) or a monthly grandparent digest (5-card highlight, read-only). Both surfaces use Apple's CloudKit family sharing — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
             </div>
 
             <nav class="toc">
@@ -212,7 +212,7 @@
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#what-stored">What Trovii Stores &amp; Where</a></li>
                     <li><a href="#camera-photos">Camera &amp; Photo Access</a></li>
-                    <li><a href="#ckshare">CKShare (Family Digest)</a></li>
+                    <li><a href="#ckshare">CKShare (Co-Parent Sharing + Grandparent Digest)</a></li>
                     <li><a href="#apns">Push Notifications (APNs)</a></li>
                     <li><a href="#storekit">In-App Purchases (StoreKit 2)</a></li>
                     <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
@@ -229,16 +229,16 @@
 
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
-            <p>Trovii ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Trovii is a privacy-first kids' artwork archive for iPhone (iOS 26 and later). Parents capture photos of their kids' drawings, paintings, and crafts; Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface; the artwork is organized by sibling group and capture date; and at year-end you can export a multi-kid PDF photobook. An optional monthly "digest" feature lets you share a 5-card highlight with family through Apple's secure family-sharing.</p>
-            <p>This Privacy Policy explains exactly what data Trovii accesses, where that data is stored, and what Kynoss Studios can or cannot see. The default architecture is on-device — your kids' artwork lives on your iPhone in a sandboxed SwiftData store. The only time data leaves your device is when you actively choose to share a monthly digest, and even then it travels through Apple's CloudKit family-sharing infrastructure (CKShare) — never to a Kynoss server.</p>
+            <p>Trovii ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Trovii is a privacy-first kids' artwork archive for iPhone (iOS 26 and later). Parents capture photos of their kids' drawings, paintings, and crafts; Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface; the artwork is organized by sibling group and capture date; and at year-end you can export a multi-kid PDF photobook. Two optional sharing surfaces let you invite a co-parent to the full archive (both phones see every capture and either parent can add new artwork) or send a monthly 5-card digest to grandparents — both through Apple's secure CloudKit family-sharing.</p>
+            <p>This Privacy Policy explains exactly what data Trovii accesses, where that data is stored, and what Kynoss Studios can or cannot see. The default architecture is on-device — your kids' artwork lives on your iPhone in a Core Data store backed by Apple's <code>NSPersistentCloudKitContainer</code>. The store has three slots: a local-only slot (per-device metadata that never syncs), a private CloudKit slot (default state — your archive synced only to your own iCloud, no one else can see it), and a shared CloudKit slot (populated only when you accept a co-parent's invitation OR initiate one yourself). Data only leaves your device when you actively opt in to one of the two sharing surfaces, and even then it travels through Apple's CloudKit infrastructure — never to a Kynoss server.</p>
             <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CKShare-resident data Trovii creates — only when you opt in to sharing — lives in your iCloud account and is shared with the family iCloud accounts you designate. Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
 
             <!-- 2. WHAT TROVII STORES & WHERE -->
             <h2 id="what-stored">2. What Trovii Stores &amp; Where</h2>
 
-            <p>Trovii's data model spans three locations: your device (private to you, the default for everything), Apple's CKShare (only when you opt in to family digest sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
+            <p>Trovii's data model spans three locations: your device (private to you, the default for everything), Apple's CloudKit (only when you opt in to co-parent sharing or family-digest sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
 
-            <h3>What's stored on your device (SwiftData, encrypted at rest)</h3>
+            <h3>What's stored on your device (Core Data, encrypted at rest)</h3>
             <table>
                 <thead>
                     <tr>
@@ -256,7 +256,7 @@
                     <tr>
                         <td>Artwork photos (original + auto-cropped versions)</td>
                         <td>Display in the family timeline; export to year-end photobook PDF</td>
-                        <td>No — never transmitted unless you opt in to a CKShare digest</td>
+                        <td>No — never transmitted unless you opt in to co-parent sharing or a family digest</td>
                     </tr>
                     <tr>
                         <td>Favorite flags + capture dates</td>
@@ -271,8 +271,13 @@
                 </tbody>
             </table>
 
-            <h3>What's stored in Apple's CKShare — only if you opt in to family digest sharing</h3>
-            <p>If you choose to set up a family digest (Section 4), the shared records live in a separate <code>NSPersistentCloudKitContainer</code> tied to your iCloud account, with explicit CKShare participants you designate. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable family digest sharing, Trovii writes nothing to CloudKit — the app is completely on-device.</p>
+            <h3>What's stored in Apple's CloudKit — only if you opt in to co-parent sharing or family-digest sharing</h3>
+            <p>Trovii uses two separate <code>NSPersistentCloudKitContainer</code> stacks, each tied to your iCloud account, each populated only when you opt in:</p>
+            <ul>
+                <li><strong>Co-parent archive container</strong> (read-write across two parents): if you accept or send a co-parent invitation, your full archive (sibling group structure, kid metadata, every captured artwork) lives in this stack's CKShare with the specific second parent's iCloud account you designate. Either parent can add new artwork from their phone; both see captures from both phones.</li>
+                <li><strong>Family-digest container</strong> (read-only family fanout): if you send a monthly digest, a separate <code>SharedDigest</code> record (just the 5 highlight artworks for that month) lives in this stack's CKShare with the grandparent / family iCloud accounts you designate.</li>
+            </ul>
+            <p>The two containers are independent — opting into one does not enable the other. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable either sharing surface, Trovii writes nothing to CloudKit and the app is completely on-device.</p>
 
             <h3>What's stored with Apple StoreKit (Trovii Pro)</h3>
             <p>Apple processes Trovii's in-app purchase tiers (monthly subscription, yearly subscription, or one-time lifetime). Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
@@ -291,34 +296,46 @@
             <p>If you prefer not to grant the Camera permission, you can import existing photos from your Photo Library. Trovii uses <code>PHPickerViewController</code> for this, which Apple sandboxes — Trovii receives only the specific photos you pick, not access to the rest of your library.</p>
 
             <!-- 4. CKSHARE -->
-            <h2 id="ckshare">4. CKShare (Family Digest)</h2>
-            <p>If you choose to set up a family digest, Trovii uses Apple's CKShare framework. CKShare is Apple-managed sharing infrastructure scoped to the participants you designate.</p>
+            <h2 id="ckshare">4. CKShare (Co-Parent Sharing + Grandparent Digest)</h2>
+            <p>Trovii offers two distinct CKShare-based sharing surfaces. Both are opt-in. Both use Apple's CKShare framework, which is Apple-managed infrastructure scoped to the participants you designate. Neither is enabled by default; you can use either, both, or neither.</p>
 
-            <h3>What's shared</h3>
-            <p>Each month (or on-demand), Trovii prepares a <code>MonthlyDigest</code> record containing five highlight artworks — these are the artworks you've favorited, or the most recent if no favorites are set. The <code>MonthlyDigest</code> contains:</p>
+            <h3>4a. Co-parent archive sharing (added in v1.1.0)</h3>
+            <p>From Settings &rarr; "Share with another parent," you can invite a second parent to your family archive. Trovii calls Apple's <code>NSPersistentCloudKitContainer.share()</code> on your <code>ArchiveSiblingGroup</code> and presents a standard iOS share-sheet so you can send the invitation URL via Mail, iMessage, AirDrop, or any system-supported channel.</p>
+            <p>What's shared with the co-parent:</p>
+            <ul>
+                <li>Your full sibling group structure and per-kid metadata (display names, kid colors, capture dates)</li>
+                <li>Every captured artwork (original + auto-cropped versions), favorite flags, capture dates</li>
+                <li>Any monthly digests you've created (history list)</li>
+                <li>Any photobooks you've generated</li>
+            </ul>
+            <p>The share is read-write — the co-parent's phone can add new artwork too, and new captures from either phone sync to both. Saved-recipient lists (the local Mail-handoff list for grandparent-digest sharing) are <strong>not</strong> shared with the co-parent — those stay on the originating device.</p>
+            <p>You can revoke the co-parent share at any time from Settings &rarr; "Share with another parent" &rarr; "Stop sharing with the other parent." Revoking deletes the CKShare record (the second parent loses access immediately) but does not delete your own archive — only the link is revoked.</p>
+
+            <h3>4b. Grandparent digest sharing (since v1.0)</h3>
+            <p>Each month (or on-demand), Trovii prepares a <code>SharedDigest</code> record containing five highlight artworks — these are the artworks you've favorited, or the most recent if no favorites are set. The <code>SharedDigest</code> contains:</p>
             <ul>
                 <li>Five processed artwork images (the cropped versions Trovii produced via Vision auto-crop)</li>
                 <li>The capture month and year</li>
                 <li>Per-artwork metadata: kid display name (only the first name you entered locally), capture date, optional caption</li>
             </ul>
-            <p>The original (unprocessed) artworks, the rest of your timeline, your sibling group structure, and any non-highlight artworks <strong>are not shared</strong>. Only the five-card digest is.</p>
+            <p>The original (unprocessed) artworks, the rest of your timeline, your sibling group structure, and any non-highlight artworks <strong>are not shared</strong> via this surface. Only the five-card digest is.</p>
 
-            <h3>Who can see the digest</h3>
+            <h3>Who can see either share</h3>
             <ul>
-                <li><strong>Only the iCloud accounts you designate</strong> as CKShare participants. You initiate sharing by tapping "Share with Family" in Settings; Trovii calls Apple's <code>NSPersistentCloudKitContainer.share()</code> and presents a standard iOS share-sheet so you can send the share URL via Mail, iMessage, AirDrop, or any system-supported channel.</li>
-                <li>Recipients must accept the share via Apple's standard "Accept Shared Content" prompt; until they accept, they cannot see the digest.</li>
-                <li>You can revoke the share or remove a participant at any time from the in-app sharing settings.</li>
+                <li><strong>Only the iCloud accounts you designate</strong> as CKShare participants. You initiate sharing from Settings &rarr; "Share with another parent" (co-parent) or Settings &rarr; "Share with Family" (digest); Trovii calls Apple's <code>NSPersistentCloudKitContainer.share()</code> and presents a standard iOS share-sheet so you can send the share URL via Mail, iMessage, AirDrop, or any system-supported channel.</li>
+                <li>Recipients must accept the share via Apple's standard "Accept Shared Content" prompt; until they accept, they cannot see anything.</li>
+                <li>You can revoke either share at any time from the corresponding in-app sharing settings.</li>
             </ul>
 
-            <h3>Who CANNOT see the digest</h3>
+            <h3>Who CANNOT see either share</h3>
             <ul>
                 <li><strong>Kynoss Studios cannot see CKShare records.</strong> Apple's CKShare access model restricts visibility to the participants themselves. Kynoss has no dashboard view, no API access, and no operational ability to read shared records.</li>
-                <li><strong>Other users of Trovii cannot see your digest.</strong> CKShare is scoped per-share — there is no public CloudKit container, no global feed, no cross-user surfacing.</li>
+                <li><strong>Other users of Trovii cannot see your archive or digest.</strong> CKShare is scoped per-share — there is no public CloudKit container, no global feed, no cross-user surfacing.</li>
                 <li><strong>Apple cannot read CKShare content under normal operation.</strong> Apple operates the CKShare infrastructure but the content is encrypted under your iCloud account; Apple's standard iCloud privacy posture applies.</li>
             </ul>
 
-            <h3>CKShare is optional</h3>
-            <p>You can use Trovii's full local feature set — capture, auto-crop, sibling timeline, year-end PDF photobook export — without ever setting up a family digest. The digest is opt-in.</p>
+            <h3>Both surfaces are optional</h3>
+            <p>You can use Trovii's full local feature set — capture, auto-crop, sibling timeline, year-end PDF photobook export — without ever setting up co-parent sharing or a family digest. Both surfaces are opt-in.</p>
 
             <!-- 5. APNS -->
             <h2 id="apns">5. Push Notifications (APNs)</h2>
@@ -354,7 +371,8 @@
             <ul>
                 <li><strong>Delete an artwork:</strong> in-app long-press or the artwork detail menu. The photo and metadata are removed locally. If the artwork was part of an already-sent CKShare digest, that digest record retains the included photo unless you also remove the digest.</li>
                 <li><strong>Delete a digest:</strong> Settings → "Share with Family" → digest history. Removing a digest removes the share record from your account and all participants' views.</li>
-                <li><strong>Stop sharing with a family member:</strong> Settings → "Share with Family" → Participants → remove. The participant loses access immediately.</li>
+                <li><strong>Stop sharing with a co-parent:</strong> Settings → "Share with another parent" → "Stop sharing with the other parent." The co-parent loses access immediately; your own archive is preserved.</li>
+                <li><strong>Stop sharing with a family member (digest):</strong> Settings → "Share with Family" → Participants → remove. The participant loses access immediately.</li>
                 <li><strong>Delete the app:</strong> removes all local data on your device (artwork photos, sibling groups, preferences). CKShare records remain in your iCloud account until you separately remove them or sign out of iCloud.</li>
                 <li><strong>Sign out of iCloud:</strong> disconnects your CKShare records. You can re-sign-in later and CKShare records are restored to the same participants if Apple's iCloud sync resumes.</li>
                 <li><strong>Apple's Privacy &amp; Data settings:</strong> Apple provides system-level data export and deletion for iCloud data via iOS Settings → [your name] → iCloud → Apps Using iCloud.</li>
