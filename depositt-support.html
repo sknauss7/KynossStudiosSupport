@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depositt Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #127067;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #1C8C80;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Depositt Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Depositt helps renters protect their security deposit. Walk through your rental room by room, capture in-app photos that Depositt stamps with the date and time, and — at move-out — re-shoot each move-in photo with an on-screen guide to produce side-by-side before/after comparisons. Export it all as a dated PDF you can hand your landlord. Privacy-first: no account, no analytics, no tracking — your photos stay on your device and your own private iCloud.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>How does Depositt help me get my deposit back?</dt>
+                <dd>It gives you dated, organized evidence of your rental's condition. Document each room when you move in, again when you move out, and present the two side by side. Photo-backed proof is what wins deposit disputes — Depositt makes creating it quick and keeps it tidy.</dd>
+
+                <dt>How does the before &amp; after comparison work?</dt>
+                <dd>When you start a move-out walkthrough, Depositt copies your move-in room list. In each room you re-shoot from your move-in photos: the move-in shot appears as a faint guide over the camera so you can line up the exact same angle, and the two end up paired side by side in your report. An opacity slider lets you dial the guide in or out.</dd>
+
+                <dt>Does Depositt upload my photos anywhere?</dt>
+                <dd>Not to us. Depositt has no Kynoss servers and no account. Your photos and reports stay on your device and sync only to <em>your own</em> private iCloud (Apple's CloudKit), so they're available across your devices. We have no way to see or collect them.</dd>
+
+                <dt>Why does Depositt need camera access?</dt>
+                <dd>To capture photos directly into your report. Photos taken in-app are stamped with Depositt's own date and time so the report carries trustworthy dating. Camera frames are processed in-app only and never transmitted anywhere.</dd>
+
+                <dt>Why does Depositt ask for location?</dt>
+                <dd>It's optional. If you allow it, Depositt stamps each photo with its coarse GPS coordinates so the report shows where photos were taken. It does <strong>not</strong> look up a street address or contact any location service, and nothing about your location leaves your device or your private iCloud. Decline it and everything still works.</dd>
+
+                <dt>Can I import photos I already took?</dt>
+                <dd>Yes — tap Import to pick photos from your library (via Apple's privacy-preserving picker). Imported photos are clearly marked "date unverified," since only photos captured inside Depositt carry its trusted date stamp.</dd>
+
+                <dt>Is Depositt free? What does Pro cost?</dt>
+                <dd>Depositt is free to document your rental, build your room legend, capture before/after photos, and preview your report. <strong>Depositt Pro is a one-time $7.99 purchase</strong> (no subscription) that removes the watermark from exported PDFs and unlocks unlimited reports and properties.</dd>
+
+                <dt>What's the "Polish with AI" button on captions?</dt>
+                <dd>It uses Apple's on-device intelligence to tidy a rough note ("scuff on baseboard by door") into a clean caption. It runs entirely on your iPhone — your note isn't sent to us or any third party — and only appears on devices that support Apple Intelligence. Captions are always editable by hand.</dd>
+
+                <dt>How do I export my report?</dt>
+                <dd>Open a walkthrough, tap Create report, then Export. Depositt builds a dated PDF — cover page (address, lease dates, signature lines), room legend, and your photos and before/after pairs — and hands it to the iOS share sheet, so you can email it, message it, AirDrop it, or save to Files.</dd>
+
+                <dt>Does Depositt work offline?</dt>
+                <dd>Yes. Capture, report building, and PDF export all work offline. The only network activity is your private iCloud sync and Apple's purchase verification.</dd>
+
+                <dt>What happens to my reports if I delete the app?</dt>
+                <dd>Deleting the app removes its local data from that device. Copies in your private iCloud remain available on your other devices signed into the same Apple ID (and can be removed from iCloud settings). To keep a permanent copy, export your PDFs to Files or iCloud Drive first.</dd>
+
+                <dt>How do I restore my Pro purchase on a new device?</dt>
+                <dd>Tap Restore Purchases on the paywall. As long as you're signed in to the same Apple ID that bought Depositt Pro, your unlock is recovered immediately.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Depositt requires iOS 26 or later and is designed for iPhone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Depositt's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/depositt-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Productivity</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/depositt-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
