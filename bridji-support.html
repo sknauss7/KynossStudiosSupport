@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridji Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #0E9B9B;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #2CC0BE;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-email a {
+            color: var(--accent);
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bridji Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Bridji is a daily word puzzle: connect two unrelated words with the shortest chain of associations. One puzzle a day, no accounts, no ads — everything runs on your iPhone, and you only ever share a spoiler-safe trail of dots.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What is Bridji?</dt>
+                <dd>Bridji is a daily word-association puzzle. Each day you get two unrelated words — like CHESS and VOLCANO — and your job is to connect them with the shortest chain of associated words you can find.</dd>
+
+                <dt>How do I play?</dt>
+                <dd>Type a word that connects to the word above it, and the chain grows toward the goal word. Keep adding words until you reach it. Each step has to share a clear association with the one before. Tap Undo to step back; nothing is ever lost.</dd>
+
+                <dt>What does "par" mean?</dt>
+                <dd>Par is the editor's reference number of links for the day. Match it, or try to beat it by finding a shorter, cleverer bridge. Fewer links is a better score — and you can keep hunting for a shorter path even after you've solved it.</dd>
+
+                <dt>Why won't Bridji accept my word?</dt>
+                <dd>A link is accepted when the two words share a clear, recognized association. If a word is rejected, there's no strong connection to the previous word, it's already in your chain, or it's just a different form of the same word. Try a different stepping-stone. All of this is checked privately on your device.</dd>
+
+                <dt>What's in Bridji Pro?</dt>
+                <dd>A one-time $2.99 unlock. You get the full puzzle archive (replay any past day), Practice (jump into a random puzzle anytime), your Solution Gallery (every bridge you've found, including the clever ones), and detailed stats. The daily puzzle is always free. No subscription, no trial — buy once, keep forever.</dd>
+
+                <dt>What does sharing reveal?</dt>
+                <dd>Only your path length. Bridji's share image is a spoiler-safe rail of dots showing how many links your bridge took (and whether you beat par) — never the actual words. You can safely post it without spoiling the day's puzzle.</dd>
+
+                <dt>Does Bridji collect any data or track me?</dt>
+                <dd>No. Bridji has no servers, no accounts, no analytics, no ads, no tracking. Your puzzle progress, streaks, and found chains are stored locally on your device using Apple's SwiftData framework. There is no cloud, no sync, and no third-party SDK of any kind.</dd>
+
+                <dt>Does Bridji require an internet connection?</dt>
+                <dd>No. Bridji is fully offline — word links are validated on-device. The only network use is StoreKit when you make the one-time Pro purchase (managed by Apple, not by us).</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Bridji data is stored locally. When you delete the app, your progress, streaks, and found chains are permanently removed by iOS. There's no server-side copy.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Bridji requires iOS 26 or later and is designed for iPhone. An iPad layout isn't in version 1; it may come later.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Your privacy is fundamental to Bridji's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/bridji-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Lifestyle</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/bridji-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
