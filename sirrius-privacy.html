@@ -111,11 +111,12 @@
             <h1>Sirrius Privacy Policy</h1>
             <p class="subtitle">Pet Health &mdash; Private &amp; Smart</p>
             <p class="effective-date">Effective Date: April 13, 2026</p>
+            <p class="effective-date">Last Updated: June 12, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Your pet's health records live on your iPhone. We have no servers, no accounts, no third-party analytics SDKs, no ads, and no cross-app tracking. The app emits Apple's own on-device OSLog and MetricKit signposts for paywall-flow diagnostics — these stay on your device unless you opt into Apple's system-wide diagnostic sharing. The only data that ever leaves your device is (1) optional household sync via your personal iCloud and (2) the text of questions you send from the Pro AI chat tab, which are passed through OpenAI's API for processing and are not stored, logged for training, or shared with us.</p>
+                <p><strong>The short version:</strong> Your pet's health records live on your iPhone. We have no servers, no accounts, no third-party analytics SDKs, no ads, and no cross-app tracking. The app emits Apple's own on-device OSLog and MetricKit signposts for paywall-flow diagnostics — these stay on your device unless you opt into Apple's system-wide diagnostic sharing. The only data that ever leaves your device is (1) optional household sync via your personal iCloud and (2) the questions you send from the Pro AI chat tab, together with a short summary of the pet you're asking about (name, species, breed, age, medication names, recent symptom notes, latest weight, last vet-visit date), which OpenAI's API processes to generate the answer. OpenAI may retain API data for up to 30 days for abuse monitoring; it is not used to train models and is never shared with us.</p>
             </div>
 
             <nav class="toc">
@@ -141,7 +142,7 @@
             <h2 id="overview">1. Overview</h2>
             <p>Sirrius ("the App") is a privacy-first pet health tracker for iPhone. It helps you manage pet profiles, health records, medication reminders, vet visits, vaccinations, weight tracking, symptom journals, and food safety checking.</p>
             <p>Sirrius is not a veterinary tool. It does not diagnose conditions, provide medical advice, or replace professional veterinary guidance. Always consult your veterinarian for health concerns about your pet.</p>
-            <p><strong>We (Kynoss Studios) operate no servers, databases, or cloud services ourselves. We do not create user accounts. We have no mechanism to collect, receive, view, or store your personal data.</strong> Your pet records live on your device (and, optionally, in your personal iCloud for household sharing). The Pro AI chat tab sends the text of your questions through OpenAI's API for processing &mdash; this is described in detail in Section 3.</p>
+            <p><strong>We (Kynoss Studios) operate no servers, databases, or cloud services ourselves. We do not create user accounts. We have no mechanism to collect, receive, view, or store your personal data.</strong> Your pet records live on your device (and, optionally, in your personal iCloud for household sharing). The Pro AI chat tab sends the text of your questions, plus a short summary of the pet you're asking about, through OpenAI's API for processing &mdash; this is described in detail in Section 3.</p>
 
             <h2 id="pet-data">2. Pet Health Data</h2>
             <p>Sirrius stores the following types of data, all entered by you:</p>
@@ -157,17 +158,18 @@
 
             <h2 id="ai">3. AI Chat Processing</h2>
             <div class="highlight">
-                <p><strong>Pet health records stay on your device.</strong> The only AI-related data that leaves your iPhone is the text of questions you type (or dictate) into the Pro AI chat tab. That text is sent over HTTPS to OpenAI's API, processed in memory to generate a response, and is not stored, retained, or used to train models. We never see it &mdash; we have no servers.</p>
+                <p><strong>Your full records stay on your device &mdash; but Pro AI questions don't travel alone.</strong> When a Pro subscriber uses the AI chat, Sirrius sends your question together with a short summary of the pet you're asking about &mdash; including medication names, recent symptom notes, latest weight, and last vet-visit date &mdash; over HTTPS to OpenAI's API to generate the answer. OpenAI may retain API data for up to 30 days for abuse monitoring, then deletes it; it is not used to train models. We never see any of it &mdash; we have no servers.</p>
             </div>
 
             <h3>What the AI chat sends to OpenAI</h3>
             <p>When a Pro subscriber sends a message in the Chat tab, Sirrius calls OpenAI's API (the <code>gpt-4o-mini</code> model) directly over HTTPS. The request contains:</p>
             <ul>
                 <li><strong>The exact text of your question</strong> (for example, "Can Luna have grapes?" or "Summarize Mochi's recent symptoms").</li>
-                <li><strong>A minimal pet context block</strong> assembled on your device &mdash; pet name, species, and age &mdash; so the response is relevant. This context is not your full record; it is a short summary built at request time and discarded when the request completes.</li>
+                <li><strong>A pet context summary</strong> assembled on your device at request time. For each pet it includes: name, species, breed, age, active medication names (up to 5), recent symptom notes (entries from the last 30 days, up to 3), latest weight, and last vet-visit date. This is a compact summary built fresh for each request &mdash; not your full record &mdash; but it does include health details you have saved about your pet.</li>
                 <li><strong>Recent turns of your in-app conversation</strong> so multi-turn answers stay coherent. These turns live only in memory during the session and are not persisted anywhere by us.</li>
             </ul>
-            <p>The request does <strong>not</strong> contain your vet visit records, medications, weight history, photos, symptom entries, or any other stored pet data. None of that leaves your device.</p>
+            <p>The <strong>Symptom Pattern Analysis</strong> feature (Pro) additionally sends up to 20 of the selected pet's symptom journal entries &mdash; their text, dates, and severity levels &mdash; to OpenAI to summarize patterns over time.</p>
+            <p>Requests do <strong>not</strong> contain your photos, full vet-visit notes, feeding logs, or any information about you: no name, email, account, device identifier, or advertising identifier is ever sent.</p>
 
             <h3>What OpenAI does with your queries</h3>
             <p>OpenAI is used as a processor under its standard API terms. Per those terms, API requests are not used to train OpenAI's models and are not retained for training. OpenAI's privacy practices are described at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a>.</p>
@@ -180,7 +182,7 @@
             <p>The food and plant safety checker works for all users &mdash; free and Pro &mdash; and runs entirely offline against a curated local database bundled with the app. Food safety queries never leave your device.</p>
 
             <h3>Stored records and journals</h3>
-            <p>Your symptom journal entries, vet records, medications, weights, photos, and pet profiles remain in local storage (plus iCloud if you enable household sharing). We do not transmit any stored record to OpenAI, to any other third party, or to any server we operate.</p>
+            <p>Your symptom journal entries, vet records, medications, weights, photos, and pet profiles remain in local storage (plus iCloud if you enable household sharing). The only parts that are ever transmitted are the per-request summaries described above &mdash; sent to OpenAI when you, as a Pro subscriber, use the AI chat or Symptom Pattern Analysis. Your photos and complete record history are never transmitted, and nothing is ever sent to any server we operate &mdash; we have none.</p>
 
             <h3>Disabling AI entirely</h3>
             <p>To stop all AI API calls, simply don't subscribe to Pro, or cancel an existing Pro subscription. The app remains fully functional for record-keeping, safety checks, reminders, and household sharing without any subscription.</p>
@@ -228,7 +230,7 @@
             </div>
             <ul>
                 <li><strong>Apple iCloud (optional):</strong> If you enable household sharing, your pet records sync through your own iCloud account via Apple's CloudKit framework. This is a peer-to-peer connection between iCloud accounts managed by Apple &mdash; we have no access. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</li>
-                <li><strong>OpenAI (Pro chat only):</strong> If you subscribe to Sirrius Pro and use the AI Chat tab, the text of your chat messages plus a minimal pet context block is sent over HTTPS to OpenAI's API for processing. OpenAI does not train on API data and does not retain it for training. See Section 3 for the exact scope of what is sent. Governed by <a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI's Privacy Policy</a>.</li>
+                <li><strong>OpenAI (Pro AI features only):</strong> If you subscribe to Sirrius Pro and use the AI Chat tab or Symptom Pattern Analysis, the text of your messages plus a pet context summary (name, species, breed, age, medication names, recent symptom notes, latest weight, last vet-visit date) is sent over HTTPS to OpenAI's API for processing. OpenAI may retain API data for up to 30 days for abuse monitoring, then deletes it; it does not train on API data. See Section 3 for the exact scope of what is sent. Governed by <a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI's Privacy Policy</a>.</li>
             </ul>
             <ul>
                 <li>We do not sell your data.</li>
@@ -236,19 +238,19 @@
                 <li>We do not use third-party SDKs that could collect data.</li>
                 <li>We do not serve advertisements.</li>
                 <li>We do not engage in data mining or profiling.</li>
-                <li>We do not transmit your stored pet records (vet visits, medications, weights, photos, symptom entries) to any third party, ever.</li>
+                <li>We never transmit your photos or your complete record history to any third party. The only stored-data excerpts that ever leave your device are the Pro AI summaries described in Section 3, sent to OpenAI solely to answer the question you asked.</li>
             </ul>
 
             <h2 id="security">8. Data Security</h2>
             <ul>
                 <li><strong>Encryption at rest:</strong> All local data is protected by iOS Data Protection.</li>
                 <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing Sirrius's data.</li>
-                <li><strong>No network exposure:</strong> No personal data is transmitted over any network (CloudKit sync is encrypted end-to-end by Apple).</li>
+                <li><strong>Minimal network exposure:</strong> The app's only network traffic is optional iCloud sync (encrypted end-to-end by Apple) and the Pro AI requests to OpenAI described in Section 3 (sent over HTTPS).</li>
                 <li><strong>No accounts:</strong> No credentials to steal, no passwords to breach.</li>
             </ul>
 
             <h2 id="children">9. Children's Privacy (COPPA)</h2>
-            <p>Sirrius is not directed at children under 13. We do not knowingly collect personal information from children. Because Sirrius does not collect or transmit any data to any server, it does not create the data collection risks COPPA addresses.</p>
+            <p>Sirrius is not directed at children under 13. We do not knowingly collect personal information from children. Sirrius collects no personal information about any user &mdash; the only transmission is the pet-related Pro AI content described in Section 3, which contains no information about the person using the app &mdash; so it does not create the data collection risks COPPA addresses.</p>
             <p>If you are a parent or guardian with concerns, contact us at <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>.</p>
 
             <h2 id="gdpr">10. Your Rights Under GDPR</h2>
@@ -261,7 +263,7 @@
                 <li><strong>Portability:</strong> Your data is stored locally on your device.</li>
                 <li><strong>Object:</strong> Stop all processing by deleting the app.</li>
             </ul>
-            <p>No cross-border data transfers occur because no data is transmitted to any server.</p>
+            <p>The only cross-border transfer that can occur is the Pro AI request content described in Section 3, processed by OpenAI (a U.S. processor) and retained at most 30 days. No other data is transmitted to any server.</p>
 
             <h2 id="ccpa">11. Your Rights Under CCPA/CPRA</h2>
             <p>If you are a California resident:</p>
@@ -274,10 +276,10 @@
 
             <h2 id="apple">12. Apple Platform Disclosures</h2>
             <h3>App Privacy Nutrition Label</h3>
-            <p>Sirrius declares "No Data Collected" on the App Store. Under Apple's <a href="https://developer.apple.com/app-store/app-privacy-details/" target="_blank">App Privacy definitions</a>, data that is only processed in memory on your device (or in a third-party processor's ephemeral memory) and is not used to track you, build a profile, or persist beyond a single request does not count as "collected." This label covers:</p>
+            <p>Sirrius's App Store privacy label discloses the Pro AI feature under Apple's <a href="https://developer.apple.com/app-store/app-privacy-details/" target="_blank">App Privacy definitions</a> as <strong>User Content &mdash; collected for App Functionality only, Not Linked to Your Identity</strong>: the chat messages and pet summaries described in Section 3 are processed by OpenAI, which may retain them for up to 30 days for abuse monitoring. No other data is collected. In practice:</p>
             <ul>
                 <li><strong>Kynoss Studios (us):</strong> We collect nothing. We have no servers.</li>
-                <li><strong>OpenAI (Pro chat processor):</strong> API calls are used only to generate the current response; data is not linked to your identity (no account, no device ID, no advertising ID is passed), is not used to train models, and is not retained beyond OpenAI's short-term abuse-monitoring window.</li>
+                <li><strong>OpenAI (Pro AI processor):</strong> API calls are used only to generate the current response; data is not linked to your identity (no account, no device ID, no advertising ID is passed), is not used to train models, and is deleted after OpenAI's abuse-monitoring window of up to 30 days.</li>
                 <li><strong>Apple CloudKit (optional household sharing):</strong> Runs under your iCloud account; governed by Apple's own policies.</li>
             </ul>
             <h3>CloudKit</h3>
