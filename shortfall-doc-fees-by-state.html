@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealer Doc Fees by State (2026): Caps, Typical Charges &amp; When to Push Back</title>
+    <meta name="description" content="Every US state's 2026 dealer documentation fee — legal caps, what dealers typically charge, and the threshold where the fee is padding. Plus how APR markup works and how to catch it.">
+    <link rel="canonical" href="https://sknauss7.github.io/KynossStudiosSupport/shortfall-doc-fees-by-state.html">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are dealer doc fees negotiable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fee itself usually isn't \u2014 most dealers treat it as fixed and many states require charging it uniformly to every buyer. What is negotiable is the bottom line: if the doc fee is high for your state, ask for the vehicle price or trade-in value to move by the same amount. In the 12 states with a legal cap, anything above the cap is simply not permitted \u2014 ask for it to be corrected, not negotiated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a dealer doc fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A documentation (or 'doc') fee is what the dealer charges to prepare and file your paperwork \u2014 title, registration, contract processing. It is dealer profit in most states, not a government charge, and it varies from $85 to over $1,000 depending on where you buy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which states cap doc fees in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "12 states cap the dealer doc fee by statute or regulation: California ($85), Minnesota ($125), Oregon ($150), New York ($175), Louisiana ($200), Ohio ($250), Michigan ($260), Illinois ($324.24), Maryland ($500), Missouri ($500), Colorado ($699), Virginia ($899). The other 38 states have no hard cap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a dealer charge more than the state cap?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. In capped states the maximum is set by statute or regulation. If the doc fee on your buyer's order exceeds your state's cap, point at the line and ask for it to be corrected before you sign."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is APR markup (dealer reserve)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a dealer arranges your loan, the lender approves you at a 'buy rate.' The dealer is allowed to present you a higher rate and keep a share of the difference as compensation \u2014 typically up to 2 percentage points. It never appears as a line item. The defense: get pre-approved by your own bank or credit union first, then ask the dealer to beat that rate."
+      }
+    }
+  ]
+}
+    </script>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #7a5a1f;
+            --card-bg: #fff;
+            --highlight-bg: #f7f2e5;
+            --highlight-border: #7a5a1f;
+            --cta-bg: #0d1b2e;
+            --cta-fg: #f5f0e1;
+            --green: #1c7a3d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #C9A858;
+                --card-bg: #242424;
+                --highlight-bg: #2a2416;
+                --highlight-border: #C9A858;
+                --cta-bg: #0d1b2e;
+                --cta-fg: #f5f0e1;
+                --green: #4cc472;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container { max-width: 760px; margin: 0 auto; }
+
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .subtitle { color: var(--muted); font-size: 1.05rem; }
+
+        .effective-date { color: var(--muted); font-size: 0.85rem; margin-top: 0.75rem; }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.5rem 0.6rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        thead th {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tbody th[scope="row"] { font-weight: 600; white-space: nowrap; }
+
+        td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+        td.cap { color: var(--green); font-weight: 600; }
+        td.nocap { color: var(--muted); }
+
+        .est { font-size: 0.75rem; color: var(--muted); }
+
+        tr.note-row td {
+            font-size: 0.8rem;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+            padding: 0.15rem 0.6rem 0.6rem;
+        }
+
+        /* In the state table, the note row carries each state's bottom border. */
+        table.states tbody tr:not(.note-row) td,
+        table.states tbody tr:not(.note-row) th { border-bottom: none; }
+
+        .cta {
+            background: var(--cta-bg);
+            color: var(--cta-fg);
+            border-radius: 14px;
+            padding: 1.75rem 1.5rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            border: none;
+            margin-top: 0;
+            color: var(--cta-fg);
+            font-size: 1.35rem;
+        }
+
+        .cta p { color: rgba(245, 240, 225, 0.85); max-width: 540px; margin: 0.5rem auto 1.25rem; }
+
+        .cta-button {
+            display: inline-block;
+            background: #C9A858;
+            color: #0d1b2e;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.8rem 1.6rem;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover { text-decoration: none; opacity: 0.92; }
+
+        .cta .fine { font-size: 0.8rem; color: rgba(245, 240, 225, 0.6); margin-top: 0.9rem; margin-bottom: 0; }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        footer p { font-size: 0.82rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dealer Doc Fees by State (2026): Caps, Typical Charges, and When to Push Back</h1>
+            <p class="subtitle">12 states cap the documentation fee by law. The other 38 charge whatever you'll sign. Here's every state's number.</p>
+            <p class="effective-date">Benchmarks as of 2026-04-23 · All 50 states · Sources cited below</p>
+        </header>
+
+        <p>The documentation fee — "doc fee," "dealer processing fee," "admin fee" — is what the dealer charges to prepare your paperwork. In most states it's dealer profit, not a government charge, and it ranges from <strong>$85 (capped, California)</strong> to <strong>$999+ (Florida, uncapped)</strong> for the exact same paperwork.</p>
+
+        <div class="highlight">
+            <strong>Are doc fees negotiable?</strong> The fee itself rarely comes off — but the deal is negotiable. If the doc fee is high for your state, ask for the vehicle price or your trade-in value to move by the same amount. In capped states, anything above the cap isn't a negotiation — it's an error to be corrected.
+        </div>
+
+        <h2 id="table">2026 doc fee caps and typical charges — all 50 states</h2>
+        <p><strong>Legal cap</strong> is the statutory maximum where one exists. <strong>Typical</strong> is what dealers in that state commonly charge (market estimate where uncapped). <strong>High</strong> is the threshold where the fee is well above that state's norm — the number worth questioning before you sign.</p>
+        <table class="states">
+            <thead>
+                <tr>
+                    <th scope="col">State</th>
+                    <th scope="col">Legal cap</th>
+                    <th scope="col">Typical</th>
+                    <th scope="col">High</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr id="al">
+                <th scope="row">Alabama</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$495 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$795+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Alabama has no statutory cap. Market estimate: ~$495 typical; some metro dealers charge $700+.</td></tr>
+            <tr id="ak">
+                <th scope="row">Alaska</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$200 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$400+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Alaska has no statutory cap (small dealer market). Market estimate: ~$200 typical.</td></tr>
+            <tr id="az">
+                <th scope="row">Arizona</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$499 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$699+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Arizona has no statutory cap. Market estimate: ~$499 typical.</td></tr>
+            <tr id="ar">
+                <th scope="row">Arkansas</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$129 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$250+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Arkansas has no hard cap but state guidance limits admin fees to ~$129. Market estimate.</td></tr>
+            <tr id="ca">
+                <th scope="row">California</th>
+                <td class="num cap">$85</td>
+                <td class="num">$85</td>
+                <td class="num">$100+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">California law caps the dealer documentation fee at $85. Anything above $85 is not permitted.</td></tr>
+            <tr id="co">
+                <th scope="row">Colorado</th>
+                <td class="num cap">$699</td>
+                <td class="num">$699</td>
+                <td class="num">$750+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Colorado caps the dealer doc fee at $699 (per state statute; previously $599, raised in 2024).</td></tr>
+            <tr id="ct">
+                <th scope="row">Connecticut</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$499 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$699+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Connecticut has a separate $25 &#x27;conveyance fee&#x27; in addition to the dealer doc fee, which is uncapped. Market estimate: ~$499 typical.</td></tr>
+            <tr id="de">
+                <th scope="row">Delaware</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$350 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$500+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Delaware has no sales tax but charges a 4.25% &#x27;document fee&#x27; on vehicle transfers (state fee, separate from dealer admin fee). Dealer admin fee: market estimate ~$350.</td></tr>
+            <tr id="fl">
+                <th scope="row">Florida</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$999 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$999+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Florida does not cap doc fees. Market averages $700–$999 with heavy regional variance; Florida has the highest typical doc fees in the country.</td></tr>
+            <tr id="ga">
+                <th scope="row">Georgia</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$599 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$799+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Georgia has no cap; market average is ~$599.</td></tr>
+            <tr id="hi">
+                <th scope="row">Hawaii</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$285 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$450+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Hawaii has no statutory cap. Market estimate: ~$285 typical. Hawaii&#x27;s 4% &#x27;GE tax&#x27; is the state sales tax equivalent.</td></tr>
+            <tr id="id">
+                <th scope="row">Idaho</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Idaho has no statutory cap. Market estimate: ~$299 typical.</td></tr>
+            <tr id="il">
+                <th scope="row">Illinois</th>
+                <td class="num cap">$324.24</td>
+                <td class="num">$324.24</td>
+                <td class="num">$350+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Illinois caps the dealer doc fee (adjusted annually for inflation). $324.24 is the 2025–2026 cap.</td></tr>
+            <tr id="in">
+                <th scope="row">Indiana</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$199 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$349+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Indiana has no hard statutory cap. Market estimate: ~$199 typical.</td></tr>
+            <tr id="ia">
+                <th scope="row">Iowa</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$180 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$250+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Iowa Admin. Code requires doc fees to be &#x27;reasonable.&#x27; No hard statutory cap; market estimate ~$180.</td></tr>
+            <tr id="ks">
+                <th scope="row">Kansas</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Kansas has no statutory cap. Market estimate: ~$399 typical.</td></tr>
+            <tr id="ky">
+                <th scope="row">Kentucky</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Kentucky has no statutory cap. Kentucky charges a 6% usage tax on vehicles (in lieu of sales tax). Dealer doc fee market estimate: ~$399.</td></tr>
+            <tr id="la">
+                <th scope="row">Louisiana</th>
+                <td class="num cap">$200</td>
+                <td class="num">$200</td>
+                <td class="num">$300+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Louisiana caps the dealer documentation fee at $200 (La. R.S. 32:1254).</td></tr>
+            <tr id="me">
+                <th scope="row">Maine</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Maine has no statutory cap. Market estimate: ~$399 typical.</td></tr>
+            <tr id="md">
+                <th scope="row">Maryland</th>
+                <td class="num cap">$500</td>
+                <td class="num">$500</td>
+                <td class="num">$600+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Maryland caps dealer processing fees at $500 (Md. Transp. Code §15-311.1).</td></tr>
+            <tr id="ma">
+                <th scope="row">Massachusetts</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Massachusetts has no hard cap, but state guidance limits doc fees to ~$399. Market estimate.</td></tr>
+            <tr id="mi">
+                <th scope="row">Michigan</th>
+                <td class="num cap">$260</td>
+                <td class="num">$260</td>
+                <td class="num">$300+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Michigan caps dealer doc fees at $260 (indexed annually).</td></tr>
+            <tr id="mn">
+                <th scope="row">Minnesota</th>
+                <td class="num cap">$125</td>
+                <td class="num">$125</td>
+                <td class="num">$175+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Minnesota caps the dealer administrative fee at $125 (Minn. Stat. §325F.662).</td></tr>
+            <tr id="ms">
+                <th scope="row">Mississippi</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Mississippi has no statutory cap. Market estimate: ~$399 typical.</td></tr>
+            <tr id="mo">
+                <th scope="row">Missouri</th>
+                <td class="num cap">$500</td>
+                <td class="num">$500</td>
+                <td class="num">$600+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Missouri caps the dealer administrative fee at $500 (Mo. Rev. Stat. §301.558).</td></tr>
+            <tr id="mt">
+                <th scope="row">Montana</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$295 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$495+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Montana has no statutory cap and no general sales tax on vehicles. Market estimate: ~$295 typical.</td></tr>
+            <tr id="ne">
+                <th scope="row">Nebraska</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Nebraska has no statutory cap. Market estimate: ~$299 typical.</td></tr>
+            <tr id="nv">
+                <th scope="row">Nevada</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$899 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$1,099+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Nevada has no statutory cap. Market estimate: ~$899 typical; Nevada is notoriously high.</td></tr>
+            <tr id="nh">
+                <th scope="row">New Hampshire</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">New Hampshire has no statutory cap and no state sales tax on vehicles. Market estimate: ~$399 typical.</td></tr>
+            <tr id="nj">
+                <th scope="row">New Jersey</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$499 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$699+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">New Jersey has no statutory cap. Market estimate: ~$499 typical.</td></tr>
+            <tr id="nm">
+                <th scope="row">New Mexico</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$399 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">New Mexico has no statutory cap. Vehicle excise (MVET) is 4% in lieu of sales tax. Dealer doc fee market estimate: ~$399.</td></tr>
+            <tr id="ny">
+                <th scope="row">New York</th>
+                <td class="num cap">$175</td>
+                <td class="num">$175</td>
+                <td class="num">$200+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">New York caps dealer doc fees at $175.</td></tr>
+            <tr id="nc">
+                <th scope="row">North Carolina</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$699 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$899+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">North Carolina has no cap; market average is ~$699.</td></tr>
+            <tr id="nd">
+                <th scope="row">North Dakota</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$199 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$299+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">North Dakota has no statutory cap. Market estimate: ~$199 typical.</td></tr>
+            <tr id="oh">
+                <th scope="row">Ohio</th>
+                <td class="num cap">$250</td>
+                <td class="num">$250</td>
+                <td class="num">$300+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Ohio caps dealer doc fees at $250 or 10% of sale price, whichever is lower.</td></tr>
+            <tr id="ok">
+                <th scope="row">Oklahoma</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Oklahoma has no statutory cap. Oklahoma charges a 3.25% vehicle excise tax. Dealer doc fee market estimate: ~$299.</td></tr>
+            <tr id="or">
+                <th scope="row">Oregon</th>
+                <td class="num cap">$150</td>
+                <td class="num">$150</td>
+                <td class="num">$200+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Oregon caps dealer doc fees at $150 (Ore. Rev. Stat. 822.043). No general state sales tax; 0.5% vehicle privilege tax on new vehicles only.</td></tr>
+            <tr id="pa">
+                <th scope="row">Pennsylvania</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$449 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$599+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Pennsylvania has no cap; market average is ~$449.</td></tr>
+            <tr id="ri">
+                <th scope="row">Rhode Island</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$499 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$699+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Rhode Island has no statutory cap. Market estimate: ~$499 typical.</td></tr>
+            <tr id="sc">
+                <th scope="row">South Carolina</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$599 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$799+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">South Carolina has no hard statutory cap (dealer admin fee must be disclosed as separate line). Market estimate: ~$599 typical. Note: state sales tax on vehicles is capped at $500 regardless of price.</td></tr>
+            <tr id="sd">
+                <th scope="row">South Dakota</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$199 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$299+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">South Dakota has no statutory cap. 4% motor-vehicle excise in lieu of general sales tax. Dealer doc fee market estimate: ~$199.</td></tr>
+            <tr id="tn">
+                <th scope="row">Tennessee</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$499 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$699+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Tennessee has no statutory cap. Market estimate: ~$499 typical.</td></tr>
+            <tr id="tx">
+                <th scope="row">Texas</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$150 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$250+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Texas has no hard cap; dealers are expected to limit doc fees to actual cost. $150 is the typical market charge.</td></tr>
+            <tr id="ut">
+                <th scope="row">Utah</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Utah has no hard statutory cap. Market estimate: ~$299 typical.</td></tr>
+            <tr id="vt">
+                <th scope="row">Vermont</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$199 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$299+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Vermont has no statutory cap. Market estimate: ~$199 typical.</td></tr>
+            <tr id="va">
+                <th scope="row">Virginia</th>
+                <td class="num cap">$899</td>
+                <td class="num">$799</td>
+                <td class="num">$899+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Virginia caps dealer processing fees at $899 (Va. Code §46.2-1530; 2022 update). Vehicle Sales &amp; Use Tax is 4.15%.</td></tr>
+            <tr id="wa">
+                <th scope="row">Washington</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$200 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$300+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Washington has no hard statutory cap (disclosure-only requirements). Market estimate: ~$200 typical.</td></tr>
+            <tr id="wv">
+                <th scope="row">West Virginia</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">West Virginia has no hard statutory cap. Market estimate: ~$299 typical.</td></tr>
+            <tr id="wi">
+                <th scope="row">Wisconsin</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Wisconsin has no hard statutory cap on dealer service fees. Market estimate: ~$299 typical.</td></tr>
+            <tr id="wy">
+                <th scope="row">Wyoming</th>
+                <td class="num nocap">No cap</td>
+                <td class="num">$299 <span class="est" title="Market estimate — no statutory cap">est.</span></td>
+                <td class="num">$499+</td>
+            </tr>
+            <tr class="note-row"><td colspan="4">Wyoming has no statutory cap. Market estimate: ~$299 typical.</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="apr-markup">APR markup: the fee that isn't on any line</h2>
+        <p>Doc fees are visible. The bigger cost usually isn't: when the dealer arranges your financing, the lender approves you at a <strong>buy rate</strong> — and the dealer is allowed to write the contract at a higher rate and keep a share of the difference. Two extra points on a $30,000, 72-month loan is roughly <strong>$2,000</strong> over the life of the loan, and it never appears as a line item.</p>
+        <p>The defense is knowing what rate your credit actually earns. These are the average new- and used-car APRs by credit tier (Experian, Q1 2025):</p>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Credit tier</th>
+                    <th scope="col">New</th>
+                    <th scope="col">Used</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Super Prime (781+)</th>
+                <td class="num">5.18%</td>
+                <td class="num">6.82%</td>
+            </tr>
+            <tr>
+                <th scope="row">Prime (661-780)</th>
+                <td class="num">6.70%</td>
+                <td class="num">9.06%</td>
+            </tr>
+            <tr>
+                <th scope="row">Near Prime (601-660)</th>
+                <td class="num">9.83%</td>
+                <td class="num">13.74%</td>
+            </tr>
+            <tr>
+                <th scope="row">Subprime (501-600)</th>
+                <td class="num">13.22%</td>
+                <td class="num">18.99%</td>
+            </tr>
+            <tr>
+                <th scope="row">Deep Subprime (300-500)</th>
+                <td class="num">15.81%</td>
+                <td class="num">21.58%</td>
+            </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 0.82rem; color: var(--muted);">Averages assume a 60-month term; expect roughly +0.3% per extra 12 months of term. Your quoted rate also moves with down payment, vehicle age, and lender.</p>
+        <ul>
+            <li><strong>Get pre-approved first.</strong> A bank or credit union pre-approval is your real benchmark — and your walk-away power.</li>
+            <li><strong>Ask the F&amp;I manager directly:</strong> "What's the buy rate?" They don't have to answer, but the question signals you know the mechanism.</li>
+            <li><strong>Compare the contract APR to your tier's average above.</strong> More than a point or two over — with good credit — means the rate deserves an explanation.</li>
+        </ul>
+
+        <div class="cta">
+            <h2>The doc fee is one line. Shortfall checks the whole contract.</h2>
+            <p>Photograph the dealer's paperwork or import the PDF — Shortfall reads it on your iPhone and flags every line above typical for your state: doc fee, rate markup, GAP, extended warranty. No account, no cloud — nothing leaves your phone.</p>
+            <a class="cta-button" href="https://apps.apple.com/us/app/shortfall-paperwork-check/id6763161521">Get Shortfall on the App&nbsp;Store</a>
+            <p class="fine">Requires iPhone · The same state benchmarks on this page, built in</p>
+        </div>
+
+        <h2 id="faq">Doc fee questions, answered</h2>
+            <h3>Are dealer doc fees negotiable?</h3>
+            <p>The fee itself usually isn&#x27;t — most dealers treat it as fixed and many states require charging it uniformly to every buyer. What is negotiable is the bottom line: if the doc fee is high for your state, ask for the vehicle price or trade-in value to move by the same amount. In the 12 states with a legal cap, anything above the cap is simply not permitted — ask for it to be corrected, not negotiated.</p>
+            <h3>What is a dealer doc fee?</h3>
+            <p>A documentation (or &#x27;doc&#x27;) fee is what the dealer charges to prepare and file your paperwork — title, registration, contract processing. It is dealer profit in most states, not a government charge, and it varies from $85 to over $1,000 depending on where you buy.</p>
+            <h3>Which states cap doc fees in 2026?</h3>
+            <p>12 states cap the dealer doc fee by statute or regulation: California ($85), Minnesota ($125), Oregon ($150), New York ($175), Louisiana ($200), Ohio ($250), Michigan ($260), Illinois ($324.24), Maryland ($500), Missouri ($500), Colorado ($699), Virginia ($899). The other 38 states have no hard cap.</p>
+            <h3>Can a dealer charge more than the state cap?</h3>
+            <p>No. In capped states the maximum is set by statute or regulation. If the doc fee on your buyer&#x27;s order exceeds your state&#x27;s cap, point at the line and ask for it to be corrected before you sign.</p>
+            <h3>What is APR markup (dealer reserve)?</h3>
+            <p>When a dealer arranges your loan, the lender approves you at a &#x27;buy rate.&#x27; The dealer is allowed to present you a higher rate and keep a share of the difference as compensation — typically up to 2 percentage points. It never appears as a line item. The defense: get pre-approved by your own bank or credit union first, then ask the dealer to beat that rate.</p>
+
+        <footer>
+            <p><strong>Sources &amp; method.</strong> Capped states cite the statute or regulation in the per-state note. Uncapped states list a 2026 market-typical estimate drawn from the CarEdge national doc-fee survey and state dealer-association disclosures. APR benchmarks: Experian State of the Automotive Finance Market, Q1 2025. This page is generated directly from the same benchmark dataset (v1.1, 2026-04-23) bundled in the Shortfall app, so the two can't drift.</p>
+            <p>This is general pricing information, not legal or financial advice. Figures describe typical market behavior, not any specific dealer.</p>
+            <p>Page updated 2026-06-12 · <a href="https://apps.apple.com/us/app/shortfall-paperwork-check/id6763161521">Shortfall on the App Store</a> · <a href="https://sknauss7.github.io/KynossStudiosSupport/shortfall-privacy.html">Privacy</a> · <a href="https://sknauss7.github.io/KynossStudiosSupport/shortfall-support.html">Support</a> · <a href="index.html">Kynoss Studios</a></p>
+        </footer>
+    </div>
+</body>
+</html>
