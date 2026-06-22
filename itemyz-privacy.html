@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itemyz Privacy Policy — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #0F766E;
+            --card-bg: #fff;
+            --highlight-bg: #eaf3f1;
+            --highlight-border: #0F766E;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #2DA89E;
+                --card-bg: #242424;
+                --highlight-bg: #16302d;
+                --highlight-border: #2DA89E;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .effective-date {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0;
+        }
+
+        .highlight p + p {
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--card-bg);
+            font-weight: 600;
+        }
+
+        .toc {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .toc ol {
+            margin-bottom: 0;
+        }
+
+        .toc a {
+            color: var(--fg);
+        }
+
+        .toc a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Itemyz Privacy Policy</h1>
+            <p class="subtitle">Kynoss Studios</p>
+            <p class="effective-date">Effective Date: June 4, 2026 &middot; Last Updated: June 4, 2026</p>
+        </header>
+
+        <main>
+            <div class="highlight">
+                <p><strong>The short version:</strong> Itemyz processes everything on your iPhone. We have no servers, no accounts, no third-party SDKs, no ads, and no third-party AI. Itemyz uses Apple-native diagnostic signposts (OSLog and MetricKit) so we can learn what's working in the audit and paywall flows — these stay on your device unless you've opted into Apple's system-wide diagnostics sharing. We cannot see, access, or collect your bill or EOB images, extracted line items, flags, or audit history. The only network request Itemyz makes is to Apple's StoreKit for processing the optional one-time unlock purchase.</p>
+            </div>
+
+            <nav class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#contract-data">Bill &amp; EOB Documents &amp; Extracted Fields</a></li>
+                    <li><a href="#on-device-ai">On-Device AI (Apple Foundation Models)</a></li>
+                    <li><a href="#benchmarks">Benchmark Data</a></li>
+                    <li><a href="#purchases">Purchases (StoreKit)</a></li>
+                    <li><a href="#data-storage">Data Storage</a></li>
+                    <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
+                    <li><a href="#data-sharing">Data Sharing &amp; Third Parties</a></li>
+                    <li><a href="#data-security">Data Security</a></li>
+                    <li><a href="#children">Children's Privacy (COPPA)</a></li>
+                    <li><a href="#ccpa">California Privacy Rights (CCPA/CPRA)</a></li>
+                    <li><a href="#apple-requirements">Apple Platform Disclosures</a></li>
+                    <li><a href="#changes">Changes to This Policy</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ol>
+            </nav>
+
+            <h2 id="overview">1. Overview</h2>
+            <p>Itemyz is an iOS app that helps you review your own itemized medical bills and insurance Explanations of Benefits (EOBs). It reads the documents on your iPhone, checks the line items against each other and against the math, and flags charges that may be worth questioning. This policy explains exactly what data the app processes, where it lives, and who has access to it. The short answer is: everything stays on your iPhone.</p>
+            <p>Itemyz has no backend. We run no servers, operate no databases, and maintain no user accounts. Kynoss Studios, the developer of Itemyz, has no way to retrieve your data from your device because there is no data-retrieval path in the app. Because medical bills and EOBs can contain health-related and financial information, this on-device-only design is deliberate: your most sensitive documents never leave your phone.</p>
+
+            <h2 id="contract-data">2. Bill &amp; EOB Documents &amp; Extracted Fields</h2>
+            <p>When you photograph or import an itemized medical bill or EOB, Itemyz uses Apple's on-device frameworks (VisionKit, Vision, PDFKit) to read the document and extract its line items — the codes and descriptions exactly as printed on your document, units, charged amounts, and the patient-responsibility figures shown on your EOB.</p>
+            <p><strong>Your bill and EOB images and all extracted fields never leave your device.</strong> They are not uploaded to any server (including Apple's), not transmitted to Kynoss Studios, and not shared with any third party.</p>
+            <p>If you save an audit, the extracted fields and resulting flags are stored locally using Apple's SwiftData framework in your app's sandbox. This storage is subject to iOS's standard application-data protection and is automatically removed by iOS when you uninstall the app.</p>
+
+            <h2 id="on-device-ai">3. On-Device AI (Apple Foundation Models)</h2>
+            <p>Itemyz uses Apple's <strong>Foundation Models</strong> framework — an on-device large language model built into iOS 26 and later — to write the plain-English explanation of each flagged line (based on the description already printed on your bill) and to draft your dispute letter. Foundation Models runs entirely on your iPhone. Prompts and responses do not leave the device.</p>
+            <p>Itemyz does <strong>not</strong> use any third-party AI service. Specifically: no OpenAI, no Anthropic, no Google Gemini, no server-side machine learning of any kind. We do not "train" or "improve" any model using your data.</p>
+            <p>Itemyz requires an Apple Intelligence-capable iPhone (iPhone 15 Pro, iPhone 15 Pro Max, or any iPhone 16 or iPhone 17 model) specifically because Foundation Models is the on-device, privacy-preserving alternative to uploading your data to a cloud AI service.</p>
+
+            <h2 id="benchmarks">4. Reference Data</h2>
+            <p>To check certain charges, Itemyz includes a small reference pack of <strong>publicly available data</strong> — U.S. government (CMS) public-domain code descriptions and price references — <strong>bundled with the app at install time</strong> as static files inside the app bundle. Itemyz does not call any server to fetch them, and the detection of duplicates, totals that don't add up, and bill-versus-EOB mismatches is computed entirely from your own documents.</p>
+            <p>Reference-pack updates ship as part of normal app updates via the App Store. They flow one-way, from us to the app, at install or update time, and never reveal your data to anyone.</p>
+
+            <h2 id="purchases">5. Purchases (StoreKit)</h2>
+            <p>Itemyz offers a one-time in-app purchase to unlock full explanations, dispute-letter export, unlimited bills, and saved history. The transaction is processed by Apple through StoreKit 2. Apple handles:</p>
+            <ul>
+                <li>The payment transaction itself</li>
+                <li>Billing, receipts, refunds, and Family Sharing</li>
+                <li>Any tax reporting required by your jurisdiction</li>
+            </ul>
+            <p>Itemyz receives only a local receipt indicating whether your unlock is active. We never see your payment method, Apple ID, billing address, or any other personal identifier from the purchase flow.</p>
+            <p>Apple's handling of your purchase data is governed by Apple's own privacy policy.</p>
+
+            <h2 id="data-storage">6. Data Storage</h2>
+            <p>All Itemyz data is stored on your device using Apple's SwiftData framework within your app's sandbox directory. This includes:</p>
+            <ul>
+                <li>Each audit's extracted line items and amounts</li>
+                <li>The flags generated for each audit and their plain-English explanations</li>
+                <li>Any dispute letter you generate</li>
+            </ul>
+            <p>iOS applies its standard file-system protection to this storage. It is not synced to iCloud (Itemyz does not enable iCloud sync), is not backed up to any cloud, and is not accessible to any other app on your device.</p>
+
+            <h2 id="data-retention">7. Data Retention &amp; Deletion</h2>
+            <p>Audit history persists on your device until:</p>
+            <ul>
+                <li>You delete individual audits via swipe-to-delete in the History view, or</li>
+                <li>You uninstall Itemyz, in which case iOS removes the app's entire sandbox, including all audit data.</li>
+            </ul>
+            <p>Because Itemyz never transmits your data anywhere, there is no cloud copy of your data for us to retain or delete. Deletion is immediate and total on your device.</p>
+
+            <h2 id="data-sharing">8. Data Sharing &amp; Third Parties</h2>
+            <p>Itemyz does not share your data with any third party. There is no third party to share with — no analytics provider, no ad network, no lead-generation partner, no cloud-AI vendor.</p>
+            <p>When you export or share your dispute letter, the text (or a rendered PDF) is passed to iOS's system share sheet. What happens next depends on which destination you choose (Messages, Mail, Save to Files, Print, etc.). That interaction is governed by the destination app's privacy policy, not Itemyz's. Itemyz itself never transmits the letter; it hands it to iOS, and iOS hands it to whichever app you pick.</p>
+
+            <h2 id="data-security">9. Data Security</h2>
+            <p>Itemyz relies entirely on iOS's built-in security model:</p>
+            <ul>
+                <li>App sandboxing prevents other apps from accessing Itemyz's data.</li>
+                <li>File-system encryption on iOS protects local storage at rest.</li>
+                <li>No network transmission means no transport-layer attack surface for your bill or EOB data.</li>
+            </ul>
+            <p>Because Itemyz does not operate a server, there is no server-side infrastructure that could be breached, no database that could be exfiltrated, and no cloud backup that could be compromised. The "security" of your data is bounded by the security of your own iPhone.</p>
+
+            <h2 id="children">10. Children's Privacy (COPPA)</h2>
+            <p>Itemyz is rated 4+ on the App Store but is targeted at adults reviewing their own medical bills. Because Itemyz does not collect any data from any user regardless of age, the Children's Online Privacy Protection Act (COPPA) is not applicable in the traditional sense — we have no data collection practices to constrain for children.</p>
+
+            <h2 id="ccpa">11. California Privacy Rights (CCPA/CPRA)</h2>
+            <p>If you are a California resident, the California Consumer Privacy Act (CCPA) as amended by the California Privacy Rights Act (CPRA) provides you with specific rights.</p>
+
+            <h3>Information We Process</h3>
+            <p>Under CCPA/CPRA definitions, Itemyz processes the following categories of information <strong>on your device only</strong>:</p>
+            <ul>
+                <li>Photographs or files of your medical bills and EOBs that you choose to import</li>
+                <li>Information extracted from those documents (codes and descriptions as printed, charge amounts, EOB patient-responsibility figures), which may include health-related and financial information</li>
+            </ul>
+            <p>Because all processing occurs on your device and we never collect, receive, or access this information, Kynoss Studios does not "collect" personal information as defined by the CCPA/CPRA.</p>
+
+            <h3>Your Rights</h3>
+            <ul>
+                <li><strong>Right to know:</strong> This Privacy Policy describes everything the app processes. We do not collect additional data beyond what is described here.</li>
+                <li><strong>Right to delete:</strong> Delete the app, or use in-app swipe-to-delete on any audit row, to remove data.</li>
+                <li><strong>Right to opt out of sale:</strong> <strong>We do not sell your personal information.</strong> We never have and never will.</li>
+                <li><strong>Right to opt out of sharing:</strong> We do not share your personal information with third parties for cross-context behavioral advertising or any other purpose.</li>
+                <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
+                <li><strong>Right to limit use of sensitive personal information:</strong> Financial and health information are considered sensitive under CPRA. Itemyz accesses the content of these documents only on your device and only at your explicit instruction (by scanning or importing a bill or EOB).</li>
+            </ul>
+
+            <h3>"Do Not Sell or Share My Personal Information"</h3>
+            <p>Itemyz does not sell or share personal information. Because no data is transmitted from your device to us or any third party, there is no sale or sharing to opt out of. We fully comply with the CCPA/CPRA without requiring any user action.</p>
+
+            <h2 id="apple-requirements">12. Apple Platform Disclosures</h2>
+            <p>In compliance with Apple's App Store Review Guidelines and platform requirements:</p>
+
+            <h3>AI Service Disclosure (Guidelines 5.1.1(i) / 5.1.2(i))</h3>
+            <ul>
+                <li>Itemyz uses Apple's on-device Foundation Models framework to generate plain-English explanations of flagged charges and to draft dispute letters.</li>
+                <li>Itemyz does not use any third-party AI service (OpenAI, Anthropic, Google, etc.).</li>
+                <li>AI inference happens entirely on the user's iPhone; no prompts or model responses are transmitted anywhere.</li>
+                <li>User data is never used to train or improve any model, internally or externally.</li>
+            </ul>
+
+            <h3>Required Reason APIs</h3>
+            <p>Itemyz uses only Apple's first-party frameworks (PDFKit, VisionKit, Vision, Foundation Models, SwiftData, StoreKit 2) and does not access any APIs that require declared reasons beyond those already disclosed in this policy and in the app's App Store privacy nutrition label.</p>
+
+            <h3>App Tracking Transparency</h3>
+            <p>Itemyz does not track users across apps or websites owned by other companies. The App Tracking Transparency framework is not used because no tracking occurs. Itemyz does not access the user's IDFA.</p>
+
+            <h3>App Privacy Nutrition Label</h3>
+            <p>Itemyz's App Store privacy nutrition label accurately reflects that the app does not collect data linked to user identity and does not track users. All three privacy-label sections — "Data Used to Track You," "Data Linked to You," and "Data Not Linked to You" — show as <strong>None</strong>.</p>
+
+            <h3>Apple-Native Diagnostic Signposts (OSLog &amp; MetricKit)</h3>
+            <p>Itemyz emits Apple-native diagnostic signposts using <code>OSLog</code> and <code>MetricKit</code> (via <code>os_signpost</code> on the <code>PointsOfInterest</code> log) so we can learn what's working in the audit and paywall flows over time. These signposts:</p>
+            <ul>
+                <li>Stay on your device by default. They are written to the system log and to MetricKit's daily diagnostic payload, both of which Apple stores locally.</li>
+                <li>Are <strong>not</strong> sent to Kynoss Studios — we run no servers and have no analytics endpoint to receive them.</li>
+                <li>May be sampled into Apple's anonymized, aggregate diagnostic stream only if you have opted into Apple's system-wide "Share with App Developers" diagnostics setting (off by default). Even then, what Kynoss Studios receives is anonymized and aggregated by Apple, not raw events tied to you.</li>
+                <li>Contain no bill or EOB data, no extracted fields, no audit history, no Apple-ID, and no IDFA — only event labels like <code>paywall_view</code> and per-trigger funnel markers.</li>
+            </ul>
+            <p>Per Apple's classifier, these are not "Usage Data Collected" because they don't leave the device under default settings.</p>
+
+            <h3>Billing Review Framing (Guideline 5.1.1)</h3>
+            <p>Itemyz highlights possible billing errors for you to review with your provider or insurer. It does not provide legal or medical advice, does not name or rate individual providers, and does not characterize any charge as fraud or illegal. It compares your own documents and flags items worth questioning; you remain the decision-maker.</p>
+
+            <h2 id="changes">13. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in the app's functionality or legal requirements. When we make changes:</p>
+            <ul>
+                <li>The "Last Updated" date at the top of this page will be revised.</li>
+                <li>Material changes (e.g., if we ever added an opt-in iCloud sync feature) would be communicated in the app before the change takes effect and would require your explicit consent.</li>
+                <li>Continued use of Itemyz after non-material changes constitutes acceptance of the updated policy.</li>
+            </ul>
+            <p>We encourage you to review this policy periodically. This policy will be reviewed at least annually.</p>
+
+            <h2 id="contact">14. Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, your privacy rights, or Itemyz's data practices, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></li>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Support Page:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/itemyz-support.html">Itemyz Support</a></li>
+            </ul>
+            <p>We will respond to privacy inquiries within 30 days.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/itemyz-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/itemyz-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

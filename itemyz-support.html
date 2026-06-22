@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itemyz Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #0F766E;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #2DA89E;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Itemyz Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Itemyz reads your itemized medical bill and insurance EOB on your phone, checks them against each other and against the math, and flags the charges worth questioning — then drafts a dispute letter you can send yourself. Everything runs on your device. No uploads, no accounts, no tracking, and no cut of anything you save.</p>
+            <p><em>Itemyz is not legal or medical advice. It highlights possible billing errors for you to review with your provider or insurer. You remain the decision-maker.</em></p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your iPhone model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>If relevant: a redacted copy of the bill or EOB that caused the issue (remove your name, date of birth, member/account numbers, and any other identifying information)</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What does Itemyz do?</dt>
+                <dd>Itemyz reads the line items on your itemized medical bill and your insurance EOB, then checks them against each other and against the math. It flags charges worth questioning — when your bill asks for more than your EOB says you owe, balance billing after your insurer already adjusted the claim, duplicate line items, and totals that don't add up — explains each in plain English, and drafts a dispute letter you can send to your provider or insurer.</dd>
+
+                <dt>Does Itemyz upload my bill?</dt>
+                <dd>No. Every step — reading the documents, checking the charges, writing the explanations and the dispute letter — runs entirely on your iPhone. Itemyz has no server. Your bill, your EOB, and everything extracted from them never leave your device.</dd>
+
+                <dt>Does it tell me what every billing code means?</dt>
+                <dd>Itemyz explains the charges in plain English based on the descriptions printed on your own bill. It is not a medical-coding dictionary, and it focuses on finding dollar-specific problems you can act on — not translating every code. For a deeper explanation of a single code, your provider's billing office can help.</dd>
+
+                <dt>Why does Itemyz require an Apple Intelligence iPhone?</dt>
+                <dd>Itemyz uses Apple's on-device Foundation Models framework to write the plain-English explanations and draft your dispute letter — privately, without sending anything to a cloud service. Foundation Models is only available on iPhone 15 Pro, iPhone 15 Pro Max, and any iPhone 16 or iPhone 17 model. On older iPhones, Itemyz cannot be installed from the App Store.</dd>
+
+                <dt>What does the free version include?</dt>
+                <dd>You can audit a bill and see how many possible issues Itemyz found, plus a plain-English explanation of the most significant one. Unlocking the full explanations, dispute-letter export, unlimited bills, and saved history is a one-time in-app purchase. No subscription, and we never take a cut of anything you save.</dd>
+
+                <dt>Where does Itemyz's reference data come from?</dt>
+                <dd>The checks that compare your bill to your EOB, find duplicates, and verify the math are computed entirely from your own documents. For certain charges, Itemyz also includes a small bundled reference pack drawn from U.S. government (CMS) public-domain data. This reference ships inside the app and is updated with each app release; it never calls a server and never reveals your data.</dd>
+
+                <dt>A line was read incorrectly. What should I do?</dt>
+                <dd>You can correct a value before it feeds the checks. Real-world bills vary widely in layout, and some fall outside our current sample set. Please email us the bill or EOB (with your name, date of birth, and account numbers redacted) so we can improve reading accuracy for that layout.</dd>
+
+                <dt>Why doesn't Itemyz have iCloud sync?</dt>
+                <dd>By design. Your audit history is tied to your health care and your money. Keeping it local means there's no server for anyone (including us) to breach, subpoena, or be compelled to share. If iCloud sync becomes a commonly requested feature, we'd add it as strictly opt-in with a clear disclosure.</dd>
+
+                <dt>Does Itemyz say I was defrauded or overcharged?</dt>
+                <dd>No. Itemyz highlights <em>possible</em> billing errors for you to review with your provider or insurer. It never names or rates a provider, never calls a charge fraud or illegal, and never tells you whether to pay. The goal is to give you the specifics; the decision is yours.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Itemyz requires iOS 26 or later and an Apple Intelligence-capable iPhone (15 Pro, 15 Pro Max, or any 16 or 17 series model).</dd>
+            </dl>
+
+            <h2>Known limitations</h2>
+            <ul>
+                <li><strong>Reading quality depends on the document.</strong> Bills photographed with heavy skew, glare, crease shadows, or poor lighting read better re-scanned or imported as a PDF.</li>
+                <li><strong>Itemyz catches mechanically-verifiable problems</strong> — bill-versus-EOB mismatches, duplicates, balance billing, and arithmetic. It does not judge whether a service was medically necessary or appropriately coded; those questions belong with your provider and insurer.</li>
+                <li><strong>An EOB makes the strongest audit.</strong> Many of the most valuable checks compare your bill against your EOB, so adding both gives the best results.</li>
+            </ul>
+
+            <h2>Reporting an issue</h2>
+            <p>Itemyz is new, and real-world bills vary more than any synthetic test set can cover. If you see a misread line, a wrong flag, or a layout Itemyz doesn't understand, we want to hear about it. Email us a redacted bill or EOB and we'll add it to our sample set so the issue gets caught in tests for the next release.</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/itemyz-support.html">Support</a>
+                &nbsp;&middot;&nbsp;
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/itemyz-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
