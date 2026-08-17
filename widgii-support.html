@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widgii Support — Kynoss Studios</title>
+    <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #1a1a1a;
+            --muted: #666;
+            --border: #e0e0e0;
+            --accent: #A85B23;
+            --card-bg: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1a1a1a;
+                --fg: #e8e8e8;
+                --muted: #999;
+                --border: #333;
+                --accent: #D9924F;
+                --card-bg: #242424;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: var(--fg);
+            margin-bottom: 0.75rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-email a {
+            color: var(--accent);
+        }
+
+        .response-time {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .faq dt {
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq dd {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Widgii Support</h1>
+            <p class="subtitle">by Kynoss Studios</p>
+        </header>
+
+        <main>
+            <p>Widgii is a production-line puzzle for iPhone. Sources feed raw material onto a small grid; you drag a finger to lay belts, presses and combiners that turn it into the item the output tile is asking for, at the rate it is asking for. The whole board fits on the screen — no camera, no scrolling, no accounts, no ads. Everything runs on your iPhone.</p>
+
+            <h2>Contact Us</h2>
+
+            <div class="card">
+                <p class="contact-email">
+                    <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a>
+                </p>
+                <p class="response-time">We typically respond within 48 hours.</p>
+            </div>
+
+            <p>When contacting support, please include:</p>
+            <ul>
+                <li>Your device model and iOS version</li>
+                <li>A description of the issue or question</li>
+                <li>Steps to reproduce the problem (if applicable)</li>
+                <li>Any relevant screenshots</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <dl class="faq">
+                <dt>What is Widgii?</dt>
+                <dd>Widgii is a one-board production puzzle. Each board gives you sources that emit raw material, an output tile that demands a finished item at a rate, and a budget of parts. You route the material from one to the other and get the line running.</dd>
+
+                <dt>How do I play?</dt>
+                <dd>Drag your finger across the grid to lay a belt along the path you traced. Tap a tile in the tray to place a machine — a press turns raw material into a component, a combiner joins two components into a finished widget, a splitter feeds two lines from one. Belts accept material from any side except the one they output to; machines accept from a single face, so which way a piece points matters.</dd>
+
+                <dt>The line never seems to stop. Is there a run button?</dt>
+                <dd>No, and that is deliberate. The simulation is always ticking. What you place takes effect immediately on a machine that is already running, so you tune a live line rather than submitting a design and waiting to be graded.</dd>
+
+                <dt>When is a board solved?</dt>
+                <dd>When the meter shows your delivery rate holding at or above the demand line. It takes a few seconds of steady output to confirm a rate, so the meter settles rather than snapping — if it is hovering just under the line, something upstream is starving.</dd>
+
+                <dt>What does the elegance score mean?</dt>
+                <dd>It is thrift: how much of your parts budget you did not spend. Almost every board can be solved many different ways, and only a handful of those are the smallest build. Solving it is the first question; solving it in fewer pieces is the better one.</dd>
+
+                <dt>My output tile is getting nothing. What went wrong?</dt>
+                <dd>Three things account for most of it. The output tile only accepts the exact item it demands, so an unfinished component arriving there is ignored. A machine only accepts material at its input face — check which way it is pointing. And a press refuses material it has no recipe for, so the wrong raw input will sit there rather than pass through.</dd>
+
+                <dt>Does Widgii collect any data or track me?</dt>
+                <dd>No. Widgii has no servers, no accounts, no analytics, no ads, no tracking, and no third-party SDKs of any kind. Your progress stays on your iPhone.</dd>
+
+                <dt>Does Widgii require an internet connection?</dt>
+                <dd>No. Widgii is fully offline. The game does not make network requests at all.</dd>
+
+                <dt>What happens to my data if I delete the app?</dt>
+                <dd>All Widgii data is stored locally on your device. Deleting the app permanently removes it. There is no server-side copy and no account to close.</dd>
+
+                <dt>I'm in the TestFlight beta. What should I report?</dt>
+                <dd>Anything that reads wrong as much as anything that behaves wrong — a piece you could not tell apart from another at a glance, a drag that placed a belt somewhere you did not mean, a board where you could not tell why the rate would not hold. Email the address above.</dd>
+
+                <dt>What iOS version is required?</dt>
+                <dd>Widgii requires iOS 26 or later and is designed for iPhone.</dd>
+            </dl>
+
+            <h2>Privacy</h2>
+            <p>Widgii keeps everything on your device by design. For complete details, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/widgii-privacy.html">Privacy Policy</a>.</p>
+
+            <h2>App Information</h2>
+            <ul>
+                <li><strong>Developer:</strong> Kynoss Studios</li>
+                <li><strong>Platform:</strong> iPhone (iOS 26+)</li>
+                <li><strong>Category:</strong> Games — Puzzle / Strategy</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="https://sknauss7.github.io/KynossStudiosSupport/widgii-privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
