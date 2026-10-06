@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apps That Respect You</title>
-    <meta name="description" content="Privacy-first iOS apps. No accounts, no tracking, no cloud. Your data stays on your device.">
+    <title>Kynoss Studios</title>
+    <meta name="description" content="Kynoss Studios is an independent iOS studio with 15 apps on the App Store. No ads, no accounts, no tracking.">
     <style>
         :root {
             --bg: #fafafa;
             --fg: #1a1a1a;
-            --muted: #666;
-            --subtle: #999;
+            --muted: #5f5f5f;
+            --subtle: #8a8a8a;
             --border: #e0e0e0;
             --accent: #4F46E5;
             --accent-light: #EEF2FF;
             --card-bg: #fff;
             --hero-bg: #f0f0f5;
         }
-
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg: #111;
                 --fg: #e8e8e8;
-                --muted: #999;
-                --subtle: #666;
+                --muted: #a3a3a3;
+                --subtle: #7a7a7a;
                 --border: #2a2a2a;
                 --accent: #818CF8;
                 --accent-light: #1e1b4b;
@@ -31,533 +30,354 @@
                 --hero-bg: #161622;
             }
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
             background: var(--bg);
             color: var(--fg);
             line-height: 1.6;
         }
-
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
         .hero {
             text-align: center;
-            padding: 5rem 1.5rem 4rem;
+            padding: 4.5rem 1.5rem 3.5rem;
             background: var(--hero-bg);
             border-bottom: 1px solid var(--border);
         }
-
+        .eyebrow {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
         .hero h1 {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.15;
-            margin-bottom: 1rem;
+            max-width: 680px;
+            margin: 0 auto 1rem;
         }
-
         .hero .tagline {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--muted);
-            max-width: 520px;
-            margin: 0 auto 2rem;
+            max-width: 540px;
+            margin: 0 auto 1.75rem;
         }
-
-        .hero .principles {
+        .facts {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 0.5rem 1.75rem;
             flex-wrap: wrap;
             font-size: 0.9rem;
             color: var(--muted);
+            list-style: none;
         }
-
-        .hero .principles span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .hero .principles .dot {
+        .facts li::before {
+            content: "";
+            display: inline-block;
             width: 6px;
             height: 6px;
-            background: var(--accent);
+            margin: 0 0.45rem 0.15rem 0;
             border-radius: 50%;
-            display: inline-block;
+            background: var(--accent);
         }
-
-        .content {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        .content { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+        .section { padding: 3rem 0; }
+        .section + .section { border-top: 1px solid var(--border); }
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
-
-        .section {
-            padding: 3.5rem 0;
-        }
-
-        .section + .section {
-            border-top: 1px solid var(--border);
-        }
-
-        .section-label {
-            font-size: 0.75rem;
+        .section > p { color: var(--muted); max-width: 620px; margin-bottom: 1rem; }
+        h3.group {
+            font-size: 0.78rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .section h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .section > p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            max-width: 560px;
-            margin-bottom: 2rem;
-        }
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
-        }
-
-        .app-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.75rem;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1.25rem;
-            align-items: start;
-            transition: border-color 0.2s;
-        }
-
-        .app-card:hover {
-            border-color: var(--accent);
-        }
-
-        .app-icon-placeholder {
-            width: 64px;
-            height: 64px;
-            border-radius: 14px;
-            background: var(--accent-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .app-icon-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .app-info h3 {
-            font-size: 1.15rem;
-            font-weight: 650;
-            margin-bottom: 0.15rem;
-        }
-
-        .app-info .category {
-            font-size: 0.8rem;
             color: var(--subtle);
-            margin-bottom: 0.5rem;
+            margin: 2rem 0 0.75rem;
         }
-
-        .app-info .description {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-bottom: 0.75rem;
-        }
-
-        .app-info .meta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-weight: 500;
-        }
-
-        .badge-price {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-
-        .badge-privacy {
-            background: var(--accent-light);
-            color: var(--accent);
-        }
-
-        .app-links {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
-        }
-
-        .app-links a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .app-links a:hover {
-            text-decoration: underline;
-        }
-
-        .coming-soon-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
             gap: 1rem;
         }
-
-        .coming-soon-card {
+        .app {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 1.25rem;
         }
-
-        .coming-soon-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-        }
-
-        .coming-soon-card .category {
+        .icon { width: 56px; height: 56px; border-radius: 13px; flex-shrink: 0; background: var(--accent-light); }
+        .app-body { min-width: 0; }
+        .app h3 { font-size: 1.05rem; font-weight: 650; }
+        .cat { font-size: 0.8rem; color: var(--subtle); margin-bottom: 0.35rem; }
+        .desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+        .price {
+            display: inline-block;
             font-size: 0.78rem;
-            color: var(--subtle);
-            margin-bottom: 0.5rem;
+            font-weight: 500;
+            padding: 0.1rem 0.55rem;
+            border-radius: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
         }
-
-        .coming-soon-card p {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        .privacy-section {
+        .links { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-top: 0.5rem; font-size: 0.85rem; }
+        .panel {
             background: var(--hero-bg);
             border-radius: 16px;
-            padding: 2.5rem;
+            padding: 1.75rem;
             margin-top: 1rem;
         }
-
-        .privacy-section h3 {
-            font-size: 1.25rem;
-            font-weight: 650;
-            margin-bottom: 1rem;
-        }
-
-        .privacy-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .privacy-list li {
-            font-size: 0.9rem;
+        .panel ul { list-style: none; }
+        .panel li {
+            position: relative;
+            padding: 0.4rem 0 0.4rem 1.25rem;
             color: var(--muted);
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: baseline;
-            gap: 0.75rem;
+            font-size: 0.95rem;
         }
-
-        .privacy-list li::before {
+        .panel li::before {
             content: "";
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 0.95rem;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 0.35rem;
+            background: var(--accent);
         }
-
+        .panel strong { color: var(--fg); font-weight: 600; }
         footer {
             text-align: center;
-            padding: 2.5rem 1.5rem;
+            padding: 2.5rem 1rem;
             border-top: 1px solid var(--border);
             color: var(--muted);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .contact-line {
-            margin-top: 0.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .hero h1 {
-                font-size: 3.25rem;
-            }
-        }
-
+        footer p + p { margin-top: 0.4rem; }
         @media (max-width: 480px) {
-            .hero {
-                padding: 3.5rem 1.25rem 3rem;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .app-card {
-                grid-template-columns: 1fr;
-            }
-            .app-icon-placeholder {
-                width: 52px;
-                height: 52px;
-                font-size: 1.4rem;
-            }
-            .hero .principles {
-                gap: 1rem;
-            }
+            .hero { padding: 3.25rem 1rem 2.75rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .app { padding: 1rem; }
+            .icon { width: 48px; height: 48px; border-radius: 11px; }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Your phone, your data.<br>No exceptions.</h1>
-        <p class="tagline">iOS apps built with one rule: everything stays on your device. No accounts. No tracking. No cloud. Just software that works for you.</p>
-        <div class="principles">
-            <span><span class="dot"></span> On-device processing</span>
-            <span><span class="dot"></span> No accounts required</span>
-            <span><span class="dot"></span> No ads ever</span>
-        </div>
-    </div>
+    <header class="hero">
+        <p class="eyebrow">Kynoss Studios</p>
+        <h1>Small iPhone apps that do one job well</h1>
+        <p class="tagline">An independent iOS studio. Daily games, money tools and home organizers, built to keep your data on your phone.</p>
+        <ul class="facts">
+            <li>15 apps on the App Store</li>
+            <li>No ads</li>
+            <li>No sign-up accounts</li>
+            <li>No tracking</li>
+        </ul>
+    </header>
 
-    <div class="content">
-        <div class="section">
-            <p class="section-label">On the App Store</p>
-            <h2>Apps you can download today</h2>
-
-            <div class="app-grid">
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/enveloop.png" alt="Enveloop icon"></div>
-                    <div class="app-info">
-                        <h3>Enveloop</h3>
-                        <div class="category">Finance &middot; Envelope Budgeting</div>
-                        <p class="description">Automatically calculates how much of each paycheck to set aside for every bill. Visual envelopes fill as funds accumulate. Shared family budgets via iCloud.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">$4.99 one-time</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/app/id6759178198">App Store</a>
-                            <a href="enveloop-support.html">Support</a>
-                            <a href="enveloop-privacy.html">Privacy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/primo.png" alt="Primo icon"></div>
-                    <div class="app-info">
-                        <h3>Primo</h3>
-                        <div class="category">Lifestyle &middot; Occasion Planning</div>
-                        <p class="description">Builds reverse-engineered timelines for the people you care about. Birthdays, anniversaries, holidays — planned backwards so nothing falls through the cracks. AI suggestions powered by Apple Intelligence.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with upgrades</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/app/id6759265509">App Store</a>
-                            <a href="primo-support.html">Support</a>
-                            <a href="primo-privacy.html">Privacy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/riffl.png" alt="Riffl icon"></div>
-                    <div class="app-info">
+    <main class="content">
+        <section class="section" id="apps">
+            <h2>Our apps</h2>
+            <p>Every app has its own support page and privacy policy, linked from its card.</p>
+            <h3 class="group">Games</h3>
+            <div class="grid">
+                <article class="app">
+                    <img class="icon" src="icons/riffl.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
                         <h3>Riffl</h3>
-                        <div class="category">Games &middot; Daily Word Puzzle</div>
-                        <p class="description">Two words, shuffled into one. Tap letters to separate them. One puzzle a day, same puzzle for everyone. Simple mechanic, surprisingly tricky.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with Pro upgrade</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/app/id6759587346">App Store</a>
-                            <a href="riffl-support.html">Support</a>
-                            <a href="riffl-privacy.html">Privacy</a>
-                        </div>
+                        <p class="cat">Daily word puzzle</p>
+                        <p class="desc">Two words shuffled into one. Tap letters to pull them apart. One puzzle a day, the same for everyone.</p>
+                        <p class="price">Free · one-time Pro upgrade</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759587346">App Store</a><a href="riffl-support.html">Support</a><a href="riffl-privacy.html">Privacy</a></p>
                     </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/paeki.png" alt="Paeki icon"></div>
-                    <div class="app-info">
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/paeki.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
                         <h3>Paeki</h3>
-                        <div class="category">Games &middot; Daily Visual Puzzle</div>
-                        <p class="description">A scrambled image, revealed tile by tile. Guess what it depicts before the picture is complete — fewer tiles, higher score. One puzzle a day, powered by semantic understanding.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with Pro upgrade</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/app/id6759767106">App Store</a>
-                            <a href="paeki-support.html">Support</a>
-                            <a href="paeki-privacy.html">Privacy</a>
-                        </div>
+                        <p class="cat">Daily picture puzzle</p>
+                        <p class="desc">An image revealed tile by tile. Guess what it shows before the picture is complete; fewer tiles means a higher score.</p>
+                        <p class="price">Free · one-time Pro upgrade</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759767106">App Store</a><a href="paeki-support.html">Support</a><a href="paeki-privacy.html">Privacy</a></p>
                     </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/substrata.png" alt="Substrata icon"></div>
-                    <div class="app-info">
-                        <h3>Substrata</h3>
-                        <div class="category">Health &middot; Environmental Intelligence</div>
-                        <p class="description">Discovers how your environment affects your health. Continuously samples noise, pressure, and weather, then correlates against your sleep and vitals. All processing on-device — no audio ever recorded.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with one-time upgrade</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/us/app/substrata/id6759664433">App Store</a>
-                            <a href="substrata-support.html">Support</a>
-                            <a href="substrata-privacy.html">Privacy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/sievr.png" alt="Sievr icon"></div>
-                    <div class="app-info">
-                        <h3>Sievr</h3>
-                        <div class="category">Utility &middot; Photo Cleanup</div>
-                        <p class="description">Finds your near-duplicate photos, picks the sharpest one with explainable AI, and lets you trash the rest. All on-device — nobody else sees your photos.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with one-time upgrade</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/us/app/sievr/id6759723263">App Store</a>
-                            <a href="sievr-support.html">Support</a>
-                            <a href="sievr-privacy.html">Privacy</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/intuii.png" alt="Intuii icon"></div>
-                    <div class="app-info">
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/intuii.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
                         <h3>Intuii</h3>
-                        <div class="category">Games &middot; Daily Estimation Puzzle</div>
-                        <p class="description">Five daily Fermi estimation questions with confidence-calibration scoring. Set your estimate, set your confidence range, and find out how well-calibrated your intuition really is.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with Pro upgrade</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/us/app/intuii/id6760296901">App Store</a>
-                            <a href="intuii-support.html">Support</a>
-                            <a href="intuii-privacy.html">Privacy</a>
-                        </div>
+                        <p class="cat">Daily estimation puzzle</p>
+                        <p class="desc">Five estimation questions a day, scored on how well your confidence matches reality as well as on accuracy.</p>
+                        <p class="price">Free · one-time Pro upgrade</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6760296901">App Store</a><a href="intuii-support.html">Support</a><a href="intuii-privacy.html">Privacy</a></p>
                     </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/pandemoni.png" alt="Pandemoni icon"></div>
-                    <div class="app-info">
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/rusti.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Rusti</h3>
+                        <p class="cat">Daily trivia</p>
+                        <p class="desc">Ten questions a day on the grade-school basics most adults have forgotten. Friend and family leaderboards.</p>
+                        <p class="price">Free · one-time Pro upgrade</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6764300697">App Store</a><a href="rusti-support.html">Support</a><a href="rusti-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/tylde.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Tylde</h3>
+                        <p class="cat">Async word duels</p>
+                        <p class="desc">A shared letter board, 90 seconds of play and a day to make your move. Built for friend groups.</p>
+                        <p class="price">Free · one-time Pro upgrade</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6764362212">App Store</a><a href="tylde-support.html">Support</a><a href="tylde-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/pandemoni.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
                         <h3>Pandemoni</h3>
-                        <div class="category">Games &middot; Party Games</div>
-                        <p class="description">15 party games on any TV. One phone hosts, everyone else scans a QR code and plays from their browser. No app download, no account, no internet required.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with one-time upgrades</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/us/app/pandemoni/id6759873568">App Store</a>
-                            <a href="pandemoni-support.html">Support</a>
-                            <a href="pandemoni-privacy.html">Privacy</a>
-                        </div>
+                        <p class="cat">Party games on any TV</p>
+                        <p class="desc">One phone hosts; everyone else scans a QR code and plays in their browser. No downloads, accounts or internet connection needed.</p>
+                        <p class="price">2 free games · more as one-time unlocks</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759873568">App Store</a><a href="pandemoni-support.html">Support</a><a href="pandemoni-privacy.html">Privacy</a></p>
                     </div>
-                </div>
-
-                <div class="app-card">
-                    <div class="app-icon-placeholder"><img src="icons/homebaseai.png" alt="HomeBaseAI icon"></div>
-                    <div class="app-info">
+                </article>
+            </div>
+            <h3 class="group">Money</h3>
+            <div class="grid">
+                <article class="app">
+                    <img class="icon" src="icons/enveloop.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Enveloop</h3>
+                        <p class="cat">Envelope budgeting</p>
+                        <p class="desc">Works out how much of each paycheck to set aside for every bill, and shares a household budget over iCloud.</p>
+                        <p class="price">One-time purchase</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759178198">App Store</a><a href="enveloop-support.html">Support</a><a href="enveloop-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/shortfall.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Shortfall</h3>
+                        <p class="cat">Car deal audit</p>
+                        <p class="desc">Reads your buyer's order or contract on your phone and flags doc fees, APR markup and add-ons that are too high for your state.</p>
+                        <p class="price">1 free audit · one-time unlock</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6763161521">App Store</a><a href="shortfall-support.html">Support</a><a href="shortfall-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+            </div>
+            <h3 class="group">Home & family</h3>
+            <div class="grid">
+                <article class="app">
+                    <img class="icon" src="icons/homebaseai.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
                         <h3>HomeBaseAI</h3>
-                        <div class="category">Utility &middot; Home Management</div>
-                        <p class="description">Your home's brain — appliances, paint codes, filter sizes, warranties, service history. Talk, type, or snap a photo of a label and on-device AI handles the rest. Proactive maintenance coaching, seasonal checklists, and family sharing via iCloud.</p>
-                        <div class="meta">
-                            <span class="badge badge-price">Free with Pro subscription</span>
-                            <span class="badge badge-privacy">Zero data collected</span>
-                        </div>
-                        <div class="app-links">
-                            <a href="https://apps.apple.com/us/app/homebaseai/id6759628026">App Store</a>
-                            <a href="homebaseai-support.html">Support</a>
-                            <a href="homebaseai-privacy.html">Privacy</a>
-                        </div>
+                        <p class="cat">Home records & maintenance</p>
+                        <p class="desc">Appliances, paint codes, filter sizes, warranties and service history, captured by typing, talking or scanning a label.</p>
+                        <p class="price">Free · Pro subscription</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759628026">App Store</a><a href="homebaseai-support.html">Support</a><a href="homebaseai-privacy.html">Privacy</a></p>
                     </div>
-                </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/sirrius.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Sirrius</h3>
+                        <p class="cat">Pet health</p>
+                        <p class="desc">Health records, medication reminders and vet visits for every pet, shared with the whole household.</p>
+                        <p class="price">Free · Pro subscription</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6760633823">App Store</a><a href="sirrius-support.html">Support</a><a href="sirrius-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/trovii.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Trovii</h3>
+                        <p class="cat">Kids' art archive</p>
+                        <p class="desc">Capture every drawing, share a monthly digest with grandparents, and turn each year into a photobook.</p>
+                        <p class="price">Subscription · free trial</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6765739418">App Store</a><a href="trovii-support.html">Support</a><a href="trovii-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/primo.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Primo</h3>
+                        <p class="cat">Occasion planning</p>
+                        <p class="desc">Plans birthdays, anniversaries and holidays backwards from the date, so nothing sneaks up on you.</p>
+                        <p class="price">Free with upgrades</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759265509">App Store</a><a href="primo-support.html">Support</a><a href="primo-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
             </div>
-        </div>
-
-        <div class="section">
-            <p class="section-label">In Development</p>
-            <h2>What's coming next</h2>
-            <p>More apps in testing, same privacy promise. Every one of these processes data entirely on your device.</p>
-
-            <div class="coming-soon-grid">
-                <div class="coming-soon-card">
-                    <h3>Sirrius</h3>
-                    <div class="category">Pet Health</div>
-                    <p>Your pet's health records, meds, and vet visits — tracked by on-device AI that never sends their data off your phone.</p>
-                </div>
+            <h3 class="group">Photos & work</h3>
+            <div class="grid">
+                <article class="app">
+                    <img class="icon" src="icons/sievr.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Sievr</h3>
+                        <p class="cat">Photo cleanup</p>
+                        <p class="desc">Finds near-duplicate photos, picks the best shot in each group and explains why, entirely on your phone.</p>
+                        <p class="price">Free scan · Pro to clean up</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759723263">App Store</a><a href="sievr-support.html">Support</a><a href="sievr-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+                <article class="app">
+                    <img class="icon" src="icons/markki.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Markki</h3>
+                        <p class="cat">Photo reports</p>
+                        <p class="desc">Turns a photo walk-through into a numbered PDF report: punch lists, inspections, before-and-after.</p>
+                        <p class="price">Subscription · free trial</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6765735242">App Store</a><a href="markki-support.html">Support</a><a href="markki-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
             </div>
-        </div>
+            <h3 class="group">Health</h3>
+            <div class="grid">
+                <article class="app">
+                    <img class="icon" src="icons/substrata.png" alt="" width="56" height="56" loading="lazy">
+                    <div class="app-body">
+                        <h3>Substrata</h3>
+                        <p class="cat">Environment & health</p>
+                        <p class="desc">Tracks noise, air pressure and weather and shows how they line up with your sleep and vitals. No audio is ever recorded.</p>
+                        <p class="price">Free · one-time upgrade</p>
+                        <p class="links"><a href="https://apps.apple.com/app/id6759664433">App Store</a><a href="substrata-support.html">Support</a><a href="substrata-privacy.html">Privacy</a></p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <div class="section">
-            <p class="section-label">The Promise</p>
-            <h2>Privacy isn't a feature. It's the architecture.</h2>
-
-            <div class="privacy-section">
-                <h3>Every app follows the same rules</h3>
-                <ul class="privacy-list">
-                    <li>All data processing happens on your device — not "mostly" on-device, entirely</li>
-                    <li>No user accounts. No sign-ups. No email collection. Open the app and start using it</li>
-                    <li>No analytics SDKs, no tracking pixels, no fingerprinting. We don't know who you are</li>
-                    <li>AI features use Apple's on-device models. Your data never hits a server</li>
-                    <li>One-time purchases or optional subscriptions. Free tiers are fully functional, not crippled demos</li>
-                    <li>Delete the app and everything goes with it. There's nothing on our end to delete</li>
+        <section class="section" id="privacy">
+            <h2>How we handle your data</h2>
+            <p>The same rules apply to every app. Where an app works differently, its privacy policy says exactly how.</p>
+            <div class="panel">
+                <ul>
+                    <li><strong>On your device first.</strong> Most features, including most AI features, run on your iPhone using Apple's frameworks.</li>
+                    <li><strong>No accounts, ads or trackers.</strong> No sign-up, no advertising SDKs, no third-party analytics. Sync and sharing use your own iCloud; leaderboards use Game Center.</li>
+                    <li><strong>Cloud AI only where we say so.</strong> Pro AI chat in HomeBaseAI and Sirrius sends your question to OpenAI through a small relay we run; the relay doesn't store or log it, and OpenAI doesn't train on it. Primo can use an Anthropic or OpenAI key you supply yourself. Nothing else leaves your phone for AI.</li>
+                    <li><strong>Fair pricing.</strong> Free tiers are useful on their own; upgrades are one-time purchases or clearly priced subscriptions.</li>
                 </ul>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <section class="section" id="studio">
+            <h2>How we build</h2>
+            <p>Kynoss Studios is one developer working with a team of AI agents. Claude Code agents write and test the code, prepare App Store builds and keep each app's documentation current; the developer sets direction and approves every release.</p>
+        </section>
+    </main>
 
     <footer>
-        <p>Solo-built iOS apps from someone who thinks your phone shouldn't spy on you.</p>
-        <p class="contact-line">Questions? <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></p>
+        <p>&copy; 2026 Kynoss Studios</p>
+        <p>Questions? <a href="mailto:kynossstudios@gmail.com">kynossstudios@gmail.com</a></p>
     </footer>
 </body>
 </html>

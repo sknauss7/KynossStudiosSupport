@@ -14,10 +14,13 @@
         (function() {
             var path = window.location.pathname || "";
             // Strip the GitHub-Pages project prefix if present.
+            // Keep the prefix on the redirect: present on github.io, absent on
+            // the custom domain (where redirecting to it would loop back here).
+            var base = /^\/KynossStudiosSupport\//.test(path) ? "/KynossStudiosSupport" : "";
             var p = path.replace(/^\/KynossStudiosSupport\//, "/");
             // Match /rusti/challenge/<anything>
             if (/^\/rusti\/challenge\//.test(p)) {
-                window.location.replace("/KynossStudiosSupport/rusti/challenge/");
+                window.location.replace(base + "/rusti/challenge/");
                 return;
             }
             // Future apps: add similar branches here.
@@ -42,6 +45,6 @@
 <body>
     <h1>Page not found</h1>
     <p>This page doesn't exist — but you can still find privacy and support pages for each Kynoss Studios app from the index.</p>
-    <a href="/KynossStudiosSupport/">Back to support index →</a>
+    <a href="/">Back to support index →</a>
 </body>
 </html>
