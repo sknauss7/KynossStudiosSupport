@@ -129,7 +129,7 @@ body.ks-page {
   font-family: var(--display); font-stretch: 88%; font-weight: 650; font-size: 1.12rem; letter-spacing: -0.01em;
   margin-right: auto;
 }
-.ks-mark { width: 26px; height: 26px; flex: none; }
+.ks-mark { width: auto; height: 24px; aspect-ratio: 437 / 507; flex: none; }
 .ks-nav { display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .ks-nav a {
   display: block; padding: 8px 12px; border-radius: 999px;
@@ -176,7 +176,7 @@ body.ks-page {
 .ks-foot-in { max-width: var(--wide); margin: 0 auto; padding: 48px var(--gutter) 32px; display: grid; gap: 32px; grid-template-columns: 1.4fr repeat(3, 1fr); }
 .ks-foot h2 { font: 600 14px/1.3 var(--font-text); color: var(--ink); margin: 0 0 12px; display: flex; align-items: center; gap: 10px; }
 .ks-foot-about h2 { font: 650 1.12rem/1.2 var(--display); font-stretch: 88%; }
-.ks-foot .ks-mark { width: 22px; height: 22px; }
+.ks-foot .ks-mark { width: auto; height: 20px; }
 .ks-foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .ks-foot a { color: var(--slate) !important; text-decoration: none; }
 .ks-foot a:hover { color: var(--ink) !important; text-decoration: underline; }
@@ -708,3 +708,54 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
   ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.22s; }
 }
 .ks-shots { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--gutter), #000 calc(100% - var(--gutter) * 2), transparent); mask-image: linear-gradient(to right, transparent 0, #000 var(--gutter), #000 calc(100% - var(--gutter) * 2), transparent); }
+
+/* ---------- HOA: a board's team chat beside "How it would work" ---------- */
+.ks-howgrid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+.ks-chat { position: sticky; top: 88px; margin: 0; }
+.ks-chat-win { display: grid; grid-template-columns: 150px 1fr; border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 40px 80px -40px rgba(10,16,30,0.45); font: 13.5px/1.45 var(--font-text); color: var(--ink); }
+.ks-chat-rail { background: linear-gradient(180deg, #123B2A, #0D2A1F); color: rgba(255,255,255,0.72); padding: 14px 10px; font-size: 13px; }
+.ks-chat-org { color: #fff; font-weight: 700; font-size: 14px; padding: 0 6px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 10px !important; }
+.ks-chat-sec { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 6px 4px; color: rgba(255,255,255,0.5); }
+.ks-chat-rail ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.ks-chat-rail li { padding: 4px 8px; border-radius: 7px; display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.ks-chat-rail li.is-on { background: rgba(255,255,255,0.14); color: #fff; font-weight: 600; }
+.ks-chat-rail li i { width: 8px; height: 8px; border-radius: 50%; background: #5FCB93; }
+.ks-chat-rail li i.is-bot { background: #9BE3BF; box-shadow: 0 0 0 2px rgba(155,227,191,0.25); }
+.ks-chat-main { display: grid; grid-template-rows: auto 1fr auto; min-width: 0; }
+.ks-chat-top { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.ks-chat-top b { font-size: 15px; }
+.ks-chat-top span:not(.ks-badge) { color: var(--slate); font-size: 12.5px; margin-right: auto; }
+.ks-chat-msgs { display: grid; gap: 2px; padding: 8px 0; }
+.ks-msg { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 8px 16px; }
+.ks-msg p + p, .ks-msg p + ul, .ks-msg ul + p { margin-top: 6px !important; }
+.ks-msg ul { margin: 6px 0 0; padding-left: 1.1em; }
+.ks-msg li + li { margin-top: 3px; }
+.ks-msg.is-event { background: color-mix(in srgb, var(--app) 7%, transparent); }
+.ks-av { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; font: 700 12px/1 var(--font-text); color: #fff; background: var(--av, #586377); }
+.ks-av.is-bot { background: linear-gradient(150deg, #2E9C6A, #1A5E40); }
+.ks-av svg { width: 18px; height: 18px; }
+.ks-who { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; line-height: 1.2; margin-bottom: 2px !important; }
+.ks-who b { font-weight: 700; }
+.ks-who em { font-style: normal; font-size: 11.5px; color: var(--slate); }
+.ks-who span { font-size: 11.5px; color: var(--slate); }
+.ks-file { display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px 8px 8px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); font-weight: 600; font-size: 12.5px; }
+.ks-file span { font: 700 10px/1 var(--font-text); color: #fff; background: #C2453D; padding: 6px 5px; border-radius: 5px; }
+.ks-msg .ks-source span { font-size: 11.5px; padding: 4px 8px; }
+.ks-react { display: flex; gap: 6px; align-items: center; }
+.ks-emoji { font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--app) 40%, var(--line)); background: color-mix(in srgb, var(--app) 9%, transparent); }
+.ks-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.ks-btns span { font-weight: 600; font-size: 12.5px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+.ks-btns span.is-primary { background: var(--app-btn); border-color: transparent; color: #fff; }
+.ks-done { display: inline-block; font-size: 11px; font-weight: 700; color: var(--app-ink); padding: 1px 7px; border-radius: 6px; background: color-mix(in srgb, var(--app) 14%, transparent); margin-left: 4px; }
+.ks-chat-compose { margin: 4px 16px 14px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); color: var(--slate); font-size: 13px; }
+@media (max-width: 980px) { .ks-howgrid { grid-template-columns: 1fr; } .ks-chat { position: static; } }
+@media (max-width: 560px) { .ks-chat-win { grid-template-columns: 1fr; } .ks-chat-rail { display: none; } .ks-msg { padding: 8px 12px; } .ks-chat-top span:not(.ks-badge) { display: none; } .ks-chat-top .ks-badge { margin-left: auto; } }
+
+/* ---------- logo on About and in the press kit ---------- */
+.ks-aboutlogo { place-items: center; padding: 32px !important; }
+.ks-aboutlogo img { width: 150px; height: auto; }
+.ks-logotiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ks-logotiles a { display: grid; place-items: center; padding: 18px; border-radius: 14px; border: 1px solid var(--line); }
+.ks-logotiles a.is-light { background: #F2F2F0; }
+.ks-logotiles a.is-dark { background: #0F1522; }
+.ks-logotiles img { width: 72px; height: auto; }

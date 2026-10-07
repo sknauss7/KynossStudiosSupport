@@ -262,6 +262,13 @@ def build_stats():
 # ---------------------------------------------------------------- og images
 
 OG_W, OG_H = 1200, 630
+BRAND_K = [(437, 0), (193, 295), (339, 492), (237, 492), (137, 358), (0, 507), (0, 31), (85, 120), (85, 293), (145, 235)]  # assets/brand/kynoss-k.svg
+
+
+def draw_k(d, x, y, h, fill):
+    """The studio's K mark, h pixels tall, top-left at (x, y)."""
+    k = h / 507
+    d.polygon([(x + px * k, y + py * k) for px, py in BRAND_K], fill=fill)
 OG_FONT = ROOT / "assets" / "fonts" / "bricolage-latin.woff2"
 INK = (15, 21, 34)
 
@@ -421,12 +428,8 @@ def og_page(dest, title, subtitle, accent="#2B54E0", wall=None, apps=None):
             paste_card(im, rounded(ic, int(sz * 0.224)), (x, y), ang, shadow=70, blur=22, offset=14)
     im = im.convert("RGB")
     d = ImageDraw.Draw(im, "RGBA")
-    # the studio mark: 3x3 rounded squares, centre one in signal blue
-    for r in range(3):
-        for col in range(3):
-            x0, y0 = 80 + col * 22, 80 + r * 22
-            d.rounded_rectangle([x0, y0, x0 + 17, y0 + 17], radius=5, fill=(91, 131, 255) if (r, col) == (1, 1) else (255, 255, 255))
-    d.text((160, 86), "Kynoss Studios", font=og_font(40, 650, 88), fill="white")
+    draw_k(d, 80, 80, 58, "white")  # the studio mark
+    d.text((146, 86), "Kynoss Studios", font=og_font(40, 650, 88), fill="white")
     size = 104 if len(title) <= 14 else 84
     big = og_font(size)
     lh = int(size * 0.98)
@@ -446,25 +449,21 @@ def og_page(dest, title, subtitle, accent="#2B54E0", wall=None, apps=None):
 # ---------------------------------------------------------------- favicon
 
 def favicons():
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#172033"/>'
-           '<g fill="#F5F7FA">' + "".join(
-               f'<rect x="{5 + c * 8}" y="{5 + r * 8}" width="6" height="6" rx="1.6"{" fill=%s" % chr(34) + "#5B83FF" + chr(34) if (r, c) == (1, 1) else ""}/>'
-               for r in range(3) for c in range(3)) + "</g></svg>")
+    """The K mark, white on ink: SVG for modern browsers, PNGs for the rest and the iPhone home screen."""
+    pts = " ".join(f"{x},{y}" for x, y in BRAND_K)
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0F1522"/>'
+           f'<polygon fill="#F5F7FA" transform="translate(6.95 5.5) scale(0.0414)" points="{pts}"/></svg>')
     (ROOT / "favicon.svg").write_text(svg)
     for size, name in ((32, "favicon-32.png"), (180, "apple-touch-icon.png")):
-        s = size * 4
+        s = size * 8
         im = Image.new("RGBA", (s, s), (0, 0, 0, 0))
         d = ImageDraw.Draw(im)
         if name.startswith("apple"):
-            d.rectangle([0, 0, s, s], fill="#172033")
+            d.rectangle([0, 0, s, s], fill="#0F1522")  # iOS rounds the corners itself
         else:
-            d.rounded_rectangle([0, 0, s - 1, s - 1], radius=s // 4, fill="#172033")
-        u = s / 32
-        for r in range(3):
-            for c in range(3):
-                x0, y0 = (5 + c * 8) * u, (5 + r * 8) * u
-                d.rounded_rectangle([x0, y0, x0 + 6 * u, y0 + 6 * u], radius=1.6 * u,
-                                    fill="#5B83FF" if (r, c) == (1, 1) else "#F5F7FA")
+            d.rounded_rectangle([0, 0, s - 1, s - 1], radius=s // 4, fill="#0F1522")
+        h = s * 0.66
+        draw_k(d, (s - h * 437 / 507) / 2, (s - h) / 2, h, "#F5F7FA")
         im.resize((size, size), Image.LANCZOS).save(ROOT / name, "PNG", optimize=True)
 
 
