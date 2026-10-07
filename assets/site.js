@@ -103,12 +103,8 @@
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
   }
 
-  /* ---- home screen wake (the one motion moment) ---- */
-  var screen = $(".ks-screen");
-  if (screen) {
-    $$(".ks-tile", screen).forEach(function (t, i) { t.style.setProperty("--i", i); });
-    screen.classList.add("is-waking");
-  }
+  /* ---- icon shelf entrance (the one motion moment) ---- */
+  $$(".ks-shelf li").forEach(function (t, i) { t.style.setProperty("--i", i); });
 
   /* ---- catalog filter ---- */
   var chips = $$(".ks-chip[data-cat]");

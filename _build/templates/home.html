@@ -1,36 +1,22 @@
 {% extends "base.html" %}
-{%- from "_icons.html" import glyph -%}
 {%- from "_catalog.html" import catalog -%}
 {% block main %}
-<section class="ks-hero">
-  <div class="ks-wrap ks-hero-grid">
+<section class="ks-hero ks-hero-b">
+  <div class="ks-wrap">
     <div class="ks-hero-copy">
       <h1 class="ks-display ks-h1">Small iPhone apps that do one job well.</h1>
       <p class="ks-lede">Kynoss Studios makes daily games, money tools and home organizers for iPhone. No ads, no accounts, no tracking. One developer, building with Claude.</p>
-      <ul class="ks-hero-facts">
-        <li><strong>{{ site.live|length }}</strong> apps on the App Store</li>
-        <li><strong>{{ site.upcoming|length }}</strong> on the way</li>
-        <li>Made in {{ site.studio.state }}</li>
-      </ul>
       <div class="ks-actions">
         <a class="ks-button" href="#apps">Browse the apps</a>
         <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
       </div>
     </div>
-    <nav class="ks-screen" aria-label="Apps and shortcuts">
-      <ul class="ks-screen-grid">
-        {%- for a in site.live %}
-        <li><a class="ks-tile" href="/{{ a.id }}/"><img src="{{ a.icon }}" alt="" width="64" height="64"><span>{{ a.name }}</span></a></li>
-        {%- endfor %}
-        <li><a class="ks-tile" href="/apps/#coming-soon" aria-label="Coming soon: {{ site.upcoming|map(attribute='name')|join(', ') }}"><span class="ks-folder">{% for a in site.upcoming[:4] %}<img src="{{ a.icon }}" alt="">{% endfor %}</span><span>Coming soon</span></a></li>
-      </ul>
-      <ul class="ks-dock">
-        <li><a class="ks-tile" href="/support/"><span class="ks-glyph">{{ glyph("help") }}</span><span>Get help</span></a></li>
-        <li><a class="ks-tile" href="/how-we-build/"><span class="ks-glyph is-signal">{{ glyph("build") }}</span><span>How we build</span></a></li>
-        <li><a class="ks-tile" href="/hoa/"><span class="ks-glyph is-green">{{ glyph("hoa") }}</span><span>HOA boards</span></a></li>
-        <li><a class="ks-tile" href="/about/"><span class="ks-glyph is-amber">{{ glyph("about") }}</span><span>About</span></a></li>
-      </ul>
-    </nav>
+    <ul class="ks-shelf" aria-label="Our apps">
+      {%- for a in site.live %}
+      <li><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72"></a></li>
+      {%- endfor %}
+    </ul>
+    <p class="ks-shelf-note">{{ site.live|length }} apps on the App Store, {{ site.upcoming|length }} on the way. Made in {{ site.studio.state }}.</p>
   </div>
 </section>
 
