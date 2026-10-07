@@ -153,7 +153,7 @@
         }
     </style>
 <!-- ks:head -->
-<link rel="stylesheet" href="/assets/site.css?v=202610062035">
+<link rel="stylesheet" href="/assets/site.css?v=202610062051">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -193,7 +193,7 @@
   <li><a href="/apps/">Apps</a></li>
   <li><a href="/primo/">Primo</a></li>
   <li><span aria-current="page">Privacy policy</span></li>
-</ol></nav>
+</ol></nav><p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>
 <div class="ks-legacy-main">
 <!-- /ks:top -->
     <div class="container">
@@ -205,13 +205,13 @@
 
         <a class="nav-link" href="primo-support.html">← Back to Support</a>
 
-        <span class="badge">Last updated: February 2026</span>
+        <span class="badge">Last updated: October 6, 2026</span>
 
         <!-- ========== SUMMARY ========== -->
 
         <div class="summary-card">
             <h2>The short version</h2>
-            <p>Primo collects no data. We have no servers. We have no accounts. We have no analytics. Everything you enter into Primo stays on your device and is never transmitted anywhere by us.</p>
+            <p>Primo collects no data. We have no servers. We have no accounts. We have no analytics. Everything you enter into Primo stays on your device and is never transmitted anywhere by us. If you add your own AI provider key (BYOK), limited planning details go directly from your device to that provider.</p>
         </div>
 
         <!-- ========== DATA STORAGE ========== -->
@@ -221,6 +221,13 @@
         <div class="section">
             <p>All user data — including people, occasions, timelines, gift history, and preferences — is stored locally on your device using Apple's SwiftData framework. There is no cloud component, no remote database, and no synchronization service.</p>
             <p>Primo does not require or support user account creation. There are no usernames, passwords, or email addresses associated with your use of the app.</p>
+            <p>Primo asks for these permissions only when you use the related feature, and everything it reads stays on your device:</p>
+            <ul>
+                <li><strong>Contacts:</strong> to import birthdays and names of the people you choose.</li>
+                <li><strong>Calendars:</strong> to import birthdays, anniversaries, and other occasions from your device calendar.</li>
+                <li><strong>Photos:</strong> to attach a photo to a gift record. Primo uses the system photo picker and only sees photos you pick.</li>
+                <li><strong>Notifications:</strong> for planning reminders, scheduled locally on your device.</li>
+            </ul>
         </div>
 
         <!-- ========== AI FEATURES ========== -->
@@ -231,7 +238,7 @@
             <p>Primo offers two optional AI tiers. Neither is required to use the app.</p>
             <ul>
                 <li><strong>Apple Intelligence (on-device):</strong> Uses Apple's Foundation Models, which run entirely on your device. No data is sent to Apple or any third party as a result of this feature.</li>
-                <li><strong>BYOK (Bring Your Own Key):</strong> If you choose to connect your own API key from Anthropic or OpenAI, Primo sends relevant context (person profile, occasion details, gift history) directly from your device to the provider you selected. This data is governed by that provider's privacy policy. Primo does not route this data through any intermediary server.</li>
+                <li><strong>BYOK (Bring Your Own Key):</strong> If you choose to connect your own API key from Anthropic or OpenAI, Primo sends planning details directly from your device to that provider: the occasion type, relationship, engagement level, interests you listed, budget, the message tone and length you pick, and the titles of ideas already suggested (with the person's name removed). It never sends names, notes, gift history, or tasks you wrote yourself. If you add both keys, Anthropic is used. This data is governed by that provider's privacy policy. Primo does not route this data through any intermediary server.</li>
             </ul>
             <p>Your API key, if provided, is stored in the iOS Keychain and is never transmitted to us or to any party other than your chosen provider.</p>
         </div>
@@ -263,7 +270,7 @@
                 <li><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a></li>
                 <li><a href="https://openai.com/privacy" target="_blank" rel="noopener">OpenAI Privacy Policy</a></li>
             </ul>
-            <p>Primo may include outbound links to third-party websites (such as product pages or event listings) as part of AI-generated suggestions. Visiting these links is subject to those websites' own privacy policies. Primo does not share any user data with these websites.</p>
+            <p>Action items may include links to third-party websites (such as product pages). Visiting these links is subject to those websites' own privacy policies. Primo does not share any user data with these websites.</p>
         </div>
 
         <!-- ========== CHILDREN ========== -->
@@ -294,7 +301,7 @@
 
         <footer>
             <p><a href="primo-support.html">Support</a></p>
-            <p style="margin-top: 8px;">&copy; 2026 Primo</p>
+            <p style="margin-top: 8px;">&copy; 2026 Kynoss Studios LLC</p>
         </footer>
 
     </div>
@@ -344,7 +351,7 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=202610062035" defer></script>
+<script src="/assets/site.js?v=202610062051" defer></script>
 <!-- /ks:bottom -->
 </body>
 </html>

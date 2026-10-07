@@ -193,7 +193,7 @@
         }
     </style>
 <!-- ks:head -->
-<link rel="stylesheet" href="/assets/site.css?v=202610062035">
+<link rel="stylesheet" href="/assets/site.css?v=202610062051">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -233,19 +233,19 @@
   <li><a href="/apps/">Apps</a></li>
   <li><a href="/rusti/">Rusti</a></li>
   <li><span aria-current="page">Privacy policy</span></li>
-</ol></nav>
+</ol></nav><p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>
 <div class="ks-legacy-main">
 <!-- /ks:top -->
     <div class="container">
         <header>
             <h1>Rusti Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: April 28, 2026 &middot; Last Updated: April 28, 2026</p>
+            <p class="effective-date">Effective Date: April 28, 2026 &middot; Last Updated: October 6, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Rusti uses Apple's CloudKit for daily-quiz delivery, leaderboards, family households, and head-to-head challenges — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers and stores no data. The only adult identifier in your records is your Game Center player ID (an Apple-managed opaque token); kid sub-accounts in family households use display names only and never leave the household. Kynoss Studios cannot see your name, email, or any other personal information. No third-party tracking SDKs, no ad networks, no IDFA. Diagnostic events are emitted via Apple's OSLog framework only — visible on your own device through Console.app, never transmitted off-device.</p>
+                <p><strong>The short version:</strong> Rusti uses Apple's CloudKit for daily-quiz delivery, leaderboards, family households, and head-to-head challenges — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers and stores no data. The only adult identifier in your records is your Game Center player ID (an Apple-managed opaque token); kid sub-accounts in family households use display names only and stay within the household. Kynoss Studios cannot see your name, email, or any other personal information. No third-party tracking SDKs, no ad networks, no IDFA. Diagnostic events are emitted via Apple's OSLog framework only — visible on your own device through Console.app, never transmitted off-device.</p>
             </div>
 
             <nav class="toc">
@@ -387,12 +387,12 @@
 
             <!-- 6. APNS -->
             <h2 id="apns">6. Push Notifications (APNs)</h2>
-            <p>Rusti sends push notifications via Apple Push Notification service (APNs) for two purposes:</p>
+            <p>Rusti uses notifications for two purposes:</p>
             <ul>
-                <li><strong>Daily quiz reminder:</strong> a single midnight-local push letting you know today's quiz is ready (Rusti+ lets you customize the time).</li>
-                <li><strong>Challenge Mode reveal:</strong> when the last submission lands in a Challenge Mode match, all participants receive a reveal-time push.</li>
+                <li><strong>Daily quiz reminder:</strong> a single daily reminder that today's quiz is ready. It is a local notification scheduled on your device &mdash; no server sends it (Rusti+ lets you choose the time).</li>
+                <li><strong>Challenge Mode reveal:</strong> when the last submission lands in a Challenge Mode match, all participants receive a reveal-time push. These are sent by Apple's CloudKit through Apple Push Notification service (APNs), based on a CloudKit subscription the app registers for your challenges.</li>
             </ul>
-            <p>Push notifications are entirely opt-in via standard iOS prompt at first launch. Apple operates APNs; Kynoss does not receive notification-delivery telemetry beyond Apple's standard error response (e.g., "device token invalid"). No notification content is logged.</p>
+            <p>Notifications are entirely opt-in via the standard iOS prompt. Apple operates CloudKit and APNs; Kynoss Studios runs no push server and never sees notification content or delivery data.</p>
 
             <!-- 7. DATA RETENTION & DELETION -->
             <h2 id="data-retention">7. Data Retention &amp; Deletion</h2>
@@ -455,7 +455,7 @@
                 <li><strong>No separate accounts:</strong> Kid sub-accounts have no email addresses, no Game Center sign-ins, no passwords, no birthdates, and no separate identity outside the household record.</li>
                 <li><strong>Display names only:</strong> The only kid-identifying information is a display name chosen by the parent or guardian — typically a first name or nickname (e.g., "Maya" or "Buddy").</li>
                 <li><strong>Household-scoped visibility:</strong> Kid sub-accounts and their scores are visible only to other household participants. They never appear on friend leaderboards or Challenge Mode public reveal screens.</li>
-                <li><strong>No data leaves the household:</strong> Kid sub-account scores live inside the CKShare household record. They are not written to the public CloudKit container.</li>
+                <li><strong>Kid data stays in the household:</strong> Kid sub-account scores live only inside the CKShare household record. They are not written to the public CloudKit container.</li>
                 <li><strong>No third-party sharing:</strong> Kid data is never transmitted to Kynoss Studios or any third party. Apple manages CKShare; Kynoss has no access.</li>
                 <li><strong>Parent/guardian control:</strong> The household creator (a verified adult Game Center account) is the sole authority over kid sub-accounts. Adding, renaming, or removing kid sub-accounts requires household-creator action.</li>
             </ul>
@@ -542,7 +542,7 @@
 
             <h3>Push Notifications (APNs)</h3>
             <ul>
-                <li>Rusti uses Apple Push Notification service for daily-quiz reminders and Challenge Mode reveal pushes.</li>
+                <li>Rusti schedules its daily-quiz reminder locally on your device, and uses Apple Push Notification service (via CloudKit subscriptions) for Challenge Mode reveal pushes.</li>
                 <li>Push notifications are opt-in; you can disable them at any time in iOS Settings.</li>
             </ul>
 
@@ -571,17 +571,17 @@
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></li>
                 <li><strong>Developer:</strong> Kynoss Studios</li>
-                <li><strong>Support Page:</strong> <a href="/rusti-support.html">Rusti Support</a></li>
+                <li><strong>Support Page:</strong> <a href="rusti-support.html">Rusti Support</a></li>
             </ul>
             <p>We respond to privacy inquiries within 30 days.</p>
         </main>
 
         <footer>
-            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="/rusti-support.html">Support</a>
+                <a href="rusti-support.html">Support</a>
                 &nbsp;&middot;&nbsp;
-                <a href="/rusti-privacy.html">Privacy Policy</a>
+                <a href="rusti-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
@@ -631,7 +631,7 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=202610062035" defer></script>
+<script src="/assets/site.js?v=202610062051" defer></script>
 <!-- /ks:bottom -->
 </body>
 </html>

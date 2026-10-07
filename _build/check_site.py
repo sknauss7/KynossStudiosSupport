@@ -17,10 +17,18 @@ BUILD = Path(__file__).resolve().parent
 ROOT = BUILD.parent
 WORKSHOP = Path.home() / "AgentWorkshop"
 APP_DIRS = {"homebaseai": "HomeBaseAI"}
-# Phrases that are false for any app that sends data off the device.
-NO_SERVER = re.compile(r"no servers|nothing is sent to any server|without sending data anywhere|"
-                       r"never leaves your (device|iphone)|all ai processing happens entirely on your iphone|"
-                       r"we have no servers|we don't have any", re.I)
+# Privacy wording standard (2026-10-06): state the stance (no accounts, ads, trackers or data
+# selling) once, then describe each app's data plainly. Absolutes break the moment an app gains
+# iCloud sync, an Apple service or an AI feature, so they're only allowed where literally true.
+# "Never leaves / nothing is sent": only for apps whose data stays on the device.
+ABSOLUTE = re.compile(r"never leaves?|nothing (ever )?leaves|nothing (is |ever )*sent|no data (ever )?leaves|"
+                      r"without sending (any )?(data|anything)( anywhere)?|"
+                      r"(all|everything|all (your )?data) (stays|is stored|remains) (only )?on (your|the) (device|iphone)|"
+                      r"all ai processing happens entirely on your iphone", re.I)
+# "No servers": false only for apps that use our relay.
+NO_SERVER = re.compile(r"\bno servers?\b|we have no servers?|we don't have any servers?|"
+                       r"nothing to delete from our servers|we don't have any\b", re.I)
+ON_DEVICE_KINDS = {"device", "gamecenter", "link"}
 
 failures = []
 
@@ -85,18 +93,20 @@ def main():
                 if f"{float(p):.2f}" not in known:
                     fail(f"{a['name']}: ${p} in {where} isn't a current StoreKit price ({', '.join(sorted(known))})")
 
-    # 3. apps that send data off the device must not claim they don't
+    # 3. privacy wording: no absolutes the app's real data flows contradict
     for a in site["apps"]:
-        f = flows.get("apps", {}).get(a["id"], {})
-        sends = any(x["kind"] in ("relay", "byok", "other") for x in f.get("flows", []))
-        if not sends:
-            continue
-        for kind in ("support", "privacy"):
-            page = ROOT / f"{a['id']}-{kind}.html"
-            if page.exists():
-                text = re.sub(r"<[^>]+>", " ", page.read_text(encoding="utf-8"))
-                for m in NO_SERVER.finditer(text):
-                    fail(f"{a['name']} {kind}: says \"{m.group(0)}\" but the app sends data off the device")
+        kinds = {x["kind"] for x in flows.get("apps", {}).get(a["id"], {}).get("flows", [])}
+        checks = []
+        if kinds - ON_DEVICE_KINDS:
+            checks.append((ABSOLUTE, "data leaves the device (" + ", ".join(sorted(kinds - ON_DEVICE_KINDS)) + ")"))
+        if "relay" in kinds:
+            checks.append((NO_SERVER, "we run the AI relay"))
+        for f in sorted(ROOT.glob(f"{a['id']}-*.html")):
+            text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", f.read_text(encoding="utf-8")))
+            for rx, why in checks:
+                for m in rx.finditer(text):
+                    ctx = text[max(0, m.start() - 70):m.end() + 50].strip()
+                    fail(f"{f.name}: \"{m.group(0)}\" but {why}: …{ctx}…")
 
     # 4. optional: live URLs the App Store listings point at
     if "--live" in sys.argv:

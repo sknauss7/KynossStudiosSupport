@@ -14,6 +14,16 @@
     });
   }
 
+  /* ---- shared: edit distance, for typo-tolerant matching ---- */
+  var lev = function (a, b) {
+      var m = [], i, j;
+      for (i = 0; i <= b.length; i++) m[i] = [i];
+      for (j = 0; j <= a.length; j++) m[0][j] = j;
+      for (i = 1; i <= b.length; i++) for (j = 1; j <= a.length; j++)
+        m[i][j] = b[i - 1] === a[j - 1] ? m[i - 1][j - 1] : Math.min(m[i - 1][j - 1] + 1, m[i][j - 1] + 1, m[i - 1][j] + 1);
+      return m[b.length][a.length];
+    };
+
   /* ---- search ---- */
   var index = null;
   function loadIndex() {
@@ -29,6 +39,7 @@
       else if (t.indexOf(q) === 0) s += 8;
       else if (t.indexOf(q) > -1) s += 5;
       else if (d.indexOf(q) > -1) s += 2;
+      else if (q.length >= 4 && t.split(/[^a-z0-9]+/).some(function (w) { return w.length >= 3 && lev(w, q) <= (q.length > 5 ? 2 : 1); })) s += 4;
       else return 0;
     }
     if (item.k === "app") s += 3;
@@ -162,14 +173,6 @@
     var apps = JSON.parse($("#ks-404-data").textContent);
     var path = norm(location.pathname.replace(/^\/KynossStudiosSupport\//, "/"));
     var words = path.split(/[^a-z0-9]+/).filter(function (w) { return w.length > 2; });
-    var lev = function (a, b) {
-      var m = [], i, j;
-      for (i = 0; i <= b.length; i++) m[i] = [i];
-      for (j = 0; j <= a.length; j++) m[0][j] = j;
-      for (i = 1; i <= b.length; i++) for (j = 1; j <= a.length; j++)
-        m[i][j] = b[i - 1] === a[j - 1] ? m[i - 1][j - 1] : Math.min(m[i - 1][j - 1] + 1, m[i][j - 1] + 1, m[i - 1][j] + 1);
-      return m[b.length][a.length];
-    };
     var hits = [];
     apps.forEach(function (a) {
       var best = 99;

@@ -193,7 +193,7 @@
         }
     </style>
 <!-- ks:head -->
-<link rel="stylesheet" href="/assets/site.css?v=202610062035">
+<link rel="stylesheet" href="/assets/site.css?v=202610062051">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -233,19 +233,19 @@
   <li><a href="/apps/">Apps</a></li>
   <li><a href="/trovii/">Trovii</a></li>
   <li><span aria-current="page">Privacy policy</span></li>
-</ol></nav>
+</ol></nav><p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>
 <div class="ks-legacy-main">
 <!-- /ks:top -->
     <div class="container">
         <header>
             <h1>Trovii Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: May 27, 2026</p>
+            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: October 6, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone. Photos do not leave your device unless you opt in to one of two sharing surfaces: a co-parent invite (full archive, read-write across both parents' phones) or a monthly grandparent digest (5-card highlight, read-only). Both surfaces use Apple's CloudKit family sharing — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
+                <p><strong>The short version:</strong> Trovii saves your kids' artwork on your iPhone and, if you're signed in to iCloud, syncs your archive to your own private iCloud account (no one else can see it). Nobody else sees your photos unless you opt in to one of two sharing surfaces: a co-parent invite (full archive, read-write across both parents' phones) or a monthly grandparent digest (5-card highlight, read-only). Both surfaces use Apple's CloudKit family sharing — the same iCloud infrastructure your Photos and Notes use. Kynoss Studios operates no servers, has no analytics SDKs, no third-party trackers, and never sees your photos or your kids' names. There are no ads.</p>
             </div>
 
             <nav class="toc">
@@ -255,7 +255,7 @@
                     <li><a href="#what-stored">What Trovii Stores &amp; Where</a></li>
                     <li><a href="#camera-photos">Camera &amp; Photo Access</a></li>
                     <li><a href="#ckshare">CKShare (Co-Parent Sharing + Grandparent Digest)</a></li>
-                    <li><a href="#apns">Push Notifications (APNs)</a></li>
+                    <li><a href="#apns">Notifications</a></li>
                     <li><a href="#storekit">In-App Purchases (StoreKit 2)</a></li>
                     <li><a href="#data-retention">Data Retention &amp; Deletion</a></li>
                     <li><a href="#data-sharing">Data Sharing &amp; Third Parties</a></li>
@@ -272,13 +272,13 @@
             <!-- 1. OVERVIEW -->
             <h2 id="overview">1. Overview</h2>
             <p>Trovii ("the App") is developed and published by Kynoss Studios ("we," "us," or "our"). Trovii is a privacy-first kids' artwork archive for iPhone (iOS 26 and later). Parents capture photos of their kids' drawings, paintings, and crafts; Trovii's on-device Vision framework auto-crops the artwork from the surrounding surface; the artwork is organized by sibling group and capture date; and at year-end you can export a multi-kid PDF photobook. Two optional sharing surfaces let you invite a co-parent to the full archive (both phones see every capture and either parent can add new artwork) or send a monthly 5-card digest to grandparents — both through Apple's secure CloudKit family-sharing.</p>
-            <p>This Privacy Policy explains exactly what data Trovii accesses, where that data is stored, and what Kynoss Studios can or cannot see. The default architecture is on-device — your kids' artwork lives on your iPhone in a Core Data store backed by Apple's <code>NSPersistentCloudKitContainer</code>. The store has three slots: a local-only slot (per-device metadata that never syncs), a private CloudKit slot (default state — your archive synced only to your own iCloud, no one else can see it), and a shared CloudKit slot (populated only when you accept a co-parent's invitation OR initiate one yourself). Data only leaves your device when you actively opt in to one of the two sharing surfaces, and even then it travels through Apple's CloudKit infrastructure — never to a Kynoss server.</p>
+            <p>This Privacy Policy explains exactly what data Trovii accesses, where that data is stored, and what Kynoss Studios can or cannot see. The default architecture is on-device — your kids' artwork lives on your iPhone in a Core Data store backed by Apple's <code>NSPersistentCloudKitContainer</code>. The store has three slots: a local-only slot (per-device metadata that never syncs), a private CloudKit slot (default state — your archive synced only to your own iCloud, no one else can see it), and a shared CloudKit slot (populated only when you accept a co-parent's invitation OR initiate one yourself). Apart from that private sync to your own iCloud, your archive is only shared with anyone when you actively opt in to one of the two sharing surfaces, and even then it travels through Apple's CloudKit infrastructure — never to a Kynoss server.</p>
             <p><strong>Kynoss Studios is a sole-developer studio.</strong> We do not run servers, databases, analytics pipelines, or marketing infrastructure. The CKShare-resident data Trovii creates — only when you opt in to sharing — lives in your iCloud account and is shared with the family iCloud accounts you designate. Apple operates that infrastructure on our behalf, and we never receive or store identifiable copies of it.</p>
 
             <!-- 2. WHAT TROVII STORES & WHERE -->
             <h2 id="what-stored">2. What Trovii Stores &amp; Where</h2>
 
-            <p>Trovii's data model spans three locations: your device (private to you, the default for everything), Apple's CloudKit (only when you opt in to co-parent sharing or family-digest sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
+            <p>Trovii's data model spans three locations: your device, Apple's CloudKit (your own private iCloud database whenever you're signed in to iCloud, plus shared records only when you opt in to co-parent sharing or family-digest sharing), and Apple's StoreKit (purchase records). The table below is a complete inventory.</p>
 
             <h3>What's stored on your device (Core Data, encrypted at rest)</h3>
             <table>
@@ -293,17 +293,17 @@
                     <tr>
                         <td>Sibling group + per-kid metadata (display names, kid colors, capture dates)</td>
                         <td>Organize artwork by kid; render the cross-sibling joint timeline</td>
-                        <td>No — never transmitted</td>
+                        <td>Synced to your own private iCloud if you're signed in; shared only with a co-parent you invite</td>
                     </tr>
                     <tr>
                         <td>Artwork photos (original + auto-cropped versions)</td>
                         <td>Display in the family timeline; export to year-end photobook PDF</td>
-                        <td>No — never transmitted unless you opt in to co-parent sharing or a family digest</td>
+                        <td>Synced to your own private iCloud if you're signed in; shared only if you opt in to co-parent sharing or a family digest</td>
                     </tr>
                     <tr>
                         <td>Favorite flags + capture dates</td>
                         <td>Generate the monthly digest's 5-card highlight selection; sort the timeline</td>
-                        <td>No — never transmitted</td>
+                        <td>Synced to your own private iCloud if you're signed in</td>
                     </tr>
                     <tr>
                         <td>App preferences (digest send-day, theme, audio toggles)</td>
@@ -313,13 +313,13 @@
                 </tbody>
             </table>
 
-            <h3>What's stored in Apple's CloudKit — only if you opt in to co-parent sharing or family-digest sharing</h3>
-            <p>Trovii uses two separate <code>NSPersistentCloudKitContainer</code> stacks, each tied to your iCloud account, each populated only when you opt in:</p>
+            <h3>What's stored in Apple's CloudKit</h3>
+            <p>If you're signed in to iCloud, your archive (sibling group, kid display names, artworks, favorites, digests and photobooks) syncs to your own private iCloud database so it survives a new phone. Only you can see it. To keep the archive on this device only, turn off iCloud for Trovii in iOS Settings. Sharing with anyone else uses two separate <code>NSPersistentCloudKitContainer</code> stacks, each tied to your iCloud account, each used for sharing only when you opt in:</p>
             <ul>
                 <li><strong>Co-parent archive container</strong> (read-write across two parents): if you accept or send a co-parent invitation, your full archive (sibling group structure, kid metadata, every captured artwork) lives in this stack's CKShare with the specific second parent's iCloud account you designate. Either parent can add new artwork from their phone; both see captures from both phones.</li>
                 <li><strong>Family-digest container</strong> (read-only family fanout): if you send a monthly digest, a separate <code>SharedDigest</code> record (just the 5 highlight artworks for that month) lives in this stack's CKShare with the grandparent / family iCloud accounts you designate.</li>
             </ul>
-            <p>The two containers are independent — opting into one does not enable the other. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable either sharing surface, Trovii writes nothing to CloudKit and the app is completely on-device.</p>
+            <p>The two containers are independent — opting into one does not enable the other. See <a href="#ckshare">Section 4 (CKShare)</a> for the complete disclosure. If you never enable either sharing surface, nothing is shared with anyone; your archive stays on your device and in your own private iCloud.</p>
 
             <h3>What's stored with Apple StoreKit (Trovii Pro)</h3>
             <p>Apple processes Trovii's in-app purchase tiers (monthly subscription, yearly subscription, or one-time lifetime). Kynoss Studios does not receive payment information. Your purchase status is verified locally on your device using Apple's on-device <code>Transaction.currentEntitlements</code> API.</p>
@@ -334,7 +334,7 @@
 
             <!-- 3. CAMERA & PHOTOS -->
             <h2 id="camera-photos">3. Camera &amp; Photo Access</h2>
-            <p>Trovii needs the iOS Camera permission to capture artwork photos. This is the standard <code>NSCameraUsageDescription</code> permission — iOS prompts you at first capture. Captured photos are written directly to Trovii's sandboxed SwiftData store; they are not added to your system Photos library unless you explicitly choose "Save to Photos" from the artwork detail menu.</p>
+            <p>Trovii needs the iOS Camera permission to capture artwork photos. This is the standard <code>NSCameraUsageDescription</code> permission — iOS prompts you at first capture. Captured photos are written directly to Trovii's sandboxed SwiftData store; they are not added to your system Photos library.</p>
             <p>If you prefer not to grant the Camera permission, you can import existing photos from your Photo Library. Trovii uses <code>PHPickerViewController</code> for this, which Apple sandboxes — Trovii receives only the specific photos you pick, not access to the rest of your library.</p>
 
             <!-- 4. CKSHARE -->
@@ -380,13 +380,12 @@
             <p>You can use Trovii's full local feature set — capture, auto-crop, sibling timeline, year-end PDF photobook export — without ever setting up co-parent sharing or a family digest. Both surfaces are opt-in.</p>
 
             <!-- 5. APNS -->
-            <h2 id="apns">5. Push Notifications (APNs)</h2>
-            <p>Trovii sends push notifications via Apple Push Notification service (APNs) for two purposes:</p>
+            <h2 id="apns">5. Notifications</h2>
+            <p>Trovii sends one kind of notification:</p>
             <ul>
-                <li><strong>Monthly digest reminder:</strong> if you've set up family digest sharing, a single push at your chosen send-day reminds you that this month's digest is ready to review and send.</li>
-                <li><strong>New shared digest received (recipient-side):</strong> family members who have accepted a CKShare invitation receive a push when you send a new digest. This uses Apple's standard CloudKit subscription mechanism — Trovii doesn't operate the push-delivery server; Apple does.</li>
+                <li><strong>Monthly digest reminder:</strong> if you turn on the reminder in Share with Family, a local notification on the 28th of each month reminds you that this month's digest is ready to review and send. It is scheduled on your device; no server sends it.</li>
             </ul>
-            <p>Push notifications are entirely opt-in via the standard iOS prompt at first launch. Apple operates APNs; Kynoss does not receive notification-delivery telemetry beyond Apple's standard error response (e.g., "device token invalid"). No notification content is logged.</p>
+            <p>The reminder is opt-in: Trovii asks for notification permission only when you turn it on. Kynoss Studios runs no push server and never sees notification content.</p>
 
             <!-- 6. STOREKIT -->
             <h2 id="storekit">6. In-App Purchases (StoreKit 2)</h2>
@@ -557,10 +556,10 @@
                 <li>Purchase status is verified locally using Apple's on-device <code>Transaction.currentEntitlements</code> API.</li>
             </ul>
 
-            <h3>Push Notifications (APNs)</h3>
+            <h3>Notifications</h3>
             <ul>
-                <li>Trovii uses Apple Push Notification service for digest reminders and (recipient-side) new-digest-received notifications.</li>
-                <li>Push notifications are opt-in; you can disable them at any time in iOS Settings.</li>
+                <li>Trovii's only visible notification is the opt-in monthly digest reminder, scheduled locally on your device. CloudKit sync itself uses Apple's silent push service behind the scenes, which shows nothing to you.</li>
+                <li>Notifications are opt-in; you can disable them at any time in iOS Settings.</li>
             </ul>
 
             <h3>Required Reason APIs</h3>
@@ -588,17 +587,17 @@
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></li>
                 <li><strong>Developer:</strong> Kynoss Studios</li>
-                <li><strong>Support Page:</strong> <a href="/trovii-support.html">Trovii Support</a></li>
+                <li><strong>Support Page:</strong> <a href="trovii-support.html">Trovii Support</a></li>
             </ul>
             <p>We respond to privacy inquiries within 30 days.</p>
         </main>
 
         <footer>
-            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="/trovii-support.html">Support</a>
+                <a href="trovii-support.html">Support</a>
                 &nbsp;&middot;&nbsp;
-                <a href="/trovii-privacy.html">Privacy Policy</a>
+                <a href="trovii-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
@@ -648,7 +647,7 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=202610062035" defer></script>
+<script src="/assets/site.js?v=202610062051" defer></script>
 <!-- /ks:bottom -->
 </body>
 </html>

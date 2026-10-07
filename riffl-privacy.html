@@ -58,7 +58,7 @@
     .effective { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
   </style>
 <!-- ks:head -->
-<link rel="stylesheet" href="/assets/site.css?v=202610062035">
+<link rel="stylesheet" href="/assets/site.css?v=202610062051">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -98,7 +98,7 @@
   <li><a href="/apps/">Apps</a></li>
   <li><a href="/riffl/">Riffl</a></li>
   <li><span aria-current="page">Privacy policy</span></li>
-</ol></nav>
+</ol></nav><p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>
 <div class="ks-legacy-main is-narrow" style="--legacy-width: 640px">
 <!-- /ks:top -->
   <nav>
@@ -108,34 +108,38 @@
 
   <h1><span class="blue">Ri</span><span class="orange">ff</span>l</h1>
   <p class="tagline">Privacy Policy</p>
-  <p class="effective">Effective date: February 23, 2026</p>
+  <p class="effective">Effective date: October 6, 2026</p>
 
   <h2>Overview</h2>
-  <p>Riffl is built by Kynoss Studios. Your privacy is simple: <strong>we collect no data</strong>. No tracking, no accounts, no analytics, no network requests. Everything stays on your device.</p>
+  <p>Riffl is built by Kynoss Studios. Your privacy is simple: <strong>we collect no data</strong>. No tracking, no accounts, no analytics. Riffl makes no network requests of its own; the only connections are Apple's own services (the App Store for the optional Riffl Pro purchase and, if you're signed in, Game Center leaderboards). Your game data stays on your device.</p>
 
   <h2>Information We Collect</h2>
-  <p><strong>None.</strong> Riffl does not collect, transmit, or store any personal information on external servers. The app makes zero network requests.</p>
+  <p><strong>None.</strong> Riffl does not collect, transmit, or store any personal information on our servers &mdash; we don't have any. The app makes no network requests of its own.</p>
 
   <h2>Data Stored on Your Device</h2>
   <p>Riffl stores the following data locally on your device to provide core game functionality:</p>
   <ul>
-    <li><strong>Game progress</strong> — your current puzzle state (tile assignments, reassignment count, completion status)</li>
-    <li><strong>Player statistics</strong> — games played, games won, current streak, longest streak, and star distribution</li>
+    <li><strong>Game progress</strong> — your current puzzle state (tile assignments, lives used, completion status)</li>
+    <li><strong>Player statistics</strong> — games played, games won, current streak, longest streak, and lives used</li>
     <li><strong>Preferences</strong> — whether you have completed the onboarding tutorial</li>
   </ul>
-  <p>This data is stored in your device's local storage (UserDefaults) and is never transmitted off your device. It cannot be accessed by Kynoss Studios or any third party.</p>
+  <p>This data is stored in your device's local storage (UserDefaults) and is never transmitted off your device, except for the daily scores and streaks Riffl submits to Game Center leaderboards if you are signed in to Game Center. It cannot be accessed by Kynoss Studios.</p>
 
   <h2>Third-Party Services</h2>
-  <p>Riffl uses <strong>no third-party services</strong>. There are no analytics SDKs, advertising frameworks, crash reporters, or external APIs of any kind.</p>
+  <p>Riffl uses <strong>no third-party SDKs</strong>. There are no analytics SDKs, advertising frameworks, crash reporters, or external APIs. The only outside services are Apple's own:</p>
+  <ul>
+    <li><strong>Game Center (optional)</strong> &mdash; if you're signed in to Game Center, your daily scores and streaks are submitted to Apple's leaderboards. Your Game Center profile is handled by Apple under Apple's Privacy Policy; we don't collect or store Game Center identifiers.</li>
+    <li><strong>App Store (optional)</strong> &mdash; Riffl Pro is a one-time in-app purchase processed entirely by Apple. We never see your payment details or Apple ID.</li>
+  </ul>
 
   <h2>Sharing</h2>
-  <p>Riffl includes an optional share feature that lets you share your puzzle result using the iOS share sheet. The shared text contains only your star rating and an emoji pattern — no personal information. Sharing is entirely initiated by you and handled by the operating system.</p>
+  <p>Riffl includes an optional share feature that lets you share your puzzle result using the iOS share sheet. The shared result contains only your lives used and an emoji pattern — no personal information. Sharing is entirely initiated by you and handled by the operating system.</p>
 
   <h2>Device Permissions</h2>
-  <p>Riffl requests <strong>no device permissions</strong>. It does not access your camera, microphone, location, contacts, photos, health data, or any other sensitive system resource.</p>
+  <p>The only permission Riffl may ask for is notifications, if you turn on puzzle reminders; reminders are scheduled on your device. It does not access your camera, microphone, location, contacts, photos, health data, or any other sensitive system resource.</p>
 
   <h2>Children's Privacy</h2>
-  <p>Riffl does not collect any data from anyone, including children. The app contains no user-generated content, social features, or in-app purchases.</p>
+  <p>Riffl does not collect any data from anyone, including children. The app contains no user-generated content or chat. Game Center leaderboards are optional and run by Apple, and the optional Riffl Pro purchase goes through Apple's App Store, including its parental controls.</p>
 
   <h2>Data Deletion</h2>
   <p>Since all data is stored locally on your device, deleting the app permanently removes all Riffl data. There is no server-side data to request deletion of.</p>
@@ -149,7 +153,7 @@
   </p>
 
   <div class="footer">
-    <p>&copy; 2026 Kynoss Studios &middot; <a href="index.html">Support</a></p>
+    <p>&copy; 2026 Kynoss Studios LLC &middot; <a href="riffl-support.html">Support</a></p>
   </div>
 <!-- ks:bottom -->
 </div>
@@ -197,7 +201,7 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=202610062035" defer></script>
+<script src="/assets/site.js?v=202610062051" defer></script>
 <!-- /ks:bottom -->
 </body>
 </html>

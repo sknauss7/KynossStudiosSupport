@@ -453,6 +453,7 @@ def main():
                              '<meta name="description" content="{{ page.description }}">'
                              '<style>.ks-legacy-main > .container, .ks-legacy-main > .wrap { margin-top: 0; }</style>'
                              '{% elif part == "top" %}{{ bar("support" if kind == "support" else "") }}{{ crumbs(page.crumbs) }}'
+                             '{% if kind == "privacy" and not loc %}<p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>{% endif %}'
                              '{% else %}{{ foot(site) }}{% endif %}')
     for a in site["apps"]:
         variants = [("", None)] + [(f".{loc}", loc) for loc in a.get("locales", [])]
@@ -469,7 +470,7 @@ def main():
                 pg = {"path": f"/{f.name}", "title": "", "description": desc, "og_image": f"/assets/og/{a['id']}.png",
                       "og_title": f"{a['name']} {label.lower()}", "store_id": a.get("store_id") if a["status"] == "live" else None,
                       "crumbs": [("/", "Home"), ("/apps/", "Apps"), (f"/{a['id']}/", a["name"]), (None, label)]}
-                parts = {p: chrome.render(site=site, page=pg, part=p, kind=kind) for p in ("head", "top", "bottom")}
+                parts = {p: chrome.render(site=site, page=pg, part=p, kind=kind, loc=loc) for p in ("head", "top", "bottom")}
                 wrap_legacy(f, parts["head"], parts["top"], parts["bottom"])
                 if not loc and a["status"] == "live":
                     pages.append({"path": pg["path"]})
@@ -484,7 +485,8 @@ def main():
     for path, t, d in (("/support/", "Get help with an app", "Support for every app"), ("/how-we-build/", "How we build", "One developer and Claude"),
                        ("/hoa/", "HOA and condo boards", "Board assistant concept"), ("/about/", "About Kynoss Studios", "Company, contact"),
                        ("/privacy/", "Privacy across our apps", "What each app sends"), ("/press/", "Press kit", "Icons, screenshots, contact"),
-                       ("/shortfall-doc-fees-by-state.html", "Dealer doc fees by state", "Shortfall's state-by-state doc fee guide")):
+                       ("/shortfall-doc-fees-by-state.html", "Dealer doc fees by state", "Shortfall's state-by-state doc fee guide"),
+                       ("/support/#billing", "Refunds, cancellations and billing", "Refund, cancel subscription, restore purchase: handled by Apple")):
         idx.append({"t": t, "d": d, "u": path, "k": "page"})
     (ROOT / "search-index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":")))
 

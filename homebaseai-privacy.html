@@ -105,7 +105,7 @@
         strong { font-weight: 600; }
     </style>
 <!-- ks:head -->
-<link rel="stylesheet" href="/assets/site.css?v=202610062035">
+<link rel="stylesheet" href="/assets/site.css?v=202610062051">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -145,14 +145,14 @@
   <li><a href="/apps/">Apps</a></li>
   <li><a href="/homebaseai/">HomeBaseAI</a></li>
   <li><span aria-current="page">Privacy policy</span></li>
-</ol></nav>
+</ol></nav><p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>
 <div class="ks-legacy-main">
 <!-- /ks:top -->
     <div class="container">
         <header>
             <h1>HomeBaseAI Privacy Policy</h1>
             <p class="subtitle">Ask anything about your home.</p>
-            <p class="effective-date">Effective Date: September 23, 2026</p>
+            <p class="effective-date">Effective Date: October 6, 2026</p>
         </header>
 
         <main>
@@ -182,7 +182,7 @@
             </nav>
 
             <h2 id="overview">1. Overview</h2>
-            <p>HomeBaseAI ("the App") is a privacy-first home inventory and maintenance coaching app for iPhone. It helps you catalog appliances, fixtures, materials, and systems through a conversational AI interface. Optional Pro features add proactive maintenance scheduling, home health scoring, seasonal prep checklists, and widgets.</p>
+            <p>HomeBaseAI ("the App") is a privacy-first home inventory and maintenance coaching app for iPhone. It helps you catalog appliances, fixtures, materials, and systems through a conversational AI interface. Optional Pro features add the AI assistant, home health scoring, seasonal prep checklists, cost-of-neglect tracking, and Pro widgets.</p>
             <p><strong>HomeBaseAI keeps your home data on your device.</strong> We operate one minimal relay server for Pro AI requests. It passes your question to OpenAI and returns the answer. It does not store or log the content of your questions or answers. We do not create user accounts, and we cannot see your home records.</p>
 
             <h2 id="home-data">2. Home Data</h2>
@@ -232,7 +232,7 @@
             <h3>On-device processing (no data transmitted)</h3>
             <ul>
                 <li><strong>OCR text recognition:</strong> Reading text from photos of product labels using Apple's Vision framework (on-device).</li>
-                <li><strong>Speech recognition:</strong> Converting voice input to text using Apple's on-device Speech framework.</li>
+                <li><strong>Speech recognition:</strong> Converting voice input to text using Apple's Speech framework, on-device where your iPhone and language support it (otherwise Apple's speech recognition service transcribes it, under Apple's privacy policy). Your words reach our relay and OpenAI only when you send the transcribed text as a message.</li>
                 <li><strong>Maintenance scheduling:</strong> Template matching and task creation happen entirely on-device.</li>
                 <li><strong>Home health scoring:</strong> Calculated locally from your maintenance data.</li>
             </ul>
@@ -240,7 +240,7 @@
             <p>AI features require an active Pro subscription and an internet connection. Free use &mdash; including guided Home Setup &mdash; is handled on-device by keyword search, and free users' messages are never sent to our relay or to OpenAI. Without internet, the app provides basic keyword-based search of your inventory. Your vault data is always accessible offline.</p>
 
             <h2 id="subscriptions">4. Subscriptions &amp; Purchases</h2>
-            <p>HomeBaseAI requires a subscription ($5.99/month or $49.99/year) after a 7-day free trial. Subscriptions are processed entirely through Apple's App Store and StoreKit framework.</p>
+            <p>HomeBaseAI is free to download and use for adding, browsing, and searching your home records, maintenance reminders, and family sharing. HomeBase Pro is an optional subscription ($5.99/month or $49.99/year, US prices; your App Store shows your local price) with a 7-day free trial for new subscribers. Subscriptions are processed entirely through Apple's App Store and StoreKit framework.</p>
             <ul>
                 <li>We do not collect payment information. Apple handles all billing.</li>
                 <li>The app checks subscription status on-device via StoreKit. For Pro AI requests, it also sends Apple's signed proof of your subscription to our relay for verification, as described in Section 3.</li>
@@ -303,7 +303,7 @@
             <ul>
                 <li><strong>Encryption at rest:</strong> All local data is protected by iOS Data Protection.</li>
                 <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing HomeBaseAI's data.</li>
-                <li><strong>Minimal network exposure:</strong> The app's only network traffic is optional iCloud sync (encrypted end-to-end by Apple) and the Pro AI requests sent over HTTPS through our relay to OpenAI described in Section 3.</li>
+                <li><strong>Minimal network exposure:</strong> The app's only network traffic is optional iCloud sync (encrypted in transit and at rest by Apple) and the Pro AI requests sent over HTTPS through our relay to OpenAI described in Section 3.</li>
                 <li><strong>No accounts:</strong> No credentials to steal, no passwords to breach.</li>
             </ul>
 
@@ -321,7 +321,7 @@
                 <li><strong>Portability:</strong> Your data is stored locally on your device.</li>
                 <li><strong>Object:</strong> Stop all processing by deleting the app.</li>
             </ul>
-            <p>The only cross-border transfer that can occur is the Pro AI request content described in Section 3, which passes through Cloudflare's network (via our relay) in transit to OpenAI (a U.S. processor) and is retained by OpenAI at most 30 days. Free use never leaves your device.</p>
+            <p>The only cross-border transfer that can occur is the Pro AI request content described in Section 3, which passes through Cloudflare's network (via our relay) in transit to OpenAI (a U.S. processor) and is retained by OpenAI at most 30 days. If you don't use Pro AI chat, what you enter isn't sent to us or to OpenAI; it stays on your iPhone and in your iCloud.</p>
 
             <h2 id="ccpa">12. Your Rights Under CCPA/CPRA</h2>
             <p>If you are a California resident:</p>
@@ -349,17 +349,17 @@
             <p>For privacy questions or concerns:</p>
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></li>
-                <li><strong>Support:</strong> <a href="/homebaseai-support.html">HomeBaseAI Support</a></li>
+                <li><strong>Support:</strong> <a href="homebaseai-support.html">HomeBaseAI Support</a></li>
             </ul>
             <p>We will respond to privacy inquiries within 30 days.</p>
         </main>
 
         <footer>
-            <p>&copy; 2026 All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="/homebaseai-support.html">Support</a>
+                <a href="homebaseai-support.html">Support</a>
                 &nbsp;&middot;&nbsp;
-                <a href="/homebaseai-privacy.html">Privacy Policy</a>
+                <a href="homebaseai-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
@@ -409,7 +409,7 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=202610062035" defer></script>
+<script src="/assets/site.js?v=202610062051" defer></script>
 <!-- /ks:bottom -->
 </body>
 </html>

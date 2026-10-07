@@ -78,7 +78,7 @@
         footer p { color: var(--muted); font-size: 0.8rem; }
     </style>
 <!-- ks:head -->
-<link rel="stylesheet" href="/assets/site.css?v=202610062035">
+<link rel="stylesheet" href="/assets/site.css?v=202610062051">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -128,7 +128,7 @@
         </header>
 
         <main>
-            <p>HomeBaseAI is your AI-powered home management assistant. Save everything about your home through conversation &mdash; by typing, speaking, or scanning labels. Get proactive maintenance reminders, seasonal prep checklists, and a home health score. AI conversation powered by GPT-4o-mini.</p>
+            <p>HomeBaseAI is your AI-powered home management assistant. Save everything about your home through conversation &mdash; by typing, speaking, or scanning labels. Get proactive maintenance reminders, and with HomeBase Pro, seasonal prep checklists, a home health score, and an AI assistant powered by OpenAI's GPT-4o-mini.</p>
 
             <h2>Contact Us</h2>
 
@@ -151,31 +151,31 @@
 
             <dl class="faq">
                 <dt>How do I save items?</dt>
-                <dd>Just tell HomeBaseAI in conversation. Type "I have a Samsung fridge in the kitchen," point your camera at a product label, or tap the microphone and describe what you see. The AI extracts the details and saves everything automatically.</dd>
+                <dd>On any plan, tap + to add an item by hand (name, room, brand, model), or point your camera at a product label and HomeBaseAI fills in the model and serial numbers it can read. With HomeBase Pro, you can also just tell HomeBaseAI in conversation &mdash; type "I have a Samsung fridge in the kitchen" or tap the microphone and describe what you see &mdash; and the AI extracts the details and saves everything automatically.</dd>
 
                 <dt>What is the Home Health Score?</dt>
                 <dd>A number from 0 to 100 that shows how well-maintained your home is, based on maintenance compliance, overdue tasks, coverage, and documentation. It updates weekly. Available with HomeBase Pro.</dd>
 
                 <dt>How much does HomeBaseAI cost?</dt>
-                <dd>HomeBaseAI is $5.99/month or $49.99/year after a 7-day free trial. The subscription includes all features: AI conversation, OCR scanning, voice input, maintenance coaching, home health score, seasonal checklists, cost-of-neglect tracking, widgets, and family sharing.</dd>
+                <dd>HomeBaseAI is free to download. Adding items, browsing, searching, label scanning, maintenance reminders, and family sharing are free. HomeBase Pro adds the AI assistant, home health score, seasonal checklists, cost-of-neglect tracking, and Pro widgets for $5.99/month or $49.99/year, with a 7-day free trial for new subscribers (US prices; your App Store shows your local price). Everything you've saved stays yours and fully editable if your subscription ends.</dd>
 
                 <dt>How does Home Setup work?</dt>
                 <dd>Say "Home Setup" in the conversation and HomeBaseAI walks you through your major systems one by one &mdash; HVAC, water heater, appliances, safety equipment. Scan labels, skip what you don't have, pause and resume anytime. Maintenance reminders are created automatically.</dd>
 
                 <dt>How does the AI work?</dt>
-                <dd>HomeBaseAI uses OpenAI's GPT-4o-mini model for conversation. When you send a message, relevant context from your home inventory is sent to OpenAI's API to generate a response. Your data is not stored by OpenAI and is not used for training. OCR (camera label reading) and speech recognition happen entirely on your device.</dd>
+                <dd>HomeBase Pro uses OpenAI's GPT-4o-mini model for conversation. When a Pro subscriber sends a message, it goes over HTTPS through a small relay server we operate (on Cloudflare) to OpenAI, along with the relevant items from your home inventory. The relay does not store or log your messages. OpenAI does not use them for training and keeps them for at most 30 days for abuse monitoring, then deletes them. Without Pro, messages are answered on your device by keyword search and are never sent anywhere. Label reading (OCR) happens on your device; only the recognized text is sent, never the photo. Voice input is transcribed on your device where your iPhone and language support it; otherwise Apple's speech recognition service transcribes it.</dd>
 
                 <dt>Does HomeBaseAI work offline?</dt>
                 <dd>Your vault data (items, materials, rooms) is always accessible offline. AI conversation requires an internet connection. If you're offline, you can still browse your saved items and detail views.</dd>
 
                 <dt>Is my data private?</dt>
-                <dd>Your home data is stored on your device and in your private iCloud. Conversation messages are sent to OpenAI's API for processing but are not stored or used for training. We have no accounts, no third-party analytics SDKs, no third-party tracking, and no ads. Paywall flow diagnostics use Apple-native instrumentation only (OSLog and MetricKit signposts) that stays on your device. See our <a href="/homebaseai-privacy.html">Privacy Policy</a> for full details.</dd>
+                <dd>Your home data is stored on your device and in your private iCloud. Pro conversation messages, with the relevant inventory items, pass through our relay to OpenAI for processing; the relay doesn't keep them, and OpenAI doesn't use them for training and deletes them within 30 days. To confirm Pro access, the relay keeps a hashed subscription reference for up to 48 hours. We have no accounts, no third-party analytics SDKs, no third-party tracking, and no ads. Paywall flow diagnostics use Apple-native instrumentation only (OSLog and MetricKit signposts) that stays on your device. See our <a href="homebaseai-privacy.html">Privacy Policy</a> for full details.</dd>
 
                 <dt>How does family sharing work?</dt>
                 <dd>You can invite family members to share a home via iCloud. Everyone can see and update the same items, rooms, and maintenance tasks. Sharing uses Apple's CloudKit &mdash; data syncs through your iCloud accounts, not through our servers.</dd>
 
                 <dt>What happens if I delete the app?</dt>
-                <dd>All local data is permanently removed. Shared data in iCloud persists for other family members who still have the app. There is nothing to delete from our servers because we don't have any.</dd>
+                <dd>All local data is permanently removed. Shared data in iCloud persists for other family members who still have the app. We don't hold a copy of your home data: our AI relay doesn't store your messages, and its hashed subscription reference expires on its own.</dd>
 
                 <dt>How do I manage my subscription?</dt>
                 <dd>Go to Settings on your iPhone &gt; your Apple ID &gt; Subscriptions &gt; HomeBase Pro. You can also tap "Manage Subscription" in the app's Settings screen.</dd>
@@ -185,20 +185,20 @@
             </dl>
 
             <h2>Privacy</h2>
-            <p>Your privacy is fundamental to HomeBaseAI. For complete details, read our <a href="/homebaseai-privacy.html">Privacy Policy</a>.</p>
+            <p>Your privacy is fundamental to HomeBaseAI. For complete details, read our <a href="homebaseai-privacy.html">Privacy Policy</a>.</p>
 
             <h2>App Information</h2>
             <ul>
                 <li><strong>Platform:</strong> iPhone (iOS 17+)</li>
                 <li><strong>Category:</strong> Utility</li>
-                <li><strong>Price:</strong> $5.99/month or $49.99/year (7-day free trial)</li>
+                <li><strong>Price:</strong> Free; HomeBase Pro $5.99/month or $49.99/year with a 7-day free trial (US prices; your App Store shows your local price)</li>
             </ul>
         </main>
 
         <footer>
-            <p>&copy; 2026 All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="/homebaseai-privacy.html">Privacy Policy</a>
+                <a href="homebaseai-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
@@ -248,7 +248,7 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=202610062035" defer></script>
+<script src="/assets/site.js?v=202610062051" defer></script>
 <!-- /ks:bottom -->
 </body>
 </html>

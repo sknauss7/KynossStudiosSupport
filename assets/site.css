@@ -381,6 +381,8 @@ main[style*="--app"] { --app-ink: color-mix(in srgb, var(--app) 72%, #000); --ap
 .ks-suggest { list-style: none; padding: 0; display: grid; gap: 10px; }
 
 /* ---------- legacy page chrome ---------- */
+.ks-stance { max-width: var(--wide); margin: 12px auto 0 !important; padding: 0 var(--gutter) !important; font: 14.5px/1.5 var(--text) !important; color: var(--slate) !important; }
+.ks-stance a { color: var(--signal) !important; }
 .ks-bar ul, .ks-crumbs ol, .ks-foot ul { margin: 0; padding: 0; list-style: none; }
 .ks-bar li, .ks-crumbs li, .ks-foot li { margin: 0; padding: 0; font-size: inherit; line-height: inherit; color: inherit; list-style: none; }
 .ks-bar nav, .ks-crumbs { border: 0; background: none; margin-bottom: 0; }
