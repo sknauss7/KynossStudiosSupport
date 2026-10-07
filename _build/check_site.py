@@ -79,7 +79,7 @@ def main():
     # 2. every quoted price exists in the app's StoreKit config
     for a in site["apps"]:
         app_dir = WORKSHOP / APP_DIRS.get(a["id"], a["name"])
-        known = storekit_prices(app_dir)
+        known = storekit_prices(app_dir) or set(a.get("asc_prices", {}).get("prices", []))  # Riffl has no .storekit
         if not known:
             print(f"skip  {a['name']}: no .storekit found")
             continue

@@ -41,7 +41,14 @@
       "blurb": "Two words shuffled into one. Tap letters to pull them apart. One puzzle a day, the same for everyone.",
       "kind": "Daily word puzzle",
       "price": "Free · Pro $2.99 once",
-      "tagline": "The daily two-word puzzle"
+      "tagline": "The daily two-word puzzle",
+      "asc_prices": {
+        "prices": [
+          "2.99"
+        ],
+        "checked": "2026-10-06",
+        "source": "ASC price schedule for riffl_pro (no .storekit in the project)"
+      }
     },
     {
       "id": "paeki",
