@@ -188,8 +188,59 @@ def month_day_year(iso):
 
 # ---------------------------------------------------------------- stats for "how we build"
 
+IDEA_NOISE = re.compile(r"^(Step|Steps|Verdict|Path|Key|Contrarian|Gaps|Idea|Process|Served-User|Why|iPhone|Report|"
+                        r"Vision|Obstacle|Scoring|Soul|Naming|Competitive|Recommended|Market|Risks?|Summary|Notes?|Raw|"
+                        r"Research|Sources?|Score|Developer|Framework|Pre-Step-1|Sibling-redirect)\b", re.I)
+
+
+def count_killed():
+    """Ideas killed before any code (IDEAS-ARCHIVE.md) and projects stopped after work began (PORTFOLIO.md)."""
+    s = (WORKSHOP / "docs" / "archive" / "IDEAS-ARCHIVE.md").read_text(encoding="utf-8")
+    names = set()
+    for h in re.findall(r"^#{2,3} (.+)$", s, re.M):
+        w = re.split(r"[ (—:·,/+]", h.strip())[0].strip("*")
+        if w and w[0].isupper() and not IDEA_NOISE.match(w) and w not in ("Path-Aware", "Moved", "DEVELOPER"):
+            names.add(w)
+    for m in re.finditer(r"(?:order|ideas?|candidates)[^:\n]{0,80}:\s*((?:[A-Z][a-zA-Z]+(?:,\s*|\s+and\s+|\.\s*$)){3,})", s, re.M):
+        names.update(re.findall(r"[A-Z][a-zA-Z]+", m.group(1)))
+    names.update(re.findall(r"\*\*([A-Z][a-z]+[a-z])\*\*\s*\((?:PASS|Kill)", s))
+    i = s.find("## Moved from IDEAS.md Evaluation Queue")
+    for stub in re.findall(r"<!--\s*(.*?)-->", s[i:] if i >= 0 else "", re.S):
+        nm = re.match(r"\**([A-Z][A-Za-z\-]+)", stub.strip())
+        if not nm:
+            continue
+        if re.search(r"GREENLIT|greenlit|folded into|FOLDED|→ project|PURSUE", stub[:400]) and not re.search(r"killed|KILLED", stub[:200]):
+            names.discard(nm.group(1))
+        elif re.search(r"PASS|killed|KILLED|Kill", stub):
+            names.add(nm.group(1))
+    unnamed = 0  # batches recorded without per-idea headings, e.g. "the other 13 candidates", "survivors (a · b · c)"
+    for h in re.findall(r"^### (.+)$", s, re.M):
+        if "archived" in h:
+            continue
+        n = re.search(r"other (\d+) candidates", h)
+        if n:
+            unnamed += int(n.group(1))
+        elif re.search(r"survivors \(", h):
+            unnamed += h.count("·") + 1
+    before = len(names) + unnamed
+
+    p = (WORKSHOP / "docs" / "PORTFOLIO.md").read_text(encoding="utf-8")
+    shelved = re.search(r"^## Shelved Apps\n(.*?)(?=^## |\Z)", p, re.M | re.S)
+    after = len(re.findall(r"^### ", shelved.group(1), re.M)) if shelved else 0
+    active = re.search(r"^## Active Portfolio\n(.*?)(?=^## |\Z)", p, re.M | re.S)
+    for sec in re.split(r"^### ", active.group(1), flags=re.M)[1:] if active else []:
+        if re.search(r"KILLED", sec[:600]):
+            after += 1
+    return before, after
+
+
 def build_stats():
-    stats = {"updates": 170, "read_ratio": "1,000"}
+    stats = {"updates": 170, "read_ratio": "1,000", "killed_before": 105, "killed_after": 26}
+    try:
+        stats["killed_before"], stats["killed_after"] = count_killed()
+    except Exception as e:
+        print(f"warn: kill count fell back to the stored numbers ({e})")
+    stats["killed"] = stats["killed_before"] + stats["killed_after"]
     try:
         vh = json.loads((WORKSHOP / "scripts" / "version_history_data.json").read_text())
         n = sum(len({v["version"] for v in vs if v["state"] == "READY_FOR_SALE"}) for vs in vh.values())
