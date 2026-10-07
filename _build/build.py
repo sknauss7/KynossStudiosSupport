@@ -384,6 +384,7 @@ def main():
         copy = appstore.copy(a["name"])
         a.setdefault("tagline", copy["subtitle"] or a["kind"])
         a["shots"], a["version"], a["updated"], a["rating"], a["min_ios"], a["genre"] = [], "", "", None, "", ""
+        a["shots_s"] = []
         a["whats_new_html"] = ""
         f = flows.get("apps", {}).get(aid, {})
         a["flows"] = [{"icon": FLOW_ICONS.get(x["kind"], "out"), "text": x["text"]} for x in f.get("flows", [])]
@@ -394,12 +395,16 @@ def main():
             art = r["artworkUrl512"].rsplit("/", 1)[0]
             save_image(f"{art}/512x512bb.png", adir / "icon.webp", size=256)
             save_image(f"{art}/1024x1024bb.png", adir / "icon-1024.png", fmt="PNG")
+            a["shots_s"] = []
             for i, u in enumerate(r.get("screenshotUrls", [])[:6], 1):
-                dest = adir / f"shot-{i}.webp"
-                save_image(u.rsplit("/", 1)[0] + "/600x0w.webp", dest, quality=80)
+                base = u.rsplit("/", 1)[0]
+                save_image(base + "/600x0w.webp", adir / f"shot-{i}.webp", quality=80)
+                save_image(base + "/300x0w.webp", adir / f"shot-{i}-s.webp", quality=78)
                 a["shots"].append(f"/assets/apps/{aid}/shot-{i}.webp")
+                a["shots_s"].append(f"/assets/apps/{aid}/shot-{i}-s.webp")
+            keep = {p.rsplit("/", 1)[1] for p in a["shots"] + a["shots_s"]}
             for old in sorted(adir.glob("shot-*.webp")):
-                if f"/assets/apps/{aid}/{old.name}" not in a["shots"]:
+                if old.name not in keep:
                     old.unlink()
             a["version"] = r.get("version", "")
             a["updated"] = month_day_year(r["currentVersionReleaseDate"]) if r.get("currentVersionReleaseDate") else ""
@@ -430,6 +435,8 @@ def main():
 
     site["live"] = [a for a in site["apps"] if a["status"] == "live"]
     site["upcoming"] = [a for a in site["apps"] if a["status"] == "upcoming"]
+    pool = [a["shots_s"][k] for k in range(3) for a in site["live"] if len(a["shots_s"]) > k]
+    site["wall"] = [pool[c::4] for c in range(4)]
     site["by_cat"] = {c["id"]: [a for a in site["apps"] if a["category"] == c["id"]] for c in site["categories"]}
     for a in site["apps"]:
         peers = [b for b in site["by_cat"][a["category"]] if b["id"] != a["id"] and b["status"] == "live"]
