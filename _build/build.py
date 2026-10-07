@@ -527,6 +527,16 @@ def main():
                 if not loc and a["status"] == "live":
                     pages.append({"path": pg["path"]})
 
+    # ---- redirects for old URLs still referenced by past App Store versions
+    stub = ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Moved · Kynoss Studios</title>\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
+            '<link rel="canonical" href="{u}">\n<meta http-equiv="refresh" content="0; url={u}">\n'
+            '<script>location.replace("{u}");</script>\n</head>\n<body><p>This page has moved to <a href="{u}">{u}</a>.</p></body>\n</html>\n')
+    redirects = {"substrata-marketing.html": "/substrata/"}
+    redirects.update({f"substrata-marketing.{loc}.html": "/substrata/" for loc in LOCALE_NAMES})
+    for path, target in redirects.items():
+        (ROOT / path).write_text(stub.format(u=site["studio"]["domain"] + target), encoding="utf-8")
+
     # ---- search index
     idx = [{"t": a["name"], "d": a["kind"] + ". " + a["blurb"], "u": f"/{a['id']}/", "k": "app", "i": a["icon"]} for a in site["apps"]]
     for a in site["live"]:
