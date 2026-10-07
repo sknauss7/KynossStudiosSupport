@@ -111,7 +111,7 @@
             <h1>Sirrius Privacy Policy</h1>
             <p class="subtitle">Pet Health &mdash; Private &amp; Smart</p>
             <p class="effective-date">Effective Date: April 13, 2026</p>
-            <p class="effective-date">Last Updated: September 23, 2026</p>
+            <p class="effective-date">Last Updated: October 6, 2026</p>
         </header>
 
         <main>
@@ -154,7 +154,7 @@
                 <li><strong>Feeding logs:</strong> Feeding times and amounts</li>
                 <li><strong>Weight history:</strong> Weight measurements over time</li>
             </ul>
-            <p>All data is entered manually by you. Sirrius does not access your camera roll, contacts, microphone, location, or any other device sensor. The only photo access is when you explicitly choose to add a pet profile photo.</p>
+            <p>All data is entered by you. Sirrius does not access your contacts, location, or any other device sensor. The only photo access is a photo you explicitly pick for a pet profile. If you choose to ask a chat question by voice, Sirrius asks for microphone and speech recognition permission and transcribes your voice entirely on your device; the audio is never sent anywhere.</p>
 
             <h2 id="ai">3. AI Chat Processing</h2>
             <div class="highlight">
@@ -197,7 +197,7 @@
                 <li>Sharing uses Apple's CloudKit (CKShare) framework. Data syncs through your personal iCloud account, not through our servers.</li>
                 <li>You control who has access. Only people you explicitly invite can see your pet data.</li>
                 <li>Shared data is encrypted in transit and at rest by Apple's iCloud infrastructure.</li>
-                <li>We have no access to your iCloud data. CloudKit sharing is a direct peer-to-peer connection between iCloud accounts managed by Apple.</li>
+                <li>We have no access to your iCloud data. CloudKit sharing runs between iCloud accounts on Apple's servers, managed by Apple.</li>
                 <li>User preferences (display settings, notification preferences) are stored privately and never shared.</li>
             </ul>
             <p>Household sharing is entirely optional. Sirrius works fully as a single-user app without iCloud.</p>
@@ -233,7 +233,7 @@
                 <p><strong>We do not sell your data, share your data with advertisers, or use any analytics, tracking, or advertising SDKs.</strong> Three narrowly-scoped third parties are involved, and only at your explicit opt-in:</p>
             </div>
             <ul>
-                <li><strong>Apple iCloud (optional):</strong> If you enable household sharing, your pet records sync through your own iCloud account via Apple's CloudKit framework. This is a peer-to-peer connection between iCloud accounts managed by Apple &mdash; we have no access. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</li>
+                <li><strong>Apple iCloud (optional):</strong> If you enable household sharing, your pet records sync through your own iCloud account via Apple's CloudKit framework. This runs between iCloud accounts on Apple's servers &mdash; we have no access. Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</li>
                 <li><strong>OpenAI (Pro AI features only):</strong> If you subscribe to Sirrius Pro and use the AI Chat tab or Symptom Pattern Analysis, the text of your messages plus a pet context summary (name, species, breed, age, medication names, recent symptom notes, latest weight, last vet-visit date) is sent over HTTPS through our relay to OpenAI's API for processing. OpenAI may retain API data for up to 30 days for abuse monitoring, then deletes it; it does not train on API data. See Section 3 for the exact scope of what is sent. Governed by <a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI's Privacy Policy</a>.</li>
                 <li><strong>Cloudflare (Pro AI features only):</strong> Hosts our relay server; processes Pro AI requests in transit only.</li>
             </ul>
@@ -250,7 +250,7 @@
             <ul>
                 <li><strong>Encryption at rest:</strong> All local data is protected by iOS Data Protection.</li>
                 <li><strong>App sandboxing:</strong> iOS prevents other apps from accessing Sirrius's data.</li>
-                <li><strong>Minimal network exposure:</strong> The app's only network traffic is optional iCloud sync (encrypted end-to-end by Apple) and the Pro AI requests sent through our relay to OpenAI described in Section 3 (sent over HTTPS).</li>
+                <li><strong>Minimal network exposure:</strong> The app's only network traffic is optional iCloud sync (encrypted in transit and at rest by Apple) and the Pro AI requests sent through our relay to OpenAI described in Section 3 (sent over HTTPS).</li>
                 <li><strong>No accounts:</strong> No credentials to steal, no passwords to breach.</li>
             </ul>
 
@@ -299,17 +299,17 @@
             <p>For privacy questions or concerns:</p>
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></li>
-                <li><strong>Support:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/sirrius-support.html">Sirrius Support</a></li>
+                <li><strong>Support:</strong> <a href="sirrius-support.html">Sirrius Support</a></li>
             </ul>
             <p>We will respond to privacy inquiries within 30 days.</p>
         </main>
 
         <footer>
-            <p>&copy; 2026 All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="https://sknauss7.github.io/KynossStudiosSupport/sirrius-support.html">Support</a>
+                <a href="sirrius-support.html">Support</a>
                 &nbsp;&middot;&nbsp;
-                <a href="https://sknauss7.github.io/KynossStudiosSupport/sirrius-privacy.html">Privacy Policy</a>
+                <a href="sirrius-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
