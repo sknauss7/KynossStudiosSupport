@@ -37,7 +37,7 @@ REFRESH = "--refresh" in sys.argv
 LOCALE_NAMES = {"de-DE": "Deutsch", "en-GB": "English (UK)", "es-MX": "Español", "fr-FR": "Français",
                 "it-IT": "Italiano", "ja-JP": "日本語", "pt-BR": "Português (Brasil)"}
 FLOW_ICONS = {"device": "device", "icloud": "icloud", "relay": "out", "gamecenter": "people",
-              "network": "wifi", "byok": "key", "other": "out"}
+              "network": "wifi", "byok": "key", "other": "out", "people": "people", "link": "out"}
 
 
 # ---------------------------------------------------------------- fetching
@@ -98,6 +98,31 @@ def linkify(esc):
     return re.sub(r"(https?://[^\s<]+[^\s<.,;:)])", r'<a href="\1">\1</a>', esc)
 
 
+PRIVACY_LINE = re.compile(r"privacy|private icloud|stays? on your (phone|iphone|device)|stores everything on your|"
+                          r"never leaves?|nowhere else|no cloud|no servers?|not stored|policy:", re.I)
+
+
+def is_heading(line):
+    letters = re.sub(r"[^A-Za-z]", "", line)
+    return bool((len(line) <= 64 and letters and letters.isupper() and len(letters) > 3)
+                or re.fullmatch(r"\*\*[^*]+\*\*:?", line))
+
+
+def drop_privacy_claims(text):
+    """Remove the description's own privacy claims; app pages show the verified data panel instead."""
+    keep, skipping = [], False
+    for raw in text.splitlines():
+        line = raw.strip()
+        if line and is_heading(line):
+            skipping = bool(re.search(r"privacy|your data", line, re.I))
+            if skipping:
+                continue
+        elif skipping or (line and PRIVACY_LINE.search(line)):
+            continue
+        keep.append(raw)
+    return "\n".join(keep)
+
+
 def text_to_html(text, names=()):
     """App Store description text → simple HTML (paragraphs, lists, headings)."""
     out, para, items = [], [], []
@@ -119,9 +144,7 @@ def text_to_html(text, names=()):
         esc = html.escape(line)
         esc = re.sub(r"\*\*(.+?)\*\*", r"\1", esc)
         bullet = re.match(r"^([•\-–*▸]|\d+[.)])\s+(.*)$", line)
-        letters = re.sub(r"[^A-Za-z]", "", line)
-        is_head = (len(line) <= 64 and letters and letters.isupper() and len(letters) > 3) or re.fullmatch(r"\*\*[^*]+\*\*:?", line)
-        if is_head:
+        if is_heading(line):
             flush()
             out.append(f"<h3>{html.escape(sentence_case(line.strip('*'), names))}</h3>")
         elif bullet:
@@ -347,7 +370,7 @@ def main():
             a["store_url"] = ""
         a["icon"] = f"/assets/apps/{aid}/icon.webp"
         a["icon_1024"] = f"/assets/apps/{aid}/icon-1024.png"
-        a["description_html"] = text_to_html(desc, ALL_NAMES)
+        a["description_html"] = text_to_html(drop_privacy_claims(desc), ALL_NAMES)
         a["locale_links"] = [{"href": f"/{aid}-support.{loc}.html", "code": loc, "label": f"Help in {LOCALE_NAMES.get(loc, loc)}"}
                              for loc in a.get("locales", []) if (ROOT / f"{aid}-support.{loc}.html").exists()]
         support = ROOT / f"{aid}-support.html"

@@ -1,0 +1,227 @@
+{
+  "checked": "October 6, 2026",
+  "source": "Truth sweep of each app's code and .storekit, 2026-10-06 (site commits 64492c9..643dd6a)",
+  "apps": {
+    "riffl": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Puzzles, stats and settings stay on your iPhone"
+        },
+        {
+          "kind": "gamecenter",
+          "text": "Leaderboards use Game Center"
+        }
+      ],
+      "permissions": "Notifications"
+    },
+    "paeki": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Puzzles, guesses and stats stay on your iPhone, including the on-device AI that checks guesses"
+        },
+        {
+          "kind": "gamecenter",
+          "text": "Leaderboards use Game Center"
+        }
+      ],
+      "permissions": "Notifications"
+    },
+    "intuii": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Answers and scores stay on your iPhone"
+        },
+        {
+          "kind": "gamecenter",
+          "text": "Leaderboards use Game Center"
+        }
+      ],
+      "permissions": "Notifications"
+    },
+    "rusti": {
+      "flows": [
+        {
+          "kind": "icloud",
+          "text": "Progress syncs through your private iCloud"
+        },
+        {
+          "kind": "people",
+          "text": "Friend challenges and household leaderboards go through Apple's iCloud (CloudKit)"
+        },
+        {
+          "kind": "gamecenter",
+          "text": "Game Center for your player identity"
+        }
+      ],
+      "permissions": "Notifications"
+    },
+    "tylde": {
+      "flows": [
+        {
+          "kind": "people",
+          "text": "Matches are stored in Apple's iCloud (CloudKit) so both players can see them"
+        },
+        {
+          "kind": "gamecenter",
+          "text": "Game Center for friends and identity"
+        }
+      ],
+      "permissions": "Notifications"
+    },
+    "pandemoni": {
+      "flows": [
+        {
+          "kind": "network",
+          "text": "Games run on your local Wi-Fi: the host phone serves players' browsers directly, with no internet needed"
+        },
+        {
+          "kind": "device",
+          "text": "Nothing is sent to us or any other server"
+        }
+      ],
+      "permissions": "Local network"
+    },
+    "enveloop": {
+      "flows": [
+        {
+          "kind": "icloud",
+          "text": "Budgets sync through your private iCloud when iCloud is on"
+        },
+        {
+          "kind": "people",
+          "text": "Household sharing by invite, through iCloud"
+        }
+      ],
+      "permissions": "Notifications"
+    },
+    "shortfall": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Contracts are read on your iPhone with on-device AI; nothing is uploaded"
+        },
+        {
+          "kind": "link",
+          "text": "Price lookups open in Safari only when you tap them"
+        }
+      ],
+      "permissions": "Camera"
+    },
+    "homebaseai": {
+      "flows": [
+        {
+          "kind": "icloud",
+          "text": "Your home records sync through your private iCloud, and share by invite"
+        },
+        {
+          "kind": "relay",
+          "text": "Pro AI chat sends your question and related home details through our relay to OpenAI; the relay doesn't store it, OpenAI may keep it up to 30 days for abuse checks and never trains on it"
+        }
+      ],
+      "permissions": "Camera, microphone and speech, photos you pick, notifications"
+    },
+    "sirrius": {
+      "flows": [
+        {
+          "kind": "icloud",
+          "text": "Pet records sync through your private iCloud, and share with your household by invite"
+        },
+        {
+          "kind": "relay",
+          "text": "Pro AI chat sends your question and a short pet summary through our relay to OpenAI; the relay doesn't store it, OpenAI may keep it up to 30 days for abuse checks and never trains on it"
+        },
+        {
+          "kind": "device",
+          "text": "The food and plant safety checker runs offline"
+        }
+      ],
+      "permissions": "Microphone and speech (on-device), photos you pick, notifications"
+    },
+    "trovii": {
+      "flows": [
+        {
+          "kind": "icloud",
+          "text": "Your archive syncs to your private iCloud"
+        },
+        {
+          "kind": "people",
+          "text": "Co-parent sharing and grandparent digests go through iCloud sharing"
+        }
+      ],
+      "permissions": "Camera, photos you pick, notifications"
+    },
+    "primo": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Plans and gift ideas are made on your iPhone with on-device AI"
+        },
+        {
+          "kind": "byok",
+          "text": "Pro can use your own Anthropic or OpenAI key; requests then go straight from your phone to that provider"
+        }
+      ],
+      "permissions": "Contacts, calendars, photos you pick, notifications"
+    },
+    "sievr": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Your photos are analyzed on your iPhone and never uploaded"
+        }
+      ],
+      "permissions": "Photo library"
+    },
+    "markki": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Photos, callouts and reports stay on your iPhone"
+        },
+        {
+          "kind": "other",
+          "text": "Turning a location into an address uses Apple's location service"
+        }
+      ],
+      "permissions": "Camera, photos, location"
+    },
+    "substrata": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Health, noise and sleep analysis runs on your iPhone; no audio is recorded"
+        },
+        {
+          "kind": "other",
+          "text": "Weather comes from Apple WeatherKit, which receives your approximate location"
+        }
+      ],
+      "permissions": "Health (read only), approximate location, motion, notifications"
+    },
+    "collekt": {
+      "flows": [
+        {
+          "kind": "device",
+          "text": "Everything stays on your iPhone"
+        }
+      ],
+      "permissions": ""
+    },
+    "depositt": {
+      "flows": [
+        {
+          "kind": "icloud",
+          "text": "Walkthroughs sync through your private iCloud"
+        },
+        {
+          "kind": "device",
+          "text": "Photo descriptions are written by on-device AI"
+        }
+      ],
+      "permissions": "Camera, photos you pick, approximate location"
+    }
+  }
+}

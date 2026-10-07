@@ -100,7 +100,7 @@
       "accent": "#C0127A",
       "blurb": "Party games on any TV. One phone hosts; everyone else scans a QR code and plays in their browser.",
       "kind": "Party games",
-      "price": "Free to start · games $2.99 each, packs from $8.99"
+      "price": "Free games included · more $2.99 each, packs from $8.99"
     },
     {
       "id": "enveloop",
@@ -134,9 +134,9 @@
       "category": "money",
       "accent": "#127067",
       "icon_src": "Depositt/Depositt/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png",
-      "blurb": "Room-by-room move-in and move-out photos, paired side by side in a dated PDF that protects your deposit.",
+      "blurb": "Room-by-room move-in and move-out photos, paired side by side in a dated PDF that backs up your deposit claim.",
       "kind": "Rental deposit proof",
-      "price": "Free · Pro $7.99 once"
+      "price": "Free with watermarked PDFs · Pro $7.99 once"
     },
     {
       "id": "homebaseai",
@@ -171,7 +171,7 @@
       "accent": "#3D3F73",
       "blurb": "Both parents capture every drawing into one family archive, then turn each year into a photobook.",
       "kind": "Kids' art archive",
-      "price": "$2.99/mo or $19.99/yr, or $59.99 once",
+      "price": "3-day free trial, then $2.99/mo or $19.99/yr, or $59.99 once",
       "tagline": "Every drawing saved, shared and made into a book"
     },
     {
@@ -195,7 +195,7 @@
       "accent": "#5856D6",
       "blurb": "Finds near-duplicate photos, picks the best shot in each group and explains why, on your phone.",
       "kind": "Photo cleanup",
-      "price": "Free scan · Pro $4.99/week or $39.99 once",
+      "price": "Free scan · cleanup with Pro $4.99/week or $39.99 once",
       "tagline": "Scan, sift and clean up your photos"
     },
     {
@@ -207,7 +207,7 @@
       "accent": "#2D6A4F",
       "blurb": "Numbered callouts on every photo, kept in sync across a whole report and exported as a PDF.",
       "kind": "Photo reports",
-      "price": "$4.99/mo or $29.99/yr, or $99.99 once",
+      "price": "Free to capture · PDF export with Pro $4.99/mo or $29.99/yr, or $99.99 once",
       "tagline": "Walk, snap, mark, send the PDF"
     },
     {
