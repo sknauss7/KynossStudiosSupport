@@ -171,7 +171,7 @@
 
             <dl class="faq">
                 <dt>Does Markki upload my reports or photos anywhere?</dt>
-                <dd>No. Markki processes everything entirely on your iPhone. Photos, callouts, transcripts, and PDFs never leave your device. We have no servers to receive them.</dd>
+                <dd>No. Markki processes everything entirely on your iPhone. Photos, callouts, and PDFs never leave your device (unless you share a PDF yourself). We have no servers to receive them.</dd>
 
                 <dt>Why does Markki need camera access?</dt>
                 <dd>To capture photos directly into a report. The camera is the primary input for the workflow. Camera frames are processed in-app only and never transmitted anywhere.</dd>
@@ -180,13 +180,13 @@
                 <dd>So you can add existing photos to a report (a photo you already took, or photos a colleague AirDropped to you). Markki only reads photos you explicitly pick from the library. The app never reads your library in bulk and never copies anything off your device.</dd>
 
                 <dt>Why does Markki ask for location?</dt>
-                <dd>To stamp each photo with a reverse-geocoded address (and the GPS coordinates) so your PDF report identifies where the photos were taken. Location is read at capture time only — never stored beyond the report itself, never transmitted, and never shared. You can decline location and Markki will still produce reports without the address overlay.</dd>
+                <dd>To stamp each photo with a reverse-geocoded address (and the GPS coordinates) so your PDF report identifies where the photos were taken. Location is read at capture time only and stored only in the report itself. To turn coordinates into an address, Markki uses Apple's reverse-geocoding service, which sends the coordinates to Apple; Markki never sends them anywhere else. You can decline location and Markki will still produce reports without the address overlay.</dd>
 
                 <dt>What's the difference between the trial and paying?</dt>
-                <dd>Markki has no permanent free tier. When you launch the app for the first time, you'll see three Pro options: monthly with a 3-day free trial, yearly with a 3-day free trial, or a one-time lifetime purchase (no trial). All three give you the same Pro experience: unlimited reports, all templates, and no watermarks. Pick the one that fits how you work — there's no "Pro+" tier waiting to upsell you later.</dd>
+                <dd>Capturing photos, placing callouts, and previewing reports are free. Exporting a PDF report requires Markki Pro, which comes three ways: $4.99/month or $29.99/year, each with a 3-day free trial, or a one-time $99.99 lifetime purchase (no trial). US prices; your App Store shows your local price. All three give you the same Pro experience. Pick the one that fits how you work — there's no "Pro+" tier waiting to upsell you later.</dd>
 
                 <dt>Does Markki work without an internet connection?</dt>
-                <dd>Yes. All capture, callout placement, PDF rendering, and export work entirely offline. Markki makes no network requests except to App Store servers for purchase verification.</dd>
+                <dd>Yes. All capture, callout placement, PDF rendering, and export work entirely offline. The only network requests are Apple's reverse-geocoding lookup that turns a photo's location into an address (without a connection, the address is left off) and App Store purchase verification.</dd>
 
                 <dt>What templates are included?</dt>
                 <dd>Three flexible templates ship in v1: Walk-through (general-purpose), Compliance Audit (any compliance / regulatory / internal review), and Punch List (any list of things to fix or follow up on). Each carries default callout categories you can extend.</dd>
@@ -213,14 +213,14 @@
                 <dd>Tap Restore Purchases on the paywall or in Settings → Restore Purchases. As long as you're signed in to the same Apple ID that made the original purchase, your Pro entitlement (or lifetime purchase) is recovered immediately.</dd>
 
                 <dt>What iOS version is required?</dt>
-                <dd>Markki requires iOS 18 or later and is designed for iPhone. iPad layout is planned for a future update.</dd>
+                <dd>Markki requires iOS 18 or later and is designed for iPhone.</dd>
 
                 <dt>How is Markki different from Annotable, iMark, or Snap Markup?</dt>
                 <dd>Those tools place callouts per photo, but the numbers reset on every image. If you want a single legend that indexes all callouts across a 12-photo report, you have to manually renumber and re-export. Markki keeps callouts numbered consistently across the whole report and aggregates them into one legend automatically. That's the entire wedge.</dd>
             </dl>
 
             <h2>Privacy</h2>
-            <p>Your privacy is fundamental to Markki's design. For complete details about how we handle your data, please read our <a href="https://sknauss7.github.io/KynossStudiosSupport/markki-privacy.html">Privacy Policy</a>.</p>
+            <p>Your privacy is fundamental to Markki's design. For complete details about how we handle your data, please read our <a href="markki-privacy.html">Privacy Policy</a>.</p>
 
             <h2>App Information</h2>
             <ul>
@@ -231,9 +231,9 @@
         </main>
 
         <footer>
-            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="https://sknauss7.github.io/KynossStudiosSupport/markki-privacy.html">Privacy Policy</a>
+                <a href="markki-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
