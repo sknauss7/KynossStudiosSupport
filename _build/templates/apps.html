@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{%- from "_catalog.html" import catalog -%}
+{% block main %}
+<div class="ks-wrap">
+  <header class="ks-pagehead">
+    <h1 class="ks-display ks-h1">Apps</h1>
+    <p class="ks-lede">{{ site.live|length }} apps on the App Store and {{ site.upcoming|length }} on the way. Pick a category, or open any app for screenshots, prices and help.</p>
+  </header>
+  {{ catalog(site, 1) }}
+  <p id="coming-soon" class="ks-muted ks-small" style="margin: 40px 0 96px">Apps marked “Coming soon” aren't on the App Store yet. Their pages go live with them.</p>
+</div>
+{% endblock %}

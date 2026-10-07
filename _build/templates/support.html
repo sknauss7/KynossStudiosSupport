@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="ks-wrap" id="ks-hub" style="padding-bottom: 96px">
+  <header class="ks-pagehead">
+    <h1 class="ks-display ks-h1">Get help with an app</h1>
+    <p class="ks-lede">Pick the app. You'll see the common answers first, then a way to email us with the details we need already filled in.</p>
+  </header>
+  <label class="ks-sr" for="ks-pick">Find your app</label>
+  <input class="ks-picker-input" id="ks-pick" type="search" placeholder="Type an app name" autocomplete="off">
+  <ul class="ks-picker">
+    {%- for a in site.live %}
+    <li><button type="button" data-app="{{ a.id }}" aria-pressed="false"><img src="{{ a.icon }}" alt="" width="60" height="60">{{ a.name }}</button></li>
+    {%- endfor %}
+  </ul>
+  <section class="ks-help" hidden aria-live="polite">
+    <div class="ks-help-head">
+      <img src="" alt="" width="56" height="56">
+      <div><h2 class="ks-display ks-h3 ks-help-name"></h2><p class="ks-muted ks-small ks-help-sub"></p></div>
+    </div>
+    <div class="ks-faq"></div>
+    <div class="ks-actions">
+      <a class="ks-button ks-help-mail" href="mailto:{{ site.studio.email }}">Email support</a>
+      <a class="ks-button is-quiet ks-help-full" href="#">All help for this app</a>
+    </div>
+    <p class="ks-small ks-muted">We usually reply within two days. Questions about your data? <a class="ks-help-privacy" href="#">Read the app's privacy policy</a>.</p>
+  </section>
+  <div class="ks-section" style="padding-bottom: 0">
+    <h2 class="ks-display ks-h3" style="margin-bottom: 8px">Something else?</h2>
+    <p class="ks-muted">Billing goes through Apple: refunds and cancellations are handled in your App Store account settings. For anything else, email <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a>.</p>
+  </div>
+  <script type="application/json" id="ks-hub-data">{{ hub_json | safe }}</script>
+</div>
+{% endblock %}

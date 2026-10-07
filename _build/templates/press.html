@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="ks-wrap" style="padding-bottom: 96px">
+  <header class="ks-pagehead">
+    <h1 class="ks-display ks-h1">Press kit</h1>
+    <p class="ks-lede">Icons, screenshots and short descriptions for every app, free to use when writing about them.</p>
+  </header>
+  <div class="ks-appbody" style="margin-bottom: 64px">
+    <div class="ks-prose">
+      <h2 class="ks-display ks-h3" style="margin-bottom: 12px">About the studio</h2>
+      <p>{{ site.studio.legal }} is an independent iPhone app studio in {{ site.studio.state }}, founded in {{ site.studio.founded }}. It makes small, focused apps (daily games, money tools and home and family organizers) with no ads, no accounts and no tracking. The studio is one developer working with Claude, Anthropic's AI, which writes and tests most of the code.</p>
+    </div>
+    <aside class="ks-aside">
+      <section><h2>Press contact</h2><p><a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a></p></section>
+    </aside>
+  </div>
+  <ul class="ks-rows">
+    {%- for a in site.live %}
+    <li class="ks-row">
+      <img src="{{ a.icon }}" alt="" width="60" height="60" loading="lazy">
+      <p class="ks-row-name"><a href="/{{ a.id }}/">{{ a.name }}</a><small>{{ a.kind }}</small></p>
+      <p class="ks-row-blurb">{{ a.blurb }}</p>
+      <p class="ks-row-meta"><a href="{{ a.icon_1024 }}" download>Icon (1024 px PNG)</a>{% if a.shots %}<a href="/{{ a.id }}/">Screenshots</a>{% endif %}<a href="{{ a.store_url }}">App Store</a></p>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{%- from "_icons.html" import glyph -%}
+{% block main %}
+<section class="ks-apphero">
+  <div class="ks-wrap">
+    <div class="ks-apphero-in">
+      <img class="ks-appicon" src="{{ app.icon }}" alt="{{ app.name }} app icon" width="128" height="128">
+      <div class="ks-apptitle">
+        <p class="ks-kind">{{ app.kind }}{% if app.status == "upcoming" %} · coming soon{% endif %}</p>
+        <h1 class="ks-display ks-h1">{{ app.name }}</h1>
+        <p class="ks-lede">{{ app.tagline }}</p>
+      </div>
+      <div class="ks-get">
+        {%- if app.status == "live" %}
+        <a class="ks-button" href="{{ app.store_url }}">Get it on the App Store</a>
+        <div class="ks-qr" role="img" aria-label="QR code for {{ app.name }} on the App Store">{{ app.qr_svg | safe }}</div>
+        <p class="ks-qr-cap">Scan with your iPhone camera</p>
+        {%- else %}
+        <p class="ks-muted ks-small">Not on the App Store yet.</p>
+        {%- endif %}
+      </div>
+    </div>
+    <dl class="ks-facts">
+      <div><dt>Price</dt><dd>{{ app.price }}</dd></div>
+      {%- if app.min_ios %}<div><dt>Requires</dt><dd>iOS {{ app.min_ios }} or later</dd></div>{% endif %}
+      {%- if app.version %}<div><dt>Version</dt><dd>{{ app.version }}, {{ app.updated }}</dd></div>{% endif %}
+      {%- if app.rating %}<div><dt>Rating</dt><dd>{{ app.rating }} ★ from {{ app.rating_count }} ratings</dd></div>{% endif %}
+      {%- if app.genre %}<div><dt>Category</dt><dd>{{ app.genre }}</dd></div>{% endif %}
+    </dl>
+    <p style="height: 22px"></p>
+  </div>
+</section>
+
+{%- if app.shots %}
+<section class="ks-section" style="padding-bottom: 24px" aria-label="Screenshots">
+  <div class="ks-wrap">
+    <div class="ks-shots" tabindex="0" aria-label="{{ app.name }} screenshots, scroll sideways">
+      {%- for s in app.shots %}
+      <img src="{{ s }}" alt="{{ app.name }} screenshot {{ loop.index }}" width="600" height="1304" loading="{{ 'eager' if loop.index < 3 else 'lazy' }}">
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="ks-section"{% if app.shots %} style="border-top: 0; padding-top: 32px"{% endif %}>
+  <div class="ks-wrap ks-appbody">
+    <div class="ks-prose">
+      <h2 class="ks-display ks-h2" style="margin-bottom: 20px">About {{ app.name }}</h2>
+      {{ app.description_html | safe }}
+      {%- if app.whats_new_html %}
+      <h2 class="ks-display ks-h3" style="margin-top: 48px; margin-bottom: 12px">New in {{ app.version }}</h2>
+      {{ app.whats_new_html | safe }}
+      {%- endif %}
+    </div>
+    <aside class="ks-aside">
+      {%- if app.flows %}
+      <section aria-labelledby="data-h">
+        <h2 id="data-h">Your data</h2>
+        <ul class="ks-flows">
+          {%- for f in app.flows %}
+          <li>{{ glyph(f.icon) }}<span>{{ f.text }}</span></li>
+          {%- endfor %}
+        </ul>
+        <p class="ks-small"><a href="/{{ app.id }}-privacy.html">Read the full privacy policy</a></p>
+      </section>
+      {%- endif %}
+      <section aria-labelledby="help-h">
+        <h2 id="help-h">Help</h2>
+        <ul class="ks-linklist">
+          <li><a href="/{{ app.id }}-support.html">{{ app.name }} help and FAQ</a></li>
+          <li><a href="/support/?app={{ app.id }}">Email support with the details filled in</a></li>
+          <li><a href="/{{ app.id }}-privacy.html">Privacy policy</a></li>
+          {%- for l in app.locale_links %}
+          <li><a href="{{ l.href }}" hreflang="{{ l.code }}">{{ l.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </section>
+    </aside>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="rel-h">
+  <div class="ks-wrap">
+    <h2 class="ks-display ks-h3" id="rel-h" style="margin-bottom: 24px">More {{ app.category_name|lower }}</h2>
+    <ul class="ks-related">
+      {%- for r in app.related %}
+      <li><a href="/{{ r.id }}/"><img src="{{ r.icon }}" alt="" width="48" height="48" loading="lazy"><strong>{{ r.name }}</strong><span>{{ r.kind }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,89 @@
+{%- from "_icons.html" import mark, glyph -%}
+{%- macro bar(active="") -%}
+<div class="ks-bar">
+  <div class="ks-bar-in">
+    <a class="ks-brand" href="/">{{ mark() }}<span>Kynoss Studios</span></a>
+    <nav aria-label="Main">
+      <ul class="ks-nav" id="ks-nav">
+        {%- for href, label, key in [("/apps/", "Apps", "apps"), ("/support/", "Support", "support"), ("/how-we-build/", "How we build", "build"), ("/hoa/", "HOA boards", "hoa"), ("/about/", "About", "about")] %}
+        <li><a href="{{ href }}"{% if active == key %} aria-current="page"{% endif %}>{{ label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <button class="ks-iconbtn" type="button" data-ks-search aria-label="Search the site">{{ glyph("search") }}<span class="ks-search-label">Search</span></button>
+    <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav">{{ glyph("menu") }}</button>
+  </div>
+</div>
+{%- endmacro -%}
+{%- macro crumbs(items) -%}
+<nav class="ks-crumbs" aria-label="Breadcrumb"><ol>
+  {%- for href, label in items %}
+  <li>{% if href %}<a href="{{ href }}">{{ label }}</a>{% else %}<span aria-current="page">{{ label }}</span>{% endif %}</li>
+  {%- endfor %}
+</ol></nav>
+{%- endmacro -%}
+{%- macro foot(site) -%}
+<div class="ks-foot" role="contentinfo">
+  <div class="ks-foot-in">
+    <div class="ks-foot-about">
+      <h2>Kynoss Studios</h2>
+      <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
+      <p><a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a></p>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <ul>
+        {%- for c in site.categories %}
+        <li><a href="/apps/?category={{ c.id }}">{{ c.name }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <h2>Help</h2>
+      <ul>
+        <li><a href="/support/">Get help with an app</a></li>
+        <li><a href="/privacy/">Privacy across our apps</a></li>
+        <li><a href="mailto:{{ site.studio.email }}">Email support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Studio</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/hoa/">For HOA boards</a></li>
+        <li><a href="/press/">Press kit</a></li>
+      </ul>
+    </div>
+    <p class="ks-foot-legal">&copy; {{ site.year }} {{ site.studio.legal }}, {{ site.studio.state }}. Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </div>
+</div>
+<dialog class="ks-search" id="ks-search" aria-label="Search">
+  <form role="search">
+    {{ glyph("search") | replace('aria-hidden="true"', 'aria-hidden="true" width="20" height="20"') }}
+    <input type="search" placeholder="Search apps and help" aria-label="Search apps and help" autocomplete="off">
+  </form>
+  <ul class="ks-search-results" aria-live="polite"></ul>
+</dialog>
+<script src="/assets/site.js?v={{ site.build_id }}" defer></script>
+{%- endmacro -%}
+{%- macro head_common(site, page) -%}
+<link rel="stylesheet" href="/assets/site.css?v={{ site.build_id }}">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="{{ site.studio.domain }}{{ page.path }}">
+<meta property="og:site_name" content="Kynoss Studios">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.studio.domain }}{{ page.path }}">
+<meta property="og:title" content="{{ page.og_title or page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:image" content="{{ site.studio.domain }}{{ page.og_image or '/assets/og/studio.png' }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- if page.store_id %}
+<meta name="apple-itunes-app" content="app-id={{ page.store_id }}">
+{%- endif %}
+{%- endmacro -%}

@@ -1,0 +1,21 @@
+{%- from "_chrome.html" import bar, crumbs, foot, head_common -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+{{ head_common(site, page) }}
+{%- block head %}{% endblock %}
+</head>
+<body class="ks-page">
+<a class="ks-sr" href="#main">Skip to content</a>
+{{ bar(page.nav) }}
+{%- if page.crumbs %}{{ crumbs(page.crumbs) }}{% endif %}
+<main id="main"{% if page.style %} style="{{ page.style }}"{% endif %}>
+{%- block main %}{% endblock %}
+</main>
+{{ foot(site) }}
+</body>
+</html>

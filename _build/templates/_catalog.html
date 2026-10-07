@@ -1,0 +1,23 @@
+{%- macro catalog(site, heading_level=2) -%}
+<div class="ks-filter" role="group" aria-label="Filter by category">
+  <button class="ks-chip" type="button" data-cat="all" aria-pressed="true">All</button>
+  {%- for c in site.categories %}
+  <button class="ks-chip" type="button" data-cat="{{ c.id }}" aria-pressed="false">{{ c.name }}</button>
+  {%- endfor %}
+</div>
+{%- for c in site.categories %}
+<section class="ks-cat" data-cat="{{ c.id }}" aria-labelledby="cat-{{ c.id }}">
+  <h{{ heading_level + 1 }} class="ks-cat-title" id="cat-{{ c.id }}">{{ c.name }}</h{{ heading_level + 1 }}>
+  <ul class="ks-rows">
+    {%- for a in site.by_cat[c.id] %}
+    <li class="ks-row">
+      <img src="{{ a.icon }}" alt="" width="60" height="60" loading="lazy">
+      <p class="ks-row-name"><a href="/{{ a.id }}/">{{ a.name }}</a><small>{{ a.kind }}</small>{% if a.status == "upcoming" %}<span class="ks-soon">Coming soon</span>{% endif %}</p>
+      <p class="ks-row-blurb">{{ a.blurb }}</p>
+      <p class="ks-row-meta"><span>{{ a.price }}</span>{% if a.status == "live" %}<a href="/{{ a.id }}-support.html">Help</a><a href="/{{ a.id }}-privacy.html">Privacy</a>{% endif %}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endfor %}
+{%- endmacro -%}

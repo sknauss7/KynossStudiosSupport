@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block head %}
+<script>
+  // GitHub Pages can't rewrite paths, so Rusti's universal-link share URLs
+  // (/rusti/challenge/<id>) land here when the recipient doesn't have Rusti.
+  // Hand those off to the challenge fallback page. Keep the project prefix on
+  // github.io; on the custom domain there is none (redirecting to it would loop).
+  (function () {
+    var path = window.location.pathname || "";
+    var base = /^\/KynossStudiosSupport\//.test(path) ? "/KynossStudiosSupport" : "";
+    var p = path.replace(/^\/KynossStudiosSupport\//, "/");
+    if (/^\/rusti\/challenge\/./.test(p)) { window.location.replace(base + "/rusti/challenge/"); }
+  })();
+</script>
+<meta name="robots" content="noindex">
+{% endblock %}
+{% block main %}
+<div class="ks-wrap ks-404">
+  <h1 class="ks-display ks-h1">That page isn't here.</h1>
+  <p class="ks-lede">The link may be old, or the address mistyped.</p>
+  <div id="ks-404-maybe" hidden>
+    <h2 class="ks-h3" style="font-weight: 600; margin-bottom: 8px">Were you looking for</h2>
+    <ul class="ks-suggest" id="ks-404-suggest"></ul>
+  </div>
+  <div class="ks-actions">
+    <button class="ks-button" type="button" data-ks-search>Search the site</button>
+    <a class="ks-button is-quiet" href="/apps/">See all apps</a>
+    <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
+  </div>
+  <script type="application/json" id="ks-404-data">{{ apps_json | safe }}</script>
+</div>
+{% endblock %}

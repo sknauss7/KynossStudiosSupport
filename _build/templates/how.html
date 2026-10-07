@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="ks-wrap">
+  <header class="ks-pagehead">
+    <h1 class="ks-display ks-h1">How we build</h1>
+    <p class="ks-lede">Kynoss Studios is one developer and Claude. I decide what to build and what ships. Claude does nearly everything in between, from the first line of code to the App Store upload.</p>
+  </header>
+  <dl class="ks-numbers">
+    <div><dt>apps on the App Store</dt><dd>{{ site.live|length }}</dd></div>
+    <div><dt>App Store updates since March 2026</dt><dd>{{ stats.updates }}+</dd></div>
+    <div><dt>how much more Claude reads than it writes</dt><dd>{{ stats.read_ratio }}×</dd></div>
+  </dl>
+</div>
+
+<section class="ks-section" aria-labelledby="loop-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="loop-h">From idea to App Store</h2>
+      <p class="ks-lede">Every change, from a new game to a one-word fix, goes through the same loop.</p>
+    </div>
+    <ol class="ks-steps">
+      <li><h3>It starts as written instructions</h3><p>Work goes into a queue as plain instructions: what to change, how to check it, and what done looks like. Claude picks up the next item. If an instruction is vague, the result is too, so most of my job is writing good ones.</p></li>
+      <li><h3>The App Store files its own bug reports</h3><p>Every morning a script pulls reviews, ratings, crash reports and sales from App Store Connect. A one-star review or a new crash becomes a queue item on its own.</p></li>
+      <li><h3>Claude builds and tests</h3><p>One Claude session works on one app at a time, so two sessions never edit the same files. Testing happens on iPhone simulators, and the Mac only has memory for two at once, so sessions book one and wait their turn.</p></li>
+      <li><h3>A second pass reviews the change</h3><p>Before a build is archived, Claude reviews its own diff the way a colleague would, and fixes what it finds, including the small stuff. Nothing ships with a known issue.</p></li>
+      <li><h3>Words and pictures are checked against the app</h3><p>App Store screenshots are made from real captures of the app. Privacy policies are checked against what the code actually sends, which is how we catch ourselves still saying “nothing leaves your phone” after something started to.</p></li>
+      <li><h3>Claude uploads. I press Submit.</h3><p>Claude archives the build, uploads it and fills in the App Store listing. Deciding that it goes to Apple for review is my call.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="honest-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="honest-h">What keeps it honest</h2>
+      <p class="ks-lede">An AI that writes most of the code will also happily tell you it worked. These rules exist because of that.</p>
+    </div>
+    <div class="ks-two">
+      <div><h3>Rules come with receipts</h3><p>Each rule in the workflow points to the incident that created it, so nobody, human or Claude, can quietly drop one that seems fussy.</p></div>
+      <div><h3>A failed check stays failed</h3><p>When a test misses its target, Claude can't redefine the target or call it close enough. It stops and asks.</p></div>
+      <div><h3>Claims follow the shipped app</h3><p>Prices, privacy statements and support answers are checked against the app as it actually ships, not against what we meant to build.</p></div>
+      <div><h3>The bill is measured</h3><p>A daily report tracks how much Claude reads. Most of it is Claude rereading its own notes, and a session that rereads too much gets flagged.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="me-h">
+  <div class="ks-wrap ks-split">
+    <div>
+      <h2 class="ks-display ks-h2" id="me-h">What stays with me</h2>
+      <p class="ks-muted">Deciding what's worth building. Spending money. Sending an app to Apple. Anything that goes out under the studio's name gets my yes first.</p>
+    </div>
+    <div>
+      <h2 class="ks-display ks-h2">What runs it</h2>
+      <p class="ks-muted">A small orchestrator we built on Claude starts the work sessions, hands each one its next item and sends me a morning brief on my phone. The apps themselves don't need any of it: they run on your iPhone, not on our servers.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

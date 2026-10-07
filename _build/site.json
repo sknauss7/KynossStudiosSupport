@@ -1,0 +1,262 @@
+{
+  "studio": {
+    "name": "Kynoss Studios",
+    "legal": "Kynoss Studios LLC",
+    "state": "Florida",
+    "founded": 2026,
+    "founder": "Steven Knauss",
+    "email": "support@kynossstudios.com",
+    "domain": "https://kynossstudios.com"
+  },
+  "categories": [
+    {
+      "id": "games",
+      "name": "Games"
+    },
+    {
+      "id": "money",
+      "name": "Money"
+    },
+    {
+      "id": "home",
+      "name": "Home & family"
+    },
+    {
+      "id": "work",
+      "name": "Photos & work"
+    },
+    {
+      "id": "health",
+      "name": "Health & habits"
+    }
+  ],
+  "apps": [
+    {
+      "id": "riffl",
+      "name": "Riffl",
+      "store_id": "6759587346",
+      "status": "live",
+      "category": "games",
+      "accent": "#3B6FB6",
+      "blurb": "Two words shuffled into one. Tap letters to pull them apart. One puzzle a day, the same for everyone.",
+      "kind": "Daily word puzzle",
+      "price": "Free · Pro $2.99 once",
+      "tagline": "The daily two-word puzzle"
+    },
+    {
+      "id": "paeki",
+      "name": "Paeki",
+      "store_id": "6759767106",
+      "status": "live",
+      "category": "games",
+      "accent": "#B0741A",
+      "blurb": "A picture hidden under frosted tiles. Reveal as few as you can and guess what it is.",
+      "kind": "Daily picture puzzle",
+      "price": "Free · Pro $2.99 once",
+      "tagline": "Guess the hidden picture"
+    },
+    {
+      "id": "intuii",
+      "name": "Intuii",
+      "store_id": "6760296901",
+      "status": "live",
+      "category": "games",
+      "accent": "#6A5CE6",
+      "blurb": "Five estimation questions a day, scored on how well your confidence matches reality.",
+      "kind": "Daily estimation puzzle",
+      "tagline": "Know what you don't know",
+      "price": "Free · Pro $2.99 once"
+    },
+    {
+      "id": "rusti",
+      "name": "Rusti",
+      "store_id": "6764300697",
+      "status": "live",
+      "category": "games",
+      "accent": "#7A2F3A",
+      "blurb": "Ten questions a day on the grade-school basics most adults have forgotten. Challenge friends head to head.",
+      "kind": "Daily trivia",
+      "price": "Free · Rusti+ $2.99 once",
+      "tagline": "A daily quiz on what you forgot"
+    },
+    {
+      "id": "tylde",
+      "name": "Tylde",
+      "store_id": "6764362212",
+      "status": "live",
+      "category": "games",
+      "accent": "#A8620C",
+      "blurb": "A shared letter board, 90 seconds of play and a day to make your move. Built for friend groups.",
+      "kind": "Async word duels",
+      "price": "Free · Pro $2.99 once",
+      "tagline": "Async word duels for friends"
+    },
+    {
+      "id": "pandemoni",
+      "name": "Pandemoni",
+      "store_id": "6759873568",
+      "status": "live",
+      "category": "games",
+      "accent": "#C0127A",
+      "blurb": "Party games on any TV. One phone hosts; everyone else scans a QR code and plays in their browser.",
+      "kind": "Party games",
+      "price": "Free to start · games $2.99 each, packs from $8.99"
+    },
+    {
+      "id": "enveloop",
+      "name": "Enveloop",
+      "store_id": "6759178198",
+      "status": "live",
+      "category": "money",
+      "accent": "#7048C0",
+      "blurb": "Every bill gets an envelope. Each paycheck tops them up, and the whole household can share the budget.",
+      "kind": "Envelope budgeting",
+      "price": "Free for 2 weeks · $4.99 once",
+      "tagline": "Envelopes, not subscriptions"
+    },
+    {
+      "id": "shortfall",
+      "name": "Shortfall",
+      "store_id": "6763161521",
+      "status": "live",
+      "category": "money",
+      "accent": "#7A5A1F",
+      "blurb": "Reads your car contract on your phone and flags doc fees, APR markup and add-ons that are high for your state.",
+      "kind": "Car deal audit",
+      "tagline": "Check the car deal before you sign",
+      "price": "1 free audit · unlimited $4.99 once"
+    },
+    {
+      "id": "depositt",
+      "name": "Depositt",
+      "status": "upcoming",
+      "store_id_pending": "6777705596",
+      "category": "money",
+      "accent": "#127067",
+      "icon_src": "Depositt/Depositt/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png",
+      "blurb": "Room-by-room move-in and move-out photos, paired side by side in a dated PDF that protects your deposit.",
+      "kind": "Rental deposit proof",
+      "price": "Free · Pro $7.99 once"
+    },
+    {
+      "id": "homebaseai",
+      "name": "HomeBaseAI",
+      "store_id": "6759628026",
+      "status": "live",
+      "category": "home",
+      "accent": "#0A6FC2",
+      "blurb": "Appliances, paint codes, filter sizes and warranties in one place. Pro adds an AI assistant for your home.",
+      "kind": "Home records",
+      "price": "Free · Pro $5.99/mo or $49.99/yr",
+      "tagline": "Ask anything about your home"
+    },
+    {
+      "id": "sirrius",
+      "name": "Sirrius",
+      "store_id": "6760633823",
+      "status": "live",
+      "category": "home",
+      "accent": "#3A3590",
+      "blurb": "Health records, medication reminders and vet visits for every pet, shared with the whole household.",
+      "kind": "Pet health",
+      "price": "Free · Pro $4.99/mo or $44.99/yr",
+      "tagline": "Your pet's health, organized and shared"
+    },
+    {
+      "id": "trovii",
+      "name": "Trovii",
+      "store_id": "6765739418",
+      "status": "live",
+      "category": "home",
+      "accent": "#3D3F73",
+      "blurb": "Both parents capture every drawing into one family archive, then turn each year into a photobook.",
+      "kind": "Kids' art archive",
+      "price": "$2.99/mo or $19.99/yr, or $59.99 once",
+      "tagline": "Every drawing saved, shared and made into a book"
+    },
+    {
+      "id": "primo",
+      "name": "Primo",
+      "store_id": "6759265509",
+      "status": "live",
+      "category": "home",
+      "accent": "#8A6418",
+      "blurb": "Plans birthdays, anniversaries and holidays backwards from the date, so nothing sneaks up on you.",
+      "kind": "Occasion planning",
+      "tagline": "Plan the gift weeks ahead",
+      "price": "Free · Pro $4.99 once"
+    },
+    {
+      "id": "sievr",
+      "name": "Sievr",
+      "store_id": "6759723263",
+      "status": "live",
+      "category": "work",
+      "accent": "#5856D6",
+      "blurb": "Finds near-duplicate photos, picks the best shot in each group and explains why, on your phone.",
+      "kind": "Photo cleanup",
+      "price": "Free scan · Pro $4.99/week or $39.99 once",
+      "tagline": "Scan, sift and clean up your photos"
+    },
+    {
+      "id": "markki",
+      "name": "Markki",
+      "store_id": "6765735242",
+      "status": "live",
+      "category": "work",
+      "accent": "#2D6A4F",
+      "blurb": "Numbered callouts on every photo, kept in sync across a whole report and exported as a PDF.",
+      "kind": "Photo reports",
+      "price": "$4.99/mo or $29.99/yr, or $99.99 once",
+      "tagline": "Walk, snap, mark, send the PDF"
+    },
+    {
+      "id": "substrata",
+      "name": "Substrata",
+      "store_id": "6759664433",
+      "status": "live",
+      "category": "health",
+      "accent": "#0F7A6E",
+      "blurb": "Pairs noise, weather and air pressure with your sleep and heart data to find what's behind bad days.",
+      "kind": "Environment & health",
+      "price": "Free · Premium $4.99/mo or $29.99/yr, or $89.99 once",
+      "locales": [
+        "de-DE",
+        "en-GB",
+        "es-MX",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "pt-BR"
+      ],
+      "tagline": "Find what's behind your bad days"
+    },
+    {
+      "id": "collekt",
+      "name": "Collekt",
+      "status": "upcoming",
+      "store_id_pending": "6773961439",
+      "category": "health",
+      "accent": "#A07A1C",
+      "icon_src": "Collekt/Collekt/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png",
+      "blurb": "Tap once when you resist a temptation or finish something hard. The jar fills for life, and there are no streaks to break.",
+      "kind": "Small-wins tracker",
+      "price": "Free · Premium $4.99 once"
+    }
+  ],
+  "retired": [
+    "anomii",
+    "brevvi",
+    "callia",
+    "cublii",
+    "haltt",
+    "magnii",
+    "maskki",
+    "provvi",
+    "reapyr",
+    "thresh",
+    "tippsi",
+    "vanqo",
+    "bridji"
+  ]
+}
