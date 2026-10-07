@@ -1,19 +1,37 @@
 {% extends "base.html" %}
 {%- from "_catalog.html" import catalog -%}
+{%- from "_icons.html" import glyph -%}
 {% block main %}
 <section class="ks-hero ks-hero-b">
-  <div class="ks-wrap">
-    <div class="ks-hero-copy">
-      <h1 class="ks-display ks-h1">Small iPhone apps that do one job well.</h1>
-      <p class="ks-lede">Kynoss Studios makes daily games, money tools and home organizers for iPhone. No ads, no accounts, no tracking. One developer, building with Claude.</p>
-      <div class="ks-actions">
-        <a class="ks-button" href="#apps">Browse the apps</a>
-        <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
+  <div class="ks-hero-stage">
+    <div class="ks-wall" aria-hidden="true">
+      <div class="ks-wall-tilt">
+        {%- for col in site.wall %}
+        <div class="ks-wall-col" style="--dur: {{ [84, 66, 90, 72][loop.index0 % 4] }}s">
+          <div class="ks-wall-track">
+            {%- for s in col + col %}
+            <img src="{{ s }}" alt="" width="300" height="652" decoding="async"{% if loop.index > 4 %} loading="lazy"{% endif %}>
+            {%- endfor %}
+          </div>
+        </div>
+        {%- endfor %}
       </div>
     </div>
+    <div class="ks-wrap">
+      <div class="ks-hero-copy">
+        <h1 class="ks-display ks-h1">Small iPhone apps that do one job well.</h1>
+        <p class="ks-lede">Kynoss Studios makes daily games, money tools and home organizers for iPhone. No ads, no accounts, no tracking. One developer, building with Claude.</p>
+        <div class="ks-actions">
+          <a class="ks-button" href="#apps">Browse the apps</a>
+          <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ks-wrap">
     <ul class="ks-shelf" aria-label="Our apps">
       {%- for a in site.live %}
-      <li><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72"></a></li>
+      <li style="--i: {{ loop.index0 }}"><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72"></a></li>
       {%- endfor %}
     </ul>
     <p class="ks-shelf-note">{{ site.live|length }} apps on the App Store, {{ site.upcoming|length }} on the way. Made in {{ site.studio.state }}.</p>
@@ -37,22 +55,24 @@
       <p class="ks-lede">Every app is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers.</p>
     </div>
     <dl class="ks-principles">
-      <div><dt>Your data stays yours</dt><dd>Most features run on your iPhone. Syncing, sharing and multiplayer go through Apple's iCloud and Game Center, never an account with us.</dd></div>
-      <div><dt>No ads, no trackers</dt><dd>None of the apps contain advertising or third-party analytics code.</dd></div>
-      <div><dt>Cloud AI only where we say so</dt><dd>Two apps send AI questions to OpenAI through a relay we run, which doesn't keep them. <a href="/privacy/">See what each app sends</a>.</dd></div>
-      <div><dt>Prices you can read</dt><dd>Free versions are useful on their own. Upgrades are one-time purchases or clearly priced subscriptions, listed on every app page.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("device") }}</span><dt>Your data stays yours</dt><dd>Most features run on your iPhone. Syncing, sharing and multiplayer go through Apple's iCloud and Game Center, never an account with us.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>No ads, no trackers</dt><dd>None of the apps contain advertising or third-party analytics code.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("icloud") }}</span><dt>Cloud AI only where we say so</dt><dd>Two apps send AI questions to OpenAI through a relay we run, which doesn't keep them. <a href="/privacy/">See what each app sends</a>.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("tag") }}</span><dt>Prices you can read</dt><dd>Free versions are useful on their own. Upgrades are one-time purchases or clearly priced subscriptions, listed on every app page.</dd></div>
     </dl>
   </div>
 </section>
 
 <section class="ks-section" aria-label="The studio">
-  <div class="ks-wrap ks-split">
+  <div class="ks-wrap ks-split ks-teasers">
     <div>
+      <span class="ks-pglyph">{{ glyph("build") }}</span>
       <h2 class="ks-display ks-h2">One developer and Claude</h2>
       <p class="ks-muted">Every app here is built with Claude, working through a written queue of instructions: code, tests, screenshots, uploads. I decide what gets built and what ships.</p>
       <p><a href="/how-we-build/">See how the studio works</a></p>
     </div>
-    <div>
+    <div class="ks-appscope" style="--app: #2E9C6A">
+      <span class="ks-pglyph">{{ glyph("hoa") }}</span>
       <h2 class="ks-display ks-h2">For condo and HOA boards</h2>
       <p class="ks-muted">We're designing an assistant for volunteer boards: deadlines tracked, answers cited from your own documents, meeting paperwork drafted, and a clear line between board calls and questions for a lawyer.</p>
       <p><a href="/hoa/">Read the concept</a></p>

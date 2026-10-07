@@ -22,11 +22,28 @@
   {%- endfor %}
 </ol></nav>
 {%- endmacro -%}
+{%- macro appband(app, tabs, label, items) -%}
+<div class="ks-appband ks-appscope" style="--app: {{ app.accent }}">
+  {{ crumbs(items) }}
+  <div class="ks-appband-in">
+    <a class="ks-appband-id" href="/{{ app.id }}/" tabindex="-1" aria-hidden="true"><img src="{{ app.icon }}" alt="" width="64" height="64"></a>
+    <div class="ks-appband-title">
+      <h1 class="ks-display">{{ app.name }}<span class="ks-sr"> {{ label|lower }}</span></h1>
+      <p>{{ app.kind }}{% if app.status == "upcoming" %} · coming soon{% endif %}</p>
+    </div>
+    <nav class="ks-tabs" aria-label="{{ app.name }}">
+      {%- for href, text, on in tabs %}
+      <a href="{{ href }}"{% if on %} aria-current="page"{% endif %}>{{ text }}</a>
+      {%- endfor %}
+    </nav>
+  </div>
+</div>
+{%- endmacro -%}
 {%- macro foot(site) -%}
 <div class="ks-foot" role="contentinfo">
   <div class="ks-foot-in">
     <div class="ks-foot-about">
-      <h2>Kynoss Studios</h2>
+      <h2>{{ mark() }}Kynoss Studios</h2>
       <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
       <p><a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a></p>
     </div>

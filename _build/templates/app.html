@@ -1,25 +1,48 @@
 {% extends "base.html" %}
 {%- from "_icons.html" import glyph -%}
+{%- from "_chrome.html" import crumbs -%}
+{% block crumbs %}{% endblock %}
 {% block main %}
-<section class="ks-apphero">
-  <div class="ks-wrap">
-    <div class="ks-apphero-in">
+<section class="ks-apphero{% if not app.shots %} is-iconic{% endif %}">
+  {{ crumbs(page.crumbs) }}
+  <div class="ks-wrap ks-apphero-in">
+    <div class="ks-apphero-copy">
+      {%- if app.shots %}
       <img class="ks-appicon" src="{{ app.icon }}" alt="{{ app.name }} app icon" width="128" height="128">
+      {%- endif %}
       <div class="ks-apptitle">
-        <p class="ks-kind">{{ app.kind }}{% if app.status == "upcoming" %} · coming soon{% endif %}</p>
+        <p class="ks-kind">{{ app.kind }}{% if app.status == "upcoming" %} <span class="ks-pill">Coming soon</span>{% endif %}</p>
         <h1 class="ks-display ks-h1">{{ app.name }}</h1>
         <p class="ks-lede">{{ app.tagline }}</p>
       </div>
       <div class="ks-get">
         {%- if app.status == "live" %}
         <a class="ks-button" href="{{ app.store_url }}">Get it on the App Store</a>
-        <div class="ks-qr" role="img" aria-label="QR code for {{ app.name }} on the App Store">{{ app.qr_svg | safe }}</div>
-        <p class="ks-qr-cap">Scan with your iPhone camera</p>
+        <div class="ks-qrcard">
+          <div class="ks-qr" role="img" aria-label="QR code for {{ app.name }} on the App Store">{{ app.qr_svg | safe }}</div>
+          <p class="ks-qr-cap">Scan with your iPhone camera</p>
+        </div>
         {%- else %}
-        <p class="ks-muted ks-small">Not on the App Store yet.</p>
+        <p class="ks-soon-note">Not on the App Store yet.</p>
         {%- endif %}
       </div>
     </div>
+    {%- if app.shots %}
+    <div class="ks-fan" aria-hidden="true">
+      {%- for i in [2, 1, 0] if app.shots|length > i %}
+      <img class="ks-fan-{{ i }}" src="{{ app.shots[i] }}" alt="" width="600" height="1304"{% if i %} loading="lazy"{% endif %}>
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <div class="ks-bigicon">
+      <img src="{{ app.icon_1024 }}" alt="{{ app.name }} app icon" width="1024" height="1024">
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<div class="ks-factband">
+  <div class="ks-wrap">
     <dl class="ks-facts">
       <div><dt>Price</dt><dd>{{ app.price }}</dd></div>
       {%- if app.min_ios %}<div><dt>Requires</dt><dd>iOS {{ app.min_ios }} or later</dd></div>{% endif %}
@@ -27,12 +50,11 @@
       {%- if app.rating %}<div><dt>Rating</dt><dd>{{ app.rating }} ★ from {{ app.rating_count }} ratings</dd></div>{% endif %}
       {%- if app.genre %}<div><dt>Category</dt><dd>{{ app.genre }}</dd></div>{% endif %}
     </dl>
-    <p style="height: 22px"></p>
   </div>
-</section>
+</div>
 
 {%- if app.shots %}
-<section class="ks-section" style="padding-bottom: 24px" aria-label="Screenshots">
+<section class="ks-gallery" aria-label="Screenshots">
   <div class="ks-wrap">
     <div class="ks-shots" tabindex="0" aria-label="{{ app.name }} screenshots, scroll sideways">
       {%- for s in app.shots %}
@@ -43,7 +65,7 @@
 </section>
 {%- endif %}
 
-<section class="ks-section"{% if app.shots %} style="border-top: 0; padding-top: 32px"{% endif %}>
+<section class="ks-section ks-appmain">
   <div class="ks-wrap ks-appbody">
     <div class="ks-prose">
       <h2 class="ks-display ks-h2" style="margin-bottom: 20px">About {{ app.name }}</h2>

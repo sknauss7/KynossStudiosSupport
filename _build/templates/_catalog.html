@@ -10,7 +10,7 @@
   <h{{ heading_level + 1 }} class="ks-cat-title" id="cat-{{ c.id }}">{{ c.name }}</h{{ heading_level + 1 }}>
   <ul class="ks-rows">
     {%- for a in site.by_cat[c.id] %}
-    <li class="ks-row">
+    <li class="ks-row ks-appscope" style="--app: {{ a.accent }}">
       <img src="{{ a.icon }}" alt="" width="60" height="60" loading="lazy">
       <p class="ks-row-name"><a href="/{{ a.id }}/">{{ a.name }}</a><small>{{ a.kind }}</small>{% if a.status == "upcoming" %}<span class="ks-soon">Coming soon</span>{% endif %}</p>
       <p class="ks-row-blurb">{{ a.blurb }}</p>

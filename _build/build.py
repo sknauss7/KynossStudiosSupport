@@ -261,47 +261,186 @@ def build_stats():
 
 # ---------------------------------------------------------------- og images
 
-def og_image(dest, title, subtitle, icon_path=None, accent="#2B54E0"):
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    W, H = 1200, 630
-    im = Image.new("RGB", (W, H), "#F5F7FA")
-    d = ImageDraw.Draw(im)
-    d.rectangle([0, 0, W, 14], fill=accent)
-    font = "/System/Library/Fonts/SFNS.ttf"
+OG_W, OG_H = 1200, 630
+OG_FONT = ROOT / "assets" / "fonts" / "bricolage-latin.woff2"
+INK = (15, 21, 34)
+
+
+def hex_rgb(h):
+    h = h.lstrip("#")
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def mix(a, b, t):
+    """t of colour a, the rest b (like CSS color-mix)."""
+    return tuple(round(x * t + y * (1 - t)) for x, y in zip(a, b))
+
+
+def og_font(size, weight=700, width=86):
+    f = ImageFont.truetype(str(OG_FONT), size)
     try:
-        big = ImageFont.truetype(font, 92)
-        big.set_variation_by_axes([700])
+        f.set_variation_by_axes([min(96, size), weight, width])
     except Exception:
-        big = ImageFont.truetype(font, 92)
-    try:
-        small = ImageFont.truetype(font, 38)
-        small.set_variation_by_axes([400])
+        pass
+    return f
+
+
+def text_font(size, weight=500):
+    f = ImageFont.truetype("/System/Library/Fonts/SFNS.ttf", size)
+    try:  # axes: width, optical size, grade, weight
+        f.set_variation_by_axes([100, min(96, max(17, size)), 400, weight])
     except Exception:
-        small = ImageFont.truetype(font, 38)
-    x = 90
-    if icon_path:
-        ic = Image.open(icon_path).convert("RGBA").resize((260, 260), Image.LANCZOS)
-        mask = Image.new("L", (260, 260), 0)
-        ImageDraw.Draw(mask).rounded_rectangle([0, 0, 259, 259], radius=58, fill=255)
-        im.paste(ic, (90, (H - 260) // 2), mask)
-        x = 410
-    # wrap subtitle
-    words, lines, cur = subtitle.split(), [], ""
+        pass
+    return f
+
+
+def og_backdrop(accent):
+    """The app header's gradient: deep accent, a lighter glow top right, film grain against banding."""
+    from PIL import ImageFilter
+    c = hex_rgb(accent)
+    top, mid, low = mix(c, (0, 0, 0), 0.78), mix(c, (0, 0, 0), 0.52), mix(c, (4, 6, 11), 0.34)
+    grad = Image.new("RGB", (3, 1))
+    grad.putdata([top, mid, low])
+    im = grad.resize((OG_W * 2, 1), Image.BICUBIC).resize((OG_W * 2, OG_H * 2))
+    im = im.rotate(-28, resample=Image.BICUBIC).crop((OG_W // 2, OG_H // 2, OG_W // 2 + OG_W, OG_H // 2 + OG_H))
+    glow = Image.new("L", (OG_W, OG_H), 0)
+    ImageDraw.Draw(glow).ellipse([OG_W * 0.55, -OG_H * 0.6, OG_W * 1.35, OG_H * 0.55], fill=150)
+    glow = glow.filter(ImageFilter.GaussianBlur(120))
+    im = Image.composite(Image.new("RGB", im.size, mix(c, (255, 255, 255), 0.92)), im, glow)
+    noise = Image.effect_noise((OG_W, OG_H), 18).convert("RGB")
+    return Image.blend(im, noise, 0.035)
+
+
+def rounded(img, radius):
+    mask = Image.new("L", img.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, img.size[0] - 1, img.size[1] - 1], radius=radius, fill=255)
+    out = img.convert("RGBA")
+    out.putalpha(mask)
+    return out
+
+
+def paste_card(canvas, card, xy, angle=0, shadow=60, blur=28, offset=18):
+    """Paste an RGBA card with a soft drop shadow, optionally rotated."""
+    from PIL import ImageFilter
+    pad = blur * 3
+    sh = Image.new("RGBA", (card.size[0] + pad * 2, card.size[1] + pad * 2), (0, 0, 0, 0))
+    a = card.split()[3].point(lambda v: v * shadow // 100)
+    sh.paste((0, 0, 0, 255), (pad, pad + offset), a)
+    sh = sh.filter(ImageFilter.GaussianBlur(blur))
+    layer = Image.new("RGBA", sh.size, (0, 0, 0, 0))
+    layer.alpha_composite(sh)
+    layer.alpha_composite(card, (pad, pad))
+    if angle:
+        layer = layer.rotate(angle, resample=Image.BICUBIC, expand=True)
+    x, y = xy
+    canvas.alpha_composite(layer, (int(x - layer.size[0] / 2), int(y - layer.size[1] / 2)))
+
+
+def wrap(d, text, font, width, max_lines=3):
+    words, lines, cur = text.split(), [], ""
     for w in words:
-        if d.textlength((cur + " " + w).strip(), font=small) > W - x - 80:
+        if d.textlength((cur + " " + w).strip(), font=font) > width and cur:
             lines.append(cur)
             cur = w
         else:
             cur = (cur + " " + w).strip()
     lines.append(cur)
-    lines = lines[:3]
-    block = 110 + 52 * len(lines)
-    y = (H - block) // 2
-    d.text((x, y), title, font=big, fill="#172033")
-    for i, l in enumerate(lines):
-        d.text((x, y + 120 + i * 52), l, font=small, fill="#586377")
-    d.text((90, H - 70), "kynossstudios.com", font=small, fill="#586377")
-    im.save(dest, "PNG", optimize=True)
+    return lines[:max_lines]
+
+
+def og_footer(d, color):
+    d.text((80, OG_H - 78), "kynossstudios.com", font=text_font(26, 600), fill=color)
+
+
+def og_app(dest, app):
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    im = og_backdrop(app["accent"]).convert("RGBA")
+    adir = ROOT / "assets" / "apps" / app["id"]
+    shots = [adir / f"shot-{i}.webp" for i in (1, 2)]
+    shots = [p for p in shots if p.exists()]
+    if shots:  # a fan of real screens on the right, cropped by the bottom edge
+        for p, x, y, ang, k in reversed([(shots[0], 905, 470, 0, 1.0)] + ([(shots[1], 1085, 520, -9, 0.9)] if len(shots) > 1 else [])):
+            s = Image.open(p).convert("RGB")
+            w = int(300 * k)
+            s = s.resize((w, int(s.size[1] * w / s.size[0])), Image.LANCZOS)
+            if k < 1:
+                s = Image.blend(s, Image.new("RGB", s.size, (0, 0, 0)), 0.18)
+            paste_card(im, rounded(s, 34), (x, y), ang, shadow=70)
+    else:  # upcoming: the icon carries the image
+        ic = Image.open(adir / "icon-1024.png").convert("RGBA").resize((340, 340), Image.LANCZOS)
+        paste_card(im, rounded(ic, 76), (930, 315), 6, shadow=80, blur=40, offset=30)
+    left = 80
+    if shots:
+        ic = Image.open(adir / "icon-1024.png").convert("RGBA").resize((132, 132), Image.LANCZOS)
+        paste_card(im, rounded(ic, 30), (left + 66, 150), 0, shadow=55, blur=18, offset=10)
+    im = im.convert("RGB")  # ImageDraw only blends translucent fills onto RGB
+    d = ImageDraw.Draw(im, "RGBA")
+    name_font = og_font(124 if len(app["name"]) <= 8 else 104)
+    y = 250 if shots else 190
+    d.text((left - 4, y), app["name"], font=name_font, fill="white")
+    sub = text_font(36, 500)
+    for i, line in enumerate(wrap(d, app["tagline"], sub, 600 if shots else 560, 3)):
+        d.text((left, y + 150 + i * 46), line, font=sub, fill=(255, 255, 255, 222))
+    if app["status"] != "live":
+        d.rounded_rectangle([left, y - 56, left + 186, y - 14], radius=21, fill=(255, 255, 255, 40), outline=(255, 255, 255, 90), width=2)
+        d.text((left + 20, y - 49), "Coming soon", font=text_font(24, 600), fill="white")
+    og_footer(d, (255, 255, 255, 200))
+    im.convert("RGB").save(dest, "PNG", optimize=True)
+
+
+def og_page(dest, title, subtitle, accent="#2B54E0", wall=None, apps=None):
+    """Studio-level previews: deep ink with the brand mark, or a wall of real screens."""
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    c = hex_rgb(accent)
+    im = og_backdrop(accent if accent != "#2B54E0" else "#1E3A9E").convert("RGBA")
+    if wall:  # tilted wall of screenshots on the right, like the home page
+        tile_w, gap = 190, 22
+        layer = Image.new("RGBA", (4 * (tile_w + gap), 1500), (0, 0, 0, 0))
+        for ci, col in enumerate(wall[:4]):
+            yy = -160 if ci % 2 else 0
+            for p in col:
+                s = Image.open(ROOT / p.lstrip("/")).convert("RGB")
+                s = s.resize((tile_w, int(s.size[1] * tile_w / s.size[0])), Image.LANCZOS)
+                layer.alpha_composite(rounded(s, 22), (ci * (tile_w + gap), yy))
+                yy += s.size[1] + gap
+                if yy > 1500:
+                    break
+        layer = layer.rotate(10, resample=Image.BICUBIC, expand=True)
+        from PIL import ImageFilter
+        fade = Image.new("L", (OG_W, OG_H), 0)
+        fd = ImageDraw.Draw(fade)
+        for x in range(OG_W):
+            fd.line([(x, 0), (x, OG_H)], fill=max(0, min(255, int((x - 560) * 255 / 180))))
+        placed = Image.new("RGBA", (OG_W, OG_H), (0, 0, 0, 0))
+        placed.alpha_composite(layer, (600, -int(layer.size[1] * 0.3)))
+        placed.putalpha(Image.composite(placed.split()[3], Image.new("L", (OG_W, OG_H), 0), fade))
+        im.alpha_composite(placed)
+    elif apps:  # a loose cluster of app icons
+        for i, (p, x, y, ang, sz) in enumerate(apps):
+            ic = Image.open(p).convert("RGBA").resize((sz, sz), Image.LANCZOS)
+            paste_card(im, rounded(ic, int(sz * 0.224)), (x, y), ang, shadow=70, blur=22, offset=14)
+    im = im.convert("RGB")
+    d = ImageDraw.Draw(im, "RGBA")
+    # the studio mark: 3x3 rounded squares, centre one in signal blue
+    for r in range(3):
+        for col in range(3):
+            x0, y0 = 80 + col * 22, 80 + r * 22
+            d.rounded_rectangle([x0, y0, x0 + 17, y0 + 17], radius=5, fill=(91, 131, 255) if (r, col) == (1, 1) else (255, 255, 255))
+    d.text((160, 86), "Kynoss Studios", font=og_font(40, 650, 88), fill="white")
+    size = 104 if len(title) <= 14 else 84
+    big = og_font(size)
+    lh = int(size * 0.98)
+    lines = wrap(d, title, big, 540 if (wall or apps) else 1000, 3)
+    sub = text_font(32, 500)
+    sublines = wrap(d, subtitle, sub, 520 if (wall or apps) else 900, 3)
+    block = len(lines) * lh + 28 + len(sublines) * 42
+    y = 160 + (OG_H - 160 - 110 - block) // 2  # centred between the mark and the footer
+    for i, line in enumerate(lines):
+        d.text((76, y + i * lh), line, font=big, fill="white")
+    for i, line in enumerate(sublines):
+        d.text((80, y + len(lines) * lh + 28 + i * 42), line, font=sub, fill=(255, 255, 255, 215))
+    og_footer(d, (255, 255, 255, 190))
+    im.convert("RGB").save(dest, "PNG", optimize=True)
 
 
 # ---------------------------------------------------------------- favicon
@@ -340,7 +479,7 @@ def strip_marked(s, marks):
     return re.sub(re.escape(marks[0]) + r".*?" + re.escape(marks[1]) + r"\n?", "", s, flags=re.S)
 
 
-def wrap_legacy(path, head_html, top_html, bottom_html):
+def wrap_legacy(path, head_html, top_html, bottom_html, app_id, accent):
     s = path.read_text(encoding="utf-8")
     for m in (MARK_HEAD, MARK_TOP, MARK_BOTTOM):
         s = strip_marked(s, m)
@@ -351,8 +490,9 @@ def wrap_legacy(path, head_html, top_html, bottom_html):
     s = re.sub(r"<body\b([^>]*)>", r'<body\1 class="ks-legacy">', s, count=1)
     css = s.split("</style>")[0] if "</style>" in s else ""
     bw = re.search(r"(?:^|[\s}])body\s*\{[^}]*?max-width:\s*([^;}]+)", css)
-    main_cls = "ks-legacy-main is-narrow" if bw else "ks-legacy-main"
-    main_style = f' style="--legacy-width: {bw.group(1).strip()}"' if bw else ""
+    main_cls = "ks-legacy-main ks-appscope" + (" is-narrow" if bw else "")
+    style = f"--app: {accent}" + (f"; --legacy-width: {bw.group(1).strip()}" if bw else "")
+    main_style = f' data-page="{path.stem.split(".")[0]}" data-app="{app_id}" style="{style}"'
     s = s.replace("</head>", f"{MARK_HEAD[0]}\n{head_html}\n{MARK_HEAD[1]}\n</head>", 1)
     s = re.sub(r'(<body\b[^>]*>)', lambda m: f"{m.group(1)}\n{MARK_TOP[0]}\n{top_html}\n<div class=\"{main_cls}\"{main_style}>\n{MARK_TOP[1]}", s, count=1)
     i = s.rfind("</body>")
@@ -454,7 +594,7 @@ def main():
         dest.write_text(html_out, encoding="utf-8")
 
     og = ROOT / "assets" / "og"
-    og_image(og / "studio.png", "Kynoss Studios", "Small iPhone apps that do one job well. No ads, no accounts, no tracking.")
+    og_page(og / "studio.png", "Small iPhone apps that do one job well.", "No ads, no accounts, no tracking.", wall=site["wall"])
     stats = build_stats()
     pages = []
 
@@ -476,11 +616,14 @@ def main():
            "Common answers for every Kynoss Studios app, and a quick way to email support with the details filled in.", nav="support"),
            hub_json=json.dumps(hub).replace("</", "<\\/"))
 
-    og_image(og / "how-we-build.png", "How we build", "One developer and Claude: from written instructions to the App Store.")
+    icons = [ROOT / "assets" / "apps" / a["id"] / "icon-1024.png" for a in site["live"]]
+    spots = [(840, 170, -8, 150), (1030, 250, 7, 130), (870, 390, 5, 170), (1070, 470, -6, 140), (700, 470, -4, 110)]
+    og_page(og / "how-we-build.png", "How we build", "One developer and Claude: from written instructions to the App Store.",
+            apps=[(icons[i * 3 % len(icons)], *xy) for i, xy in enumerate(spots)])
     render("how.html", "how-we-build/index.html", page("/how-we-build/", "How we build · Kynoss Studios",
            "Kynoss Studios is one developer and Claude. How work moves from written instructions to the App Store, and what keeps it honest.",
            nav="build", og_image_path="/assets/og/how-we-build.png"), stats=stats)
-    og_image(og / "hoa.png", "For condo and HOA boards", "A concept: deadlines kept, answers cited from your documents, paperwork drafted.", accent="#2E9C6A")
+    og_page(og / "hoa.png", "For condo and HOA boards", "A concept: deadlines kept, answers cited from your documents, paperwork drafted.", accent="#2E9C6A")
     render("hoa.html", "hoa/index.html", page("/hoa/", "An assistant for condo and HOA boards · Kynoss Studios",
            "A concept from Kynoss Studios: an assistant for volunteer condo and HOA boards that tracks deadlines, cites governing documents and drafts meeting paperwork.",
            nav="hoa", og_image_path="/assets/og/hoa.png"))
@@ -497,7 +640,7 @@ def main():
     pages.remove(p404)
 
     for a in site["apps"]:
-        og_image(og / f"{a['id']}.png", a["name"], a["tagline"], ROOT / "assets" / "apps" / a["id"] / "icon-1024.png", a["accent"])
+        og_app(og / f"{a['id']}.png", a)
         title = f"{a['name']}: {a['tagline']}" if a["status"] == "live" else f"{a['name']} (coming soon)"
         desc = a["blurb"] + ("" if a["status"] == "live" else " Coming soon to the App Store.")
         render("app.html", f"{a['id']}/index.html",
@@ -507,11 +650,11 @@ def main():
                     style=f"--app: {a['accent']}"), app=a)
 
     # ---- legacy support/privacy pages: shared chrome
-    chrome = env.from_string('{% from "_chrome.html" import bar, crumbs, foot, head_common %}'
+    chrome = env.from_string('{% from "_chrome.html" import bar, crumbs, foot, head_common, appband %}'
                              '{% if part == "head" %}{{ head_common(site, page) }}'
                              '<meta name="description" content="{{ page.description }}">'
                              '<style>.ks-legacy-main > .container, .ks-legacy-main > .wrap { margin-top: 0; }</style>'
-                             '{% elif part == "top" %}{{ bar("support" if kind == "support" else "") }}{{ crumbs(page.crumbs) }}'
+                             '{% elif part == "top" %}{{ bar("support" if kind == "support" else "") }}{{ appband(app, tabs, label, page.crumbs) }}'
                              '{% if kind == "privacy" and not loc %}<p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>{% endif %}'
                              '{% else %}{{ foot(site) }}{% endif %}')
     for a in site["apps"]:
@@ -529,8 +672,13 @@ def main():
                 pg = {"path": f"/{f.name}", "title": "", "description": desc, "og_image": f"/assets/og/{a['id']}.png",
                       "og_title": f"{a['name']} {label.lower()}", "store_id": a.get("store_id") if a["status"] == "live" else None,
                       "crumbs": [("/", "Home"), ("/apps/", "Apps"), (f"/{a['id']}/", a["name"]), (None, label)]}
-                parts = {p: chrome.render(site=site, page=pg, part=p, kind=kind, loc=loc) for p in ("head", "top", "bottom")}
-                wrap_legacy(f, parts["head"], parts["top"], parts["bottom"])
+                def tab(k):  # same-language page when it exists, else the English one
+                    return f"/{a['id']}-{k}{suffix}.html" if (ROOT / f"{a['id']}-{k}{suffix}.html").exists() else f"/{a['id']}-{k}.html"
+                tabs = [(f"/{a['id']}/", "Overview", False), (tab("support"), "Help", kind == "support"),
+                        (tab("privacy"), "Privacy", kind == "privacy")]
+                parts = {p: chrome.render(site=site, page=pg, part=p, kind=kind, loc=loc, app=a, tabs=tabs, label=label)
+                         for p in ("head", "top", "bottom")}
+                wrap_legacy(f, parts["head"], parts["top"], parts["bottom"], a["id"], a["accent"])
                 if not loc and a["status"] == "live":
                     pages.append({"path": pg["path"]})
 

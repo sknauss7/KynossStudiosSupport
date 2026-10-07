@@ -16,7 +16,7 @@
   </div>
   <ul class="ks-rows">
     {%- for a in site.live %}
-    <li class="ks-row">
+    <li class="ks-row ks-appscope" style="--app: {{ a.accent }}">
       <img src="{{ a.icon }}" alt="" width="60" height="60" loading="lazy">
       <p class="ks-row-name"><a href="/{{ a.id }}/">{{ a.name }}</a><small>{{ a.kind }}</small></p>
       <p class="ks-row-blurb">{{ a.blurb }}</p>

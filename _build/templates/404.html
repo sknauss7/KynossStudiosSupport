@@ -16,6 +16,13 @@
 {% endblock %}
 {% block main %}
 <div class="ks-wrap ks-404">
+  <div class="ks-404-grid" aria-hidden="true">
+    {%- for a in site.live[:8] %}
+    {%- if loop.index0 == 4 %}<span class="ks-404-gap"></span>{% endif %}
+    <img src="{{ a.icon }}" alt="" width="96" height="96">
+    {%- endfor %}
+  </div>
+  <div class="ks-404-copy">
   <h1 class="ks-display ks-h1">That page isn't here.</h1>
   <p class="ks-lede">The link may be old, or the address mistyped.</p>
   <div id="ks-404-maybe" hidden>
@@ -26,6 +33,7 @@
     <button class="ks-button" type="button" data-ks-search>Search the site</button>
     <a class="ks-button is-quiet" href="/apps/">See all apps</a>
     <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
+  </div>
   </div>
   <script type="application/json" id="ks-404-data">{{ apps_json | safe }}</script>
 </div>

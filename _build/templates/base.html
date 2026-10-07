@@ -12,7 +12,7 @@
 <body class="ks-page">
 <a class="ks-sr" href="#main">Skip to content</a>
 {{ bar(page.nav) }}
-{%- if page.crumbs %}{{ crumbs(page.crumbs) }}{% endif %}
+{%- block crumbs %}{% if page.crumbs %}{{ crumbs(page.crumbs) }}{% endif %}{% endblock %}
 <main id="main"{% if page.style %} style="{{ page.style }}"{% endif %}>
 {%- block main %}{% endblock %}
 </main>
