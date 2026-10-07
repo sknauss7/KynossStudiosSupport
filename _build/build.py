@@ -370,7 +370,8 @@ def main():
     flows = json.loads(flows_path.read_text()) if flows_path.exists() else {"checked": "", "apps": {}}
     now = dt.datetime.now()
     site["year"] = now.year
-    site["build_id"] = now.strftime("%Y%m%d%H%M")
+    import hashlib  # cache-buster changes only when the shared CSS/JS does, so unchanged pages stay unchanged
+    site["build_id"] = hashlib.sha1(b"".join((ROOT / "assets" / f).read_bytes() for f in ("site.css", "site.js"))).hexdigest()[:10]
     site["flows_checked"] = flows.get("checked", "")
     cats = {c["id"]: c["name"] for c in site["categories"]}
     global ALL_NAMES
