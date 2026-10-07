@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>An assistant for condo and HOA boards · Kynoss Studios</title>
 <meta name="description" content="A concept from Kynoss Studios: an assistant for volunteer condo and HOA boards that tracks deadlines, cites governing documents and drafts meeting paperwork.">
-<link rel="stylesheet" href="/assets/site.css?v=7c15dceccf">
+<link rel="stylesheet" href="/assets/site.css?v=1c8e93af65">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -39,14 +39,65 @@
     <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </div>
-<main id="main">
-<div class="ks-wrap">
-  <header class="ks-pagehead">
-    <h1 class="ks-display ks-h1">An assistant for condo and HOA boards</h1>
-    <p class="ks-lede">Volunteer board members inherit a binder of documents, a calendar full of legal deadlines and a stream of reports from the manager. We're designing an assistant that keeps track of all of it, drafts the paperwork and tells you when it's time to call a lawyer.</p>
-    <p class="ks-note">This is a concept we're developing. It isn't available yet, and nothing on this page is legal advice.</p>
-  </header>
-</div>
+<main id="main" style="--app: #2E9C6A">
+<section class="ks-apphero ks-hoahero">
+  <div class="ks-wrap ks-apphero-in">
+    <div class="ks-apphero-copy">
+      <h1 class="ks-display ks-h1">An assistant for condo and HOA boards</h1>
+      <p class="ks-lede">Volunteer board members inherit a binder of documents, a calendar full of legal deadlines and a stream of reports from the manager. We're designing an assistant that keeps track of all of it, drafts the paperwork and tells you when it's time to call a lawyer.</p>
+      <p class="ks-hoanote">This is a concept we're developing. It isn't available yet, and nothing on this page is legal advice.</p>
+    </div>
+    <div class="ks-hoastage" role="img" aria-label="Illustration for a made-up association: a morning summary on a phone, a one-page brief for the next board meeting, and a deadline tracker">
+      <div class="ks-mock ks-hs-track" aria-hidden="true">
+        <div class="ks-mock-bar"><strong>Deadlines</strong></div>
+        <ul class="ks-mock-rows">
+                <li style="--dot: #E0A21B"><i></i><span><b>Director training</b><span class="ks-cite">1 of 5 directors still to finish · Florida condo law</span></span><small>Due in 23 days</small></li>
+                <li style="--dot: #2E9C6A"><i></i><span><b>Building safety inspection</b><span class="ks-cite">Report on file · Florida building law</span></span><small>Done</small></li>
+                <li style="--dot: #2E9C6A"><i></i><span><b>Repair savings study</b><span class="ks-cite">On file · Florida condo law</span></span><small>Next in 2034</small></li>
+                <li style="--dot: #D0453F"><i></i><span><b>Records posted online</b><span class="ks-cite">2 documents missing · Florida condo law</span></span><small>Overdue</small></li>
+                <li style="--dot: #E0A21B"><i></i><span><b>Budget to owners</b><span class="ks-cite">Send 14 days before the budget meeting · Florida condo law</span></span><small>By Nov 14</small></li>
+              </ul>
+      </div>
+      <div class="ks-mock ks-hs-brief" aria-hidden="true">
+        <div class="ks-mock-bar"><strong>Board meeting, Nov 18 <span class="ks-hs-page">· One page</span></strong><span class="ks-badge">Illustration</span></div>
+        <div class="ks-hs-body">
+          <p class="ks-hs-h">1 · Roof replacement: choose a bid <span class="ks-tag is-green">Your call</span></p>
+          <table class="ks-hs-bids">
+            <tr><th>Bay Roof Co.</th><td>$389,500</td><td>10-yr warranty</td></tr>
+            <tr class="is-pick"><th>Coastal Roofing</th><td>$412,000</td><td>15-yr warranty</td></tr>
+            <tr><th>Summit Exteriors</th><td>$455,000</td><td>20-yr warranty</td></tr>
+          </table>
+          <p class="ks-hs-rec"><b>Recommendation:</b> Coastal. Within the repair savings, and the longest warranty under budget.<span class="ks-cite">From: Repair savings study, p. 22 · Budget 2027, p. 4</span></p>
+          <p class="ks-hs-h">2 · Owner asks to waive a late fee <span class="ks-tag is-amber">Worth asking</span></p>
+          <p class="ks-hs-note">Question for your attorney is drafted and ready.</p>
+        </div>
+      </div>
+      <div class="ks-phone ks-hs-phone" aria-hidden="true">
+        <div class="ks-phone-screen">
+          <div class="ks-phone-status"><span>7:02</span><i></i></div>
+          <p class="ks-phone-app">Lakeside Pines · Board</p>
+          <p class="ks-phone-hi">Good morning, Dana.</p>
+          <div class="ks-phone-card">
+            <p class="ks-phone-k">Filed overnight</p>
+            <ul>
+              <li><b>Pool contract renewal</b><span>Contracts</span></li>
+              <li><b>3 insurance quotes</b><span>Insurance</span></li>
+              <li><b>Owner email: parking</b><span>Summarized</span></li>
+            </ul>
+          </div>
+          <div class="ks-phone-card">
+            <p class="ks-phone-k">Due soon</p>
+            <ul><li><b>Budget to owners</b><span class="is-amber">Nov 14</span></li></ul>
+          </div>
+          <div class="ks-phone-card is-cta">
+            <p class="ks-phone-k">Needs a decision</p>
+            <ul><li><b>Roof bids, side by side</b><span>Open brief</span></li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="ks-section" aria-labelledby="job-h">
   <div class="ks-wrap ks-split">
@@ -66,7 +117,7 @@
       <h2 class="ks-display ks-h2" id="how-h">How it would work</h2>
       <p class="ks-lede">Designed to fit around a volunteer's schedule, not take it over.</p>
     </div>
-    <ol class="ks-steps">
+    <ol class="ks-steps is-app">
       <li><h3>It files what comes in</h3><p>Email, texts, portal documents and phone scans are read, filed and summarized overnight, so next year's board can find them.</p></li>
       <li><h3>One message each morning</h3><p>What arrived, what's due soon and what needs a decision, on your phone.</p></li>
       <li><h3>Every meeting starts with one page</h3><p>The decisions in front of the board, the options and a recommendation. Agendas and draft minutes too.</p></li>
@@ -91,25 +142,28 @@
 </section>
 
 <section class="ks-section" aria-labelledby="look-h">
-  <div class="ks-wrap ks-split" style="align-items: center">
+  <div class="ks-wrap ks-trustgrid">
     <div>
-      <h2 class="ks-display ks-h2" id="look-h">Built to be trusted</h2>
-      <ul class="ks-prose" style="padding-left: 1.1em; color: var(--slate); margin-top: 16px">
-        <li><strong style="color: var(--ink)">It shows its work.</strong> Every answer points to the document it came from.</li>
-        <li><strong style="color: var(--ink)">It knows what it doesn't know.</strong> If a document is missing, it says so instead of guessing.</li>
-        <li><strong style="color: var(--ink)">It never acts for the board.</strong> Everything it writes is a draft, and nothing goes to owners, the manager or anyone else until a director approves it.</li>
-        <li><strong style="color: var(--ink)">Owners' privacy comes first.</strong> Personal details stay out of its working notes, and the association's records stay the association's.</li>
+      <div class="ks-section-head">
+        <h2 class="ks-display ks-h2" id="look-h">Built to be trusted</h2>
+      </div>
+      <ul class="ks-trust">
+        <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><strong>It shows its work.</strong><p>Every answer points to the document it came from.</p></li>
+        <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M9.3 9.2a2.8 2.8 0 0 1 5.4 1c0 1.9-2.7 2.4-2.7 4.1"/><path d="M12 17.6h.01"/></svg></span><strong>It knows what it doesn't know.</strong><p>If a document is missing, it says so instead of guessing.</p></li>
+        <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.9-3.4 3.4-5.5 6.5-5.5s5.6 2.1 6.5 5.5"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.8c1.7.8 2.9 2.6 3.5 5.2"/></svg></span><strong>It never acts for the board.</strong><p>Everything it writes is a draft, and nothing goes to owners, the manager or anyone else until a director approves it.</p></li>
+        <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span><strong>Owners' privacy comes first.</strong><p>Personal details stay out of its working notes, and the association's records stay the association's.</p></li>
       </ul>
     </div>
-    <figure class="ks-mock" aria-label="Illustration of a compliance dashboard for a fictional association">
-      <div class="ks-mock-bar"><strong>Lakeside Pines Condominium Association</strong><span class="ks-badge">Illustration</span></div>
-      <ul class="ks-mock-rows">
-        <li style="--dot: #E0A21B"><i></i><span><b>Director training</b><span class="ks-cite">1 of 5 directors still to finish · Florida condo law</span></span><small>Due in 23 days</small></li>
-        <li style="--dot: #2E9C6A"><i></i><span><b>Building safety inspection</b><span class="ks-cite">Report on file · Florida building law</span></span><small>Done</small></li>
-        <li style="--dot: #2E9C6A"><i></i><span><b>Repair savings study</b><span class="ks-cite">On file · Florida condo law</span></span><small>Next in 2034</small></li>
-        <li style="--dot: #D0453F"><i></i><span><b>Records posted online</b><span class="ks-cite">2 documents missing · Florida condo law</span></span><small>Overdue</small></li>
-        <li style="--dot: #E0A21B"><i></i><span><b>Budget to owners</b><span class="ks-cite">Send 14 days before the budget meeting · Florida condo law</span></span><small>By Nov 14</small></li>
-      </ul>
+    <figure class="ks-mock ks-answer" aria-label="Illustration: an answer that cites the document and page it came from">
+      <div class="ks-mock-bar"><strong>Ask about Lakeside Pines</strong><span class="ks-badge">Illustration</span></div>
+      <div class="ks-answer-body">
+        <p class="ks-q">When does the pool service contract renew, and can we switch companies?</p>
+        <div class="ks-a">
+          <p>It renews on <b>March 31</b> for another year unless the board cancels in writing <b>60 days before</b>, so by January 30. Nothing in it stops you from choosing a new company after that.</p>
+          <p class="ks-source"><span>Pool service contract, p. 3, section 9</span><span>Board minutes, Apr 2025, item 6</span></p>
+          <p class="ks-a-foot"><span class="ks-tag is-green">Your call</span> Added "Pool contract notice" to deadlines for Jan 30.</p>
+        </div>
+      </div>
       <p class="ks-mock-foot">AI-assisted summary of a made-up association. Not legal advice.</p>
     </figure>
   </div>
@@ -160,6 +214,6 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=7c15dceccf" defer></script>
+<script src="/assets/site.js?v=1c8e93af65" defer></script>
 </body>
 </html>

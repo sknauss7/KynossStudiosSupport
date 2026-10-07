@@ -31,7 +31,7 @@
   <div class="ks-wrap">
     <ul class="ks-shelf" aria-label="Our apps">
       {%- for a in site.live %}
-      <li style="--i: {{ loop.index0 }}"><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72"></a></li>
+      <li style="--i: {{ loop.index0 }}"><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72" style="view-transition-name: icon-{{ a.id }}"></a></li>
       {%- endfor %}
     </ul>
     <p class="ks-shelf-note">{{ site.live|length }} apps on the App Store, {{ site.upcoming|length }} on the way. Made in {{ site.studio.state }}.</p>
@@ -44,7 +44,7 @@
       <h2 class="ks-display ks-h2" id="apps-h">All the apps</h2>
       <p class="ks-lede">Grouped by what they're for. Each one has its own page, help and privacy policy.</p>
     </div>
-    {{ catalog(site) }}
+    {{ catalog(site, morph=False) }}
   </div>
 </section>
 

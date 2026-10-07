@@ -626,7 +626,7 @@ def main():
     og_page(og / "hoa.png", "For condo and HOA boards", "A concept: deadlines kept, answers cited from your documents, paperwork drafted.", accent="#2E9C6A")
     render("hoa.html", "hoa/index.html", page("/hoa/", "An assistant for condo and HOA boards · Kynoss Studios",
            "A concept from Kynoss Studios: an assistant for volunteer condo and HOA boards that tracks deadlines, cites governing documents and drafts meeting paperwork.",
-           nav="hoa", og_image_path="/assets/og/hoa.png"))
+           nav="hoa", og_image_path="/assets/og/hoa.png", style="--app: #2E9C6A"))
     render("about.html", "about/index.html", page("/about/", "About · Kynoss Studios",
            f"Kynoss Studios LLC is an independent iPhone app studio in Florida, founded in {site['studio']['founded']}.", nav="about"))
     render("privacy.html", "privacy/index.html", page("/privacy/", "Privacy across our apps · Kynoss Studios",

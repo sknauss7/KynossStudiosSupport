@@ -8,7 +8,7 @@
   <div class="ks-wrap ks-apphero-in">
     <div class="ks-apphero-copy">
       {%- if app.shots %}
-      <img class="ks-appicon" src="{{ app.icon }}" alt="{{ app.name }} app icon" width="128" height="128">
+      <img class="ks-appicon" src="{{ app.icon }}" alt="{{ app.name }} app icon" width="128" height="128" style="view-transition-name: icon-{{ app.id }}">
       {%- endif %}
       <div class="ks-apptitle">
         <p class="ks-kind">{{ app.kind }}{% if app.status == "upcoming" %} <span class="ks-pill">Coming soon</span>{% endif %}</p>
@@ -35,7 +35,7 @@
     </div>
     {%- else %}
     <div class="ks-bigicon">
-      <img src="{{ app.icon_1024 }}" alt="{{ app.name }} app icon" width="1024" height="1024">
+      <img src="{{ app.icon_1024 }}" alt="{{ app.name }} app icon" width="1024" height="1024" style="view-transition-name: icon-{{ app.id }}">
     </div>
     {%- endif %}
   </div>
