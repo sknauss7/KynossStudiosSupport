@@ -198,7 +198,7 @@
         <header>
             <h1>Rusti Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: April 28, 2026 &middot; Last Updated: April 28, 2026</p>
+            <p class="effective-date">Effective Date: April 28, 2026 &middot; Last Updated: October 6, 2026</p>
         </header>
 
         <main>
@@ -345,12 +345,12 @@
 
             <!-- 6. APNS -->
             <h2 id="apns">6. Push Notifications (APNs)</h2>
-            <p>Rusti sends push notifications via Apple Push Notification service (APNs) for two purposes:</p>
+            <p>Rusti uses notifications for two purposes:</p>
             <ul>
-                <li><strong>Daily quiz reminder:</strong> a single midnight-local push letting you know today's quiz is ready (Rusti+ lets you customize the time).</li>
-                <li><strong>Challenge Mode reveal:</strong> when the last submission lands in a Challenge Mode match, all participants receive a reveal-time push.</li>
+                <li><strong>Daily quiz reminder:</strong> a single daily reminder that today's quiz is ready. It is a local notification scheduled on your device &mdash; no server sends it (Rusti+ lets you choose the time).</li>
+                <li><strong>Challenge Mode reveal:</strong> when the last submission lands in a Challenge Mode match, all participants receive a reveal-time push. These are sent by Apple's CloudKit through Apple Push Notification service (APNs), based on a CloudKit subscription the app registers for your challenges.</li>
             </ul>
-            <p>Push notifications are entirely opt-in via standard iOS prompt at first launch. Apple operates APNs; Kynoss does not receive notification-delivery telemetry beyond Apple's standard error response (e.g., "device token invalid"). No notification content is logged.</p>
+            <p>Notifications are entirely opt-in via the standard iOS prompt. Apple operates CloudKit and APNs; Kynoss Studios runs no push server and never sees notification content or delivery data.</p>
 
             <!-- 7. DATA RETENTION & DELETION -->
             <h2 id="data-retention">7. Data Retention &amp; Deletion</h2>
@@ -500,7 +500,7 @@
 
             <h3>Push Notifications (APNs)</h3>
             <ul>
-                <li>Rusti uses Apple Push Notification service for daily-quiz reminders and Challenge Mode reveal pushes.</li>
+                <li>Rusti schedules its daily-quiz reminder locally on your device, and uses Apple Push Notification service (via CloudKit subscriptions) for Challenge Mode reveal pushes.</li>
                 <li>Push notifications are opt-in; you can disable them at any time in iOS Settings.</li>
             </ul>
 
@@ -529,17 +529,17 @@
             <ul>
                 <li><strong>Email:</strong> <a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></li>
                 <li><strong>Developer:</strong> Kynoss Studios</li>
-                <li><strong>Support Page:</strong> <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-support.html">Rusti Support</a></li>
+                <li><strong>Support Page:</strong> <a href="rusti-support.html">Rusti Support</a></li>
             </ul>
             <p>We respond to privacy inquiries within 30 days.</p>
         </main>
 
         <footer>
-            <p>&copy; 2026 Kynoss Studios. All rights reserved.</p>
+            <p>&copy; 2026 Kynoss Studios LLC</p>
             <p style="margin-top: 0.5rem;">
-                <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-support.html">Support</a>
+                <a href="rusti-support.html">Support</a>
                 &nbsp;&middot;&nbsp;
-                <a href="https://sknauss7.github.io/KynossStudiosSupport/rusti-privacy.html">Privacy Policy</a>
+                <a href="rusti-privacy.html">Privacy Policy</a>
             </p>
         </footer>
     </div>
