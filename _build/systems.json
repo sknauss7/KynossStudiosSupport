@@ -1,0 +1,150 @@
+{
+  "_comment": "Owned by the Systems workspace (~/Systems, Callia session 'systems'). Content for /systems/ only. {apps} and {updates} are filled in by build.py from live App Store data.",
+  "og": {
+    "title": "Custom AI systems",
+    "subtitle": "Built around the way you work: five ideas, five working systems."
+  },
+  "page": {
+    "title": "Custom AI systems · Kynoss Studios",
+    "description": "Kynoss Studios builds custom AI systems around the way you work, from an app studio and a condo board assistant to wedding planning, personal records and market research."
+  },
+  "foot_line": "Custom AI systems, designed around the way you work.",
+  "cases": [
+    {
+      "glyph": "build",
+      "accent": "#2B54E0",
+      "kind": "iPhone app development",
+      "title": "An app studio run by one person",
+      "idea": "I have more app ideas than hours in the day.",
+      "does": [
+        "Researches every idea and tests whether it's worth building",
+        "Designs, builds and tests each app, then prepares it for the App Store",
+        "Reads reviews, crash reports and sales every morning and turns them into fixes"
+      ],
+      "win": [
+        "{apps} apps on the App Store,",
+        "{updates}+ updates and counting."
+      ],
+      "link": [
+        "/how-we-build/",
+        "See how the studio works"
+      ]
+    },
+    {
+      "glyph": "hoa",
+      "accent": "#2E9C6A",
+      "kind": "Condo and HOA boards",
+      "title": "A volunteer board's assistant",
+      "idea": "Serving on the board shouldn't take a law degree.",
+      "does": [
+        "Files the association's email and documents so the next board can find them",
+        "Tracks legal deadlines, inspections, insurance and contracts",
+        "Drafts agendas, minutes and one-page meeting briefs, with sources"
+      ],
+      "win": [
+        "Helping a real Florida condo board",
+        "keep up with a growing rulebook."
+      ]
+    },
+    {
+      "glyph": "heart",
+      "accent": "#C2567A",
+      "kind": "Wedding planning",
+      "title": "A wedding without the spreadsheets",
+      "idea": "One place for the guests, the RSVPs and everything we send them.",
+      "does": [
+        "A guest website with online RSVPs",
+        "A private dashboard for the guest list and replies",
+        "Guest emails written and sent from the same place"
+      ],
+      "win": [
+        "Live for guests now,",
+        "with RSVPs and updates in one place."
+      ]
+    },
+    {
+      "glyph": "inbox",
+      "accent": "#6A5CE6",
+      "kind": "Personal life",
+      "title": "A memory for everyday life",
+      "idea": "Where's the warranty for the tires, and when did I buy them?",
+      "does": [
+        "Sorts several inboxes and texts: keeps what matters, clears out the spam",
+        "Keeps track of spending, bills, birthdays and appointments",
+        "Answers questions about your own records in plain English"
+      ],
+      "win": [
+        "Runs every hour,",
+        "with one short brief each morning."
+      ]
+    },
+    {
+      "glyph": "chart",
+      "accent": "#B0741A",
+      "kind": "Prediction-market research",
+      "title": "A forecasting research desk",
+      "idea": "Can an AI forecast beat the market's own price?",
+      "does": [
+        "Picks a fresh set of markets every morning",
+        "AI and formula-based forecasters each make their call",
+        "Scores every forecast against the market and tracks paper results after fees"
+      ],
+      "win": [
+        "About a hundred markets",
+        "forecast and scored every day."
+      ]
+    }
+  ],
+  "ideas": [
+    [
+      "A property manager",
+      "Owner and tenant email sorted as it arrives, with the right lease or rule attached and a reply drafted."
+    ],
+    [
+      "A contractor",
+      "Bids, permits, invoices and inspections for every job in one place, and a morning list of what's due."
+    ],
+    [
+      "An event planner",
+      "Vendors, guest lists and timelines for every event, with reminders that go out on time."
+    ],
+    [
+      "A real estate agent",
+      "Showings, offers and closing dates tracked for every client, with updates written for you."
+    ],
+    [
+      "A small online shop",
+      "Orders, reviews and stock checked overnight, with a short list of what needs you today."
+    ],
+    [
+      "A busy family",
+      "School email, bills, appointments and warranties in one place you can simply ask."
+    ]
+  ],
+  "faq": [
+    [
+      "What can it connect to?",
+      "Whatever your work already runs on: email, texts, calendars, shared folders, spreadsheets, websites and many online services."
+    ],
+    [
+      "Does it have to be an app?",
+      "No. It can be a message on your phone each morning, a website, a private dashboard, an iPhone app, or a mix of them."
+    ],
+    [
+      "How much does it do on its own?",
+      "As much or as little as you like. Some people want drafts to approve; others want jobs handled start to finish. You choose, and you can change it later."
+    ],
+    [
+      "Where does my information live?",
+      "We agree on that up front and set it up the way you're comfortable with."
+    ],
+    [
+      "What does it cost?",
+      "It depends on what the system does. Tell us the idea and we'll come back with a plan and a price."
+    ],
+    [
+      "What happens once it's built?",
+      "It keeps working for you, and we can keep extending it as your needs change."
+    ]
+  ]
+}

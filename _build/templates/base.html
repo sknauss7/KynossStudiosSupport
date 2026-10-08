@@ -7,6 +7,9 @@
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.description }}">
 {{ head_common(site, page) }}
+{%- if page.css %}
+<link rel="stylesheet" href="{{ page.css }}?v={{ page.css_v }}">
+{%- endif %}
 {%- block head %}{% endblock %}
 </head>
 <body class="ks-page">
@@ -16,6 +19,6 @@
 <main id="main"{% if page.style %} style="{{ page.style }}"{% endif %}>
 {%- block main %}{% endblock %}
 </main>
-{{ foot(site) }}
+{{ foot(site, page.foot_line) }}
 </body>
 </html>

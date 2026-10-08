@@ -1,0 +1,73 @@
+/* /systems/ page only. Owned by the Systems workspace (~/Systems); loaded after site.css. */
+/* phone illustration (hero) and its label */
+.ks-badge { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: color-mix(in srgb, var(--signal) 14%, transparent); color: var(--signal); white-space: nowrap; }
+.ks-phone { position: absolute; width: 262px; padding: 9px; border-radius: 46px; background: #0B0F17; box-shadow: 0 0 0 1px rgba(255,255,255,0.14), 0 50px 90px -30px rgba(0,0,0,0.7), inset 0 0 0 2px #2A3142; }
+.ks-phone-screen { border-radius: 38px; background: var(--paper); padding: 12px 14px 20px; min-height: 500px; display: grid; gap: 10px; align-content: start; overflow: hidden; }
+.ks-phone-status { display: flex; justify-content: space-between; align-items: center; font: 650 12px/1 var(--font-text); padding: 4px 10px 8px; }
+.ks-phone-status i { width: 74px; height: 22px; border-radius: 12px; background: #0B0F17; margin: -2px auto 0 22px; }
+.ks-phone-app { font-size: 11px; font-weight: 600; color: var(--app-ink); text-transform: uppercase; letter-spacing: 0.06em; }
+.ks-phone-hi { font: 700 22px/1.05 var(--display); font-stretch: 86%; letter-spacing: -0.015em; margin-bottom: 2px !important; }
+.ks-phone-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; }
+.ks-phone-k { font-size: 10.5px; font-weight: 650; color: var(--slate); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px !important; }
+.ks-phone-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.ks-phone-card li { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 5px 0; font-size: 12px; white-space: nowrap; }
+.ks-phone-card li + li { border-top: 1px solid var(--line); }
+.ks-phone-card li b { font-weight: 600; }
+.ks-phone-card li span { font-size: 11px; color: var(--slate); white-space: nowrap; }
+.ks-phone-card li span.is-amber { color: #855700; font-weight: 650; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ks-phone-card li span.is-amber { color: #F2C766; } }
+:root[data-theme="dark"] .ks-phone-card li span.is-amber { color: #F2C766; }
+.ks-phone-card.is-cta { background: color-mix(in srgb, var(--app) 12%, var(--surface)); border-color: color-mix(in srgb, var(--app) 30%, var(--line)); }
+.ks-phone-card.is-cta li span { color: var(--app-ink); font-weight: 650; }
+
+.ks-cases { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.ks-case { grid-column: span 2; display: flex; flex-direction: column; gap: 12px; padding: clamp(22px, 2.8vw, 30px); border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(165deg, color-mix(in srgb, var(--app) 10%, var(--surface)), var(--surface) 55%); }
+.ks-case:nth-child(-n+2) { grid-column: span 3; }
+.ks-case-top { display: flex; align-items: center; gap: 12px; }
+.ks-case-top .ks-pglyph { grid-row: auto; flex: none; }
+.ks-case-kind { font: 650 12.5px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--app-ink); }
+.ks-case h3 { font-size: clamp(1.35rem, 2.2vw, 1.6rem); line-height: 1.12; text-wrap: balance; }
+.ks-case-idea { font-style: italic; color: var(--ink); }
+.ks-case-does { list-style: none; padding: 0; display: grid; gap: 8px; color: var(--slate); font-size: 15.5px; }
+.ks-case-does li { position: relative; padding-left: 18px; }
+.ks-case-does li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--app); opacity: 0.75; }
+.ks-case-link a { font-weight: 600; color: var(--app-ink); }
+@media (max-width: 960px) { .ks-cases { grid-template-columns: 1fr 1fr; } .ks-case, .ks-case:nth-child(-n+2) { grid-column: auto; } .ks-case:last-child { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .ks-cases { grid-template-columns: 1fr; } .ks-case:last-child { grid-column: auto; } }
+.ks-pagehead .ks-actions { margin-top: 4px; }
+.ks-cta { padding: clamp(28px, 4.5vw, 52px); border-radius: 28px; border: 1px solid var(--line); background: linear-gradient(160deg, color-mix(in srgb, var(--signal) 11%, var(--surface)), var(--surface) 65%); }
+.ks-cta > div { display: grid; gap: 14px; justify-items: start; max-width: 40rem; }
+.ks-cta .ks-pglyph { grid-row: auto; }
+.ks-case-win { margin-top: auto !important; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; color: var(--slate); }
+.ks-case-win strong { color: var(--app-ink); font-weight: 650; }
+.ks-syshero { padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 6vw, 80px); overflow: hidden; background: radial-gradient(70% 90% at 85% 40%, color-mix(in srgb, var(--signal) 14%, transparent), transparent 70%); }
+.ks-syshero-in { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.ks-syshero-copy { display: grid; gap: 20px; }
+.ks-sysphone-wrap { position: relative; display: grid; justify-items: center; gap: 14px; margin: 0; }
+.ks-sysphone { position: relative; transform: rotate(3deg); font: 13px/1.4 var(--font-text); }
+.ks-sysphone .ks-phone-screen { min-height: 470px; }
+.ks-sysphone-wrap .ks-badge { justify-self: center; }
+@media (max-width: 860px) { .ks-syshero-in { grid-template-columns: 1fr; } .ks-sysphone { transform: rotate(2deg) scale(0.92); } }
+.ks-flow { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1.2fr) 40px minmax(0, 1fr); gap: 14px; align-items: center; }
+.ks-flow-col { display: grid; gap: 14px; align-content: start; padding: 22px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); }
+.ks-flow-col h3 { font: 650 13px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); }
+.ks-flow-col.is-core { padding: 26px; color: #fff; border: 0; background: radial-gradient(80% 140% at 100% 0%, rgba(124,155,255,0.3), transparent 70%), linear-gradient(150deg, #1B2C66, #0F1522 75%); box-shadow: 0 30px 60px -36px rgba(15, 21, 34, 0.7); }
+.ks-flow-col.is-core h3 { color: rgba(255,255,255,0.7); }
+.ks-chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.ks-chips li { font-size: 14.5px; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--signal) 9%, var(--surface)); border: 1px solid color-mix(in srgb, var(--signal) 18%, var(--line)); }
+.ks-flow-list { list-style: none; padding: 0; display: grid; gap: 12px; }
+.ks-flow-list li { display: flex; gap: 12px; align-items: center; font-weight: 550; }
+.ks-flow-list svg { flex: none; width: 20px; height: 20px; color: #9DB4FF; }
+.ks-flow-arrow { color: var(--slate); display: grid; place-items: center; }
+.ks-flow-arrow svg { width: 40px; height: 24px; }
+.ks-flow-note { margin-top: 20px !important; color: var(--slate); max-width: var(--measure); }
+@media (max-width: 900px) { .ks-flow { grid-template-columns: 1fr; } .ks-flow-arrow { transform: rotate(90deg); height: 28px; } }
+.ks-ideas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ks-ideas li { padding: 20px 22px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.ks-ideas strong { font: 650 1.05rem/1.3 var(--font-text); }
+.ks-ideas p { color: var(--slate); font-size: 15.5px; }
+@media (max-width: 900px) { .ks-ideas { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .ks-ideas { grid-template-columns: 1fr; } }
+.ks-sysend { align-items: stretch; }
+.ks-sysme { padding-top: clamp(0px, 2vw, 24px); }
+.ks-sysme p:last-child a { font-weight: 600; color: var(--signal); }

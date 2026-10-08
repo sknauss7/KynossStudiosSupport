@@ -395,6 +395,7 @@ def og_app(dest, app):
     im.convert("RGB").save(dest, "PNG", optimize=True)
 
 
+
 def og_page(dest, title, subtitle, accent="#2B54E0", wall=None, apps=None):
     """Studio-level previews: deep ink with the brand mark, or a wall of real screens."""
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -622,10 +623,16 @@ def main():
     render("how.html", "how-we-build/index.html", page("/how-we-build/", "How we build · Kynoss Studios",
            "Kynoss Studios is one developer and Claude. How work moves from written instructions to the App Store, and what keeps it honest.",
            nav="build", og_image_path="/assets/og/how-we-build.png"), stats=stats)
-    og_page(og / "hoa.png", "For condo and HOA boards", "A concept: deadlines kept, answers cited from your documents, paperwork drafted.", accent="#2E9C6A")
-    render("hoa.html", "hoa/index.html", page("/hoa/", "An assistant for condo and HOA boards · Kynoss Studios",
-           "A concept from Kynoss Studios: an assistant for volunteer condo and HOA boards that tracks deadlines, cites governing documents and drafts meeting paperwork.",
-           nav="hoa", og_image_path="/assets/og/hoa.png", style="--app: #2E9C6A"))
+    # /systems/ is owned by the Systems workspace: its words live in _build/systems.json, its styles in assets/systems.css
+    sysd = json.loads((BUILD / "systems.json").read_text())
+    fill = {"apps": len(site["live"]), "updates": stats["updates"]}
+    for c in sysd["cases"]:
+        c["win"] = [w.format(**fill) for w in c["win"]]
+    og_page(og / "systems.png", sysd["og"]["title"], sysd["og"]["subtitle"])
+    render("systems.html", "systems/index.html", page("/systems/", sysd["page"]["title"], sysd["page"]["description"],
+           nav="systems", og_image_path="/assets/og/systems.png", foot_line=sysd["foot_line"], css="/assets/systems.css",
+                css_v=hashlib.sha1((ROOT / "assets" / "systems.css").read_bytes()).hexdigest()[:10]),
+           stats=stats, **{k: v for k, v in sysd.items() if not k.startswith("_") and k not in ("page", "og", "foot_line")})  # every other top-level key reaches the template
     render("about.html", "about/index.html", page("/about/", "About · Kynoss Studios",
            f"Kynoss Studios LLC is an independent iPhone app studio in Florida, founded in {site['studio']['founded']}.", nav="about"))
     render("privacy.html", "privacy/index.html", page("/privacy/", "Privacy across our apps · Kynoss Studios",
@@ -686,7 +693,7 @@ def main():
             '<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
             '<link rel="canonical" href="{u}">\n<meta http-equiv="refresh" content="0; url={u}">\n'
             '<script>location.replace("{u}");</script>\n</head>\n<body><p>This page has moved to <a href="{u}">{u}</a>.</p></body>\n</html>\n')
-    redirects = {"substrata-marketing.html": "/substrata/"}
+    redirects = {"substrata-marketing.html": "/substrata/", "hoa/index.html": "/systems/"}  # HOA concept page folded into /systems/ 2026-10-08
     redirects.update({f"substrata-marketing.{loc}.html": "/substrata/" for loc in LOCALE_NAMES})
     for path, target in redirects.items():
         (ROOT / path).write_text(stub.format(u=site["studio"]["domain"] + target), encoding="utf-8")
@@ -699,7 +706,7 @@ def main():
         for q, ans in a["faq"]:
             idx.append({"t": q, "d": ans[:140], "a": a["name"], "u": f"/{a['id']}-support.html", "k": "faq"})
     for path, t, d in (("/support/", "Get help with an app", "Support for every app"), ("/how-we-build/", "How we build", "One developer and Claude"),
-                       ("/hoa/", "HOA and condo boards", "Board assistant concept"), ("/about/", "About Kynoss Studios", "Company, contact"),
+                       ("/systems/", "Custom AI systems", "Systems built around the way you work"), ("/about/", "About Kynoss Studios", "Company, contact"),
                        ("/privacy/", "Privacy across our apps", "What each app sends"), ("/press/", "Press kit", "Icons, screenshots, contact"),
                        ("/shortfall-doc-fees-by-state.html", "Dealer doc fees by state", "Shortfall's state-by-state doc fee guide"),
                        ("/support/#billing", "Refunds, cancellations and billing", "Refund, cancel subscription, restore purchase: handled by Apple")):

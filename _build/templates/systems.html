@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{%- from "_icons.html" import glyph -%}
+{% block main %}
+<section class="ks-syshero">
+  <div class="ks-wrap ks-syshero-in">
+    <div class="ks-syshero-copy">
+      <h1 class="ks-display ks-h1">Custom AI systems, built around the way you work</h1>
+      <p class="ks-lede">Off-the-shelf AI makes you fit its idea of the job. We build the other way round: tell us what you want handled, and we design a system that does exactly that, in the places you already work.</p>
+      <p class="ks-muted">An app studio, a condo board, a wedding, a household and a research desk. Five very different ideas, each turned into a working system.</p>
+      <div class="ks-actions">
+        <a class="ks-button" href="#start">Tell us your idea</a>
+        <a class="ks-button is-quiet" href="#cases">See what we've built</a>
+      </div>
+    </div>
+    <figure class="ks-sysphone-wrap" role="img" aria-label="Illustration: a phone showing one morning message that pulls together updates from several systems: new app reviews, a board deadline, wedding RSVPs, a birthday reminder and a finished forecast report.">
+      <div class="ks-phone ks-sysphone" aria-hidden="true">
+        <div class="ks-phone-screen">
+          <div class="ks-phone-status"><span>7:00</span><i></i></div>
+          <p class="ks-phone-app">Morning brief</p>
+          <p class="ks-phone-hi">Good morning.</p>
+          <div class="ks-phone-card">
+            <p class="ks-phone-k">Overnight</p>
+            <ul>
+              <li><b>2 new app reviews</b><span>Both 5 stars</span></li>
+              <li><b>4 new RSVPs</b><span>Wedding</span></li>
+              <li><b>Forecast report</b><span>Ready</span></li>
+            </ul>
+          </div>
+          <div class="ks-phone-card">
+            <p class="ks-phone-k">Coming up</p>
+            <ul>
+              <li><b>Budget to owners</b><span class="is-amber">Nov 14</span></li>
+              <li><b>Mom's birthday</b><span>Saturday</span></li>
+            </ul>
+          </div>
+          <div class="ks-phone-card is-cta">
+            <p class="ks-phone-k">Needs you</p>
+            <ul><li><b>Roof bids, side by side</b><span>Open</span></li></ul>
+          </div>
+        </div>
+      </div>
+      <figcaption class="ks-badge">Illustration</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="ks-section" id="cases" aria-labelledby="cases-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="cases-h">Five ideas, five systems</h2>
+      <p class="ks-lede">They have almost nothing in common on the surface. That's the point: each one is shaped around a different job.</p>
+    </div>
+    <ul class="ks-cases">
+      {%- for c in cases %}
+      <li class="ks-case ks-appscope" style="--app: {{ c.accent }}">
+        <div class="ks-case-top"><span class="ks-pglyph">{{ glyph(c.glyph) }}</span><p class="ks-case-kind">{{ c.kind }}</p></div>
+        <h3 class="ks-display">{{ c.title }}</h3>
+        <p class="ks-case-idea">“{{ c.idea }}”</p>
+        <ul class="ks-case-does">
+          {%- for d in c.does %}
+          <li>{{ d }}</li>
+          {%- endfor %}
+        </ul>
+        <p class="ks-case-win"><strong>{{ c.win[0] }}</strong> {{ c.win[1] }}</p>
+        {%- if c.link %}
+        <p class="ks-case-link"><a href="{{ c.link[0] }}">{{ c.link[1] }}</a></p>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="flow-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="flow-h">What a system can do for you</h2>
+      <p class="ks-lede">Every system is different, but they all take in what you deal with every day and turn it into something you can act on.</p>
+    </div>
+    <div class="ks-flow">
+      <div class="ks-flow-col">
+        <h3>What comes in</h3>
+        <ul class="ks-chips">
+          <li>Email</li><li>Texts</li><li>Documents and scans</li><li>Calendars</li><li>Spreadsheets</li><li>Websites and data</li><li>Forms and sign-ups</li>
+        </ul>
+      </div>
+      <div class="ks-flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h34m-8-8 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="ks-flow-col is-core">
+        <h3>Your system</h3>
+        <ul class="ks-flow-list">
+          <li>{{ glyph("doc") }}Sorts and files everything</li>
+          <li>{{ glyph("tag") }}Tracks deadlines, money and records</li>
+          <li>{{ glyph("search") }}Researches and answers questions</li>
+          <li>{{ glyph("build") }}Drafts, writes and sends</li>
+          <li>{{ glyph("systems") }}Runs on its own schedule, day and night</li>
+        </ul>
+      </div>
+      <div class="ks-flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h34m-8-8 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="ks-flow-col">
+        <h3>What you get</h3>
+        <ul class="ks-chips">
+          <li>A morning message</li><li>Answers on demand</li><li>Ready-to-send drafts</li><li>Reports</li><li>A website</li><li>A dashboard</li><li>An iPhone app</li>
+        </ul>
+      </div>
+    </div>
+    <p class="ks-flow-note">How much it does on its own is up to you, from drafts you approve to jobs it handles start to finish.</p>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="ideas-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
+      <p class="ks-lede">If you can describe the job, we can probably build a system for it. A few starting points:</p>
+    </div>
+    <ul class="ks-ideas">
+      {%- for who, what in ideas %}
+      <li><strong>{{ who }}</strong><p>{{ what }}</p></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="build-h">
+  <div class="ks-wrap ks-split">
+    <div>
+      <h2 class="ks-display ks-h2" id="build-h">How we'd build yours</h2>
+      <p class="ks-muted">The same way we built ours: start from the idea, build around how you actually work, and keep improving it once it's running.</p>
+    </div>
+    <ol class="ks-steps">
+      <li><h3>Tell us the idea</h3><p>A sentence is enough: the thing you keep losing track of, the job that eats your evenings, the question you wish you could just ask.</p></li>
+      <li><h3>We map how the work happens</h3><p>Where information arrives, what decisions you make, who else is involved and what a great result looks like to you.</p></li>
+      <li><h3>You decide what it handles</h3><p>What it does on its own, what it checks with you first and how it reaches you. It's your system, set up your way.</p></li>
+      <li><h3>We build it and switch it on</h3><p>You see it working on your real day-to-day, then it grows one piece at a time as your needs do.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="faq-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="faq-h">Questions people ask</h2>
+    </div>
+    <div class="ks-two">
+      {%- for q, a in faq %}
+      <div><h3>{{ q }}</h3><p>{{ a }}</p></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="ks-section" id="start" aria-labelledby="start-h">
+  <div class="ks-wrap ks-split ks-sysend">
+    <div class="ks-sysme">
+      <h2 class="ks-display ks-h2">Who you'd work with</h2>
+      <p class="ks-muted">Kynoss Studios is {{ site.studio.founder }}, designing and building with Claude, Anthropic's AI. So far that's {{ site.live|length }} iPhone apps on the App Store with {{ stats.updates }}+ updates, a live wedding website, an assistant for a Florida condo board, a personal records system and a forecasting research desk.</p>
+      <p><a href="/how-we-build/">See how the studio works</a></p>
+    </div>
+    <div class="ks-cta ks-appscope">
+      <div>
+        <span class="ks-pglyph">{{ glyph("systems") }}</span>
+        <h2 class="ks-display ks-h2" id="start-h">Have an idea that needs its own system?</h2>
+        <p class="ks-muted">Send us a few sentences about what you want handled. We'll come back with what your system could do and what the first version would look like.</p>
+        <p><a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">Email us your idea</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
