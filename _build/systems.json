@@ -16,11 +16,6 @@
       "kind": "iPhone app development",
       "title": "An app studio run by one person",
       "idea": "I have more app ideas than hours in the day.",
-      "does": [
-        "Researches every idea and tests whether it's worth building",
-        "Designs, builds and tests each app, then prepares it for the App Store",
-        "Reads reviews, crash reports and sales every morning and turns them into fixes"
-      ],
       "win": [
         "{apps} apps on the App Store,",
         "{updates}+ updates and counting."
@@ -28,7 +23,8 @@
       "link": [
         "/how-we-build/",
         "See how the studio works"
-      ]
+      ],
+      "summary": "Researches every idea, builds and tests each app, and turns reviews and crash reports into fixes."
     },
     {
       "glyph": "hoa",
@@ -36,15 +32,11 @@
       "kind": "Condo and HOA boards",
       "title": "A volunteer board's assistant",
       "idea": "Serving on the board shouldn't take a law degree.",
-      "does": [
-        "Files the association's email and documents so the next board can find them",
-        "Tracks legal deadlines, inspections, insurance and contracts",
-        "Drafts agendas, minutes and one-page meeting briefs, with sources"
-      ],
       "win": [
         "Helping a real Florida condo board",
         "keep up with a growing rulebook."
-      ]
+      ],
+      "summary": "Files the association's email and documents, tracks every legal deadline and drafts meeting briefs with sources."
     },
     {
       "glyph": "heart",
@@ -52,15 +44,11 @@
       "kind": "Wedding planning",
       "title": "A wedding without the spreadsheets",
       "idea": "One place for the guests, the RSVPs and everything we send them.",
-      "does": [
-        "A guest website with online RSVPs",
-        "A private dashboard for the guest list and replies",
-        "Guest emails written and sent from the same place"
-      ],
       "win": [
         "Live for guests now,",
         "with RSVPs and updates in one place."
-      ]
+      ],
+      "summary": "A guest website with online RSVPs, a private dashboard and guest emails sent from the same place."
     },
     {
       "glyph": "inbox",
@@ -68,15 +56,11 @@
       "kind": "Personal life",
       "title": "A memory for everyday life",
       "idea": "Which of these car charges were actually for my truck?",
-      "does": [
-        "Sorts several inboxes and texts: keeps what matters, clears out the spam",
-        "Keeps track of spending, bills, birthdays and appointments",
-        "Answers questions about your own records by connecting email, texts and card charges"
-      ],
       "win": [
         "Runs every hour,",
         "with one short brief each morning."
-      ]
+      ],
+      "summary": "Sorts inboxes and texts, tracks bills and birthdays, and answers questions by connecting email, texts and card charges."
     },
     {
       "glyph": "chart",
@@ -84,71 +68,11 @@
       "kind": "Prediction-market research",
       "title": "A forecasting research desk",
       "idea": "Can an AI forecast beat the market's own price?",
-      "does": [
-        "Picks a fresh set of markets every morning",
-        "AI and formula-based forecasters each make their call",
-        "Scores every forecast against the market and tracks paper results after fees"
-      ],
       "win": [
         "About a hundred markets",
         "forecast every day, each scored once it settles."
-      ]
-    }
-  ],
-  "ideas": [
-    {
-      "glyph": "key",
-      "who": "A property manager",
-      "what": "Owner and tenant email sorted as it arrives, with the right lease or rule attached and a reply drafted.",
-      "sample": [
-        "7:00",
-        "3 tenant emails, replies drafted"
-      ]
-    },
-    {
-      "glyph": "hardhat",
-      "who": "A contractor",
-      "what": "Bids, permits, invoices and inspections for every job in one place, a morning list of what's due, and calls answered while you're on site.",
-      "sample": [
-        "Today",
-        "2 permits due this week"
-      ]
-    },
-    {
-      "glyph": "calendar",
-      "who": "An event planner",
-      "what": "Vendors, guest lists and timelines for every event, with reminders that go out on time.",
-      "sample": [
-        "Sent",
-        "Final headcount to the caterer"
-      ]
-    },
-    {
-      "glyph": "house",
-      "who": "A real estate agent",
-      "what": "Showings, offers and closing dates tracked for every client, with updates written for you.",
-      "sample": [
-        "Ready",
-        "Offer update for your buyers"
-      ]
-    },
-    {
-      "glyph": "bag",
-      "who": "A small online shop",
-      "what": "Orders, reviews and stock checked overnight, with a short list of what needs you today.",
-      "sample": [
-        "Overnight",
-        "12 orders, 2 low on stock"
-      ]
-    },
-    {
-      "glyph": "people",
-      "who": "A busy family",
-      "what": "School email, bills, appointments and warranties in one place you can simply ask.",
-      "sample": [
-        "Friday",
-        "Field trip form due"
-      ]
+      ],
+      "summary": "Picks fresh markets every morning, has AI and formula forecasters make their calls, and scores each one."
     }
   ],
   "faq": [
@@ -341,81 +265,306 @@
   },
   "build": {
     "title": "What we can build",
-    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including ones our own systems haven't needed yet.",
+    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including some our own systems haven't needed yet and a few we're still experimenting with.",
     "blocks": [
       [
         "phone",
         "Answers the phone",
-        "A natural-sounding voice picks up every call, day or night, answers the common questions and books the job."
+        "A natural-sounding voice picks up every call, day or night, answers the common questions and books the job.",
+        "Experimental"
       ],
       [
         "chat",
         "Replies to customers",
-        "Texts, email and website chat answered in your tone, with anything tricky handed to you."
+        "Texts, email and website chat answered in your tone, with anything tricky handed to you.",
+        ""
       ],
       [
         "calendar",
         "Books and reminds",
-        "Appointments scheduled, confirmed and moved, with reminders so fewer people forget."
+        "Appointments scheduled, confirmed and moved, with reminders so fewer people forget.",
+        ""
       ],
       [
         "doc",
         "Handles the paperwork",
-        "Invoices, receipts, forms and contracts read, filed and entered where they belong."
+        "Invoices, receipts, forms and contracts read, filed and entered where they belong.",
+        ""
       ],
       [
         "money",
         "Chases the money",
-        "Quotes drafted, invoices sent and late payments followed up politely."
+        "Quotes drafted, invoices sent and late payments followed up politely.",
+        "Experimental"
       ],
       [
         "eye",
         "Keeps watch",
-        "Prices, reviews, permits, deadlines and the news that matters to you, checked every day."
+        "Prices, reviews, permits, deadlines and the news that matters to you, checked every day.",
+        ""
       ],
       [
         "chart",
         "Reports the numbers",
-        "Sales, bookings and spending pulled into one short daily report or a live dashboard."
+        "Sales, bookings and spending pulled into one short daily report or a live dashboard.",
+        ""
       ],
       [
         "send",
         "Writes for you",
-        "Replies, posts, newsletters and listings drafted in your voice, ready for your OK."
+        "Replies, posts, newsletters and listings drafted in your voice, ready for your OK.",
+        ""
       ]
     ],
-    "tools": "It works with what you already use: Google or Microsoft email and calendars, spreadsheets, your phone line, accounting and online-shop tools, and many more."
+    "tools": "It works with what you already use: Google or Microsoft email and calendars, spreadsheets, accounting and online-shop tools, and many more."
   },
-  "feature": {
-    "kind": "Example: a plumbing business",
-    "title": "A receptionist that never misses a call",
-    "text": "Every call that goes to voicemail can be a job that goes to someone else. An AI receptionist answers in a natural voice, any hour, handles the everyday questions and books the work, so you can stay on the job you're doing.",
-    "does": [
-      "Answers every call, nights and weekends included",
-      "Gives your hours, service area and standard prices",
-      "Books jobs straight into your calendar",
-      "Texts you a summary of every call",
-      "Puts urgent calls through to you"
-    ],
-    "call": [
-      [
-        "caller",
-        "Hi, my water heater's leaking. Can someone come out today?"
+  "cases_lede": "Each one started as a single sentence about a job. Here's what they do now.",
+  "stories": [
+    {
+      "id": "property",
+      "tab": "Property manager",
+      "glyph": "key",
+      "kind": "Example: a property manager",
+      "title": "The repair that turned out to be free",
+      "moment": "At 11 pm a tenant emails: the dishwasher leaked and the kitchen floor feels soft.",
+      "trail": [
+        {
+          "glyph": "mail",
+          "source": "Email",
+          "text": "Reads the message and the photo, and marks it urgent: water near a floor.",
+          "catch": false
+        },
+        {
+          "glyph": "doc",
+          "source": "Lease",
+          "text": "Finds the clause that makes appliance repairs the owner's job.",
+          "catch": false
+        },
+        {
+          "glyph": "folder",
+          "source": "Repair history",
+          "text": "Notices the same dishwasher was fixed six weeks ago, and the plumber guarantees his work for 90 days.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Drafts",
+          "text": "A reply to the tenant, a note to the owner and a request to the same plumber under his guarantee.",
+          "catch": false
+        }
       ],
-      [
-        "ai",
-        "Sorry to hear that. I can get a technician to you between 2 and 4 this afternoon. What's the address?"
+      "notify": "Unit 4B leak: same plumber, covered by his 90-day guarantee. Three drafts ready for your OK.",
+      "result": "A repair that would have cost a few hundred dollars costs nothing, and the tenant hears back first thing in the morning."
+    },
+    {
+      "id": "contractor",
+      "tab": "Contractor",
+      "glyph": "build",
+      "kind": "Example: a building contractor",
+      "title": "The permit that didn't lapse",
+      "moment": "Three jobs are running, and one permit is close to expiring before its final inspection.",
+      "trail": [
+        {
+          "glyph": "eye",
+          "source": "Permit portal",
+          "text": "Checks every open permit overnight and sees one expires on the 20th.",
+          "catch": false
+        },
+        {
+          "glyph": "calendar",
+          "source": "Calendar",
+          "text": "The final inspection is booked for the 23rd, three days too late.",
+          "catch": false
+        },
+        {
+          "glyph": "mail",
+          "source": "Email",
+          "text": "Finds an unread message from the inspector's office offering an earlier slot on the 17th.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Drafts",
+          "text": "A reply taking the earlier slot, and a line on that job's to-do list.",
+          "catch": false
+        }
       ],
-      [
-        "caller",
-        "14 Oak Street. Do you replace them too?"
+      "notify": "Oak St permit expires the 20th. Inspector offered the 17th; reply drafted.",
+      "result": "The inspection moves up, the permit stays valid, and nobody pays to re-file."
+    },
+    {
+      "id": "events",
+      "tab": "Event planner",
+      "glyph": "calendar",
+      "kind": "Example: an event planner",
+      "title": "The headcount that was six too high",
+      "moment": "The caterer needs a final number by Friday. Replies came in by form, by email and by text.",
+      "trail": [
+        {
+          "glyph": "doc",
+          "source": "Sign-up form",
+          "text": "Pulls in every form response.",
+          "catch": false
+        },
+        {
+          "glyph": "mail",
+          "source": "Email and texts",
+          "text": "Adds the guests who replied there instead, including two who never used the form.",
+          "catch": false
+        },
+        {
+          "glyph": "people",
+          "source": "Guest list",
+          "text": "Spots six guests who replied twice under slightly different names, and counts each once.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Caterer",
+          "text": "Drafts the final count with dietary needs: 9 vegetarian, 2 nut allergies.",
+          "catch": false
+        }
       ],
-      [
-        "ai",
-        "We do. The technician can give you a price on site. You're booked for 2 to 4, and you'll get a text when they're on the way."
-      ]
-    ],
-    "text_to_owner": "New job, 2–4 pm: leaking water heater at 14 Oak St. Asked about a replacement."
-  },
-  "cases_lede": "Each one started as a single sentence about a job. Here's what they do now."
+      "notify": "Final headcount: 112, with 6 duplicates removed. Caterer email ready.",
+      "result": "You pay for 112 meals, not 118, and both allergies are on the caterer's sheet."
+    },
+    {
+      "id": "realestate",
+      "tab": "Real estate agent",
+      "glyph": "house",
+      "kind": "Example: a real estate agent",
+      "title": "The offer that came in during dinner",
+      "moment": "Saturday evening, an offer lands on one of your listings while you're out with family.",
+      "trail": [
+        {
+          "glyph": "mail",
+          "source": "Email",
+          "text": "Reads the offer and pulls out the price, closing date and conditions.",
+          "catch": false
+        },
+        {
+          "glyph": "doc",
+          "source": "Client notes",
+          "text": "Checks them against what your sellers said matters most.",
+          "catch": false
+        },
+        {
+          "glyph": "eye",
+          "source": "Terms check",
+          "text": "Flags the inspection period: 14 days, when your sellers wanted 7 at most.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Drafts",
+          "text": "A one-page summary for the sellers with a suggested counter.",
+          "catch": false
+        }
+      ],
+      "notify": "Offer on Maple Ave: price works, inspection period too long (14 vs 7). Summary and counter drafted.",
+      "result": "You finish dinner. Sunday morning you call your sellers with a counter already written."
+    },
+    {
+      "id": "shop",
+      "tab": "Online shop",
+      "glyph": "bag",
+      "kind": "Example: a small online shop",
+      "title": "Restocked before it sold out",
+      "moment": "Overnight, one product starts selling three times faster than usual.",
+      "trail": [
+        {
+          "glyph": "chart",
+          "source": "Orders",
+          "text": "Spots the jump in sales before you're awake.",
+          "catch": false
+        },
+        {
+          "glyph": "bag",
+          "source": "Stock",
+          "text": "Works out that at this pace it sells out in four days.",
+          "catch": false
+        },
+        {
+          "glyph": "mail",
+          "source": "Supplier emails",
+          "text": "Finds your supplier usually takes ten days to deliver.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Drafts",
+          "text": "A reorder email to the supplier, and a note to ease off the ads for that product until it arrives.",
+          "catch": false
+        }
+      ],
+      "notify": "Linen tote selling 3× normal: out in about 4 days, supplier needs about 10. Reorder drafted.",
+      "result": "The reorder goes out on day one instead of the day it sells out."
+    },
+    {
+      "id": "family",
+      "tab": "Family",
+      "glyph": "people",
+      "kind": "Example: a busy family",
+      "title": "The form buried in a newsletter",
+      "moment": "The school's weekly newsletter mentions a field trip form due Friday, in its sixth paragraph.",
+      "trail": [
+        {
+          "glyph": "mail",
+          "source": "Email",
+          "text": "Reads the newsletter and pulls out the one thing with a deadline.",
+          "catch": false
+        },
+        {
+          "glyph": "calendar",
+          "source": "Calendar",
+          "text": "Sees you're traveling Thursday and Friday.",
+          "catch": false
+        },
+        {
+          "glyph": "chat",
+          "source": "Texts",
+          "text": "Finds your partner offered to handle school things this week.",
+          "catch": true
+        },
+        {
+          "glyph": "bell",
+          "source": "Reminder",
+          "text": "Puts the form on your partner's list for Wednesday evening, attached.",
+          "catch": false
+        }
+      ],
+      "notify": "Field trip form due Friday. You're away, so it's on your partner's list for Wednesday.",
+      "result": "The form goes in on time, and nobody had to read the newsletter."
+    },
+    {
+      "id": "plumber",
+      "tab": "Plumber",
+      "glyph": "hardhat",
+      "kind": "Example: a plumbing business",
+      "title": "A receptionist that never misses a call",
+      "moment": "It's 7 pm, you're under a sink, and the phone rings for the third time. Every call that goes to voicemail can be a job that goes to someone else.",
+      "result": "Every call is answered, nights and weekends included. The job is booked before you've packed up your tools, and urgent calls come straight through to you.",
+      "call": [
+        [
+          "caller",
+          "Hi, my water heater's leaking. Can someone come out today?"
+        ],
+        [
+          "ai",
+          "Sorry to hear that. I can get a technician to you between 2 and 4 tomorrow afternoon. What's the address?"
+        ],
+        [
+          "caller",
+          "14 Oak Street. Do you replace them too?"
+        ],
+        [
+          "ai",
+          "We do. The technician can price a replacement on site. You're booked for 2 to 4, and you'll get a text when they're on the way."
+        ]
+      ],
+      "notify": "New job, tomorrow 2–4 pm: leaking water heater at 14 Oak St. Asked about a replacement.",
+      "experimental": true
+    }
+  ],
+  "ask_note": "The first conversation is free, with no obligation."
 }

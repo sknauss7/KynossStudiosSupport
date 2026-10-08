@@ -31,9 +31,6 @@
 .ks-case-kind { font: 650 12.5px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--app-ink); }
 .ks-case h3 { font-size: clamp(1.35rem, 2.2vw, 1.6rem); line-height: 1.12; text-wrap: balance; }
 .ks-case-idea { font-style: italic; color: var(--ink); }
-.ks-case-does { list-style: none; padding: 0; display: grid; gap: 8px; align-content: start; color: var(--slate); font-size: 15.5px; }
-.ks-case-does li { position: relative; padding-left: 18px; }
-.ks-case-does li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--app); opacity: 0.75; }
 .ks-case-link a { font-weight: 600; color: var(--app-ink); }
 .ks-pagehead .ks-actions { margin-top: 4px; }
 .ks-case-win strong { color: var(--app-ink); font-weight: 650; }
@@ -73,26 +70,8 @@
 
 /* what could yours do: full-bleed tint, each idea ends in a sample notification */
 .ks-sysideas { background: color-mix(in srgb, var(--signal) 5%, var(--paper)); }
-.ks-ideas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.ks-ideas li { padding: 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 12px; }
-.ks-ideas .ks-idea-ping { align-self: end; }
-.ks-idea-top { display: flex; align-items: center; gap: 12px; }
-.ks-idea-top .ks-pglyph { grid-row: auto; width: 38px; height: 38px; border-radius: 11px; flex: none; }
-.ks-idea-top .ks-pglyph svg { width: 20px; height: 20px; }
-.ks-idea-top strong { font: 650 1.05rem/1.25 var(--font-text); }
-.ks-ideas p { color: var(--slate); font-size: 15.5px; }
-.ks-ideas .ks-idea-ping { display: flex; align-items: baseline; gap: 10px; padding: 9px 12px; border-radius: 12px; font-size: 14px; font-weight: 600; color: var(--ink); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--signal) 16%, var(--line)); }
-.ks-idea-ping span:not(.ks-sr) { flex: none; font-size: 11px; font-weight: 650; letter-spacing: 0.05em; text-transform: uppercase; color: var(--signal); }
-@media (max-width: 900px) { .ks-ideas { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .ks-ideas { grid-template-columns: 1fr; } }
-.ks-section.ks-sysideas + .ks-section { border-top: 0; }
 
 /* questions */
-.ks-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin: 0; }
-.ks-faq > div { padding: 22px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
-.ks-faq dt { font: 700 1.2rem/1.25 var(--display); letter-spacing: -0.01em; }
-.ks-faq dd { margin: 0; color: var(--slate); max-width: 34em; }
-@media (max-width: 760px) { .ks-faq { grid-template-columns: 1fr; } }
 
 /* closing band: how we'd build it, then the ask */
 .ks-sysclose { border-top: 0 !important; padding-top: 0; }
@@ -208,9 +187,6 @@
 .ks-feature-kind { font: 650 12.5px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--signal); }
 .ks-feature h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.08; text-wrap: balance; }
 .ks-feature-copy > p { color: var(--slate); }
-.ks-feature-does { list-style: none; padding: 0; display: grid; gap: 8px; }
-.ks-feature-does li { display: flex; gap: 10px; align-items: flex-start; font-weight: 550; }
-.ks-feature-does svg { flex: none; width: 20px; height: 20px; margin-top: 2px; color: var(--signal); }
 .ks-call { margin: 0; display: grid; gap: 12px; padding: clamp(18px, 2.5vw, 26px); border-radius: 24px; color: #fff; background: radial-gradient(70% 120% at 100% 0%, var(--band-glow), transparent 70%), linear-gradient(150deg, var(--band-a), var(--band-b) 72%); box-shadow: 0 0 0 1px var(--band-ring), var(--band-shadow); }
 .ks-call-head { display: flex; align-items: center; gap: 10px; font: 650 12px/1.2 var(--font-text); letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
 .ks-call-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 4px rgba(74,222,128,0.2); }
@@ -231,4 +207,49 @@
 .ks-midcta strong { color: var(--ink); }
 
 .ks-story-head { color: var(--slate); margin-bottom: 6px; }
-@media (max-width: 600px) { .ks-ideas li { grid-template-rows: none; grid-row: auto; } }
+
+.ks-hero-note { font-size: 14.5px; color: var(--slate); margin-top: -6px !important; }
+.ks-tag { display: inline-block; vertical-align: 2px; margin-left: 6px; padding: 2px 8px; border-radius: 999px; font: 700 10.5px/1.4 var(--font-text); letter-spacing: 0.05em; text-transform: uppercase; color: #8A5A00; background: #FFF1D6; border: 1px solid #F3D9A4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ks-tag { color: #F2C766; background: rgba(242,199,102,0.12); border-color: rgba(242,199,102,0.3); } }
+:root[data-theme="dark"] .ks-tag { color: #F2C766; background: rgba(242,199,102,0.12); border-color: rgba(242,199,102,0.3); }
+.ks-case-sum { color: var(--slate); font-size: 15.5px; }
+
+/* examples: seven stories, one panel; without script they simply stack */
+.ks-stories { display: grid; gap: 18px; }
+.ks-tabs { display: none; }
+.ks-stories.is-tabbed .ks-tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 6px; scrollbar-width: none; scroll-snap-type: x proximity; }
+.ks-tabs::-webkit-scrollbar { display: none; }
+.ks-tabs button { flex: none; scroll-snap-align: start; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; font: 600 15px/1 var(--font-text); color: var(--ink); background: var(--surface); border: 1px solid var(--line); cursor: pointer; }
+.ks-tabs button svg { width: 18px; height: 18px; color: var(--signal); }
+.ks-tabs button:hover { border-color: color-mix(in srgb, var(--signal) 40%, var(--line)); }
+.ks-tabs button[aria-selected="true"] { background: var(--signal); color: var(--signal-ink); border-color: var(--signal); }
+.ks-tabs button[aria-selected="true"] svg { color: currentColor; }
+.ks-tabs button:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.ks-stories .ks-feature { margin: 0; align-items: start; }
+.ks-feature-moment { font-size: 1.08rem; color: var(--ink) !important; }
+.ks-feature-result { padding: 14px 16px; border-radius: 14px; background: color-mix(in srgb, var(--signal) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--signal) 20%, var(--line)); color: var(--ink) !important; }
+.ks-feature-result strong { color: var(--signal); }
+.ks-trail { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.ks-trail li { position: relative; display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 8px 10px 10px; border-radius: 14px; }
+.ks-trail li:not(:last-child)::after { content: ""; position: absolute; left: 26.5px; top: 44px; bottom: -6px; width: 1px; background: rgba(185,200,255,0.28); }
+.ks-trail-ic { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: rgba(160,185,255,0.18); color: #C9D6FF; }
+.ks-trail-ic svg { width: 18px; height: 18px; }
+.ks-trail strong { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font: 650 14.5px/1.3 var(--font-text); color: #fff; padding-top: 1px; }
+.ks-trail strong em { font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; background: #F2C766; color: #3A2A00; }
+.ks-trail p { font-size: 14.5px; color: rgba(255,255,255,0.78); }
+.ks-trail li.is-catch { background: rgba(242,199,102,0.12); box-shadow: inset 0 0 0 1px rgba(242,199,102,0.35); }
+.ks-trail li.is-catch p { color: #fff; }
+
+/* questions: one line each, open what you need */
+.ks-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; align-items: start; }
+.ks-faq details { border-top: 1px solid var(--line); }
+.ks-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 0; font: 700 1.12rem/1.3 var(--display); letter-spacing: -0.01em; }
+.ks-faq summary::-webkit-details-marker { display: none; }
+.ks-faq summary::after { content: ""; flex: none; width: 10px; height: 10px; margin-right: 4px; border-right: 2px solid var(--slate); border-bottom: 2px solid var(--slate); transform: rotate(45deg) translateY(-3px); transition: transform 0.2s; }
+.ks-faq details[open] summary::after { transform: rotate(-135deg) translateY(-3px); }
+.ks-faq details p { color: var(--slate); padding: 0 28px 20px 0; max-width: 36em; }
+.ks-faq summary:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+@media (max-width: 760px) { .ks-faq { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ks-faq summary::after { transition: none; } }
+@media (min-width: 900px) { .ks-stories.is-tabbed .ks-tabs { flex-wrap: wrap; overflow: visible; } .ks-stories .ks-feature { align-items: center; } }
+.ks-midcta p { flex: 1 1 26rem; }

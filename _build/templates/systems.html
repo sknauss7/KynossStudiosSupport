@@ -37,12 +37,13 @@
     <div class="ks-syshero-copy">
       <p class="ks-eyebrow">Custom AI systems</p>
       <h1 class="ks-display ks-h1">Hand off the work that eats your week</h1>
-      <p class="ks-lede">A custom AI system takes a whole job off your plate. It answers calls and messages, keeps track of what's due, handles the paperwork and drafts the next step, day and night, without being asked.</p>
+      <p class="ks-lede">A custom AI system takes a whole job off your plate. It answers messages, keeps track of what's due, handles the paperwork and drafts the next step, day and night, without being asked.</p>
       <p class="ks-muted">Built around the way you already work. Five are running today: an app studio, a condo board, a wedding, a household and a research desk.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#start">Tell us your idea</a>
         <a class="ks-button is-quiet" href="#cases">See them working</a>
       </div>
+      <p class="ks-hero-note">{{ ask_note }}</p>
     </div>
     <figure class="ks-sysphone-wrap" role="img" aria-label="Illustration: a phone showing one morning message that pulls together updates from several systems: new app reviews, a board deadline, wedding RSVPs, a birthday reminder and a finished forecast report.">
       <div class="ks-phone ks-sysphone" aria-hidden="true">
@@ -132,8 +133,8 @@
       <p class="ks-lede">{{ build.lede }}</p>
     </div>
     <ul class="ks-blocks">
-      {%- for g, t, d in build.blocks %}
-      <li><span class="ks-pglyph">{{ sg(g) }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
+      {%- for g, t, d, tag in build.blocks %}
+      <li><span class="ks-pglyph">{{ sg(g) }}</span><h3>{{ t }}{% if tag %} <span class="ks-tag">{{ tag }}</span>{% endif %}</h3><p>{{ d }}</p></li>
       {%- endfor %}
     </ul>
     <p class="ks-blocks-tools">{{ build.tools }}</p>
@@ -144,39 +145,77 @@
   <div class="ks-wrap">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
-      <p class="ks-lede">If you can describe the job, we can probably build a system for it. Here's one in detail, then a few more starting points.</p>
+      <p class="ks-lede">If you can describe the job, we can probably build a system for it. Pick one to see it work.</p>
     </div>
-    <article class="ks-feature" aria-labelledby="feature-h">
-      <div class="ks-feature-copy">
-        <p class="ks-feature-kind">{{ feature.kind }}</p>
-        <h3 class="ks-display" id="feature-h">{{ feature.title }}</h3>
-        <p>{{ feature.text }}</p>
-        <ul class="ks-feature-does">
-          {%- for x in feature.does %}<li>{{ sg("check") }}{{ x }}</li>{%- endfor %}
-        </ul>
+    <div class="ks-stories" data-stories>
+      <div class="ks-tabs" role="tablist" aria-label="Examples">
+        {%- for st in stories %}
+        <button type="button" role="tab" id="tab-{{ st.id }}" aria-controls="story-{{ st.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}"{% if not loop.first %} tabindex="-1"{% endif %}>{{ sg(st.glyph) }}{{ st.tab }}</button>
+        {%- endfor %}
       </div>
-      <figure class="ks-call" aria-label="Illustration: an example phone call answered by an AI receptionist, and the text it sends the owner">
-        <div class="ks-call-head"><span class="ks-call-dot"></span>Incoming call · answered by your receptionist</div>
-        <ol class="ks-call-lines">
-          {%- for who, line in feature.call %}
-          <li class="is-{{ who }}"><span>{{ "Caller" if who == "caller" else "Receptionist" }}</span>{{ line }}</li>
-          {%- endfor %}
-        </ol>
-        <div class="ks-call-text"><span>Text to you</span>{{ feature.text_to_owner }}</div>
-        <figcaption class="ks-syscap">Illustration</figcaption>
-      </figure>
-    </article>
-    <ul class="ks-ideas">
-      {%- for i in ideas %}
-      <li>
-        <div class="ks-idea-top"><span class="ks-pglyph">{{ sg(i.glyph) }}</span><strong>{{ i.who }}</strong></div>
-        <p>{{ i.what }}</p>
-        <p class="ks-idea-ping"><span class="ks-sr">Example notification: </span><span>{{ i.sample[0] }}</span>{{ i.sample[1] }}</p>
-      </li>
+      {%- for st in stories %}
+      <article class="ks-feature" role="tabpanel" id="story-{{ st.id }}" aria-labelledby="tab-{{ st.id }}">
+        <div class="ks-feature-copy">
+          <p class="ks-feature-kind">{{ st.kind }}{% if st.experimental %} <span class="ks-tag">Experimental</span>{% endif %}</p>
+          <h3 class="ks-display">{{ st.title }}</h3>
+          <p class="ks-feature-moment">{{ st.moment }}</p>
+          <p class="ks-feature-result"><strong>The result:</strong> {{ st.result }}</p>
+        </div>
+        <figure class="ks-call" aria-label="Illustration of how the system handles it">
+          {%- if st.call %}
+          <div class="ks-call-head"><span class="ks-call-dot"></span>Incoming call · answered by your receptionist</div>
+          <ol class="ks-call-lines">
+            {%- for who, line in st.call %}
+            <li class="is-{{ who }}"><span>{{ "Caller" if who == "caller" else "Receptionist" }}</span>{{ line }}</li>
+            {%- endfor %}
+          </ol>
+          {%- else %}
+          <div class="ks-call-head"><span class="ks-call-dot"></span>What your system does</div>
+          <ol class="ks-trail">
+            {%- for t in st.trail %}
+            <li{% if t.catch %} class="is-catch"{% endif %}><span class="ks-trail-ic">{{ sg(t.glyph) }}</span><div><strong>{{ t.source }}{% if t.catch %} <em>The catch</em>{% endif %}</strong><p>{{ t.text }}</p></div></li>
+            {%- endfor %}
+          </ol>
+          {%- endif %}
+          <div class="ks-call-text"><span>Text to you</span>{{ st.notify }}</div>
+          <figcaption class="ks-syscap">Illustration</figcaption>
+        </figure>
+      </article>
       {%- endfor %}
-    </ul>
+    </div>
+    <script>
+    (function () {
+      var root = document.querySelector("[data-stories]");
+      if (!root) return;
+      var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+      root.classList.add("is-tabbed");
+      function show(i, focus) {
+        tabs.forEach(function (t, j) {
+          var on = j === i;
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.tabIndex = on ? 0 : -1;
+          panels[j].hidden = !on;
+        });
+        if (focus) { tabs[i].focus(); }
+        var bar = tabs[i].parentNode;
+        bar.scrollTo({ left: tabs[i].offsetLeft - 16, behavior: "smooth" });
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener("click", function () { show(i, false); });
+        t.addEventListener("keydown", function (e) {
+          var k = e.key, n = tabs.length;
+          if (k === "ArrowRight") { e.preventDefault(); show((i + 1) % n, true); }
+          if (k === "ArrowLeft") { e.preventDefault(); show((i - 1 + n) % n, true); }
+          if (k === "Home") { e.preventDefault(); show(0, true); }
+          if (k === "End") { e.preventDefault(); show(n - 1, true); }
+        });
+      });
+      panels.forEach(function (p, j) { p.hidden = j !== 0; });
+    })();
+    </script>
     <div class="ks-midcta">
-      <p><strong>Have a job like one of these?</strong> Tell us about it in a few sentences.</p>
+      <p><strong>Have a job like one of these?</strong> Tell us about it in a few sentences. {{ ask_note }}</p>
       <a class="ks-button" href="#start">Tell us your idea</a>
     </div>
   </div>
@@ -212,11 +251,7 @@
         <div class="ks-case-top"><span class="ks-pglyph">{{ sg(c.glyph) }}</span><p class="ks-case-kind">{{ c.kind }}</p></div>
         <h3 class="ks-display">{{ c.title }}</h3>
         <p class="ks-case-idea">“{{ c.idea }}”</p>
-        <ul class="ks-case-does">
-          {%- for d in c.does %}
-          <li>{{ d }}</li>
-          {%- endfor %}
-        </ul>
+        <p class="ks-case-sum">{{ c.summary }}</p>
         <div class="ks-case-win">
           <p><strong>{{ c.win[0] }}</strong> {{ c.win[1] }}</p>
           {%- if c.link %}
@@ -250,11 +285,11 @@
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="faq-h">Questions people ask</h2>
     </div>
-    <dl class="ks-faq">
+    <div class="ks-faq">
       {%- for q, a in faq %}
-      <div><dt>{{ q }}</dt><dd>{{ a }}</dd></div>
+      <details><summary>{{ q }}</summary><p>{{ a }}</p></details>
       {%- endfor %}
-    </dl>
+    </div>
   </div>
 </section>
 
@@ -273,7 +308,7 @@
       <div class="ks-close-in">
         <div class="ks-close-cta">
           <h2 class="ks-display" id="start-h">Have an idea that needs its own system?</h2>
-          <p>Send us a few sentences about what you want handled. We'll come back with what your system could do and what the first version would look like.</p>
+          <p>Send us a few sentences about what you want handled. We'll come back with what your system could do and what the first version would look like. {{ ask_note }}</p>
           <div class="ks-close-act">
             <a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">{{ sg("mail") }}Email us your idea</a>
             <span>{{ site.studio.email }}</span>
