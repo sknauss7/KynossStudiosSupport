@@ -17,6 +17,11 @@
   "house": '<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/>',
   "bag": '<path d="M5 8h14l-1 12.5H6Z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/>',
   "hardhat": '<path d="M3 18h18"/><path d="M5 18v-3.5a7 7 0 0 1 14 0V18"/><path d="M10 8.2V5.5h4v2.7"/>',
+  "moon": '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/><path d="M16.5 3.5v3M15 5h3"/>',
+  "bell": '<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15Z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/>',
+  "chat": '<path d="M4 5.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4.5 3.5v-3.5H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"/><path d="M8 10h8M8 13h5"/>',
+  "team": '<circle cx="12" cy="7.5" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M7 20c.6-3.3 2.6-5.5 5-5.5s4.4 2.2 5 5.5M1.8 18c.4-2 1.6-3.3 3.2-3.3M22.2 18c-.4-2-1.6-3.3-3.2-3.3"/>',
+  "check": '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
   "mail": '<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/>',
 } -%}
 {%- if name in paths -%}
@@ -27,12 +32,13 @@
 <section class="ks-syshero">
   <div class="ks-wrap ks-syshero-in">
     <div class="ks-syshero-copy">
-      <h1 class="ks-display ks-h1">Custom AI systems, built around the way you work</h1>
-      <p class="ks-lede">Off-the-shelf AI makes you fit its idea of the job. We build the other way round: tell us what you want handled, and we design a system that does exactly that, in the places you already work.</p>
-      <p class="ks-muted">An app studio, a condo board, a wedding, a household and a research desk. Five very different ideas, each turned into a working system.</p>
+      <p class="ks-eyebrow">Custom AI systems</p>
+      <h1 class="ks-display ks-h1">Hand off the work that eats your week</h1>
+      <p class="ks-lede">A custom AI system takes a whole job off your plate. It watches your email and documents, keeps track of what's due, answers your questions and drafts the next step, every day, without being asked.</p>
+      <p class="ks-muted">Built around the way you already work. Five are running today: an app studio, a condo board, a wedding, a household and a research desk.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#start">Tell us your idea</a>
-        <a class="ks-button is-quiet" href="#cases">See what we've built</a>
+        <a class="ks-button is-quiet" href="#cases">See them working</a>
       </div>
     </div>
     <figure class="ks-sysphone-wrap" role="img" aria-label="Illustration: a phone showing one morning message that pulls together updates from several systems: new app reviews, a board deadline, wedding RSVPs, a birthday reminder and a finished forecast report.">
@@ -67,10 +73,47 @@
   </div>
 </section>
 
+<section class="ks-section ks-syswhy" id="why" aria-labelledby="why-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="why-h">{{ why.title }}</h2>
+      <p class="ks-lede">{{ why.lede }}</p>
+    </div>
+    <ul class="ks-why">
+      {%- for w in why.points %}
+      <li class="ks-appscope" style="--app: {{ w.accent }}">
+        <span class="ks-pglyph">{{ sg(w.glyph) }}</span>
+        <h3 class="ks-display">{{ w.title }}</h3>
+        <p>{{ w.text }}</p>
+        <p class="ks-why-proof"><span>Running today</span>{{ w.proof }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="ks-section ks-syscustom" aria-labelledby="custom-h">
+  <div class="ks-wrap ks-custom">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="custom-h">{{ custom.title }}</h2>
+      <p class="ks-lede">{{ custom.lede }}</p>
+    </div>
+    <table class="ks-vs">
+      <colgroup><col class="ks-vs-them"><col></colgroup>
+      <thead><tr><th scope="col">{{ custom.them }}</th><th scope="col">{{ custom.us }}</th></tr></thead>
+      <tbody>
+        {%- for a, b in custom.rows %}
+        <tr><td>{{ a }}</td><td>{{ sg("check") }}{{ b }}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section class="ks-section" id="cases" aria-labelledby="cases-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="cases-h">Five ideas, five systems</h2>
+      <h2 class="ks-display ks-h2" id="cases-h">Five systems, already working</h2>
       <p class="ks-lede">They have almost nothing in common on the surface. That's the point: each one is shaped around a different job.</p>
     </div>
     <ul class="ks-cases">
@@ -109,42 +152,6 @@
         {%- endfor %}
       </ul>
     </div>
-  </div>
-</section>
-
-<section class="ks-section" aria-labelledby="flow-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="flow-h">What a system can do for you</h2>
-      <p class="ks-lede">Every system is different, but they all take in what you deal with every day and turn it into something you can act on.</p>
-    </div>
-    <div class="ks-flow">
-      <div class="ks-flow-col">
-        <h3>What comes in</h3>
-        <ul class="ks-chips">
-          <li>Email</li><li>Texts</li><li>Documents and scans</li><li>Calendars</li><li>Spreadsheets</li><li>Websites and data</li><li>Forms and sign-ups</li>
-        </ul>
-      </div>
-      <div class="ks-flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h34m-8-8 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="ks-flow-col is-core">
-        <h3>Your system</h3>
-        <ul class="ks-flow-list">
-          <li>{{ sg("folder") }}Sorts and files everything</li>
-          <li>{{ sg("calendar") }}Tracks deadlines, money and records</li>
-          <li>{{ sg("search") }}Researches and answers questions</li>
-          <li>{{ sg("send") }}Drafts, writes and sends</li>
-          <li>{{ sg("repeat") }}Runs on its own schedule, day and night</li>
-        </ul>
-      </div>
-      <div class="ks-flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h34m-8-8 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="ks-flow-col">
-        <h3>What you get</h3>
-        <ul class="ks-chips">
-          <li>A morning message</li><li>Answers on demand</li><li>Ready-to-send drafts</li><li>Reports</li><li>A website</li><li>A dashboard</li><li>An iPhone app</li>
-        </ul>
-      </div>
-    </div>
-    <p class="ks-flow-note">How much it does on its own is up to you, from drafts you approve to jobs it handles start to finish.</p>
   </div>
 </section>
 

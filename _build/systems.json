@@ -2,11 +2,11 @@
   "_comment": "Owned by the Systems workspace (~/Systems, Callia session 'systems'). Content for /systems/ only. {apps} and {updates} are filled in by build.py from live App Store data.",
   "og": {
     "title": "Custom AI systems",
-    "subtitle": "Built around the way you work: five ideas, five working systems."
+    "subtitle": "Hand off the work that eats your week."
   },
   "page": {
     "title": "Custom AI systems · Kynoss Studios",
-    "description": "Kynoss Studios builds custom AI systems around the way you work, from an app studio and a condo board assistant to wedding planning, personal records and market research."
+    "description": "Kynoss Studios builds custom AI systems that take a whole job off your plate: sorting, tracking, answering and drafting, every day, built around the way you already work."
   },
   "foot_line": "Custom AI systems, designed around the way you work.",
   "cases": [
@@ -153,6 +153,14 @@
   ],
   "faq": [
     [
+      "Why not just use a general AI assistant?",
+      "For one-off questions, do. A system is for the work that keeps coming back: it's connected to your email, documents and calendar, runs on its own schedule and is built around how you do the job."
+    ],
+    [
+      "Is my job a good fit?",
+      "If information arrives all the time, there's a lot to keep track of, or you write the same kind of reply again and again, probably yes. Tell us about it and we'll say plainly whether a system would help."
+    ],
+    [
       "What can it connect to?",
       "Whatever your work already runs on: email, texts, calendars, shared folders, spreadsheets, websites and many online services."
     ],
@@ -230,5 +238,63 @@
       "We build it and switch it on",
       "You see it working on your real day-to-day, then it grows one piece at a time as your needs do."
     ]
-  ]
+  ],
+  "why": {
+    "title": "Why build an AI system?",
+    "lede": "Because the work doesn't stop when you do. A system takes on the jobs that eat your time and keeps them moving, every day, without being asked.",
+    "points": [
+      {
+        "glyph": "moon",
+        "title": "It works while you don't",
+        "text": "It checks your email, documents and calendar on its own schedule, so you start the day with a short summary instead of a backlog.",
+        "proof": "Our personal system refreshes every hour and sends one short brief each morning.",
+        "accent": "#6A5CE6"
+      },
+      {
+        "glyph": "bell",
+        "title": "Nothing slips",
+        "text": "Deadlines, renewals and follow-ups are tracked for you and raised with enough time to act, not on the day.",
+        "proof": "A condo board's legal deadlines are each flagged at their own lead time.",
+        "accent": "#2E9C6A"
+      },
+      {
+        "glyph": "chat",
+        "title": "It knows your stuff",
+        "text": "Ask a question in plain English and get the answer from your own email and documents, with the source attached.",
+        "proof": "“Where is my passport scan?” gets a short answer, sources cited.",
+        "accent": "#C2567A"
+      },
+      {
+        "glyph": "team",
+        "title": "One person, the output of a team",
+        "text": "Research, sorting, drafting and checking get done for you, so you can take on more without hiring for it.",
+        "proof": "One person runs a whole app studio. One desk forecasts about a hundred markets a day.",
+        "accent": "#2B54E0"
+      }
+    ]
+  },
+  "custom": {
+    "title": "Why one built for you?",
+    "lede": "General AI assistants are made for everyone, and they're great for one-off questions. A system is made for the work that keeps coming back.",
+    "them": "A general AI assistant",
+    "us": "A system built for you",
+    "rows": [
+      [
+        "Built around a chat: you bring it the work",
+        "Built around your job: the work comes to it"
+      ],
+      [
+        "Set up by you, one prompt at a time",
+        "Designed, built and tested for you"
+      ],
+      [
+        "Made to suit everyone",
+        "Your categories, your rules, your format"
+      ],
+      [
+        "One more tool next to the others",
+        "Your email, files and calendars joined in one place"
+      ]
+    ]
+  }
 }
