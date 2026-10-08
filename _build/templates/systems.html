@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 {%- from "_icons.html" import glyph -%}
+{%- macro sg(name) -%}
+{#- page-only icons; anything else falls through to the shared set -#}
+{%- set paths = {
+  "apps": '<rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><path d="M17 13.5v7M13.5 17h7"/>',
+  "eye": '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/>',
+  "panel": '<circle cx="8.5" cy="9" r="5"/><circle cx="15.5" cy="9" r="5"/><circle cx="12" cy="15.5" r="5"/>',
+  "flask": '<path d="M9 3h6M10 3v6.2l-5.3 8.5A2.2 2.2 0 0 0 6.6 21h10.8a2.2 2.2 0 0 0 1.9-3.3L14 9.2V3"/><path d="M7.2 15h9.6"/>',
+  "code": '<path d="m8 7.5-4.5 4.5L8 16.5M16 7.5l4.5 4.5-4.5 4.5M13.5 4.5l-3 15"/>',
+  "target": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>',
+  "bug": '<rect x="7.5" y="7" width="9" height="13.5" rx="4.5"/><path d="M12 11v9.5M9.5 4l1.4 3M14.5 4l-1.4 3M3.5 12.5h4M16.5 12.5h4M4.5 18.5l3-1.5M19.5 18.5l-3-1.5M4.5 7l3 2M19.5 7l-3 2"/>',
+  "folder": '<path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H9l2 2.5h8.5A1.5 1.5 0 0 1 21 10v8.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5Z"/>',
+  "calendar": '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h2M14 14h2M8 17.2h2"/>',
+  "send": '<path d="M21 3 10.5 13.5"/><path d="M21 3 14.5 21l-4-7.5L3 9.5Z"/>',
+  "repeat": '<path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 3.5V8H16"/><path d="M12 7.5V12l3 2"/>',
+  "house": '<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/>',
+  "bag": '<path d="M5 8h14l-1 12.5H6Z"/><path d="M9 10.5V7a3 3 0 0 1 6 0v3.5"/>',
+  "hardhat": '<path d="M3 18h18"/><path d="M5 18v-3.5a7 7 0 0 1 14 0V18"/><path d="M10 8.2V5.5h4v2.7"/>',
+  "mail": '<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/>',
+} -%}
+{%- if name in paths -%}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ paths[name]|safe }}</svg>
+{%- else -%}{{ glyph(name) }}{%- endif -%}
+{%- endmacro -%}
 {% block main %}
 <section class="ks-syshero">
   <div class="ks-wrap ks-syshero-in">
@@ -39,7 +62,7 @@
           </div>
         </div>
       </div>
-      <figcaption class="ks-badge">Illustration</figcaption>
+      <figcaption class="ks-syscap">Illustration</figcaption>
     </figure>
   </div>
 </section>
@@ -53,7 +76,7 @@
     <ul class="ks-cases">
       {%- for c in cases %}
       <li class="ks-case ks-appscope" style="--app: {{ c.accent }}">
-        <div class="ks-case-top"><span class="ks-pglyph">{{ glyph(c.glyph) }}</span><p class="ks-case-kind">{{ c.kind }}</p></div>
+        <div class="ks-case-top"><span class="ks-pglyph">{{ sg(c.glyph) }}</span><p class="ks-case-kind">{{ c.kind }}</p></div>
         <h3 class="ks-display">{{ c.title }}</h3>
         <p class="ks-case-idea">“{{ c.idea }}”</p>
         <ul class="ks-case-does">
@@ -61,10 +84,12 @@
           <li>{{ d }}</li>
           {%- endfor %}
         </ul>
-        <p class="ks-case-win"><strong>{{ c.win[0] }}</strong> {{ c.win[1] }}</p>
-        {%- if c.link %}
-        <p class="ks-case-link"><a href="{{ c.link[0] }}">{{ c.link[1] }}</a></p>
-        {%- endif %}
+        <div class="ks-case-win">
+          <p><strong>{{ c.win[0] }}</strong> {{ c.win[1] }}</p>
+          {%- if c.link %}
+          <p class="ks-case-link"><a href="{{ c.link[0] }}">{{ c.link[1] }}</a></p>
+          {%- endif %}
+        </div>
       </li>
       {%- endfor %}
     </ul>
@@ -73,14 +98,14 @@
 
 <section class="ks-section ks-qa" aria-labelledby="qa-h">
   <div class="ks-wrap">
-    <div class="ks-qa-band">
+    <div class="ks-qa-band ks-band">
       <div class="ks-section-head">
         <h2 class="ks-display ks-h2" id="qa-h">{{ qa.title }}</h2>
         <p class="ks-lede">{{ qa.lede }}</p>
       </div>
       <ul class="ks-qa-list">
         {%- for g, t, d in qa.points %}
-        <li><span class="ks-pglyph">{{ glyph(g) }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
+        <li><span class="ks-pglyph">{{ sg(g) }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
         {%- endfor %}
       </ul>
     </div>
@@ -104,11 +129,11 @@
       <div class="ks-flow-col is-core">
         <h3>Your system</h3>
         <ul class="ks-flow-list">
-          <li>{{ glyph("doc") }}Sorts and files everything</li>
-          <li>{{ glyph("tag") }}Tracks deadlines, money and records</li>
-          <li>{{ glyph("search") }}Researches and answers questions</li>
-          <li>{{ glyph("build") }}Drafts, writes and sends</li>
-          <li>{{ glyph("systems") }}Runs on its own schedule, day and night</li>
+          <li>{{ sg("folder") }}Sorts and files everything</li>
+          <li>{{ sg("calendar") }}Tracks deadlines, money and records</li>
+          <li>{{ sg("search") }}Researches and answers questions</li>
+          <li>{{ sg("send") }}Drafts, writes and sends</li>
+          <li>{{ sg("repeat") }}Runs on its own schedule, day and night</li>
         </ul>
       </div>
       <div class="ks-flow-arrow" aria-hidden="true"><svg viewBox="0 0 40 24"><path d="M2 12h34m-8-8 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -123,32 +148,21 @@
   </div>
 </section>
 
-<section class="ks-section" aria-labelledby="ideas-h">
+<section class="ks-section ks-sysideas" aria-labelledby="ideas-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
       <p class="ks-lede">If you can describe the job, we can probably build a system for it. A few starting points:</p>
     </div>
     <ul class="ks-ideas">
-      {%- for who, what in ideas %}
-      <li><strong>{{ who }}</strong><p>{{ what }}</p></li>
+      {%- for i in ideas %}
+      <li>
+        <div class="ks-idea-top"><span class="ks-pglyph">{{ sg(i.glyph) }}</span><strong>{{ i.who }}</strong></div>
+        <p>{{ i.what }}</p>
+        <p class="ks-idea-ping"><span class="ks-sr">Example notification: </span><span>{{ i.sample[0] }}</span>{{ i.sample[1] }}</p>
+      </li>
       {%- endfor %}
     </ul>
-  </div>
-</section>
-
-<section class="ks-section" aria-labelledby="build-h">
-  <div class="ks-wrap ks-split">
-    <div>
-      <h2 class="ks-display ks-h2" id="build-h">How we'd build yours</h2>
-      <p class="ks-muted">The same way we built ours: start from the idea, build around how you actually work, and keep improving it once it's running.</p>
-    </div>
-    <ol class="ks-steps">
-      <li><h3>Tell us the idea</h3><p>A sentence is enough: the thing you keep losing track of, the job that eats your evenings, the question you wish you could just ask.</p></li>
-      <li><h3>We map how the work happens</h3><p>Where information arrives, what decisions you make, who else is involved and what a great result looks like to you.</p></li>
-      <li><h3>You decide what it handles</h3><p>What it does on its own, what it checks with you first and how it reaches you. It's your system, set up your way.</p></li>
-      <li><h3>We build it and switch it on</h3><p>You see it working on your real day-to-day, then it grows one piece at a time as your needs do.</p></li>
-    </ol>
   </div>
 </section>
 
@@ -157,27 +171,40 @@
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="faq-h">Questions people ask</h2>
     </div>
-    <div class="ks-two">
+    <dl class="ks-faq">
       {%- for q, a in faq %}
-      <div><h3>{{ q }}</h3><p>{{ a }}</p></div>
+      <div><dt>{{ q }}</dt><dd>{{ a }}</dd></div>
       {%- endfor %}
-    </div>
+    </dl>
   </div>
 </section>
 
-<section class="ks-section" id="start" aria-labelledby="start-h">
-  <div class="ks-wrap ks-split ks-sysend">
-    <div class="ks-sysme">
-      <h2 class="ks-display ks-h2">Who you'd work with</h2>
-      <p class="ks-muted">Kynoss Studios is {{ site.studio.founder }}, designing and building with Claude, Anthropic's AI. So far that's {{ site.live|length }} iPhone apps on the App Store with {{ stats.updates }}+ updates, a live wedding website, an assistant for a Florida condo board, a personal records system and a forecasting research desk.</p>
-      <p><a href="/how-we-build/">See how the studio works</a></p>
-    </div>
-    <div class="ks-cta ks-appscope">
-      <div>
-        <span class="ks-pglyph">{{ glyph("systems") }}</span>
-        <h2 class="ks-display ks-h2" id="start-h">Have an idea that needs its own system?</h2>
-        <p class="ks-muted">Send us a few sentences about what you want handled. We'll come back with what your system could do and what the first version would look like.</p>
-        <p><a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">Email us your idea</a></p>
+<section class="ks-section ks-sysclose" id="start" aria-labelledby="build-h">
+  <div class="ks-wrap">
+    <div class="ks-band">
+      <div class="ks-section-head">
+        <h2 class="ks-display ks-h2" id="build-h">How we'd build yours</h2>
+        <p class="ks-lede">The same way we built ours: start from the idea, build around how you actually work, and keep improving it once it's running.</p>
+      </div>
+      <ol class="ks-path">
+        {%- for t, d in steps %}
+        <li><span class="ks-path-n">{{ loop.index }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
+        {%- endfor %}
+      </ol>
+      <div class="ks-close-in">
+        <div class="ks-close-cta">
+          <h2 class="ks-display" id="start-h">Have an idea that needs its own system?</h2>
+          <p>Send us a few sentences about what you want handled. We'll come back with what your system could do and what the first version would look like.</p>
+          <div class="ks-close-act">
+            <a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">{{ sg("mail") }}Email us your idea</a>
+            <span>{{ site.studio.email }}</span>
+          </div>
+        </div>
+        <div class="ks-close-me">
+          <h3>Who you'd work with</h3>
+          <p>Kynoss Studios is {{ site.studio.founder }}, designing and building with Claude, Anthropic's AI. So far that's {{ site.live|length }} iPhone apps on the App Store with {{ stats.updates }}+ updates, a live wedding website, an assistant for a Florida condo board, a personal records system and a forecasting research desk.</p>
+          <p><a href="/how-we-build/">See how the studio works</a></p>
+        </div>
       </div>
     </div>
   </div>

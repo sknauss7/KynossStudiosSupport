@@ -11,7 +11,7 @@
   "foot_line": "Custom AI systems, designed around the way you work.",
   "cases": [
     {
-      "glyph": "build",
+      "glyph": "apps",
       "accent": "#2B54E0",
       "kind": "iPhone app development",
       "title": "An app studio run by one person",
@@ -96,30 +96,60 @@
     }
   ],
   "ideas": [
-    [
-      "A property manager",
-      "Owner and tenant email sorted as it arrives, with the right lease or rule attached and a reply drafted."
-    ],
-    [
-      "A contractor",
-      "Bids, permits, invoices and inspections for every job in one place, and a morning list of what's due."
-    ],
-    [
-      "An event planner",
-      "Vendors, guest lists and timelines for every event, with reminders that go out on time."
-    ],
-    [
-      "A real estate agent",
-      "Showings, offers and closing dates tracked for every client, with updates written for you."
-    ],
-    [
-      "A small online shop",
-      "Orders, reviews and stock checked overnight, with a short list of what needs you today."
-    ],
-    [
-      "A busy family",
-      "School email, bills, appointments and warranties in one place you can simply ask."
-    ]
+    {
+      "glyph": "key",
+      "who": "A property manager",
+      "what": "Owner and tenant email sorted as it arrives, with the right lease or rule attached and a reply drafted.",
+      "sample": [
+        "7:00",
+        "3 tenant emails, replies drafted"
+      ]
+    },
+    {
+      "glyph": "hardhat",
+      "who": "A contractor",
+      "what": "Bids, permits, invoices and inspections for every job in one place, and a morning list of what's due.",
+      "sample": [
+        "Today",
+        "2 permits due this week"
+      ]
+    },
+    {
+      "glyph": "calendar",
+      "who": "An event planner",
+      "what": "Vendors, guest lists and timelines for every event, with reminders that go out on time.",
+      "sample": [
+        "Sent",
+        "Final headcount to the caterer"
+      ]
+    },
+    {
+      "glyph": "house",
+      "who": "A real estate agent",
+      "what": "Showings, offers and closing dates tracked for every client, with updates written for you.",
+      "sample": [
+        "Ready",
+        "Offer update for your buyers"
+      ]
+    },
+    {
+      "glyph": "bag",
+      "who": "A small online shop",
+      "what": "Orders, reviews and stock checked overnight, with a short list of what needs you today.",
+      "sample": [
+        "Overnight",
+        "12 orders, 2 low on stock"
+      ]
+    },
+    {
+      "glyph": "people",
+      "who": "A busy family",
+      "what": "School email, bills, appointments and warranties in one place you can simply ask.",
+      "sample": [
+        "Friday",
+        "Field trip form due"
+      ]
+    }
   ],
   "faq": [
     [
@@ -152,35 +182,53 @@
     "lede": "Software thrown together with AI has earned a reputation for looking fine and falling apart. Ours goes through strict testing and review before it reaches you, because the experience is the product.",
     "points": [
       [
-        "device",
+        "eye",
         "Seen working, not just “tests pass”",
         "Nothing counts as done until it has been run and checked on screen. Passing tests alone don't prove it works."
       ],
       [
-        "people",
+        "panel",
         "Judged on how it feels",
-        "Reviewers from three different AI companies judge the experience the way a newcomer would: is it clear at a glance, and would you show it to a friend? It doesn’t ship without a pass."
+        "Reviewers from three different AI companies judge the experience the way a newcomer would: is it clear at a glance, and would you show it to a friend? It doesn't ship without a pass."
       ],
       [
-        "build",
+        "flask",
         "Tested in real conditions",
         "Automated tests run against real databases, real browsers and simulated iPhones, and they have to pass before anything ships."
       ],
       [
-        "search",
+        "code",
         "Reviewed before every release",
         "The code is reviewed line by line, the way a careful colleague would, before anything goes out."
       ],
       [
-        "block",
+        "target",
         "A failed check stays failed",
         "When something misses its target, nobody moves the goalposts or calls it close enough. It gets fixed."
       ],
       [
-        "help",
+        "bug",
         "Known issues get fixed, not shipped",
         "Anything spotted before launch is fixed first, even small cosmetic things."
       ]
     ]
-  }
+  },
+  "steps": [
+    [
+      "Tell us the idea",
+      "A sentence is enough: the thing you keep losing track of, the job that eats your evenings, the question you wish you could just ask."
+    ],
+    [
+      "We map how the work happens",
+      "Where information arrives, what decisions you make, who else is involved and what a great result looks like to you."
+    ],
+    [
+      "You decide what it handles",
+      "What it does on its own, what it checks with you first and how it reaches you. It's your system, set up your way."
+    ],
+    [
+      "We build it and switch it on",
+      "You see it working on your real day-to-day, then it grows one piece at a time as your needs do."
+    ]
+  ]
 }

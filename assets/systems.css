@@ -1,6 +1,11 @@
 /* /systems/ page only. Owned by the Systems workspace (~/Systems); loaded after site.css. */
-/* phone illustration (hero) and its label */
-.ks-badge { font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: color-mix(in srgb, var(--signal) 14%, transparent); color: var(--signal); white-space: nowrap; }
+/* page tokens: the two dark bands (quality, closing) lift off the dark page instead of sinking into it */
+:root { --band-a: #1B2C66; --band-b: #0F1522; --band-glow: rgba(124,155,255,0.28); --band-ring: transparent; --band-shadow: 0 30px 60px -36px rgba(15,21,34,0.7); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --band-a: #2A4296; --band-b: #172242; --band-glow: rgba(140,170,255,0.34); --band-ring: rgba(124,155,255,0.32); --band-shadow: 0 30px 70px -30px rgba(0,0,0,0.8); } }
+:root[data-theme="dark"] { --band-a: #2A4296; --band-b: #172242; --band-glow: rgba(140,170,255,0.34); --band-ring: rgba(124,155,255,0.32); --band-shadow: 0 30px 70px -30px rgba(0,0,0,0.8); }
+
+/* phone illustration (hero) and its caption */
+.ks-syscap { font-size: 12.5px; color: var(--slate); letter-spacing: 0.02em; }
 .ks-phone { position: absolute; width: 262px; padding: 9px; border-radius: 46px; background: #0B0F17; box-shadow: 0 0 0 1px rgba(255,255,255,0.14), 0 50px 90px -30px rgba(0,0,0,0.7), inset 0 0 0 2px #2A3142; }
 .ks-phone-screen { border-radius: 38px; background: var(--paper); padding: 12px 14px 20px; min-height: 500px; display: grid; gap: 10px; align-content: start; overflow: hidden; }
 .ks-phone-status { display: flex; justify-content: space-between; align-items: center; font: 650 12px/1 var(--font-text); padding: 4px 10px 8px; }
@@ -21,24 +26,16 @@
 .ks-phone-card.is-cta li span { color: var(--app-ink); font-weight: 650; }
 
 .ks-cases { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
-.ks-case { grid-column: span 2; display: flex; flex-direction: column; gap: 12px; padding: clamp(22px, 2.8vw, 30px); border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(165deg, color-mix(in srgb, var(--app) 10%, var(--surface)), var(--surface) 55%); }
-.ks-case:nth-child(-n+2) { grid-column: span 3; }
 .ks-case-top { display: flex; align-items: center; gap: 12px; }
 .ks-case-top .ks-pglyph { grid-row: auto; flex: none; }
 .ks-case-kind { font: 650 12.5px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--app-ink); }
 .ks-case h3 { font-size: clamp(1.35rem, 2.2vw, 1.6rem); line-height: 1.12; text-wrap: balance; }
 .ks-case-idea { font-style: italic; color: var(--ink); }
-.ks-case-does { list-style: none; padding: 0; display: grid; gap: 8px; color: var(--slate); font-size: 15.5px; }
+.ks-case-does { list-style: none; padding: 0; display: grid; gap: 8px; align-content: start; color: var(--slate); font-size: 15.5px; }
 .ks-case-does li { position: relative; padding-left: 18px; }
 .ks-case-does li::before { content: ""; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--app); opacity: 0.75; }
 .ks-case-link a { font-weight: 600; color: var(--app-ink); }
-@media (max-width: 960px) { .ks-cases { grid-template-columns: 1fr 1fr; } .ks-case, .ks-case:nth-child(-n+2) { grid-column: auto; } .ks-case:last-child { grid-column: 1 / -1; } }
-@media (max-width: 640px) { .ks-cases { grid-template-columns: 1fr; } .ks-case:last-child { grid-column: auto; } }
 .ks-pagehead .ks-actions { margin-top: 4px; }
-.ks-cta { padding: clamp(28px, 4.5vw, 52px); border-radius: 28px; border: 1px solid var(--line); background: linear-gradient(160deg, color-mix(in srgb, var(--signal) 11%, var(--surface)), var(--surface) 65%); }
-.ks-cta > div { display: grid; gap: 14px; justify-items: start; max-width: 40rem; }
-.ks-cta .ks-pglyph { grid-row: auto; }
-.ks-case-win { margin-top: auto !important; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; color: var(--slate); }
 .ks-case-win strong { color: var(--app-ink); font-weight: 650; }
 .ks-syshero { padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 6vw, 80px); overflow: hidden; background: radial-gradient(70% 90% at 85% 40%, color-mix(in srgb, var(--signal) 14%, transparent), transparent 70%); }
 .ks-syshero-in { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
@@ -46,8 +43,6 @@
 .ks-sysphone-wrap { position: relative; display: grid; justify-items: center; gap: 14px; margin: 0; }
 .ks-sysphone { position: relative; transform: rotate(3deg); font: 13px/1.4 var(--font-text); }
 .ks-sysphone .ks-phone-screen { min-height: 470px; }
-.ks-sysphone-wrap .ks-badge { justify-self: center; }
-@media (max-width: 860px) { .ks-syshero-in { grid-template-columns: 1fr; } .ks-sysphone { transform: rotate(2deg) scale(0.92); } }
 .ks-flow { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1.2fr) 40px minmax(0, 1fr); gap: 14px; align-items: center; }
 .ks-flow-col { display: grid; gap: 14px; align-content: start; padding: 22px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); }
 .ks-flow-col h3 { font: 650 13px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); }
@@ -62,25 +57,89 @@
 .ks-flow-arrow svg { width: 40px; height: 24px; }
 .ks-flow-note { margin-top: 20px !important; color: var(--slate); max-width: var(--measure); }
 @media (max-width: 900px) { .ks-flow { grid-template-columns: 1fr; } .ks-flow-arrow { transform: rotate(90deg); height: 28px; } }
-.ks-ideas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.ks-ideas li { padding: 20px 22px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
-.ks-ideas strong { font: 650 1.05rem/1.3 var(--font-text); }
-.ks-ideas p { color: var(--slate); font-size: 15.5px; }
-@media (max-width: 900px) { .ks-ideas { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .ks-ideas { grid-template-columns: 1fr; } }
-.ks-sysend { align-items: stretch; }
-.ks-sysme { padding-top: clamp(0px, 2vw, 24px); }
-.ks-sysme p:last-child a { font-weight: 600; color: var(--signal); }
 .ks-qa { border-top: 0 !important; padding-top: 0; }
-.ks-qa-band { padding: clamp(28px, 4.5vw, 56px); border-radius: 30px; color: #fff; background: radial-gradient(70% 120% at 100% 0%, rgba(124,155,255,0.28), transparent 70%), linear-gradient(150deg, #1B2C66, #0F1522 72%); box-shadow: 0 30px 60px -36px rgba(15, 21, 34, 0.7); }
-:root[data-theme="dark"] .ks-qa-band { box-shadow: 0 0 0 1px var(--line); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ks-qa-band { box-shadow: 0 0 0 1px var(--line); } }
 .ks-qa-band .ks-h2 { color: #fff; }
 .ks-qa-band .ks-lede { color: rgba(255,255,255,0.8); }
 .ks-qa-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px; }
 .ks-qa-list li { display: grid; gap: 8px; align-content: start; }
 .ks-qa-list .ks-pglyph { grid-row: auto; color: #B9C8FF; background: rgba(124,155,255,0.16); margin-bottom: 4px; }
-.ks-qa-list h3 { font: 650 1.08rem/1.3 var(--font-text); color: #fff; }
+.ks-qa-list h3 { font: 650 1.08rem/1.3 var(--font-text); color: #fff; text-wrap: balance; }
 .ks-qa-list p { color: rgba(255,255,255,0.74); font-size: 15.5px; }
 @media (max-width: 900px) { .ks-qa-list { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .ks-qa-list { grid-template-columns: 1fr; } }
+
+/* five case cards: subgrid rows so title, quote, list and proof line align across each row */
+.ks-case { grid-column: span 2; grid-row: span 5; display: grid; grid-template-rows: subgrid; row-gap: 12px; align-content: start; padding: clamp(22px, 2.8vw, 30px); border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(165deg, color-mix(in srgb, var(--app) 10%, var(--surface)), var(--surface) 55%); }
+.ks-case:nth-child(-n+2) { grid-column: span 3; }
+.ks-case-win { display: grid; gap: 10px; align-content: start; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; color: var(--slate); }
+@media (max-width: 960px) { .ks-cases { grid-template-columns: 1fr 1fr; } .ks-case, .ks-case:nth-child(-n+2) { grid-column: auto; } .ks-case:last-child { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .ks-cases { grid-template-columns: 1fr; } .ks-case { display: flex; flex-direction: column; grid-row: auto; } .ks-case:last-child { grid-column: auto; } }
+
+/* hero on narrow screens: smaller phone, less scroll before the cards */
+@media (max-width: 860px) { .ks-syshero-in { grid-template-columns: 1fr; } .ks-sysphone { transform: rotate(2deg); zoom: 0.84; } }
+@media (max-width: 480px) { .ks-sysphone { zoom: 0.76; } .ks-sysphone-wrap { gap: 8px; } }
+
+/* shared dark band */
+.ks-band { position: relative; padding: clamp(28px, 4.5vw, 56px); border-radius: 30px; color: #fff; background: radial-gradient(70% 120% at 100% 0%, var(--band-glow), transparent 70%), linear-gradient(150deg, var(--band-a), var(--band-b) 72%); box-shadow: 0 0 0 1px var(--band-ring), var(--band-shadow); }
+.ks-band .ks-h2 { color: #fff; }
+.ks-band .ks-lede { color: rgba(255,255,255,0.8); }
+.ks-band a:not(.ks-button) { color: #C9D6FF; }
+
+/* what could yours do: full-bleed tint, each idea ends in a sample notification */
+.ks-sysideas { background: color-mix(in srgb, var(--signal) 5%, var(--paper)); }
+.ks-ideas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ks-ideas li { padding: 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); display: grid; grid-template-rows: auto 1fr auto; gap: 12px; }
+.ks-idea-top { display: flex; align-items: center; gap: 12px; }
+.ks-idea-top .ks-pglyph { grid-row: auto; width: 38px; height: 38px; border-radius: 11px; flex: none; }
+.ks-idea-top .ks-pglyph svg { width: 20px; height: 20px; }
+.ks-idea-top strong { font: 650 1.05rem/1.25 var(--font-text); }
+.ks-ideas p { color: var(--slate); font-size: 15.5px; }
+.ks-ideas .ks-idea-ping { display: flex; align-items: baseline; gap: 10px; padding: 9px 12px; border-radius: 12px; font-size: 14px; font-weight: 600; color: var(--ink); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--signal) 16%, var(--line)); }
+.ks-idea-ping span:not(.ks-sr) { flex: none; font-size: 11px; font-weight: 650; letter-spacing: 0.05em; text-transform: uppercase; color: var(--signal); }
+@media (max-width: 900px) { .ks-ideas { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .ks-ideas { grid-template-columns: 1fr; } }
+.ks-section.ks-sysideas + .ks-section { border-top: 0; }
+
+/* questions */
+.ks-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin: 0; }
+.ks-faq > div { padding: 22px 0; border-top: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
+.ks-faq dt { font: 700 1.2rem/1.25 var(--display); letter-spacing: -0.01em; }
+.ks-faq dd { margin: 0; color: var(--slate); max-width: 34em; }
+@media (max-width: 760px) { .ks-faq { grid-template-columns: 1fr; } }
+
+/* closing band: how we'd build it, then the ask */
+.ks-sysclose { border-top: 0 !important; padding-top: 0; }
+.ks-path { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; position: relative; }
+.ks-path::before { content: ""; position: absolute; left: 22px; right: calc((100% - 84px) / 4 - 22px); top: 22px; height: 1px; background: linear-gradient(90deg, rgba(185,200,255,0.5), rgba(185,200,255,0.12)); }
+.ks-path li { position: relative; display: grid; gap: 8px; align-content: start; }
+.ks-path-n { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; margin-bottom: 8px; font: 700 1.1rem/1 var(--display); color: #fff; background: var(--band-a); box-shadow: inset 0 0 0 1px rgba(185,200,255,0.45), 0 0 0 6px color-mix(in srgb, var(--band-a) 60%, transparent); }
+.ks-path h3 { font: 650 1.08rem/1.3 var(--font-text); color: #fff; text-wrap: balance; }
+.ks-path p { color: rgba(255,255,255,0.74); font-size: 15.5px; }
+.ks-close-in { margin-top: clamp(36px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); padding: clamp(24px, 3.5vw, 40px); border-radius: 22px; background: rgba(170,190,255,0.08); box-shadow: inset 0 0 0 1px rgba(185,200,255,0.16); }
+.ks-close-cta { display: grid; gap: 14px; align-content: start; }
+.ks-close-cta h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.08; color: #fff; text-wrap: balance; }
+.ks-close-cta p { color: rgba(255,255,255,0.8); max-width: 34em; }
+.ks-close-act { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 6px; }
+.ks-close-act .ks-button { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #14204A; }
+.ks-close-act .ks-button svg { width: 19px; height: 19px; }
+.ks-close-act span { font-size: 15px; color: rgba(255,255,255,0.72); user-select: all; overflow-wrap: anywhere; }
+.ks-close-me { display: grid; gap: 10px; align-content: start; padding-left: clamp(0px, 4vw, 48px); border-left: 1px solid rgba(255,255,255,0.14); }
+.ks-close-me h3 { font: 650 13px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.62); }
+.ks-close-me p { color: rgba(255,255,255,0.8); font-size: 15.5px; }
+.ks-close-me a { font-weight: 600; }
+@media (max-width: 900px) {
+  .ks-path { grid-template-columns: 1fr 1fr; }
+  .ks-path::before { display: none; }
+  .ks-close-in { grid-template-columns: 1fr; }
+  .ks-close-me { padding: 24px 0 0; border-left: 0; border-top: 1px solid rgba(255,255,255,0.14); }
+}
+@media (max-width: 560px) {
+  .ks-path { grid-template-columns: 1fr; gap: 0; }
+  .ks-path li { grid-template-columns: 44px 1fr; column-gap: 16px; row-gap: 4px; padding-bottom: 26px; }
+  .ks-path li > :not(.ks-path-n) { grid-column: 2; }
+  .ks-path-n { grid-row: span 2; margin: 0; }
+  .ks-path li:not(:last-child)::after { content: ""; position: absolute; left: 22px; top: 52px; bottom: 6px; width: 1px; background: rgba(185,200,255,0.3); }
+  .ks-path h3 { padding-top: 10px; }
+  .ks-band { padding: 28px 22px; border-radius: 26px; }
+  .ks-close-in { padding: 26px 0 0; margin-top: 8px; background: none; box-shadow: none; border-radius: 0; border-top: 1px solid rgba(255,255,255,0.14); }
+}
