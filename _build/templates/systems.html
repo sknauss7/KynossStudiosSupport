@@ -71,6 +71,22 @@
   </div>
 </section>
 
+<section class="ks-section ks-qa" aria-labelledby="qa-h">
+  <div class="ks-wrap">
+    <div class="ks-qa-band">
+      <div class="ks-section-head">
+        <h2 class="ks-display ks-h2" id="qa-h">{{ qa.title }}</h2>
+        <p class="ks-lede">{{ qa.lede }}</p>
+      </div>
+      <ul class="ks-qa-list">
+        {%- for g, t, d in qa.points %}
+        <li><span class="ks-pglyph">{{ glyph(g) }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="ks-section" aria-labelledby="flow-h">
   <div class="ks-wrap">
     <div class="ks-section-head">

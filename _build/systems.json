@@ -146,5 +146,41 @@
       "What happens once it's built?",
       "It keeps working for you, and we can keep extending it as your needs change."
     ]
-  ]
+  ],
+  "qa": {
+    "title": "AI-built. Not AI slop.",
+    "lede": "Software thrown together with AI has earned a reputation for looking fine and falling apart. Ours goes through strict testing and review before it reaches you, because the experience is the product.",
+    "points": [
+      [
+        "device",
+        "Seen working, not just “tests pass”",
+        "Nothing counts as done until it has been run and checked on screen. Passing tests alone don't prove it works."
+      ],
+      [
+        "people",
+        "Judged on how it feels",
+        "Independent AI reviewers look at every screen the way a newcomer would: is it clear at a glance, and would you show it to a friend? It doesn't ship without a pass."
+      ],
+      [
+        "build",
+        "Tested in real conditions",
+        "Automated tests run against real databases, real browsers and simulated iPhones, and they run again on every change."
+      ],
+      [
+        "search",
+        "Reviewed before every release",
+        "The code is reviewed line by line, the way a careful colleague would, before anything goes out."
+      ],
+      [
+        "block",
+        "A failed check stays failed",
+        "When something misses its target, nobody moves the goalposts or calls it close enough. It gets fixed."
+      ],
+      [
+        "help",
+        "Known issues get fixed, not shipped",
+        "Anything spotted before launch is fixed first, even small cosmetic things."
+      ]
+    ]
+  }
 }
