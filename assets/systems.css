@@ -74,7 +74,8 @@
 /* what could yours do: full-bleed tint, each idea ends in a sample notification */
 .ks-sysideas { background: color-mix(in srgb, var(--signal) 5%, var(--paper)); }
 .ks-ideas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.ks-ideas li { padding: 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); display: grid; grid-template-rows: auto 1fr auto; gap: 12px; }
+.ks-ideas li { padding: 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: 12px; }
+.ks-ideas .ks-idea-ping { align-self: end; }
 .ks-idea-top { display: flex; align-items: center; gap: 12px; }
 .ks-idea-top .ks-pglyph { grid-row: auto; width: 38px; height: 38px; border-radius: 11px; flex: none; }
 .ks-idea-top .ks-pglyph svg { width: 20px; height: 20px; }
@@ -163,3 +164,71 @@
 .ks-vs-them { width: 44%; }
 @media (max-width: 560px) { .ks-vs-them { width: 40%; } }
 @media (max-width: 560px) { .ks-vs { font-size: 15px; } .ks-vs th, .ks-vs td { padding: 14px 12px; } .ks-vs td:last-child { padding-left: 38px; } .ks-vs td:last-child svg { left: 12px; top: 15px; width: 18px; height: 18px; } }
+
+/* it connects the dots: one real question, the answer, and the trail that got there */
+.ks-section.ks-syswhy + .ks-sysstory { border-top: 0; padding-top: 0; }
+.ks-sysstory { background: var(--surface); }
+.ks-section.ks-sysstory + .ks-section { border-top: 0; }
+.ks-story { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(20px, 3vw, 32px); padding: clamp(18px, 2.5vw, 28px); border-radius: 28px; border: 1px solid var(--line); background: var(--paper); }
+.ks-story-chat { display: grid; gap: 14px; align-content: start; padding: clamp(20px, 3vw, 32px); border-radius: 22px; background: radial-gradient(90% 120% at 0% 0%, color-mix(in srgb, var(--signal) 14%, transparent), transparent 70%), var(--surface); border: 1px solid var(--line); }
+.ks-bubble { max-width: 92%; padding: 14px 18px; border-radius: 20px; font-size: 16.5px; line-height: 1.45; }
+.ks-bubble.is-me { justify-self: end; background: var(--signal); color: var(--signal-ink); border-bottom-right-radius: 6px; font-weight: 550; }
+.ks-bubble.is-it { justify-self: start; display: grid; gap: 12px; background: var(--paper); border: 1px solid var(--line); border-bottom-left-radius: 6px; color: var(--ink); }
+.ks-story-src { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.ks-story-src li { font-size: 12px; font-weight: 650; padding: 4px 10px; border-radius: 999px; color: var(--signal); background: color-mix(in srgb, var(--signal) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--signal) 20%, var(--line)); }
+.ks-story-how { display: grid; gap: 16px; align-content: start; padding: clamp(8px, 1.5vw, 16px) clamp(4px, 1vw, 12px); }
+.ks-story-how h3 { font: 650 13px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); }
+.ks-story-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.ks-story-steps li { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 0 12px 18px 0; }
+.ks-story-steps li:not(:last-child)::after { content: ""; position: absolute; left: 19.5px; top: 44px; bottom: 4px; width: 1px; background: var(--line); }
+.ks-story-steps .ks-pglyph { grid-row: auto; width: 40px; height: 40px; border-radius: 12px; }
+.ks-story-steps .ks-pglyph svg { width: 20px; height: 20px; }
+.ks-story-steps strong { display: block; font: 650 1rem/1.3 var(--font-text); padding-top: 2px; }
+.ks-story-steps p { color: var(--slate); font-size: 15.5px; }
+.ks-story-steps li:last-child { padding: 12px 14px; margin-left: -14px; border-radius: 16px; background: color-mix(in srgb, var(--signal) 9%, var(--surface)); border: 1px solid color-mix(in srgb, var(--signal) 24%, var(--line)); }
+.ks-story-steps li:last-child p { color: var(--ink); }
+.ks-story-kicker { font: 700 clamp(1.2rem, 2vw, 1.45rem)/1.2 var(--display); letter-spacing: -0.01em; text-wrap: balance; margin-top: 4px !important; }
+@media (max-width: 900px) { .ks-story { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .ks-story { padding: 12px; border-radius: 22px; } .ks-story-chat { padding: 16px; } .ks-bubble { max-width: 100%; font-size: 15.5px; } .ks-story-steps li:last-child { margin-left: 0; } }
+
+/* what we can build: the building blocks, beyond what our own systems use */
+.ks-blocks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.ks-blocks li { display: grid; gap: 8px; align-content: start; padding: 22px; border-radius: 20px; background: var(--surface); border: 1px solid var(--line); }
+.ks-blocks .ks-pglyph { grid-row: auto; width: 40px; height: 40px; border-radius: 12px; margin-bottom: 6px; }
+.ks-blocks .ks-pglyph svg { width: 20px; height: 20px; }
+.ks-blocks h3 { font: 650 1.05rem/1.3 var(--font-text); }
+.ks-blocks p { color: var(--slate); font-size: 15px; }
+.ks-blocks-tools { margin-top: 22px !important; color: var(--slate); max-width: 46em; }
+@media (max-width: 1000px) { .ks-blocks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .ks-blocks { grid-template-columns: 1fr; gap: 0; } .ks-blocks li { grid-template-columns: 40px 1fr; column-gap: 14px; padding: 16px 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; } .ks-blocks .ks-pglyph { grid-row: span 2; margin: 0; } }
+
+/* featured example: the AI receptionist, with an illustrated call */
+.ks-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: center; padding: clamp(24px, 4vw, 44px); margin-bottom: 18px; border-radius: 28px; background: var(--surface); border: 1px solid var(--line); }
+.ks-feature-copy { display: grid; gap: 14px; align-content: start; }
+.ks-feature-kind { font: 650 12.5px/1.2 var(--font-text); letter-spacing: 0.06em; text-transform: uppercase; color: var(--signal); }
+.ks-feature h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.08; text-wrap: balance; }
+.ks-feature-copy > p { color: var(--slate); }
+.ks-feature-does { list-style: none; padding: 0; display: grid; gap: 8px; }
+.ks-feature-does li { display: flex; gap: 10px; align-items: flex-start; font-weight: 550; }
+.ks-feature-does svg { flex: none; width: 20px; height: 20px; margin-top: 2px; color: var(--signal); }
+.ks-call { margin: 0; display: grid; gap: 12px; padding: clamp(18px, 2.5vw, 26px); border-radius: 24px; color: #fff; background: radial-gradient(70% 120% at 100% 0%, var(--band-glow), transparent 70%), linear-gradient(150deg, var(--band-a), var(--band-b) 72%); box-shadow: 0 0 0 1px var(--band-ring), var(--band-shadow); }
+.ks-call-head { display: flex; align-items: center; gap: 10px; font: 650 12px/1.2 var(--font-text); letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.ks-call-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 0 4px rgba(74,222,128,0.2); }
+.ks-call-lines { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.ks-call-lines li { display: grid; gap: 3px; max-width: 88%; padding: 10px 14px; border-radius: 16px; font-size: 15px; line-height: 1.45; }
+.ks-call-lines li span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.ks-call-lines li.is-caller { justify-self: start; background: rgba(255,255,255,0.1); border-bottom-left-radius: 5px; }
+.ks-call-lines li.is-ai { justify-self: end; background: rgba(160,185,255,0.24); border-bottom-right-radius: 5px; }
+.ks-call-text { display: grid; gap: 3px; padding: 12px 14px; border-radius: 14px; background: #fff; color: #14204A; font-size: 14.5px; font-weight: 600; }
+.ks-call-text span { font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #2B54E0; }
+.ks-call .ks-syscap { color: rgba(255,255,255,0.6); justify-self: end; }
+@media (max-width: 900px) { .ks-feature { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .ks-feature { padding: 20px; border-radius: 22px; } .ks-call-lines li { max-width: 94%; } }
+
+/* mid-page ask */
+.ks-midcta { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 20px 24px; border-radius: 20px; background: var(--surface); border: 1px solid color-mix(in srgb, var(--signal) 24%, var(--line)); }
+.ks-midcta p { color: var(--slate); }
+.ks-midcta strong { color: var(--ink); }
+
+.ks-story-head { color: var(--slate); margin-bottom: 6px; }
+@media (max-width: 600px) { .ks-ideas li { grid-template-rows: none; grid-row: auto; } }

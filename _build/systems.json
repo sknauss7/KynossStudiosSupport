@@ -67,11 +67,11 @@
       "accent": "#6A5CE6",
       "kind": "Personal life",
       "title": "A memory for everyday life",
-      "idea": "Where's the warranty for the tires, and when did I buy them?",
+      "idea": "Which of these car charges were actually for my truck?",
       "does": [
         "Sorts several inboxes and texts: keeps what matters, clears out the spam",
         "Keeps track of spending, bills, birthdays and appointments",
-        "Answers questions about your own records in plain English"
+        "Answers questions about your own records by connecting email, texts and card charges"
       ],
       "win": [
         "Runs every hour,",
@@ -108,7 +108,7 @@
     {
       "glyph": "hardhat",
       "who": "A contractor",
-      "what": "Bids, permits, invoices and inspections for every job in one place, and a morning list of what's due.",
+      "what": "Bids, permits, invoices and inspections for every job in one place, a morning list of what's due, and calls answered while you're on site.",
       "sample": [
         "Today",
         "2 permits due this week"
@@ -161,6 +161,18 @@
       "If information arrives all the time, there's a lot to keep track of, or you write the same kind of reply again and again, probably yes. Tell us about it and we'll say plainly whether a system would help."
     ],
     [
+      "Do I need to be technical?",
+      "No. You tell us how the work happens in your own words. We design it, build it, test it and set it up where you already work."
+    ],
+    [
+      "Where does my information live?",
+      "Wherever you're comfortable: on your own computer, in your own accounts, or with a service you choose. We agree on it before anything is built."
+    ],
+    [
+      "Can it do something I didn't want?",
+      "Only what you allow. It can be read-only, ask before it sends anything, and keep a record of every change it makes so it can be undone."
+    ],
+    [
       "What can it connect to?",
       "Whatever your work already runs on: email, texts, calendars, shared folders, spreadsheets, websites and many online services."
     ],
@@ -171,10 +183,6 @@
     [
       "How much does it do on its own?",
       "As much or as little as you like. Some people want drafts to approve; others want jobs handled start to finish. You choose, and you can change it later."
-    ],
-    [
-      "Where does my information live?",
-      "We agree on that up front and set it up the way you're comfortable with."
     ],
     [
       "What does it cost?",
@@ -247,22 +255,22 @@
         "glyph": "moon",
         "title": "It works while you don't",
         "text": "It checks your email, documents and calendar on its own schedule, so you start the day with a short summary instead of a backlog.",
-        "proof": "Our personal system refreshes every hour and sends one short brief each morning.",
-        "accent": "#6A5CE6"
+        "proof": "Every night the condo assistant logs in to the management company's portal, pulls new documents and files them.",
+        "accent": "#2E9C6A"
       },
       {
         "glyph": "bell",
         "title": "Nothing slips",
         "text": "Deadlines, renewals and follow-ups are tracked for you and raised with enough time to act, not on the day.",
-        "proof": "A condo board's legal deadlines are each flagged at their own lead time.",
-        "accent": "#2E9C6A"
+        "proof": "It tracks the questions you never answered and the emails that never got a reply.",
+        "accent": "#6A5CE6"
       },
       {
         "glyph": "chat",
         "title": "It knows your stuff",
         "text": "Ask a question in plain English and get the answer from your own email and documents, with the source attached.",
-        "proof": "“Where is my passport scan?” gets a short answer, sources cited.",
-        "accent": "#C2567A"
+        "proof": "Asked “can the board do this?”, it quotes the governing documents, or says the source isn't on file.",
+        "accent": "#2E9C6A"
       },
       {
         "glyph": "team",
@@ -296,5 +304,118 @@
         "Your email, files and calendars joined in one place"
       ]
     ]
-  }
+  },
+  "story": {
+    "title": "It connects the dots",
+    "lede": "A real question to our personal system, with the details changed. Nobody told it where to look.",
+    "ask": "When did I get the truck serviced, and what did it all cost?",
+    "answer": "Your truck was serviced on the 14th: one shop receipt and one matching card charge. The parts ordered that same week were for the other car, so I left them out.",
+    "sources": [
+      "Email",
+      "Card charges",
+      "Texts"
+    ],
+    "steps": [
+      [
+        "mail",
+        "Email",
+        "Finds the shop's service receipt and the date."
+      ],
+      [
+        "card",
+        "Card charges",
+        "Matches the charge that goes with it."
+      ],
+      [
+        "bag",
+        "Orders",
+        "Spots a parts order from the same week that looks like part of the job."
+      ],
+      [
+        "chat",
+        "Texts",
+        "Finds a text thread about fixing someone else's car, and sets those parts aside."
+      ]
+    ],
+    "kicker": "Nobody mentioned the other car. It worked that out on its own."
+  },
+  "build": {
+    "title": "What we can build",
+    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including ones our own systems haven't needed yet.",
+    "blocks": [
+      [
+        "phone",
+        "Answers the phone",
+        "A natural-sounding voice picks up every call, day or night, answers the common questions and books the job."
+      ],
+      [
+        "chat",
+        "Replies to customers",
+        "Texts, email and website chat answered in your tone, with anything tricky handed to you."
+      ],
+      [
+        "calendar",
+        "Books and reminds",
+        "Appointments scheduled, confirmed and moved, with reminders so fewer people forget."
+      ],
+      [
+        "doc",
+        "Handles the paperwork",
+        "Invoices, receipts, forms and contracts read, filed and entered where they belong."
+      ],
+      [
+        "money",
+        "Chases the money",
+        "Quotes drafted, invoices sent and late payments followed up politely."
+      ],
+      [
+        "eye",
+        "Keeps watch",
+        "Prices, reviews, permits, deadlines and the news that matters to you, checked every day."
+      ],
+      [
+        "chart",
+        "Reports the numbers",
+        "Sales, bookings and spending pulled into one short daily report or a live dashboard."
+      ],
+      [
+        "send",
+        "Writes for you",
+        "Replies, posts, newsletters and listings drafted in your voice, ready for your OK."
+      ]
+    ],
+    "tools": "It works with what you already use: Google or Microsoft email and calendars, spreadsheets, your phone line, accounting and online-shop tools, and many more."
+  },
+  "feature": {
+    "kind": "Example: a plumbing business",
+    "title": "A receptionist that never misses a call",
+    "text": "Every call that goes to voicemail can be a job that goes to someone else. An AI receptionist answers in a natural voice, any hour, handles the everyday questions and books the work, so you can stay on the job you're doing.",
+    "does": [
+      "Answers every call, nights and weekends included",
+      "Gives your hours, service area and standard prices",
+      "Books jobs straight into your calendar",
+      "Texts you a summary of every call",
+      "Puts urgent calls through to you"
+    ],
+    "call": [
+      [
+        "caller",
+        "Hi, my water heater's leaking. Can someone come out today?"
+      ],
+      [
+        "ai",
+        "Sorry to hear that. I can get a technician to you between 2 and 4 this afternoon. What's the address?"
+      ],
+      [
+        "caller",
+        "14 Oak Street. Do you replace them too?"
+      ],
+      [
+        "ai",
+        "We do. The technician can give you a price on site. You're booked for 2 to 4, and you'll get a text when they're on the way."
+      ]
+    ],
+    "text_to_owner": "New job, 2–4 pm: leaking water heater at 14 Oak St. Asked about a replacement."
+  },
+  "cases_lede": "Each one started as a single sentence about a job. Here's what they do now."
 }

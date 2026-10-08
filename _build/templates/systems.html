@@ -22,6 +22,9 @@
   "chat": '<path d="M4 5.5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4.5 3.5v-3.5H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"/><path d="M8 10h8M8 13h5"/>',
   "team": '<circle cx="12" cy="7.5" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M7 20c.6-3.3 2.6-5.5 5-5.5s4.4 2.2 5 5.5M1.8 18c.4-2 1.6-3.3 3.2-3.3M22.2 18c-.4-2-1.6-3.3-3.2-3.3"/>',
   "check": '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  "card": '<rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6 15h4"/>',
+  "phone": '<path d="M5 3.5h3.2l1.6 4.3-2.1 1.4a11.5 11.5 0 0 0 5.6 5.6l1.4-2.1 4.3 1.6V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5Z"/>',
+  "money": '<path d="M12 3v18"/><path d="M16.5 7.5c-.6-1.4-2.3-2.3-4.5-2.3-2.6 0-4.3 1.3-4.3 3.1 0 4.4 9 2.4 9 6.9 0 1.9-1.9 3.3-4.7 3.3-2.3 0-4.1-1-4.8-2.6"/>',
   "mail": '<rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/>',
 } -%}
 {%- if name in paths -%}
@@ -34,7 +37,7 @@
     <div class="ks-syshero-copy">
       <p class="ks-eyebrow">Custom AI systems</p>
       <h1 class="ks-display ks-h1">Hand off the work that eats your week</h1>
-      <p class="ks-lede">A custom AI system takes a whole job off your plate. It watches your email and documents, keeps track of what's due, answers your questions and drafts the next step, every day, without being asked.</p>
+      <p class="ks-lede">A custom AI system takes a whole job off your plate. It answers calls and messages, keeps track of what's due, handles the paperwork and drafts the next step, day and night, without being asked.</p>
       <p class="ks-muted">Built around the way you already work. Five are running today: an app studio, a condo board, a wedding, a household and a research desk.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#start">Tell us your idea</a>
@@ -92,6 +95,93 @@
   </div>
 </section>
 
+<section class="ks-section ks-sysstory" id="story" aria-labelledby="story-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="story-h">{{ story.title }}</h2>
+      <p class="ks-lede">{{ story.lede }}</p>
+    </div>
+    <div class="ks-story">
+      <div class="ks-story-chat">
+        <div class="ks-call-head ks-story-head"><span class="ks-call-dot"></span>Text to your personal system</div>
+        <p class="ks-bubble is-me"><span class="ks-sr">The question: </span>{{ story.ask }}</p>
+        <div class="ks-bubble is-it">
+          <p><span class="ks-sr">The answer: </span>{{ story.answer }}</p>
+          <ul class="ks-story-src" aria-label="Sources">
+            {%- for src in story.sources %}<li>{{ src }}</li>{%- endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="ks-story-how">
+        <h3>How it got there</h3>
+        <ol class="ks-story-steps">
+          {%- for g, src, t in story.steps %}
+          <li><span class="ks-pglyph">{{ sg(g) }}</span><div><strong>{{ src }}</strong><p>{{ t }}</p></div></li>
+          {%- endfor %}
+        </ol>
+        <p class="ks-story-kicker">{{ story.kicker }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ks-section ks-sysbuild" id="build" aria-labelledby="buildcap-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="buildcap-h">{{ build.title }}</h2>
+      <p class="ks-lede">{{ build.lede }}</p>
+    </div>
+    <ul class="ks-blocks">
+      {%- for g, t, d in build.blocks %}
+      <li><span class="ks-pglyph">{{ sg(g) }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
+      {%- endfor %}
+    </ul>
+    <p class="ks-blocks-tools">{{ build.tools }}</p>
+  </div>
+</section>
+
+<section class="ks-section ks-sysideas" aria-labelledby="ideas-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
+      <p class="ks-lede">If you can describe the job, we can probably build a system for it. Here's one in detail, then a few more starting points.</p>
+    </div>
+    <article class="ks-feature" aria-labelledby="feature-h">
+      <div class="ks-feature-copy">
+        <p class="ks-feature-kind">{{ feature.kind }}</p>
+        <h3 class="ks-display" id="feature-h">{{ feature.title }}</h3>
+        <p>{{ feature.text }}</p>
+        <ul class="ks-feature-does">
+          {%- for x in feature.does %}<li>{{ sg("check") }}{{ x }}</li>{%- endfor %}
+        </ul>
+      </div>
+      <figure class="ks-call" aria-label="Illustration: an example phone call answered by an AI receptionist, and the text it sends the owner">
+        <div class="ks-call-head"><span class="ks-call-dot"></span>Incoming call · answered by your receptionist</div>
+        <ol class="ks-call-lines">
+          {%- for who, line in feature.call %}
+          <li class="is-{{ who }}"><span>{{ "Caller" if who == "caller" else "Receptionist" }}</span>{{ line }}</li>
+          {%- endfor %}
+        </ol>
+        <div class="ks-call-text"><span>Text to you</span>{{ feature.text_to_owner }}</div>
+        <figcaption class="ks-syscap">Illustration</figcaption>
+      </figure>
+    </article>
+    <ul class="ks-ideas">
+      {%- for i in ideas %}
+      <li>
+        <div class="ks-idea-top"><span class="ks-pglyph">{{ sg(i.glyph) }}</span><strong>{{ i.who }}</strong></div>
+        <p>{{ i.what }}</p>
+        <p class="ks-idea-ping"><span class="ks-sr">Example notification: </span><span>{{ i.sample[0] }}</span>{{ i.sample[1] }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+    <div class="ks-midcta">
+      <p><strong>Have a job like one of these?</strong> Tell us about it in a few sentences.</p>
+      <a class="ks-button" href="#start">Tell us your idea</a>
+    </div>
+  </div>
+</section>
+
 <section class="ks-section ks-syscustom" aria-labelledby="custom-h">
   <div class="ks-wrap ks-custom">
     <div class="ks-section-head">
@@ -114,7 +204,7 @@
   <div class="ks-wrap">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="cases-h">Five systems, already working</h2>
-      <p class="ks-lede">They have almost nothing in common on the surface. That's the point: each one is shaped around a different job.</p>
+      <p class="ks-lede">{{ cases_lede }}</p>
     </div>
     <ul class="ks-cases">
       {%- for c in cases %}
@@ -152,24 +242,6 @@
         {%- endfor %}
       </ul>
     </div>
-  </div>
-</section>
-
-<section class="ks-section ks-sysideas" aria-labelledby="ideas-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
-      <p class="ks-lede">If you can describe the job, we can probably build a system for it. A few starting points:</p>
-    </div>
-    <ul class="ks-ideas">
-      {%- for i in ideas %}
-      <li>
-        <div class="ks-idea-top"><span class="ks-pglyph">{{ sg(i.glyph) }}</span><strong>{{ i.who }}</strong></div>
-        <p>{{ i.what }}</p>
-        <p class="ks-idea-ping"><span class="ks-sr">Example notification: </span><span>{{ i.sample[0] }}</span>{{ i.sample[1] }}</p>
-      </li>
-      {%- endfor %}
-    </ul>
   </div>
 </section>
 
