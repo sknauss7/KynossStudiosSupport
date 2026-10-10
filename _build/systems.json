@@ -521,9 +521,9 @@
           "catch": false
         },
         {
-          "glyph": "chat",
-          "source": "Texts",
-          "text": "Finds your partner offered to handle school things this week.",
+          "glyph": "mail",
+          "source": "Email",
+          "text": "Finds your partner's reply on the school thread: they'll handle school things this week.",
           "catch": true
         },
         {
