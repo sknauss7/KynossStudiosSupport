@@ -213,6 +213,14 @@ body.ks-page {
 .ks-hero-stage { position: relative; overflow: hidden; --copy-w: min(32rem, 44vw); --copy-r: calc(max(var(--gutter), 50% - 560px + var(--gutter)) + var(--copy-w) + 28px); }
 .ks-hero-stage > .ks-wrap { position: relative; z-index: 2; width: 100%; }
 .ks-hero-b .ks-hero-copy { max-width: var(--copy-w); padding: clamp(48px, 9vw, 120px) 0 clamp(40px, 6vw, 72px); }
+/* second line of business: one quiet, linked row under the app buttons */
+.ks-page .ks-hero-also { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; padding: 12px 16px 12px 12px;
+  border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); text-decoration: none; font-size: 15.5px; line-height: 1.4; }
+.ks-hero-also .ks-pglyph { grid-row: auto; }
+.ks-hero-also strong { font-weight: 600; }
+.ks-hero-also-go { color: var(--signal); font-size: 1.2em; transition: transform .15s ease; }
+.ks-page .ks-hero-also:hover { border-color: var(--slate); }
+.ks-hero-also:hover .ks-hero-also-go { transform: translateX(3px); }
 
 /* the wall: 4 columns of App Store screenshots drifting in opposite directions.
    The only ambient motion on the site; static under reduced motion. */
