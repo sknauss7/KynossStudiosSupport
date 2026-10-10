@@ -673,8 +673,10 @@ def main():
                 label = "Help" if kind == "support" else "Privacy policy"
                 if loc:
                     label += f" ({LOCALE_NAMES.get(loc, loc)})"
-                desc = (f"Help and answers for {a['name']}, {a['kind'].lower()} for iPhone by Kynoss Studios." if kind == "support"
-                        else f"How {a['name']} handles your data: what stays on your iPhone and what, if anything, is sent elsewhere.")
+                platforms = a.get("platforms", "iPhone")  # e.g. "iPhone and iPad" for a Universal app
+                device = platforms.replace(" and ", " or ")
+                desc = (f"Help and answers for {a['name']}, {a['kind'].lower()} for {platforms} by Kynoss Studios." if kind == "support"
+                        else f"How {a['name']} handles your data: what stays on your {device} and what, if anything, is sent elsewhere.")
                 pg = {"path": f"/{f.name}", "title": "", "description": desc, "og_image": f"/assets/og/{a['id']}.png",
                       "og_title": f"{a['name']} {label.lower()}", "store_id": a.get("store_id") if a["status"] == "live" else None,
                       "crumbs": [("/", "Home"), ("/apps/", "Apps"), (f"/{a['id']}/", a["name"]), (None, label)]}
