@@ -510,7 +510,7 @@
       "trail": [
         {
           "glyph": "mail",
-          "source": "Email",
+          "source": "School newsletter",
           "text": "Reads the newsletter and pulls out the one thing with a deadline.",
           "catch": false
         },
