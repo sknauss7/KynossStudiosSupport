@@ -262,12 +262,12 @@
         <header>
             <h1>Markki Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: October 6, 2026</p>
+            <p class="effective-date">Effective Date: May 1, 2026 &middot; Last Updated: October 11, 2026</p>
         </header>
 
         <main>
             <div class="highlight">
-                <p><strong>The short version:</strong> Markki does its work on your iPhone. We don't run servers, and there are no accounts, analytics, ads or tracking, so we can't see your data. Your photos, callouts and reports stay on your iPhone unless you share them. If you add a location to a report, Apple's location service turns it into an address.</p>
+                <p><strong>The short version:</strong> Markki does its work on your iPhone. We don't run servers, and there are no accounts, analytics, ads or tracking, so we can't see your data. Your photos, callouts and reports stay on your iPhone unless you share them. If you turn on Location tags, Apple's location service turns each photo's location into an address, and Apple Maps draws the map of where your photos were taken.</p>
             </div>
 
             <nav class="toc">
@@ -325,13 +325,14 @@
             <!-- 4. LOCATION SERVICES -->
             <h2 id="location">4. Location Services</h2>
             <div class="highlight">
-                <p><strong>Location is used at capture time only.</strong> When you take a photo inside Markki, the app records the GPS coordinates and reverse-geocodes them to a human-readable address (e.g., "123 Main Street, Springfield, IL"). These coordinates and the address overlay appear on the PDF cover page so the report identifies the property.</p>
+                <p><strong>Location tags are your choice.</strong> With Location tags on (Settings, or per report), Markki records where each photo was taken and turns it into an address (e.g., "123 Main Street, Springfield, IL"). The address appears on the PDF so the report identifies the place, and when two or more photos have a location the PDF adds a map page with a numbered pin for each photo. With Location tags off, Markki doesn't read your location, and no address, coordinates or map appear in the report.</p>
             </div>
             <ul>
                 <li>Markki uses Apple's CoreLocation framework with "When In Use" authorization. Location is not requested in the background.</li>
                 <li>Coordinates and the reverse-geocoded address are stored only inside the report on your device. They are not transmitted to any Markki server (we don't have one) and not shared with any third party.</li>
+                <li>The map page is drawn by Apple Maps (MapKit's map snapshot), which receives the area your located photos cover. Apple's privacy policy governs this request; Markki gets back only the map image.</li>
                 <li>Reverse geocoding uses Apple's CLGeocoder, which sends coordinates to Apple's servers per Apple's <a href="https://developer.apple.com/documentation/corelocation/clgeocoder">CoreLocation documentation</a>. Apple's privacy policy governs this lookup; Markki does not see or retain the request beyond the resulting address string.</li>
-                <li>You can decline location access. Reports will still work without the address overlay; the cover page will show "Location not available" instead.</li>
+                <li>You can decline location access or turn Location tags off. Reports work the same without addresses or the map.</li>
                 <li>You can revoke location access at any time in Settings &gt; Markki &gt; Location.</li>
             </ul>
 

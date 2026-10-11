@@ -183,7 +183,7 @@
         },
         {
           "kind": "other",
-          "text": "Turning a location into an address uses Apple's location service"
+          "text": "With Location tags on, Apple turns locations into addresses and Apple Maps draws the report's map"
         }
       ],
       "permissions": "Camera, photos, location"
