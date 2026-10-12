@@ -253,7 +253,7 @@
         <header>
             <h1>Substrata Datenschutzrichtlinie</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Gültig ab: 25. Februar 2026 &middot; Zuletzt aktualisiert: 6. Oktober 2026</p>
+            <p class="effective-date">Gültig ab: 25. Februar 2026 &middot; Zuletzt aktualisiert: 12. Oktober 2026</p>
         </header>
 
         <main>
@@ -387,18 +387,18 @@
 
             <!-- 4. LOCATION DATA -->
             <h2 id="location">4. Standortdaten</h2>
-            <p>Substrata bietet eine optionale Zonen-Erkennungsfunktion, die einen groben (ungefähren) Standort verwendet, um Ihnen zu helfen, Umgebungen zu kategorisieren (z.&nbsp;B. „Zuhause“, „Büro“, „Pendeln“).</p>
+            <p>Substrata kann Ihren Standort auf zwei optionale Arten nutzen: um lokale Wetterdaten abzurufen und für die Zonen-Erkennung, die Ihre Messwerte mit Orten verknüpft, die Sie einrichten (z.&nbsp;B. „Zuhause“, „Büro“, „Pendeln“).</p>
 
             <h3>Verwendung des Standorts</h3>
             <ul>
-                <li>Der Standort wird <strong>ausschließlich</strong> für die Zonenklassifizierung auf dem Gerät verwendet.</li>
-                <li>Substrata verwendet eine grobe Standortgenauigkeit (reduziert/ungefähr). Präzise GPS-Koordinaten werden nicht angefordert.</li>
-                <li><strong>Substrata speichert niemals Längen-/Breitengrade oder präzise Standortdaten.</strong> Es wird nur die von Ihnen vergebene Zonenbezeichnung (z.&nbsp;B. „Zuhause“) zusammen mit Ihren Umweltdaten gespeichert.</li>
-                <li>Standortdaten werden niemals von Ihrem Gerät übertragen oder mit Dritten geteilt.</li>
+                <li><strong>Wetter:</strong> iOS stellt Substrata einen ungefähren (in der Genauigkeit reduzierten) Standort bereit, der an Apples Dienst WeatherKit gesendet wird, um lokale Bedingungen abzurufen. Siehe Abschnitt 5.</li>
+                <li><strong>Zonen-Erkennung:</strong> Das gilt nur für Zonen, für die Sie einen Standort speichern. Dafür fragt Substrata bei iOS einen Standort mit einer Genauigkeit von etwa 100 Metern ab (ungefähr ein Straßenblock) – sowohl um den Mittelpunkt einer Zone festzulegen, wenn Sie Ihren aktuellen Standort übernehmen, als auch um zu bestimmen, in welcher Ihrer Zonen Sie sich befinden. Das ist genauer als der Standort für das Wetter.</li>
+                <li>Bevor der Mittelpunkt einer Zone gespeichert wird, wird er auf etwa 110 Meter gerundet (drei Nachkommastellen). Der gerundete Mittelpunkt, der von Ihnen gewählte Radius und die von Ihnen vergebene Bezeichnung werden auf Ihrem iPhone gespeichert, und die Bezeichnung wird zusammen mit Ihren Umweltdaten abgelegt. Substrata führt keinen Verlauf darüber, wo Sie waren.</li>
+                <li>Zonenstandorte werden weder an uns noch an Dritte gesendet, und Substrata nutzt den Standort für nichts anderes.</li>
             </ul>
 
             <h3>Ihre Kontrolle</h3>
-            <p>Der Standortzugriff ist vollständig optional und standardmäßig deaktiviert. Substrata fordert keine Standortberechtigung an, es sei denn, Sie aktivieren die Zonen-Erkennung ausdrücklich. Sie können den Standortzugriff jederzeit unter Einstellungen &gt; Substrata widerrufen. Die App funktioniert mit manueller Zonenauswahl vollständig auch ohne Standortzugriff.</p>
+            <p>Der Standortzugriff ist optional und bleibt ausgeschaltet, bis Sie ihn erlauben. Substrata fragt in der App nach der Berechtigung, wenn Sie das lokale Wetter aktivieren oder eine Zone mit Standort einrichten. Sie können den Zugriff jederzeit unter Einstellungen &gt; Substrata widerrufen. Ohne Zugriff funktioniert die App weiterhin mit manueller Zonenauswahl, nur das lokale Wetter steht dann nicht zur Verfügung.</p>
 
             <!-- 5. WEATHER DATA -->
             <h2 id="weather">5. Wetterdaten</h2>
@@ -527,7 +527,7 @@
             <p>Nach den Definitionen von CCPA/CPRA verarbeitet Substrata die folgenden Kategorien von Informationen <strong>ausschließlich auf Ihrem Gerät</strong>:</p>
             <ul>
                 <li>Gesundheitsinformationen (HealthKit-Daten einschließlich Lärmexposition, Schlaf, Herzfrequenz – mit Ihrer Einwilligung)</li>
-                <li>Geolokalisierungsdaten (ungefährer Standort für Wetter und Zonen-Erkennung – mit Ihrer Einwilligung)</li>
+                <li>Geolokalisierungsdaten (ungefährer Standort für das Wetter; Standort mit einer Genauigkeit von etwa 100 Metern für die Zonen-Erkennung – jeweils mit Ihrer Einwilligung)</li>
                 <li>Von Nutzerinnen und Nutzern gemeldete Gesundheitsereignisse (freiwillig eingegebene Kopfschmerzprotokolle)</li>
             </ul>
             <p>Da jedoch die gesamte Verarbeitung auf Ihrem Gerät erfolgt und wir diese Informationen niemals erheben, empfangen oder einsehen, „erhebt“ Kynoss Studios nach der Definition des CCPA/CPRA keine personenbezogenen Informationen.</p>

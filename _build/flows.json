@@ -197,9 +197,13 @@
         {
           "kind": "other",
           "text": "Weather comes from Apple WeatherKit, which receives your approximate location"
+        },
+        {
+          "kind": "device",
+          "text": "Zones you save with a location are rounded and kept on your iPhone"
         }
       ],
-      "permissions": "Health (read only), approximate location, motion, notifications"
+      "permissions": "Health (read only), location (approximate for weather, about 100 m for zones), motion, notifications"
     },
     "collekt": {
       "flows": [

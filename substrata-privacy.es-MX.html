@@ -253,7 +253,7 @@
         <header>
             <h1>Substrata Política de Privacidad</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Fecha de entrada en vigor: 25 de febrero de 2026 &middot; Última actualización: 6 de octubre de 2026</p>
+            <p class="effective-date">Fecha de entrada en vigor: 25 de febrero de 2026 &middot; Última actualización: 12 de octubre de 2026</p>
         </header>
 
         <main>
@@ -387,18 +387,18 @@
 
             <!-- 4. LOCATION DATA -->
             <h2 id="location">4. Datos de ubicación</h2>
-            <p>Substrata ofrece una función opcional de detección de zonas que utiliza ubicación aproximada (coarse) para ayudarte a categorizar entornos (por ejemplo, "casa", "oficina", "traslado").</p>
+            <p>Substrata puede usar tu ubicación de dos maneras opcionales: para obtener el clima local y para la detección de zonas, que asocia tus lecturas con los lugares que configures (por ejemplo, "casa", "oficina", "traslado").</p>
 
             <h3>Cómo se utiliza la ubicación</h3>
             <ul>
-                <li>La ubicación se utiliza <strong>solo</strong> para la clasificación de zonas en el dispositivo.</li>
-                <li>Substrata utiliza precisión de ubicación aproximada (reducida). No se solicitan coordenadas GPS precisas.</li>
-                <li><strong>Substrata nunca almacena coordenadas de latitud/longitud ni datos de ubicación precisos.</strong> Solo se almacena la etiqueta de zona que tú asignas (por ejemplo, "Casa") junto con tus lecturas ambientales.</li>
-                <li>Los datos de ubicación nunca se transmiten fuera de tu dispositivo ni se comparten con ningún tercero.</li>
+                <li><strong>Clima:</strong> iOS le da a Substrata una ubicación aproximada (de precisión reducida), que se envía al servicio WeatherKit de Apple para obtener las condiciones locales. Consulta la sección 5.</li>
+                <li><strong>Detección de zonas:</strong> Solo aplica a las zonas en las que guardas una ubicación. Para ellas, Substrata le pide a iOS una ubicación con una precisión de unos 100 metros (aproximadamente una cuadra), tanto para fijar el centro de una zona cuando tocas para usar tu ubicación actual como para determinar en cuál de tus zonas estás. Es más precisa que la ubicación que se usa para el clima.</li>
+                <li>Antes de guardar el centro de una zona, se redondea a unos 110 metros (tres decimales). El centro redondeado, el radio que eliges y la etiqueta que asignas se guardan en tu iPhone, y la etiqueta se almacena junto con tus lecturas ambientales. Substrata no conserva un historial de dónde has estado.</li>
+                <li>Las ubicaciones de las zonas no se envían a nosotros ni a terceros, y Substrata no usa la ubicación para nada más.</li>
             </ul>
 
             <h3>Tu control</h3>
-            <p>El acceso a la ubicación es totalmente opcional y está desactivado de forma predeterminada. Substrata no solicita permiso de ubicación a menos que actives explícitamente la detección de zonas. Puedes revocar el acceso a la ubicación en cualquier momento en Configuración &gt; Substrata. La app funciona plenamente sin acceso a la ubicación utilizando selección manual de zonas.</p>
+            <p>El acceso a la ubicación es opcional y permanece desactivado hasta que lo permitas. Substrata pide el permiso dentro de la app cuando decides activar el clima local o configurar una zona con ubicación. Puedes revocar el acceso en cualquier momento en Configuración &gt; Substrata. Sin él, la app sigue funcionando con selección manual de zonas, pero el clima local no estará disponible.</p>
 
             <!-- 5. WEATHER DATA -->
             <h2 id="weather">5. Datos meteorológicos</h2>
@@ -527,7 +527,7 @@
             <p>Según las definiciones de CCPA/CPRA, Substrata procesa las siguientes categorías de información <strong>solo en tu dispositivo</strong>:</p>
             <ul>
                 <li>Información de salud (datos de HealthKit, incluida exposición a ruido, sueño, frecuencia cardiaca, con tu permiso)</li>
-                <li>Datos de geolocalización (ubicación aproximada para clima y detección de zonas, con tu permiso)</li>
+                <li>Datos de geolocalización (ubicación aproximada para el clima; ubicación con precisión de unos 100 metros para la detección de zonas; ambas con tu permiso)</li>
                 <li>Eventos de salud informados por el usuario (registros de dolores de cabeza ingresados de forma voluntaria)</li>
             </ul>
             <p>Sin embargo, dado que todo el procesamiento ocurre en tu dispositivo y nunca recopilamos, recibimos ni accedemos a esta información, Kynoss Studios no "recopila" información personal según lo definido por CCPA/CPRA.</p>

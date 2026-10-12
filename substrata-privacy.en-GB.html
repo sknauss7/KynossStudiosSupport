@@ -253,7 +253,7 @@
         <header>
             <h1>Substrata Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: 25 February 2026 &middot; Last Updated: 6 October 2026</p>
+            <p class="effective-date">Effective Date: 25 February 2026 &middot; Last Updated: 12 October 2026</p>
         </header>
 
         <main>
@@ -387,18 +387,18 @@
 
             <!-- 4. LOCATION DATA -->
             <h2 id="location">4. Location Data</h2>
-            <p>Substrata offers an optional zone detection feature that uses coarse (approximate) location to help you categorise environments (e.g., "home," "office," "commute").</p>
+            <p>Substrata can use your location in two optional ways: to get local weather, and for zone detection, which tags your readings with places you set up (e.g., "home," "office," "commute").</p>
 
             <h3>How Location Is Used</h3>
             <ul>
-                <li>Location is used <strong>only</strong> for on-device zone classification.</li>
-                <li>Substrata uses coarse location accuracy (reduced/approximate). Precise GPS coordinates are not requested.</li>
-                <li><strong>Substrata never stores latitude/longitude coordinates or precise location data.</strong> Only the zone label you assign (e.g., "Home") is stored alongside your environmental readings.</li>
-                <li>Location data is never transmitted off your device or shared with any third party.</li>
+                <li><strong>Weather:</strong> iOS gives Substrata an approximate (reduced-accuracy) location, which is sent to Apple's WeatherKit service to get local conditions. See Section 5.</li>
+                <li><strong>Zone detection:</strong> This applies only to zones where you save a location. For these, Substrata asks iOS for a location accurate to about 100 metres (roughly a city block), both to set a zone's centre when you tap to use your current location and to work out which of your zones you are in. This is more precise than the weather location.</li>
+                <li>Before a zone's centre is saved, it is rounded to about 110 metres (three decimal places). The rounded centre, the radius you choose and the label you assign are saved on your iPhone, and the label is stored with your environmental readings. Substrata does not keep a history of where you have been.</li>
+                <li>Zone locations are not sent to us or to any third party, and Substrata does not use location for anything else.</li>
             </ul>
 
             <h3>Your Control</h3>
-            <p>Location access is entirely optional and disabled by default. Substrata does not request location permission unless you explicitly enable zone detection. You can revoke location access at any time in Settings &gt; Substrata. The app works fully without location access using manual zone selection.</p>
+            <p>Location access is optional and stays off until you allow it. Substrata asks for permission in the app when you choose to turn on local weather or set up a zone with a location. You can revoke access at any time in Settings &gt; Substrata. Without it the app still works with manual zone selection, but local weather is unavailable.</p>
 
             <!-- 5. WEATHER DATA -->
             <h2 id="weather">5. Weather Data</h2>
@@ -527,7 +527,7 @@
             <p>Under CCPA/CPRA definitions, Substrata processes the following categories of information <strong>on your device only</strong>:</p>
             <ul>
                 <li>Health information (HealthKit data including noise exposure, sleep, heart rate, with your permission)</li>
-                <li>Geolocation data (coarse location for weather and zone detection, with your permission)</li>
+                <li>Geolocation data (approximate location for weather; location accurate to about 100 metres for zone detection; both with your permission)</li>
                 <li>User-reported health events (headache logs entered voluntarily)</li>
             </ul>
             <p>However, because all processing occurs on your device and we never collect, receive, or access this information, Kynoss Studios does not "collect" personal information as defined by the CCPA/CPRA.</p>

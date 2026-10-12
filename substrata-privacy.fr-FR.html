@@ -253,7 +253,7 @@
         <header>
             <h1>Substrata Politique de confidentialité</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Date d'entrée en vigueur : 25 février 2026 &middot; Dernière mise à jour : 6 octobre 2026</p>
+            <p class="effective-date">Date d'entrée en vigueur : 25 février 2026 &middot; Dernière mise à jour : 12 octobre 2026</p>
         </header>
 
         <main>
@@ -387,18 +387,18 @@
 
             <!-- 4. LOCATION DATA -->
             <h2 id="location">4. Données de localisation</h2>
-            <p>Substrata propose une fonctionnalité facultative de détection de zones qui utilise une localisation approximative (grossière) pour vous aider à catégoriser les environnements (par exemple, « domicile », « bureau », « trajet »).</p>
+            <p>Substrata peut utiliser votre localisation de deux façons facultatives : pour obtenir la météo locale et pour la détection de zones, qui associe vos relevés aux lieux que vous configurez (par exemple, « domicile », « bureau », « trajet »).</p>
 
             <h3>Utilisation de la localisation</h3>
             <ul>
-                <li>La localisation est utilisée <strong>uniquement</strong> pour la classification des zones sur l’appareil.</li>
-                <li>Substrata utilise une précision de localisation grossière (réduite/approximative). Des coordonnées GPS précises ne sont pas demandées.</li>
-                <li><strong>Substrata ne stocke jamais de coordonnées de latitude/longitude ni de données de localisation précises.</strong> Seule l’étiquette de zone que vous attribuez (par exemple, « Domicile ») est stockée avec vos relevés environnementaux.</li>
-                <li>Les données de localisation ne sont jamais transmises en dehors de votre appareil ni partagées avec un tiers.</li>
+                <li><strong>Météo :</strong> iOS fournit à Substrata une localisation approximative (à précision réduite), envoyée au service WeatherKit d’Apple pour obtenir les conditions locales. Voir la section 5.</li>
+                <li><strong>Détection de zones :</strong> cela ne concerne que les zones pour lesquelles vous enregistrez un emplacement. Pour celles-ci, Substrata demande à iOS une localisation précise à environ 100 mètres près (à peu près un pâté de maisons), à la fois pour définir le centre d’une zone lorsque vous touchez pour utiliser votre position actuelle et pour déterminer dans laquelle de vos zones vous vous trouvez. C’est plus précis que la localisation utilisée pour la météo.</li>
+                <li>Avant d’être enregistré, le centre d’une zone est arrondi à environ 110 mètres (trois décimales). Le centre arrondi, le rayon que vous choisissez et l’étiquette que vous attribuez sont enregistrés sur votre iPhone, et l’étiquette est stockée avec vos relevés environnementaux. Substrata ne conserve pas d’historique de vos déplacements.</li>
+                <li>Les emplacements des zones ne sont envoyés ni à nous ni à un tiers, et Substrata n’utilise pas la localisation à d’autres fins.</li>
             </ul>
 
             <h3>Votre contrôle</h3>
-            <p>L’accès à la localisation est entièrement facultatif et désactivé par défaut. Substrata ne demande pas d’autorisation de localisation sauf si vous activez explicitement la détection de zones. Vous pouvez révoquer l’accès à la localisation à tout moment dans Réglages &gt; Substrata. L’app fonctionne pleinement sans accès à la localisation, en utilisant une sélection manuelle des zones.</p>
+            <p>L’accès à la localisation est facultatif et reste désactivé tant que vous ne l’autorisez pas. Substrata demande l’autorisation dans l’app lorsque vous choisissez d’activer la météo locale ou de configurer une zone avec un emplacement. Vous pouvez révoquer l’accès à tout moment dans Réglages &gt; Substrata. Sans cet accès, l’app continue de fonctionner avec une sélection manuelle des zones, mais la météo locale n’est pas disponible.</p>
 
             <!-- 5. WEATHER DATA -->
             <h2 id="weather">5. Données météorologiques</h2>
@@ -527,7 +527,7 @@
             <p>Au sens des définitions du CCPA/CPRA, Substrata traite les catégories d’informations suivantes <strong>uniquement sur votre appareil</strong> :</p>
             <ul>
                 <li>Informations de santé (données HealthKit, y compris exposition au bruit, sommeil, fréquence cardiaque, avec votre autorisation)</li>
-                <li>Données de géolocalisation (localisation approximative pour la météo et la détection de zones, avec votre autorisation)</li>
+                <li>Données de géolocalisation (localisation approximative pour la météo ; localisation précise à environ 100 mètres près pour la détection de zones ; toutes deux avec votre autorisation)</li>
                 <li>Événements de santé déclarés par l’utilisateur (journaux de maux de tête saisis volontairement)</li>
             </ul>
             <p>Cependant, comme tous les traitements ont lieu sur votre appareil et que nous ne collectons, ne recevons ni n’accédons à aucune de ces informations, Kynoss Studios ne « collecte » pas d’informations personnelles au sens du CCPA/CPRA.</p>

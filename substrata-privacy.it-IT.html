@@ -253,7 +253,7 @@
         <header>
             <h1>Substrata Informativa sulla privacy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Data di entrata in vigore: 25 febbraio 2026 &middot; Ultimo aggiornamento: 6 ottobre 2026</p>
+            <p class="effective-date">Data di entrata in vigore: 25 febbraio 2026 &middot; Ultimo aggiornamento: 12 ottobre 2026</p>
         </header>
 
         <main>
@@ -387,18 +387,18 @@
 
             <!-- 4. LOCATION DATA -->
             <h2 id="location">4. Dati di localizzazione</h2>
-            <p>Substrata offre una funzionalità opzionale di rilevamento delle zone che utilizza la localizzazione approssimativa (coarse) per aiutarti a categorizzare gli ambienti (ad esempio, "casa", "ufficio", "tragitto").</p>
+            <p>Substrata può usare la tua posizione in due modi facoltativi: per ottenere il meteo locale e per il rilevamento delle zone, che associa le tue misurazioni ai luoghi che configuri (ad esempio, "casa", "ufficio", "tragitto").</p>
 
             <h3>Come viene utilizzata la localizzazione</h3>
             <ul>
-                <li>I dati di localizzazione vengono utilizzati <strong>solo</strong> per la classificazione delle zone sul dispositivo.</li>
-                <li>Substrata utilizza una precisione ridotta della posizione (localizzazione approssimativa). Le coordinate GPS precise non vengono richieste.</li>
-                <li><strong>Substrata non memorizza mai coordinate di latitudine/longitudine o dati di localizzazione precisi.</strong> Viene memorizzata solo l'etichetta di zona che assegni (ad esempio, "Casa") insieme alle tue misurazioni ambientali.</li>
-                <li>I dati di localizzazione non vengono mai trasmessi al di fuori del tuo dispositivo né condivisi con terze parti.</li>
+                <li><strong>Meteo:</strong> iOS fornisce a Substrata una posizione approssimativa (a precisione ridotta), che viene inviata al servizio WeatherKit di Apple per ottenere le condizioni locali. Vedi la sezione 5.</li>
+                <li><strong>Rilevamento delle zone:</strong> riguarda solo le zone per cui salvi una posizione. Per queste, Substrata chiede a iOS una posizione con una precisione di circa 100 metri (all'incirca un isolato), sia per impostare il centro di una zona quando tocchi per usare la tua posizione attuale, sia per capire in quale delle tue zone ti trovi. È più precisa della posizione usata per il meteo.</li>
+                <li>Prima di essere salvato, il centro di una zona viene arrotondato a circa 110 metri (tre decimali). Il centro arrotondato, il raggio che scegli e l'etichetta che assegni vengono salvati sul tuo iPhone, e l'etichetta viene memorizzata insieme alle tue misurazioni ambientali. Substrata non conserva uno storico dei luoghi in cui sei stato.</li>
+                <li>Le posizioni delle zone non vengono inviate a noi né a terze parti, e Substrata non usa la posizione per nient'altro.</li>
             </ul>
 
             <h3>Il tuo controllo</h3>
-            <p>L'accesso alla localizzazione è completamente facoltativo ed è disattivato per impostazione predefinita. Substrata non richiede i permessi di localizzazione a meno che tu non attivi esplicitamente il rilevamento delle zone. Puoi revocare in qualsiasi momento l'accesso alla localizzazione in Impostazioni &gt; Substrata. L'app funziona pienamente anche senza accesso alla localizzazione, utilizzando la selezione manuale della zona.</p>
+            <p>L'accesso alla localizzazione è facoltativo e resta disattivato finché non lo consenti. Substrata chiede il permesso nell'app quando scegli di attivare il meteo locale o di configurare una zona con una posizione. Puoi revocare l'accesso in qualsiasi momento in Impostazioni &gt; Substrata. Senza accesso, l'app continua a funzionare con la selezione manuale delle zone, ma il meteo locale non è disponibile.</p>
 
             <!-- 5. WEATHER DATA -->
             <h2 id="weather">5. Dati meteo</h2>
@@ -527,7 +527,7 @@
             <p>Ai sensi delle definizioni del CCPA/CPRA, Substrata elabora le seguenti categorie di informazioni <strong>solo sul tuo dispositivo</strong>:</p>
             <ul>
                 <li>Informazioni sanitarie (dati HealthKit, inclusa l'esposizione al rumore, il sonno, la frequenza cardiaca, con il tuo consenso)</li>
-                <li>Dati di geolocalizzazione (posizione approssimativa per dati meteo e rilevamento delle zone, con il tuo consenso)</li>
+                <li>Dati di geolocalizzazione (posizione approssimativa per il meteo; posizione con precisione di circa 100 metri per il rilevamento delle zone; entrambe con il tuo consenso)</li>
                 <li>Eventi sanitari segnalati dall'utente (registri dei mal di testa inseriti volontariamente)</li>
             </ul>
             <p>Tuttavia, poiché tutta l'elaborazione avviene sul tuo dispositivo e noi non raccogliamo, riceviamo né accediamo a tali informazioni, Kynoss Studios non "raccoglie" informazioni personali così come definito dal CCPA/CPRA.</p>
