@@ -29,7 +29,8 @@
     <a class="ks-appband-id" href="/{{ app.id }}/" tabindex="-1" aria-hidden="true"><img src="{{ app.icon }}" alt="" width="64" height="64"></a>
     <div class="ks-appband-title">
       <h1 class="ks-display">{{ app.name }}<span class="ks-sr"> {{ label|lower }}</span></h1>
-      <p>{{ app.kind }}{% if app.status == "upcoming" %} · coming soon{% endif %}</p>
+      {#- Help and Privacy are read by people who already have the app (in-app links, App Review): no "coming soon" here (Depositt audit R1-21). #}
+      <p>{{ app.kind }}</p>
     </div>
     <nav class="ks-tabs" aria-label="{{ app.name }}">
       {%- for href, text, on in tabs %}
