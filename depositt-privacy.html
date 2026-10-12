@@ -330,7 +330,7 @@
             <ul>
                 <li>Depositt uses Apple's CoreLocation framework with "When In Use" authorization and <em>reduced</em> (approximate) accuracy: enough to show the area a photo was taken in, not the front door. Location is never requested in the background.</li>
                 <li>Depositt stamps the raw coordinates only. It does <strong>not</strong> reverse-geocode to a street address and does not contact any geocoding service — nothing about your location leaves your device or your own private iCloud.</li>
-                <li>Coordinates are stored only inside the report (on your device and your private iCloud). They are not transmitted to any Kynoss server (we don't have one) and not shared with any third party.</li>
+                <li>Coordinates are saved with each photo, on your device and in your own private iCloud, and are printed in the PDF report you create. They are not transmitted to any Kynoss server (we don't have one) and not shared with any third party.</li>
                 <li>You can decline location access entirely; reports work normally, just without the coordinate stamp.</li>
                 <li>You can revoke location access at any time in Settings &gt; Depositt &gt; Location.</li>
             </ul>
@@ -546,7 +546,7 @@
             <ul>
                 <li>Depositt uses the camera (AVFoundation) to capture photos directly into reports.</li>
                 <li>Depositt uses PhotoKit's PHPicker to let you import individual photos from your library — Depositt does not request full photo library access.</li>
-                <li>Depositt uses CoreLocation ("When In Use", reduced accuracy) to optionally stamp coarse GPS coordinates onto a photo; it does not reverse-geocode and does not retain coordinates beyond the report.</li>
+                <li>Depositt uses CoreLocation ("When In Use", reduced accuracy) to optionally stamp coarse GPS coordinates onto a photo; it does not reverse-geocode, and the coordinates stay with the photo on your device and in your own private iCloud.</li>
                 <li>None of these inputs are transmitted off your device by Depositt.</li>
             </ul>
 
