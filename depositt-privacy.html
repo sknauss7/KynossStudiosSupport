@@ -261,7 +261,7 @@
         <header>
             <h1>Depositt Privacy Policy</h1>
             <p class="subtitle">Kynoss Studios</p>
-            <p class="effective-date">Effective Date: June 7, 2026 &middot; Last Updated: October 6, 2026</p>
+            <p class="effective-date">Effective Date: June 7, 2026 &middot; Last Updated: October 11, 2026</p>
         </header>
 
         <main>
@@ -312,7 +312,7 @@
             <!-- 3. PHOTO LIBRARY ACCESS -->
             <h2 id="photos">3. Photo Library Access</h2>
             <div class="highlight">
-                <p><strong>Depositt only reads photos you explicitly pick.</strong> When you tap "Add Photo from Library," Depositt uses Apple's PHPicker — Apple's privacy-preserving photo picker — to let you select specific photos. Depositt never reads your library in bulk.</p>
+                <p><strong>Depositt only reads photos you explicitly pick.</strong> When you tap "Import" (or "Import from Photos" on the capture screen), Depositt uses Apple's PHPicker — Apple's privacy-preserving photo picker — to let you select specific photos. Depositt never reads your library in bulk.</p>
             </div>
             <h3>How Library Photos Are Used</h3>
             <ul>
@@ -328,7 +328,7 @@
                 <p><strong>Location is optional and used at capture time only.</strong> If you allow it, when you take a photo inside Depositt the app reads your coarse location once and stamps the GPS coordinates onto that photo and report, so the report shows where each photo was taken. Location is never required — capture works fully without it.</p>
             </div>
             <ul>
-                <li>Depositt uses Apple's CoreLocation framework with "When In Use" authorization and <em>reduced</em> (coarse, city-block-level) accuracy. Location is never requested in the background.</li>
+                <li>Depositt uses Apple's CoreLocation framework with "When In Use" authorization and <em>reduced</em> (approximate) accuracy: enough to show the area a photo was taken in, not the front door. Location is never requested in the background.</li>
                 <li>Depositt stamps the raw coordinates only. It does <strong>not</strong> reverse-geocode to a street address and does not contact any geocoding service — nothing about your location leaves your device or your own private iCloud.</li>
                 <li>Coordinates are stored only inside the report (on your device and your private iCloud). They are not transmitted to any Kynoss server (we don't have one) and not shared with any third party.</li>
                 <li>You can decline location access entirely; reports work normally, just without the coordinate stamp.</li>
@@ -399,14 +399,14 @@
                     <tr>
                         <td>Generated PDF reports</td>
                         <td>The deliverable, available via iOS share sheet</td>
-                        <td>Yes (until you share or delete)</td>
+                        <td>Briefly: the preview file is cleared when you leave the preview, and Delete All Data clears it too</td>
                     </tr>
                 </tbody>
             </table>
 
             <p>Depositt does not use:</p>
             <ul>
-                <li>iCloud or any cloud storage (your reports are device-local; iCloud Backup picks up Depositt's data only if you've enabled iCloud Backup at the OS level)</li>
+                <li>Any server or cloud storage of ours. The only cloud involved is your own private iCloud (and iCloud Backup, if you've turned it on in iOS)</li>
                 <li>Any third-party SDKs, frameworks, or libraries (Depositt depends only on Apple's first-party frameworks)</li>
                 <li>Analytics services (no Firebase, no Mixpanel, no Amplitude, etc.)</li>
                 <li>Advertising SDKs or ad networks</li>
@@ -425,7 +425,8 @@
 
             <h3>Deletion</h3>
             <ul>
-                <li><strong>Delete a report:</strong> Long-press a report in the Reports list and tap Delete. The report and its photos are permanently removed.</li>
+                <li><strong>Delete one item:</strong> Swipe a property or a room to delete it, or open a photo and tap Delete. What you delete is permanently removed, along with the photos inside it.</li>
+                <li><strong>Delete everything:</strong> In Depositt, open Settings and tap Delete All Data. Every property, walkthrough, photo and report is removed from this device and from your iCloud on all your devices.</li>
                 <li><strong>Delete the app:</strong> Deleting Depositt from your device permanently removes all local reports, photos, and PDFs. To remove the iCloud copy, delete the items (or the app's iCloud data) from a device signed into your Apple ID. There is no Kynoss server-side data to delete and no account to close.</li>
                 <li>If you want to preserve reports before deleting the app, export them as PDFs to Files or iCloud Drive first.</li>
             </ul>
@@ -501,7 +502,7 @@
             <ul>
                 <li><strong>Right of access:</strong> Your data is stored on your device (and in your private iCloud, if iCloud is on) and accessible to you at all times within the app.</li>
                 <li><strong>Right to rectification:</strong> You can edit any property, room, photo, or caption directly in the app.</li>
-                <li><strong>Right to erasure:</strong> You can delete reports individually or delete the app to remove all data.</li>
+                <li><strong>Right to erasure:</strong> You can delete items individually, use Settings &gt; Delete All Data, or delete the app.</li>
                 <li><strong>Right to restrict processing:</strong> You can revoke camera, photo library, or location permission at any time without affecting other app functionality.</li>
                 <li><strong>Right to data portability:</strong> Export any report as a PDF and save to Files, iCloud Drive, or share to any destination.</li>
                 <li><strong>Right to object:</strong> You can stop all data processing by revoking permissions or deleting the app.</li>
@@ -528,7 +529,7 @@
             <h3>Your Rights</h3>
             <ul>
                 <li><strong>Right to know:</strong> This Privacy Policy describes all data the app processes. We do not collect additional data beyond what is described here.</li>
-                <li><strong>Right to delete:</strong> Delete reports individually or delete the app to remove all data.</li>
+                <li><strong>Right to delete:</strong> Delete items individually, use Settings &gt; Delete All Data, or delete the app.</li>
                 <li><strong>Right to opt out of sale:</strong> <strong>We do not sell your personal information.</strong> We never have and never will.</li>
                 <li><strong>Right to opt out of sharing:</strong> We do not share your personal information with third parties for cross-context behavioral advertising or any other purpose.</li>
                 <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
@@ -556,7 +557,7 @@
             </ul>
 
             <h3>Required Reason APIs</h3>
-            <p>Depositt uses only Apple's first-party frameworks and does not access any APIs that require declared reasons beyond those already disclosed in this policy and in the app's App Store privacy nutrition label.</p>
+            <p>Depositt uses only Apple's first-party frameworks. Two everyday Apple features it relies on are on Apple's "required reason" list: saving simple settings on your device (for example, whether you've seen the welcome screens) and checking how much free storage you have before saving a photo. Depositt declares both in its privacy manifest and uses them for nothing else.</p>
 
             <h3>App Tracking Transparency</h3>
             <p>Depositt does not track users across apps or websites owned by other companies. The App Tracking Transparency framework is not used because no tracking occurs.</p>
