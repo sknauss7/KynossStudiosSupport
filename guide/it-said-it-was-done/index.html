@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>It said it was done, and it wasn&#39;t · Kynoss Studios field guide</title>
+<meta name="description" content="Claude will tell you the work is finished when it isn&#39;t. Here is how we make every &#34;done&#34; pass through something that could have said no.">
+<link rel="stylesheet" href="/assets/site.css?v=d74cd38acf">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://kynossstudios.com/guide/it-said-it-was-done/">
+<meta property="og:site_name" content="Kynoss Studios">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kynossstudios.com/guide/it-said-it-was-done/">
+<meta property="og:title" content="It said it was done, and it wasn&#39;t · Kynoss Studios field guide">
+<meta property="og:description" content="Claude will tell you the work is finished when it isn&#39;t. Here is how we make every &#34;done&#34; pass through something that could have said no.">
+<meta property="og:image" content="https://kynossstudios.com/assets/og/studio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/guide.css?v=d137eb368d">
+</head>
+<body class="ks-page">
+<a class="ks-sr" href="#main">Skip to content</a>
+<div class="ks-bar">
+  <div class="ks-bar-in">
+    <a class="ks-brand" href="/"><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg><span>Kynoss Studios</span></a>
+    <nav aria-label="Main">
+      <ul class="ks-nav" id="ks-nav">
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom systems</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="ks-iconbtn" type="button" data-ks-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg><span class="ks-search-label">Search</span></button>
+    <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</div><nav class="ks-crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/">Home</a></li>
+  <li><a href="/guide/">Field guide</a></li>
+  <li><span aria-current="page">It said it was done, and it wasn&#39;t</span></li>
+</ol></nav>
+<main id="main">
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a></p>
+    <h1 class="ks-display ks-h1">It said it was done, and it wasn&#39;t</h1>
+    <p class="ks-lede">Claude will tell you the work is finished when it isn&#39;t. Here is how we make every &#34;done&#34; pass through something that could have said no.</p>
+  </header>
+  <div class="ks-guide-grid">
+    <nav class="ks-guide-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol><li><a href="#look-at-the-screen-not-the-code">Look at the screen, not the code</a></li><li><a href="#make-the-new-test-fail-first">Make the new test fail first</a></li><li><a href="#check-that-the-check-ran">Check that the check ran</a></li><li><a href="#the-checker-was-wrong-too">The checker was wrong too</a></li><li><a href="#if-you-build-with-claude-try-this">If you build with Claude, try this</a></li></ol>
+    </nav>
+    <article class="ks-prose ks-guide-body">
+<p>The most expensive word Claude says is "done." It isn't lying. It read the code it wrote, the code looked right, and it believed the code. Most of the time it's even correct, and that's the trap: you stop checking.</p>
+<p>I've built fifteen apps with Claude doing the building. Many of the rules we work by now exist because a "done" turned out to be wrong in a way nobody saw at the time. What fixed it each time was the same thing: a check that could have said no, and actually ran.</p>
+<h2 id="look-at-the-screen-not-the-code">Look at the screen, not the code</h2>
+<p>Claude builds an app by reading and writing text. It never sees the app unless you make it look. So when it says a new screen is finished, what it means is that the code for the screen looks finished.</p>
+<p>Screenshots help, with a catch. One of our test runs crashed on launch and still produced a perfectly good screenshot of the phone's home screen. The check only asked whether the image existed, so it passed. Two rounds of automated colour checks then ran against the wallpaper and came back with confident, meaningless numbers.</p>
+<p>A picture can also look right and still be wrong. In our party game, the text that tells a blind player what just happened looked fine in every screenshot. A screen reader heard nothing, because that text was hidden from it. Only a check that listens the way a screen reader does could catch that, so now one does.</p>
+<p>So the proof that a screen works has to be something only the real, running app could produce: a specific button, a colour in the right place, the words a screen reader actually reads out. A screenshot existing proves nothing.</p>
+<h2 id="make-the-new-test-fail-first">Make the new test fail first</h2>
+<p>The second kind of false "done" is a test that passes no matter what. Claude writes a fix, writes a test for the fix, runs it, and it passes. Nobody asks whether the test would have failed before the fix.</p>
+<p>By late August, the notes Claude keeps for itself listed four separate cases of the same mistake: a check that was written, passed, and "would pass just as happily against the defect it names."</p>
+<p>One check printed "OK" every time, with the fix in place or ripped out entirely. A version number sent it down a path where it could never report a problem. Its own notes even said it skipped that case. The printout still said everything matched.</p>
+<p>So every new test now runs against the broken code first, and it has to fail there. If it passes on the bug, it isn't a test yet. Then the fix goes in and the same test has to pass. If I could keep only one habit from this page, it would be this one.</p>
+<h2 id="check-that-the-check-ran">Check that the check ran</h2>
+<p>This is the one that surprised me. A check can be correct, able to fail, and still never run.</p>
+<p>In one session Claude added sixteen new checks to an existing tool, proved every one of them could fail, and closed nine pieces of work on the strength of them. Then its own review asked what actually runs those checks. Nothing did. No script and no automated job ever called them.</p>
+<p>Test runs mislead the same way. Our party game has a set of slow tests that only run when a switch is turned on. Without the switch they're skipped, and the summary still reports thousands of tests passed. When Claude went looking, seven of the ten passing full runs on the machine had skipped those tests entirely. One session had offered such a run as proof about the very tests that never ran.</p>
+<p>It gets simpler than that. Ask for a single test in a form the runner doesn't understand, and it finds nothing, runs zero tests, and reports success.</p>
+<p>So a result has to say how many things it checked, and that count gets compared with how many it should have checked. A skip prints "SKIPPED", never "OK". Anything a check can't read counts as a failure.</p>
+<h2 id="the-checker-was-wrong-too">The checker was wrong too</h2>
+<p>The tool Claude built to catch runs that didn't really run was itself wrong on its first real use. Pointed at old logs whose answer was already known, it would have flagged every full run of the game as broken, forever. Its own practice tests had all passed, because Claude wrote them with the same wrong idea of the log format that was in the tool.</p>
+<p>That's the honest limit of all this. Claude writes the checks too, and they can share its blind spots. The defence is to point every new check at something whose answer you already know, before you trust it with anything you don't.</p>
+<h2 id="if-you-build-with-claude-try-this">If you build with Claude, try this</h2>
+<ul><li><strong>Ask to see it.</strong> Have Claude open the real app and show you the screen, then look at it yourself.</li><li><strong>Ask it to break the code first.</strong> A new test should fail on the old code before it passes on the new.</li><li><strong>Ask how many ran.</strong> "All tests passed" means little until you know the number it should have been.</li><li><strong>Treat "done" as a claim.</strong> Ask what would have told you if it wasn't.</li></ul>
+<p>None of this needs a smarter AI. It needs the habit of asking for evidence, the same one you'd use with a new hire who is eager, fast and a little too sure of themselves.</p>
+    </article>
+  </div>
+  <nav class="ks-guide-pager" aria-label="More from the field guide"><span></span><a class="ks-guide-next" href="/guide/"><span>Back to</span>The field guide</a>
+  </nav>
+</div>
+
+</main>
+<div class="ks-foot" role="contentinfo">
+  <div class="ks-foot-in">
+    <div class="ks-foot-about">
+      <h2><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg>Kynoss Studios</h2>
+      <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
+      <p><a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></p>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <ul>
+        <li><a href="/apps/?category=games">Games</a></li>
+        <li><a href="/apps/?category=money">Money</a></li>
+        <li><a href="/apps/?category=home">Home &amp; family</a></li>
+        <li><a href="/apps/?category=work">Photos &amp; work</a></li>
+        <li><a href="/apps/?category=health">Health &amp; habits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Help</h2>
+      <ul>
+        <li><a href="/support/">Get help with an app</a></li>
+        <li><a href="/privacy/">Privacy across our apps</a></li>
+        <li><a href="mailto:support@kynossstudios.com">Email support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Studio</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom AI systems</a></li>
+        <li><a href="/press/">Press kit</a></li>
+      </ul>
+    </div>
+    <p class="ks-foot-legal">&copy; 2026 Kynoss Studios LLC, Florida. Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </div>
+</div>
+<dialog class="ks-search" id="ks-search" aria-label="Search">
+  <form role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden=&#34;true&#34; width=&#34;20&#34; height=&#34;20&#34;><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+    <input type="search" placeholder="Search apps and help" aria-label="Search apps and help" autocomplete="off">
+  </form>
+  <ul class="ks-search-results" aria-live="polite"></ul>
+</dialog>
+<script src="/assets/site.js?v=d74cd38acf" defer></script>
+</body>
+</html>
