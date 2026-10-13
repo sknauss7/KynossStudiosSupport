@@ -3,7 +3,7 @@
 {% block main %}
 <div class="ks-wrap ks-guide">
   <header class="ks-pagehead">
-    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a> · {{ num }} of {{ guides|length }}</p>
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a>{% if guides|length > 1 %} · {{ num }} of {{ guides|length }}{% endif %}</p>
     <h1 class="ks-display ks-h1">{{ g.title }}</h1>
     <p class="ks-lede">{{ g.summary }}</p>
   </header>
