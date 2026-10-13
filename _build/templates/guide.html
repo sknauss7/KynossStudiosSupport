@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{#- /guide/<slug>/: one field-guide page. Kynoss owns this template; the words come from AgentWorkshop's _build/guide/<slug>.md -#}
+{% block main %}
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a> · {{ num }} of {{ guides|length }}</p>
+    <h1 class="ks-display ks-h1">{{ g.title }}</h1>
+    <p class="ks-lede">{{ g.summary }}</p>
+  </header>
+  <div class="ks-guide-grid">
+    {%- if g.toc|length > 2 %}
+    <nav class="ks-guide-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>{% for a, t in g.toc %}<li><a href="#{{ a }}">{{ t }}</a></li>{% endfor %}</ol>
+    </nav>
+    {%- endif %}
+    <article class="ks-prose ks-guide-body">
+{{ g.body_html|safe }}
+    </article>
+  </div>
+  <nav class="ks-guide-pager" aria-label="More from the field guide">
+    {%- if prev %}<a class="ks-guide-prev" href="/guide/{{ prev.slug }}/"><span>Previous</span>{{ prev.title }}</a>{% else %}<span></span>{% endif %}
+    {%- if next %}<a class="ks-guide-next" href="/guide/{{ next.slug }}/"><span>Next</span>{{ next.title }}</a>{% else %}<a class="ks-guide-next" href="/guide/"><span>Back to</span>The field guide</a>{% endif %}
+  </nav>
+</div>
+{% endblock %}

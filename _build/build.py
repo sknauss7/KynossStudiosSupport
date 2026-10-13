@@ -27,6 +27,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, str(Path(__file__).parent))
 import appstore  # noqa: E402
+import guide  # noqa: E402
 
 BUILD = Path(__file__).resolve().parent
 ROOT = BUILD.parent
@@ -633,6 +634,19 @@ def main():
            nav="systems", og_image_path="/assets/og/systems.png", foot_line=sysd["foot_line"], css="/assets/systems.css",
                 css_v=hashlib.sha1((ROOT / "assets" / "systems.css").read_bytes()).hexdigest()[:10]),
            stats=stats, **{k: v for k, v in sysd.items() if not k.startswith("_") and k not in ("page", "og", "foot_line")})  # every other top-level key reaches the template
+    # /guide/ (the field guide): Kynoss owns the templates and assets/guide.css; AgentWorkshop owns the words in _build/guide/*.md.
+    # Nothing renders until a page is marked published.
+    guides = guide.load(BUILD / "guide")
+    if guides:
+        gcss = {"css": "/assets/guide.css", "css_v": hashlib.sha1((ROOT / "assets" / "guide.css").read_bytes()).hexdigest()[:10]}
+        render("guide_index.html", "guide/index.html", page("/guide/", "Field guide · Kynoss Studios",
+               "What goes wrong when you build software with an AI coding agent, and what we do about it.",
+               crumbs=[("/", "Home"), (None, "Field guide")], **gcss), guides=guides)
+        for n, g in enumerate(guides):
+            render("guide.html", f"guide/{g['slug']}/index.html",
+                   page(f"/guide/{g['slug']}/", f"{g['title']} · Kynoss Studios field guide", g["summary"],
+                        crumbs=[("/", "Home"), ("/guide/", "Field guide"), (None, g["title"])], **gcss),
+                   g=g, num=n + 1, guides=guides, prev=guides[n - 1] if n else None, next=guides[n + 1] if n + 1 < len(guides) else None)
     render("about.html", "about/index.html", page("/about/", "About · Kynoss Studios",
            f"Kynoss Studios LLC is an independent iPhone app studio in Florida, founded in {site['studio']['founded']}.", nav="about"))
     render("privacy.html", "privacy/index.html", page("/privacy/", "Privacy across our apps · Kynoss Studios",
@@ -713,6 +727,9 @@ def main():
                        ("/shortfall-doc-fees-by-state.html", "Dealer doc fees by state", "Shortfall's state-by-state doc fee guide"),
                        ("/support/#billing", "Refunds, cancellations and billing", "Refund, cancel subscription, restore purchase: handled by Apple")):
         idx.append({"t": t, "d": d, "u": path, "k": "page"})
+    if guides:
+        idx.append({"t": "Field guide", "d": "What goes wrong when you build with an AI coding agent", "u": "/guide/", "k": "page"})
+        idx += [{"t": g["title"], "d": g["summary"][:140], "u": f"/guide/{g['slug']}/", "k": "page"} for g in guides]
     (ROOT / "search-index.json").write_text(json.dumps(idx, ensure_ascii=False, separators=(",", ":")))
 
     # ---- sitemap + robots

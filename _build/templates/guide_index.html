@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{#- /guide/: the field-guide index. Kynoss owns this template; titles and summaries come from AgentWorkshop's _build/guide/*.md -#}
+{% block main %}
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <h1 class="ks-display ks-h1">Field guide</h1>
+    <p class="ks-lede">What goes wrong when you build software with an AI coding agent, and what we do about it. Each page takes one failure we've run into while building our apps with Claude.</p>
+  </header>
+  <ol class="ks-guide-list">
+    {%- for g in guides %}
+    <li><a href="/guide/{{ g.slug }}/"><h2>{{ g.title }}</h2><p>{{ g.summary }}</p></a></li>
+    {%- endfor %}
+  </ol>
+</div>
+{% endblock %}
