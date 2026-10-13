@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Running several agents at once made a mess · Kynoss Studios field guide</title>
+<meta name="description" content="Several Claude sessions working side by side can do a day&#39;s work in an hour, or wreck each other&#39;s work in a minute. Each one needs its own space and the warnings that come with it.">
+<link rel="stylesheet" href="/assets/site.css?v=d74cd38acf">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://kynossstudios.com/guide/running-several-agents-made-a-mess/">
+<meta property="og:site_name" content="Kynoss Studios">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kynossstudios.com/guide/running-several-agents-made-a-mess/">
+<meta property="og:title" content="Running several agents at once made a mess · Kynoss Studios field guide">
+<meta property="og:description" content="Several Claude sessions working side by side can do a day&#39;s work in an hour, or wreck each other&#39;s work in a minute. Each one needs its own space and the warnings that come with it.">
+<meta property="og:image" content="https://kynossstudios.com/assets/og/studio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/guide.css?v=d137eb368d">
+</head>
+<body class="ks-page">
+<a class="ks-sr" href="#main">Skip to content</a>
+<div class="ks-bar">
+  <div class="ks-bar-in">
+    <a class="ks-brand" href="/"><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg><span>Kynoss Studios</span></a>
+    <nav aria-label="Main">
+      <ul class="ks-nav" id="ks-nav">
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom systems</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="ks-iconbtn" type="button" data-ks-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg><span class="ks-search-label">Search</span></button>
+    <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</div><nav class="ks-crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/">Home</a></li>
+  <li><a href="/guide/">Field guide</a></li>
+  <li><span aria-current="page">Running several agents at once made a mess</span></li>
+</ol></nav>
+<main id="main">
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a> · 7 of 9</p>
+    <h1 class="ks-display ks-h1">Running several agents at once made a mess</h1>
+    <p class="ks-lede">Several Claude sessions working side by side can do a day&#39;s work in an hour, or wreck each other&#39;s work in a minute. Each one needs its own space and the warnings that come with it.</p>
+  </header>
+  <div class="ks-guide-grid">
+    <nav class="ks-guide-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol><li><a href="#the-copy-that-filled-the-disk">The copy that filled the disk</a></li><li><a href="#check-while-it-runs-not-before">Check while it runs, not before</a></li><li><a href="#two-sessions-one-test-phone">Two sessions, one test phone</a></li><li><a href="#same-name-same-mess">Same name, same mess</a></li><li><a href="#where-it-still-goes-wrong">Where it still goes wrong</a></li><li><a href="#if-you-build-with-claude-try-this">If you build with Claude, try this</a></li></ol>
+    </nav>
+    <article class="ks-prose ks-guide-body">
+<p>Once one Claude session works, the obvious next step is to run several at once. One fixes a bug, another reviews yesterday's changes, a third tests a different app. On a good day it really is like having a small team.</p>
+<p>On a bad day it's like having a small team in one tiny kitchen. They share one computer, one disk and one set of test devices, and none of them knows the others exist. Every mess we've had from running several sessions at once came from something they shared without knowing it.</p>
+<h2 id="the-copy-that-filled-the-disk">The copy that filled the disk</h2>
+<p>The worst one took a few minutes. Six sessions were reviewing work in parallel. One of them only needed to compare two versions of our party game's project, a read-only job. To do it, it copied the whole project folder into scratch space.</p>
+<p>That folder holds a large archive of saved screenshots and test evidence, so the copy wrote 11GB and filled the disk. Every session in the batch died, along with a long web test run that had 255 checks passing at the time. Nothing from that round of work could be recovered.</p>
+<p>The warning already existed. It was printed for the session handing out the work, which never copies anything. The session that did the copying never saw it. Now every helper's instructions carry the rule directly: never copy the project folder. Helpers get a sandbox instead, a lightweight stand-in made of links back to the real files, so they can read everything and change only their own small corner.</p>
+<h2 id="check-while-it-runs-not-before">Check while it runs, not before</h2>
+<p>Before that, we checked free disk space when starting a batch of helpers. The disk was fine at the start every time. It filled up in the middle, while helpers were busy making copies, and it happened twice before the rule changed. Now the free space gets checked again after the helpers are running.</p>
+<p>The same thing happened with memory. Helpers and other sessions were all building and testing apps at the same time, with 11 app builds running together. Each one looked modest on its own. Nobody was adding them up.</p>
+<p>The computer ran out of memory and started using the disk as overflow, and free disk space fell from 28GB to 306MB. No folder explained it, which made it maddening to find. Builds now take turns through a shared lock.</p>
+<h2 id="two-sessions-one-test-phone">Two sessions, one test phone</h2>
+<p>Our apps get tested on virtual phones running on the computer. When two sessions used the same virtual phone at once, the results went strange in ways that didn't look like a clash. In one run, a set of tests reported that it had passed while running nothing at all, and another set printed no result whatsoever.</p>
+<p>Nothing about those results said "someone else is using this phone". They looked like ordinary bugs, so they cost real time to chase, and a passing result that ran nothing is the worst kind of wrong. Now each session borrows a private virtual phone of its own and gives it back when it's done, and there's a hard cap on how many can run on the machine at once.</p>
+<h2 id="same-name-same-mess">Same name, same mess</h2>
+<p>Even the sandboxes needed a rule. Two helpers were once given the same sandbox name, so they ended up working in the same space, and one destroyed the other's run partway through. The sandbox tool now refuses to create a sandbox whose name is already taken, and each helper's name includes a few random characters.</p>
+<h2 id="where-it-still-goes-wrong">Where it still goes wrong</h2>
+<p>More sessions isn't more speed past a point. The computer is shared, and every extra helper adds to the pile of things that can collide. Each of the rules above was written after a collision, which means the next collision is probably one we haven't had yet.</p>
+<p>Our working rule now is one job per helper, with instructions generated from a shared list of known hazards rather than typed fresh each time. The coordinator writes only what's new about the job. The warnings come along automatically, so a helper can't miss one because somebody forgot to mention it.</p>
+<h2 id="if-you-build-with-claude-try-this">If you build with Claude, try this</h2>
+<ul><li><strong>Give each session its own space.</strong> Its own folder or copy of the project, never a shared one, and never a full copy of something huge.</li><li><strong>Put the warnings in each session's instructions.</strong> A warning only the coordinator sees protects nobody.</li><li><strong>Share devices one at a time.</strong> If two sessions test on the same phone, expect nonsense results.</li><li><strong>Watch the machine, not just the work.</strong> Check disk and memory while the sessions run, not only before.</li><li><strong>Start with fewer.</strong> Two well-briefed sessions beat six that trip over each other.</li></ul>
+<p>Parallel sessions multiply what you can get done. They multiply the collisions too, unless each one knows where its edges are.</p>
+    </article>
+  </div>
+  <nav class="ks-guide-pager" aria-label="More from the field guide"><a class="ks-guide-prev" href="/guide/it-works-but-feels-off/"><span>Previous</span>It works but feels off</a><a class="ks-guide-next" href="/guide/it-burned-through-my-usage-limit/"><span>Next</span>It burned through my usage limit</a>
+  </nav>
+</div>
+
+</main>
+<div class="ks-foot" role="contentinfo">
+  <div class="ks-foot-in">
+    <div class="ks-foot-about">
+      <h2><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg>Kynoss Studios</h2>
+      <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
+      <p><a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></p>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <ul>
+        <li><a href="/apps/?category=games">Games</a></li>
+        <li><a href="/apps/?category=money">Money</a></li>
+        <li><a href="/apps/?category=home">Home &amp; family</a></li>
+        <li><a href="/apps/?category=work">Photos &amp; work</a></li>
+        <li><a href="/apps/?category=health">Health &amp; habits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Help</h2>
+      <ul>
+        <li><a href="/support/">Get help with an app</a></li>
+        <li><a href="/privacy/">Privacy across our apps</a></li>
+        <li><a href="mailto:support@kynossstudios.com">Email support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Studio</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom AI systems</a></li>
+        <li><a href="/press/">Press kit</a></li>
+      </ul>
+    </div>
+    <p class="ks-foot-legal">&copy; 2026 Kynoss Studios LLC, Florida. Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </div>
+</div>
+<dialog class="ks-search" id="ks-search" aria-label="Search">
+  <form role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden=&#34;true&#34; width=&#34;20&#34; height=&#34;20&#34;><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+    <input type="search" placeholder="Search apps and help" aria-label="Search apps and help" autocomplete="off">
+  </form>
+  <ul class="ks-search-results" aria-live="polite"></ul>
+</dialog>
+<script src="/assets/site.js?v=d74cd38acf" defer></script>
+</body>
+</html>

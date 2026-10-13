@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>It lost the plot in a long chat · Kynoss Studios field guide</title>
+<meta name="description" content="The longer a chat with Claude runs, the less of the start it really remembers. We stopped keeping anything important in the chat.">
+<link rel="stylesheet" href="/assets/site.css?v=d74cd38acf">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://kynossstudios.com/guide/it-lost-the-plot/">
+<meta property="og:site_name" content="Kynoss Studios">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kynossstudios.com/guide/it-lost-the-plot/">
+<meta property="og:title" content="It lost the plot in a long chat · Kynoss Studios field guide">
+<meta property="og:description" content="The longer a chat with Claude runs, the less of the start it really remembers. We stopped keeping anything important in the chat.">
+<meta property="og:image" content="https://kynossstudios.com/assets/og/studio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/guide.css?v=d137eb368d">
+</head>
+<body class="ks-page">
+<a class="ks-sr" href="#main">Skip to content</a>
+<div class="ks-bar">
+  <div class="ks-bar-in">
+    <a class="ks-brand" href="/"><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg><span>Kynoss Studios</span></a>
+    <nav aria-label="Main">
+      <ul class="ks-nav" id="ks-nav">
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom systems</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="ks-iconbtn" type="button" data-ks-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg><span class="ks-search-label">Search</span></button>
+    <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</div><nav class="ks-crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/">Home</a></li>
+  <li><a href="/guide/">Field guide</a></li>
+  <li><span aria-current="page">It lost the plot in a long chat</span></li>
+</ol></nav>
+<main id="main">
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a> · 2 of 9</p>
+    <h1 class="ks-display ks-h1">It lost the plot in a long chat</h1>
+    <p class="ks-lede">The longer a chat with Claude runs, the less of the start it really remembers. We stopped keeping anything important in the chat.</p>
+  </header>
+  <div class="ks-guide-grid">
+    <nav class="ks-guide-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol><li><a href="#what-a-long-chat-did-to-us">What a long chat did to us</a></li><li><a href="#small-blocks-written-down">Small blocks, written down</a></li><li><a href="#write-the-state-down-not-the-story">Write the state down, not the story</a></li><li><a href="#when-the-session-dies-anyway">When the session dies anyway</a></li><li><a href="#if-you-build-with-claude-try-this">If you build with Claude, try this</a></li></ol>
+    </nav>
+    <article class="ks-prose ks-guide-body">
+<p>A long chat with Claude feels like progress. You've explained the app, agreed on a plan, fixed a dozen things together. It feels like Claude knows the project as well as you do.</p>
+<p>It doesn't, and it knows less the longer you go. Claude works from a fixed amount of working memory. When a conversation outgrows it, the older parts get squeezed into a summary to make room. The decision you made two hours ago survives as a sentence. The reason behind it is gone, and so is the thing you tried first that didn't work. So Claude cheerfully tries it again.</p>
+<h2 id="what-a-long-chat-did-to-us">What a long chat did to us</h2>
+<p>We learned this the expensive way. For a while, I ran our whole to-do list for the apps in one long conversation per batch of work. Again and again it ended the same way: the chat filled up, Claude summarized itself to make room, then had to do it again, and again, until the session fell over.</p>
+<p>From the outside it didn't look like a crash coming. It looked like Claude getting a little forgetful, then a little repetitive. It would re-check something it had already checked, or ask a question I'd answered an hour earlier. Each slip was small enough to shrug off, and by the time they added up, the session was already gone.</p>
+<p>One died in the middle of a big batch of changes with 34 files edited and not yet safely put away. Nothing was lost for good, but someone had to work out what those changes were, who made them and whether they were finished. That someone was a fresh Claude, reading the files cold.</p>
+<h2 id="small-blocks-written-down">Small blocks, written down</h2>
+<p>So the work moved out of the chat and into a file. Each piece of work is a written block: what it's for, the list of things to do, and what "finished" means. Claude takes one block, works it, and stops. Then I clear the chat, and the next session starts from the file instead of a fading conversation.</p>
+<p>Writing down what "finished" means turned out to be the important part. Without it, Claude decides for itself when a job is done, and a tired session at the end of a long chat is generous about that. With it, there's a list to check against, and anyone, including the next Claude, can tell whether the block really is done.</p>
+<p>The stop is a numbered rule in the instructions, with no exceptions written into it: tell me the block is finished, then wait for a fresh start before touching the next one. Giving the stop a name matters more than it sounds. Skipping it stops being a judgment call and becomes breaking a rule, and Claude is much better at following rules than at judging when to stop.</p>
+<h2 id="write-the-state-down-not-the-story">Write the state down, not the story</h2>
+<p>The first version of this still went wrong, in a quieter way. Each session left a note at the top of the file for the next one, a "start here" message in plain prose. The notes read well. They also went stale fast, because a note describes the moment it was written, and the next session would change things without updating it.</p>
+<p>Now each session writes a record instead: what it finished, what it changed, and the checks it ran, with their results captured by the tool rather than typed by hand. And a note is never allowed to hold a number. If the next session needs to know how many things are left, the note holds the command that counts them, so the count is always fresh.</p>
+<p>The idea underneath both rules is one line in our instructions: a number, a list or a banner is a claim about the code, and it goes stale the moment someone changes the code.</p>
+<h2 id="when-the-session-dies-anyway">When the session dies anyway</h2>
+<p>This doesn't make sessions immortal. They still run out of room, or hit the usage limit halfway through a block. When that happened, a dead session left its work marked as "in progress", and the next session politely skipped it, because someone else was clearly on it. Nobody was.</p>
+<p>The fix was boring: a check at the start of each session for claims whose owner no longer exists, and any unsaved work from the dead session gets saved as a file before anyone touches it. The written blocks made that possible. A conversation that dies takes its plan with it. A file doesn't.</p>
+<h2 id="if-you-build-with-claude-try-this">If you build with Claude, try this</h2>
+<ul><li><strong>Keep the plan in a file.</strong> Ask Claude to update it as it works, and to read it first when a new chat starts.</li><li><strong>One job per chat.</strong> When the job is done, start a new conversation and point it at the file.</li><li><strong>Ask for a handoff note.</strong> What's done, what's next, and what still hasn't been checked.</li><li><strong>Don't trust a number in an old note.</strong> Ask Claude to count again.</li></ul>
+<p>The chat is a great place to think out loud. It's a terrible place to keep anything you'll need tomorrow.</p>
+    </article>
+  </div>
+  <nav class="ks-guide-pager" aria-label="More from the field guide"><a class="ks-guide-prev" href="/guide/it-said-it-was-done/"><span>Previous</span>It said it was done, and it wasn&#39;t</a><a class="ks-guide-next" href="/guide/it-keeps-making-the-same-mistake/"><span>Next</span>It keeps making the same mistake</a>
+  </nav>
+</div>
+
+</main>
+<div class="ks-foot" role="contentinfo">
+  <div class="ks-foot-in">
+    <div class="ks-foot-about">
+      <h2><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg>Kynoss Studios</h2>
+      <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
+      <p><a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></p>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <ul>
+        <li><a href="/apps/?category=games">Games</a></li>
+        <li><a href="/apps/?category=money">Money</a></li>
+        <li><a href="/apps/?category=home">Home &amp; family</a></li>
+        <li><a href="/apps/?category=work">Photos &amp; work</a></li>
+        <li><a href="/apps/?category=health">Health &amp; habits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Help</h2>
+      <ul>
+        <li><a href="/support/">Get help with an app</a></li>
+        <li><a href="/privacy/">Privacy across our apps</a></li>
+        <li><a href="mailto:support@kynossstudios.com">Email support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Studio</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom AI systems</a></li>
+        <li><a href="/press/">Press kit</a></li>
+      </ul>
+    </div>
+    <p class="ks-foot-legal">&copy; 2026 Kynoss Studios LLC, Florida. Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </div>
+</div>
+<dialog class="ks-search" id="ks-search" aria-label="Search">
+  <form role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden=&#34;true&#34; width=&#34;20&#34; height=&#34;20&#34;><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+    <input type="search" placeholder="Search apps and help" aria-label="Search apps and help" autocomplete="off">
+  </form>
+  <ul class="ks-search-results" aria-live="polite"></ul>
+</dialog>
+<script src="/assets/site.js?v=d74cd38acf" defer></script>
+</body>
+</html>

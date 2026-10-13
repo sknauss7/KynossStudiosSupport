@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>It built the wrong thing really well · Kynoss Studios field guide</title>
+<meta name="description" content="Claude will build whatever you describe, beautifully, including the thing that can&#39;t work. Test the risky idea with a real experiment before any app gets built.">
+<link rel="stylesheet" href="/assets/site.css?v=d74cd38acf">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://kynossstudios.com/guide/it-built-the-wrong-thing/">
+<meta property="og:site_name" content="Kynoss Studios">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kynossstudios.com/guide/it-built-the-wrong-thing/">
+<meta property="og:title" content="It built the wrong thing really well · Kynoss Studios field guide">
+<meta property="og:description" content="Claude will build whatever you describe, beautifully, including the thing that can&#39;t work. Test the risky idea with a real experiment before any app gets built.">
+<meta property="og:image" content="https://kynossstudios.com/assets/og/studio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/guide.css?v=d137eb368d">
+</head>
+<body class="ks-page">
+<a class="ks-sr" href="#main">Skip to content</a>
+<div class="ks-bar">
+  <div class="ks-bar-in">
+    <a class="ks-brand" href="/"><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg><span>Kynoss Studios</span></a>
+    <nav aria-label="Main">
+      <ul class="ks-nav" id="ks-nav">
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom systems</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="ks-iconbtn" type="button" data-ks-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg><span class="ks-search-label">Search</span></button>
+    <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</div><nav class="ks-crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/">Home</a></li>
+  <li><a href="/guide/">Field guide</a></li>
+  <li><span aria-current="page">It built the wrong thing really well</span></li>
+</ol></nav>
+<main id="main">
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a> · 4 of 9</p>
+    <h1 class="ks-display ks-h1">It built the wrong thing really well</h1>
+    <p class="ks-lede">Claude will build whatever you describe, beautifully, including the thing that can&#39;t work. Test the risky idea with a real experiment before any app gets built.</p>
+  </header>
+  <div class="ks-guide-grid">
+    <nav class="ks-guide-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol><li><a href="#the-scam-checker">The scam checker</a></li><li><a href="#the-idea-that-looked-great-on-paper">The idea that looked great on paper</a></li><li><a href="#what-skipping-the-check-costs">What skipping the check costs</a></li><li><a href="#if-you-build-with-claude-try-this">If you build with Claude, try this</a></li></ol>
+    </nav>
+    <article class="ks-prose ks-guide-body">
+<p>Claude never pushes back on an idea because it's hard. Describe an app and it will start building, and it will build well: clean screens, careful code, every feature you asked for. That's exactly the risk. If the idea at the heart of the app can't work, you get a polished version of something that can't work, and you find out after the polish.</p>
+<p>So before any of our apps gets built, the riskiest claim it depends on gets tested with a real experiment. Before that experiment runs, we write down the number it has to hit. If it misses, the app doesn't get built.</p>
+<h2 id="the-scam-checker">The scam checker</h2>
+<p>One idea was an app that reads a conversation with a stranger on a selling site and warns you if it looks like a scam. The pitch was that the AI built into the phone would judge each conversation. It sounded right, and it sounded like exactly the kind of thing AI is for.</p>
+<p>Before any app code, Claude ran the experiment. It wrote a set of example conversations, half of them scams and half of them innocent, and set the bar in advance: at least 85% of conversations judged correctly, with false alarms under 10%.</p>
+<p>The important half was the innocent one. Those conversations were written to look suspicious on purpose, with payment app talk, requests to hold an item, urgency about shipping. That's what real, harmless buyers sound like, and an app that cries wolf at them is useless.</p>
+<p>The result flipped the plan. A plain list of known scam patterns caught every scam with no false alarms at all. Letting the phone's AI make the call raised false alarms on half the innocent conversations.</p>
+<p>Simply asking the AI "is this a scam?" was worse still. It flagged 75% of the innocent ones. The AI idea at the centre of the pitch was the wrong design, and that was clear the same day instead of after an app was built around it.</p>
+<p>The report was honest about its limits, too. Claude had written the example conversations itself, so the exact numbers weren't a promise about the real world. The shape of the result was what mattered. In the end, what was left after the experiment was thin, and I killed the app before it was built.</p>
+<h2 id="the-idea-that-looked-great-on-paper">The idea that looked great on paper</h2>
+<p>Another idea was a sleep app that listens overnight and tracks teeth grinding. On paper it scored 26 out of 30 on our idea checklist. It had never been tested against reality.</p>
+<p>The check asked a simple question: what would it learn to recognise grinding from? There was no usable collection of labelled overnight recordings at a scale we could get. And clenching, one of the things the app promised to track, makes no sound at all, so a phone on the nightstand can't hear it.</p>
+<p>That check was mostly research rather than a running experiment, and it was enough. The honest version of the app would have tracked about half of what it promised. It was killed before anything was built.</p>
+<h2 id="what-skipping-the-check-costs">What skipping the check costs</h2>
+<p>The check only helps if it's actually run. Two of our apps show what happens otherwise.</p>
+<p>One app read itemised medical bills and pointed out likely errors. It was built and reached beta testing, and the one claim everything depended on, that it actually finds errors on real bills, was never tested. Another app had both of its checks waived instead of passed, and its launch steps then sat untouched for months. Both were well built. Both were killed later, when someone finally asked the questions the checks would have asked at the start.</p>
+<p>Neither was a failure of Claude's work. The screens were fine and the code was careful. Claude did exactly what it was asked, and nobody had asked whether the thing was worth doing. That question is yours. Claude will answer it if you ask, but it won't raise it on its own.</p>
+<h2 id="if-you-build-with-claude-try-this">If you build with Claude, try this</h2>
+<ul><li><strong>Name the riskiest claim.</strong> What has to be true for this app to be worth anything? Ask Claude to say it in one sentence.</li><li><strong>Test that claim first, without building the app.</strong> A rough experiment in a day beats a beautiful app built on a guess.</li><li><strong>Write the pass mark before you run it.</strong> Decide what "good enough" means before you see the result, so you can't talk yourself into it afterwards.</li><li><strong>Test the innocent cases.</strong> Anything that judges or detects needs examples designed to fool it, not just easy ones.</li><li><strong>Treat "we skipped the check" as "we don't know".</strong> A waived test is not a passed one.</li></ul>
+<p>Claude can build almost anything you ask for. Make sure the thing you're asking for can work before it does.</p>
+    </article>
+  </div>
+  <nav class="ks-guide-pager" aria-label="More from the field guide"><a class="ks-guide-prev" href="/guide/it-keeps-making-the-same-mistake/"><span>Previous</span>It keeps making the same mistake</a><a class="ks-guide-next" href="/guide/it-believed-something-untrue/"><span>Next</span>It believed something that wasn&#39;t true</a>
+  </nav>
+</div>
+
+</main>
+<div class="ks-foot" role="contentinfo">
+  <div class="ks-foot-in">
+    <div class="ks-foot-about">
+      <h2><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg>Kynoss Studios</h2>
+      <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
+      <p><a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></p>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <ul>
+        <li><a href="/apps/?category=games">Games</a></li>
+        <li><a href="/apps/?category=money">Money</a></li>
+        <li><a href="/apps/?category=home">Home &amp; family</a></li>
+        <li><a href="/apps/?category=work">Photos &amp; work</a></li>
+        <li><a href="/apps/?category=health">Health &amp; habits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Help</h2>
+      <ul>
+        <li><a href="/support/">Get help with an app</a></li>
+        <li><a href="/privacy/">Privacy across our apps</a></li>
+        <li><a href="mailto:support@kynossstudios.com">Email support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Studio</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom AI systems</a></li>
+        <li><a href="/press/">Press kit</a></li>
+      </ul>
+    </div>
+    <p class="ks-foot-legal">&copy; 2026 Kynoss Studios LLC, Florida. Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </div>
+</div>
+<dialog class="ks-search" id="ks-search" aria-label="Search">
+  <form role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden=&#34;true&#34; width=&#34;20&#34; height=&#34;20&#34;><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+    <input type="search" placeholder="Search apps and help" aria-label="Search apps and help" autocomplete="off">
+  </form>
+  <ul class="ks-search-results" aria-live="polite"></ul>
+</dialog>
+<script src="/assets/site.js?v=d74cd38acf" defer></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>It did something I didn&#39;t want · Kynoss Studios field guide</title>
+<meta name="description" content="The real risk is rarely a dramatic rogue AI. It&#39;s a quiet step you can&#39;t take back, or a tool that did the wrong thing and reported success. Keep the one-way steps for yourself.">
+<link rel="stylesheet" href="/assets/site.css?v=d74cd38acf">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://kynossstudios.com/guide/it-did-something-i-didnt-want/">
+<meta property="og:site_name" content="Kynoss Studios">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kynossstudios.com/guide/it-did-something-i-didnt-want/">
+<meta property="og:title" content="It did something I didn&#39;t want · Kynoss Studios field guide">
+<meta property="og:description" content="The real risk is rarely a dramatic rogue AI. It&#39;s a quiet step you can&#39;t take back, or a tool that did the wrong thing and reported success. Keep the one-way steps for yourself.">
+<meta property="og:image" content="https://kynossstudios.com/assets/og/studio.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/guide.css?v=d137eb368d">
+</head>
+<body class="ks-page">
+<a class="ks-sr" href="#main">Skip to content</a>
+<div class="ks-bar">
+  <div class="ks-bar-in">
+    <a class="ks-brand" href="/"><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg><span>Kynoss Studios</span></a>
+    <nav aria-label="Main">
+      <ul class="ks-nav" id="ks-nav">
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="/support/">Support</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom systems</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button class="ks-iconbtn" type="button" data-ks-search aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg><span class="ks-search-label">Search</span></button>
+    <button class="ks-iconbtn ks-menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="ks-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</div><nav class="ks-crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/">Home</a></li>
+  <li><a href="/guide/">Field guide</a></li>
+  <li><span aria-current="page">It did something I didn&#39;t want</span></li>
+</ol></nav>
+<main id="main">
+<div class="ks-wrap ks-guide">
+  <header class="ks-pagehead">
+    <p class="ks-guide-kicker"><a href="/guide/">Field guide</a> · 9 of 9</p>
+    <h1 class="ks-display ks-h1">It did something I didn&#39;t want</h1>
+    <p class="ks-lede">The real risk is rarely a dramatic rogue AI. It&#39;s a quiet step you can&#39;t take back, or a tool that did the wrong thing and reported success. Keep the one-way steps for yourself.</p>
+  </header>
+  <div class="ks-guide-grid">
+    <nav class="ks-guide-toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol><li><a href="#decide-which-steps-are-one-way">Decide which steps are one-way</a></li><li><a href="#put-the-limit-in-the-tool-not-the-request">Put the limit in the tool, not the request</a></li><li><a href="#success-reported-by-the-thing-that-failed">Success, reported by the thing that failed</a></li><li><a href="#failing-quietly-is-its-own-kind-of-unwanted">Failing quietly is its own kind of unwanted</a></li><li><a href="#where-it-still-goes-wrong">Where it still goes wrong</a></li><li><a href="#if-you-build-with-claude-try-this">If you build with Claude, try this</a></li></ol>
+    </nav>
+    <article class="ks-prose ks-guide-body">
+<p>When people worry about an AI doing something they didn't want, they picture something dramatic. What actually happens is quieter. A script edits the wrong thing, every check passes, and it reports success. Or a step that can't be undone gets taken because nothing said to stop.</p>
+<p>You can't make Claude perfect. You can decide which mistakes are allowed to happen without you.</p>
+<h2 id="decide-which-steps-are-one-way">Decide which steps are one-way</h2>
+<p>Most of what Claude does can be undone. A bad edit can be reverted, and a wrong screen can be redesigned. A few things can't: sending an app to Apple for release, posting something in public, deleting data, spending money. Those are written into our instructions as the steps where Claude stops and asks.</p>
+<p>In practice that means Claude does all the work right up to the button. For a release, it builds the app, uploads it, fills in the store listing, attaches everything, and then stops short of pressing "Submit" and tells me it's ready. Occasionally I hand over the button for one named release, in writing. The default stays the same.</p>
+<p>The list is short on purpose. If Claude had to ask about everything, I'd start approving without reading, and the asking would protect nothing. Keeping the list to the steps that genuinely can't be taken back keeps each question worth reading.</p>
+<h2 id="put-the-limit-in-the-tool-not-the-request">Put the limit in the tool, not the request</h2>
+<p>Asking Claude to be careful works most of the time. For the things that matter, "most of the time" isn't good enough, so the limit lives in the tool instead.</p>
+<p>Our posts on X are a good example. The tool that posts them won't post anything unless I've tapped approve on that exact text, and a changed word means a new approval. It posts at most once a day, it has a hard monthly spending cap, and a single stop file halts all of it. None of those depend on Claude remembering a rule. They're how the tool works.</p>
+<h2 id="success-reported-by-the-thing-that-failed">Success, reported by the thing that failed</h2>
+<p>The scarier mistakes are the ones that look like success. Our to-do file holds many separate blocks of work, and each block numbers its items starting from one. A script Claude wrote to mark finished items searched the whole file for the first match.</p>
+<p>So four of the seven items it was meant to close landed in an earlier block instead. Someone else's unfinished work was marked done, the real targets were left open, every safety check in the script passed, and it reported success.</p>
+<p>It was caught only because the session recounted the block straight after the edit and the numbers didn't match. The fix was structural: edits to the to-do file now go through one tool that finds the right block by name first and refuses an edit that would lose or duplicate an item.</p>
+<h2 id="failing-quietly-is-its-own-kind-of-unwanted">Failing quietly is its own kind of unwanted</h2>
+<p>A similar thing nearly happened with a report that checks all our apps in one run. One app's file had a problem, which crashed the whole run partway through. Every app after it was skipped, and every problem the report had already found was thrown away without being printed.</p>
+<p>From the outside, that crash looked almost the same as a normal "some checks didn't finish" result. A separate review found it before it did any harm, and now one bad file gets logged as a failure instead of taking the whole report down with it.</p>
+<h2 id="where-it-still-goes-wrong">Where it still goes wrong</h2>
+<p>Keeping the button doesn't mean everything behind the button is right. In one release, Claude built a screen explaining why the app wanted your location, with a "Not now" option that let people skip Apple's own permission request. Apple's rules don't allow that, and the release was rejected.</p>
+<p>Nothing irreversible happened. The fix was a single "Continue" button that always leads to Apple's request. The rule about one-way steps did its job, in the sense that nothing was lost and the fixed version went back to Apple the same day. It didn't make the screen right. Keeping those steps for yourself is the floor. You still have to look at what you're approving.</p>
+<h2 id="if-you-build-with-claude-try-this">If you build with Claude, try this</h2>
+<ul><li><strong>Write down your one-way steps.</strong> Releasing, posting, deleting, paying. Tell Claude to stop and ask before each one.</li><li><strong>Keep the list short.</strong> Ask about too much and you'll stop reading the questions.</li><li><strong>Build limits into tools.</strong> An approval step or a spending cap beats a request to be careful.</li><li><strong>Recount after automated edits.</strong> "It said it succeeded" is not the same as "it changed the right thing".</li><li><strong>Read what you approve.</strong> The button is yours, and so is what it sends.</li></ul>
+<p>Claude will do what you ask, and quickly. The steps you can't take back should be the ones it can't take at all.</p>
+    </article>
+  </div>
+  <nav class="ks-guide-pager" aria-label="More from the field guide"><a class="ks-guide-prev" href="/guide/it-burned-through-my-usage-limit/"><span>Previous</span>It burned through my usage limit</a><a class="ks-guide-next" href="/guide/"><span>Back to</span>The field guide</a>
+  </nav>
+</div>
+
+</main>
+<div class="ks-foot" role="contentinfo">
+  <div class="ks-foot-in">
+    <div class="ks-foot-about">
+      <h2><svg class="ks-mark" viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg>Kynoss Studios</h2>
+      <p>Small iPhone apps that do one job well. No ads, no accounts, no tracking.</p>
+      <p><a href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></p>
+    </div>
+    <div>
+      <h2>Apps</h2>
+      <ul>
+        <li><a href="/apps/?category=games">Games</a></li>
+        <li><a href="/apps/?category=money">Money</a></li>
+        <li><a href="/apps/?category=home">Home &amp; family</a></li>
+        <li><a href="/apps/?category=work">Photos &amp; work</a></li>
+        <li><a href="/apps/?category=health">Health &amp; habits</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Help</h2>
+      <ul>
+        <li><a href="/support/">Get help with an app</a></li>
+        <li><a href="/privacy/">Privacy across our apps</a></li>
+        <li><a href="mailto:support@kynossstudios.com">Email support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Studio</h2>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/how-we-build/">How we build</a></li>
+        <li><a href="/systems/">Custom AI systems</a></li>
+        <li><a href="/press/">Press kit</a></li>
+      </ul>
+    </div>
+    <p class="ks-foot-legal">&copy; 2026 Kynoss Studios LLC, Florida. Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </div>
+</div>
+<dialog class="ks-search" id="ks-search" aria-label="Search">
+  <form role="search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden=&#34;true&#34; width=&#34;20&#34; height=&#34;20&#34;><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+    <input type="search" placeholder="Search apps and help" aria-label="Search apps and help" autocomplete="off">
+  </form>
+  <ul class="ks-search-results" aria-live="polite"></ul>
+</dialog>
+<script src="/assets/site.js?v=d74cd38acf" defer></script>
+</body>
+</html>
