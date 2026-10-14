@@ -114,7 +114,7 @@
     ],
     [
       "What does it cost?",
-      "It depends on what the system does. Tell us the idea and we'll come back with a plan and a price."
+      "It depends on what the system does. Tell us the idea and we'll come back with a plan and a price. You pay nothing until you decide to go ahead with a build."
     ],
     [
       "What happens once it's built?",
@@ -570,5 +570,5 @@
       "experimental": true
     }
   ],
-  "ask_note": "The first conversation is free, with no obligation."
+  "ask_note": "You pay nothing until you decide to go ahead with a build."
 }
