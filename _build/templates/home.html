@@ -1,75 +1,107 @@
 {% extends "base.html" %}
 {%- from "_icons.html" import glyph, mark -%}
-{#- Home leads with custom systems; the apps are the track record (Steven, 2026-10-14). No client claims until there are clients (QUEUE 21). #}
+{#- Home, ordered by what a small-business owner asks (Steven, 2026-10-14): is it for me, what would it do, can I trust it, what's involved, how do I start.
+    The operations view is a labelled example; every behaviour in it is built (Systems checks the wording). No client claims until there are clients (QUEUE 21). #}
 {% block main %}
 <section class="ks-hero ks-hero-sys ks-hud-hero">
   <div class="ks-hud-grid" aria-hidden="true"></div>
   <div class="ks-hud-scan" aria-hidden="true"></div>
   <div class="ks-wrap ks-hud-stage">
     <div class="ks-hero-copy">
-      <h1 class="ks-display ks-h1">Hand off the work that eats your week.</h1>
-      <p class="ks-lede">Kynoss Studios designs, builds and runs custom AI systems for small businesses. Customer texts drafted or answered, jobs booked and reminded, email and documents filed, deadlines tracked, all built around the way you already work.</p>
+      <h1 class="ks-display ks-h1">Customer texts, reminders and rescheduling, handled.</h1>
+      <p class="ks-lede">Kynoss Studios builds AI systems for small businesses. Yours reads what comes in, sorts it and drafts the reply in your customer's language, then waits for your OK. Built around the way you already work.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#contact">Tell us about your work</a>
-        <a class="ks-button is-quiet" href="/systems/">See what we build</a>
+        <a class="ks-button is-quiet" href="#how">How it works</a>
       </div>
       <p class="ks-muted">Now taking on a small number of businesses. The first conversation is free, with no obligation.</p>
     </div>
-    {#- The system core: decoration. Its readouts are real figures only (systems we run, live apps, shipped updates); no client or invented numbers (QUEUE 21). #}
-    <div class="ks-hud" aria-hidden="true">
-      <svg class="ks-hud-svg" viewBox="0 0 600 600">
-        <defs>
-          <radialGradient id="hud-core" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="var(--hud-warm)" stop-opacity=".9"/>
-            <stop offset=".35" stop-color="var(--hud-warm)" stop-opacity=".25"/>
-            <stop offset="1" stop-color="var(--hud-warm)" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="hud-sweep" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="var(--hud)" stop-opacity="0"/>
-            <stop offset="1" stop-color="var(--hud)" stop-opacity=".28"/>
-          </linearGradient>
-        </defs>
-        <g class="ks-hud-spin ks-hud-r1">
-          <circle class="ks-hud-draw" cx="300" cy="300" r="282" pathLength="1"/>
-          {%- for i in range(72) %}
-          {%- set major = i % 6 == 0 %}
-          <line class="ks-hud-tick{% if major %} is-major{% endif %}" x1="300" y1="{{ 18 if major else 22 }}" x2="300" y2="30" transform="rotate({{ i * 5 }} 300 300)"/>
-          {%- if major %}
-          <text class="ks-hud-deg" x="300" y="48" transform="rotate({{ i * 5 }} 300 300)">{{ '%03d' % (i * 5) }}</text>
-          {%- endif %}
-          {%- endfor %}
-        </g>
-        <g class="ks-hud-spin ks-hud-r2">
-          <circle class="ks-hud-draw ks-hud-dash" cx="300" cy="300" r="232" pathLength="1"/>
-        </g>
-        <g class="ks-hud-spin ks-hud-r3">
-          <circle class="ks-hud-draw is-faint" cx="300" cy="300" r="186" pathLength="1"/>
-          <path class="ks-hud-arc" d="M300 114 A186 186 0 0 1 461 207"/>
-          <path class="ks-hud-arc" d="M461 393 A186 186 0 0 1 300 486"/>
-          <path class="ks-hud-arc is-thin" d="M139 393 A186 186 0 0 1 114 300"/>
-        </g>
-        <g class="ks-hud-sweep-g">
-          <path d="M300 300 L300 114 A186 186 0 0 1 431 168 Z" fill="url(#hud-sweep)"/>
-        </g>
-        <g class="ks-hud-spin ks-hud-r4">
-          <circle class="ks-hud-draw" cx="300" cy="300" r="142" pathLength="1"/>
-          {%- for i in range(12) %}
-          <circle class="ks-hud-dot" cx="300" cy="158" r="{{ 3 if i % 3 == 0 else 1.6 }}" transform="rotate({{ i * 30 }} 300 300)"/>
-          {%- endfor %}
-        </g>
-        <line class="ks-hud-cross" x1="300" y1="196" x2="300" y2="404"/>
-        <line class="ks-hud-cross" x1="196" y1="300" x2="404" y2="300"/>
-        <circle class="ks-hud-glow" cx="300" cy="300" r="104" fill="url(#hud-core)"/>
-        <circle class="ks-hud-core" cx="300" cy="300" r="62"/>
-      </svg>
-      <span class="ks-hud-mark">{{ mark("ks-hud-k") }}</span>
+    <div class="ks-ops-stage">
+      <div class="ks-hud" aria-hidden="true">
+        <svg class="ks-hud-svg" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="hud-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="var(--hud-warm)" stop-opacity=".9"/>
+      <stop offset=".35" stop-color="var(--hud-warm)" stop-opacity=".25"/>
+      <stop offset="1" stop-color="var(--hud-warm)" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hud-sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="var(--hud)" stop-opacity="0"/>
+      <stop offset="1" stop-color="var(--hud)" stop-opacity=".28"/>
+    </linearGradient>
+  </defs>
+  <g class="ks-hud-spin ks-hud-r1">
+    <circle class="ks-hud-draw" cx="300" cy="300" r="282" pathLength="1"/>
+    {%- for i in range(72) %}
+    {%- set major = i % 6 == 0 %}
+    <line class="ks-hud-tick{% if major %} is-major{% endif %}" x1="300" y1="{{ 18 if major else 22 }}" x2="300" y2="30" transform="rotate({{ i * 5 }} 300 300)"/>
+    {%- if major %}
+    <text class="ks-hud-deg" x="300" y="48" transform="rotate({{ i * 5 }} 300 300)">{{ '%03d' % (i * 5) }}</text>
+    {%- endif %}
+    {%- endfor %}
+  </g>
+  <g class="ks-hud-spin ks-hud-r2">
+    <circle class="ks-hud-draw ks-hud-dash" cx="300" cy="300" r="232" pathLength="1"/>
+  </g>
+  <g class="ks-hud-spin ks-hud-r3">
+    <circle class="ks-hud-draw is-faint" cx="300" cy="300" r="186" pathLength="1"/>
+    <path class="ks-hud-arc" d="M300 114 A186 186 0 0 1 461 207"/>
+    <path class="ks-hud-arc" d="M461 393 A186 186 0 0 1 300 486"/>
+    <path class="ks-hud-arc is-thin" d="M139 393 A186 186 0 0 1 114 300"/>
+  </g>
+  <g class="ks-hud-sweep-g">
+    <path d="M300 300 L300 114 A186 186 0 0 1 431 168 Z" fill="url(#hud-sweep)"/>
+  </g>
+  <g class="ks-hud-spin ks-hud-r4">
+    <circle class="ks-hud-draw" cx="300" cy="300" r="142" pathLength="1"/>
+    {%- for i in range(12) %}
+    <circle class="ks-hud-dot" cx="300" cy="158" r="{{ 3 if i % 3 == 0 else 1.6 }}" transform="rotate({{ i * 30 }} 300 300)"/>
+    {%- endfor %}
+  </g>
+  <line class="ks-hud-cross" x1="300" y1="196" x2="300" y2="404"/>
+  <line class="ks-hud-cross" x1="196" y1="300" x2="404" y2="300"/>
+  <circle class="ks-hud-glow" cx="300" cy="300" r="104" fill="url(#hud-core)"/>
+  <circle class="ks-hud-core" cx="300" cy="300" r="62"/>
+</svg>
+      </div>
+      <section class="ks-ops" aria-labelledby="ops-h" data-ks-ops>
+        <header class="ks-ops-head">
+          <h2 id="ops-h">Example: a cleaning business on a Tuesday evening</h2>
+          <button class="ks-ops-replay" type="button" hidden>Play again</button>
+        </header>
+        <ol class="ks-ops-feed">
+          <li class="ks-ops-item">
+            <p class="ks-ops-meta"><time>6:00 pm</time><span class="ks-ops-tag is-auto">Confirmed</span></p>
+            <p class="ks-ops-out">Reminder: your clean is tomorrow at 10 am. Reply YES to confirm.</p>
+            <p class="ks-ops-in">YES</p>
+            <p class="ks-ops-note">Reminders go out on their own because you switched them on.</p>
+          </li>
+          <li class="ks-ops-item">
+            <p class="ks-ops-meta"><time>7:42 pm</time><span class="ks-ops-tag">Reschedule</span></p>
+            <p class="ks-ops-in">Hi! Can we move Thursday's clean to Friday?</p>
+            <p class="ks-ops-out is-draft">Of course! Friday we have 9 am or 1 pm open. Which works better?</p>
+            <p class="ks-ops-act"><span class="ks-ops-chip" data-sent="Sent with your OK">Waiting for your OK</span></p>
+          </li>
+          <li class="ks-ops-item">
+            <p class="ks-ops-meta"><time>8:05 pm</time><span class="ks-ops-tag">New quote, in Portuguese</span></p>
+            <p class="ks-ops-in" lang="pt">Quanto custa uma limpeza para 3 quartos?</p>
+            <p class="ks-ops-out is-draft" lang="pt">Oi! Claro. Quantos banheiros são, e qual dia seria melhor para você?</p>
+            <p class="ks-ops-act"><span class="ks-ops-chip">Waiting for your OK</span></p>
+          </li>
+          <li class="ks-ops-item">
+            <p class="ks-ops-meta"><time>8:31 pm</time><span class="ks-ops-tag is-safe">Entry code secured</span></p>
+            <p class="ks-ops-in">The lockbox code is <span class="ks-ops-redact" aria-label="hidden code">&bull;&bull;&bull;&bull;</span>, see you Friday!</p>
+            <p class="ks-ops-note">The code is stored encrypted and removed before the AI reads the message.</p>
+          </li>
+        </ol>
+      </section>
     </div>
-    <div class="ks-hud-strip">
-      <div class="ks-hud-call"><b data-count="{{ cases|length }}">{{ cases|length }}</b><span>systems we run ourselves</span></div>
-      <div class="ks-hud-call"><b data-count="{{ site.live|length }}">{{ site.live|length }}</b><span>apps live on the App Store</span></div>
-      <div class="ks-hud-call"><b data-count="{{ stats.updates }}" data-plus>{{ stats.updates }}+</b><span>updates shipped</span></div>
-      <div class="ks-hud-call"><b>Every send</b><span>logged, with who approved it</span></div>
-    </div>
+    <ul class="ks-hud-strip">
+      <li class="ks-hud-call"><b>Your OK</b><span>on every reply, until you choose to automate one</span></li>
+      <li class="ks-hud-call"><b>Their language</b><span>replies drafted in the language your customer writes in</span></li>
+      <li class="ks-hud-call"><b>Your own server</b><span>private, encrypted and just for your business</span></li>
+      <li class="ks-hud-call"><b>Free</b><span>first conversation, with no obligation</span></li>
+    </ul>
   </div>
 </section>
 
@@ -88,6 +120,36 @@
   </div>
 </section>
 
+<section class="ks-section" aria-labelledby="care-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="care-h">You stay in charge</h2>
+      <p class="ks-lede">A system that reads your customers' messages has to earn that trust.</p>
+    </div>
+    <dl class="ks-principles ks-hudcards">
+      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>Nothing goes out without you</dt><dd>Replies wait for your tap. Only the messages you choose, like reminders, go out on their own, and only between 8 am and 8 pm.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("lock") }}</span><dt>Your data, your place</dt><dd>On a private server we run just for you, on your own computer, or in your own accounts. We agree on it before anything is built.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("key") }}</span><dt>Sensitive details screened</dt><dd>Door, lockbox and alarm codes are detected, encrypted and kept away from the AI.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("build") }}</span><dt>Tested before it reaches you</dt><dd>Nothing counts as done until it has been seen working, not just passed its tests. <a href="/how-we-build/">How we build</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ks-section" id="how" aria-labelledby="how-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="how-h">How it works</h2>
+      <p class="ks-lede">We start by learning how you already work, so you don't have to learn a new system.</p>
+    </div>
+    <ol class="ks-hsteps">
+      {%- for title, text in steps %}
+      <li><b>{{ title }}</b><span>{{ text }}</span></li>
+      {%- endfor %}
+    </ol>
+    <p class="ks-muted ks-hsteps-note">Expect a few hours of your time over the first month, most of it in the first week. Tell us about the job and we'll say honestly whether a system would help.</p>
+  </div>
+</section>
+
 <section class="ks-section" aria-labelledby="ours-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
@@ -95,26 +157,13 @@
       <p class="ks-lede">{{ cases_lede }}</p>
     </div>
     <dl class="ks-principles ks-hudcards">
-      {%- for c in cases %}
+      {%- for g in ["hoa", "inbox", "apps"] %}
+      {%- for c in cases if c.glyph == g %}
       <div><span class="ks-pglyph">{{ glyph("device" if c.glyph == "apps" else c.glyph) }}</span><dt>{{ c.title }}</dt><dd>{{ c.summary }}</dd></div>
       {%- endfor %}
+      {%- endfor %}
     </dl>
-    <p><a href="/systems/#cases">See them working</a></p>
-  </div>
-</section>
-
-<section class="ks-section" aria-labelledby="care-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="care-h">Careful with what it touches</h2>
-      <p class="ks-lede">A system that reads your customers' messages has to earn that trust.</p>
-    </div>
-    <dl class="ks-principles ks-hudcards">
-      <div><span class="ks-pglyph">{{ glyph("lock") }}</span><dt>Your data, your place</dt><dd>On your own computer, a private server we run just for you, or your own accounts. We agree on it before anything is built.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>Only what you allow</dt><dd>It can be read-only, ask before it sends anything, and keep a record of every change so it can be undone.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("build") }}</span><dt>Tested before it reaches you</dt><dd>Nothing counts as done until it has been seen working, not just passed its tests. <a href="/how-we-build/">How we build</a></dd></div>
-      <div><span class="ks-pglyph">{{ glyph("doc") }}</span><dt>Plain answers</dt><dd>Tell us about the job and we'll say honestly whether a system would help.</dd></div>
-    </dl>
+    <p><a href="/systems/#cases">See all {{ cases|length }} working</a></p>
   </div>
 </section>
 
@@ -142,37 +191,18 @@
   </div></div>
 </section>
 
-<section class="ks-section" aria-labelledby="apps-h">
+<section class="ks-section ks-apps-line" aria-labelledby="apps-h">
   <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="apps-h">{{ site.live|length }} apps on the App Store</h2>
-      <p class="ks-lede">The same studio makes small iPhone apps: daily games, money tools and home organizers. No ads, no accounts, no tracking.</p>
-    </div>
+    <h2 class="ks-display ks-h3" id="apps-h">Also from the studio: {{ site.live|length }} iPhone apps</h2>
+    <p class="ks-muted">Daily games, money tools and home organizers. No ads, no accounts, no tracking.</p>
     <ul class="ks-shelf" aria-label="Our apps">
       {%- for a in site.live %}
-      <li style="--i: {{ loop.index0 }}"><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72" style="view-transition-name: icon-{{ a.id }}"></a></li>
+      <li style="--i: {{ loop.index0 }}"><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72" loading="lazy" style="view-transition-name: icon-{{ a.id }}"></a></li>
       {%- endfor %}
     </ul>
     <div class="ks-actions">
       <a class="ks-button is-quiet" href="/apps/">Browse the apps</a>
       <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
-    </div>
-  </div>
-</section>
-
-<section class="ks-section" aria-label="More from the studio">
-  <div class="ks-wrap ks-split ks-teasers">
-    <div>
-      <span class="ks-pglyph">{{ glyph("build") }}</span>
-      <h2 class="ks-display ks-h2">One developer and Claude</h2>
-      <p class="ks-muted">Everything here is built with Claude, working through written instructions, with a person deciding what gets built and what ships.</p>
-      <p><a href="/how-we-build/">See how the studio works</a></p>
-    </div>
-    <div>
-      <span class="ks-pglyph">{{ glyph("doc") }}</span>
-      <h2 class="ks-display ks-h2">Field guide</h2>
-      <p class="ks-muted">Short, practical notes on working with AI, from what we've learned building with it every day.</p>
-      <p><a href="/guide/">Read the field guide</a></p>
     </div>
   </div>
 </section>

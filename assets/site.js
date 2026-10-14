@@ -240,4 +240,22 @@
       });
     }
   }
+  /* ---- home operations view: the example evening plays once; "Play again" replays it ---- */
+  var ops = $("[data-ks-ops]");
+  if (ops && !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+    var items = $$(".ks-ops-item", ops), chip = $("[data-sent]", ops), replay = $(".ks-ops-replay", ops);
+    var waiting = chip.textContent, timers = [];
+    var later = function (fn, ms) { timers.push(setTimeout(fn, ms)); };
+    var play = function () {
+      timers.forEach(clearTimeout); timers = [];
+      replay.hidden = true;
+      chip.textContent = waiting; chip.classList.remove("is-sent");
+      items.forEach(function (it) { it.classList.remove("is-arrive"); it.classList.add("is-wait"); });
+      items.forEach(function (it, i) { later(function () { it.classList.remove("is-wait"); it.classList.add("is-arrive"); }, 900 + i * 1700); });
+      later(function () { chip.textContent = chip.getAttribute("data-sent"); chip.classList.add("is-sent"); }, 900 + 1700 + 1500);
+      later(function () { replay.hidden = false; }, 900 + items.length * 1700 + 600);
+    };
+    replay.addEventListener("click", play);
+    play();
+  }
 })();
