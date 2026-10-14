@@ -185,4 +185,39 @@
     });
     if (hits.length) $("#ks-404-maybe").hidden = false;
   }
+  /* ---- contact form (home): posts to the kynoss-intake Worker ---- */
+  $$("form[data-ks-intake]").forEach(function (form) {
+    var started = Date.now();
+    var status = $(".ks-form-status", form);
+    var button = $("button[type=submit]", form);
+    var say = function (text, bad) { status.textContent = text; status.classList.toggle("is-bad", !!bad); };
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = form.elements;
+      if (!f.name.value.trim() || !f.contact.value.trim() || !f.about.value.trim()) {
+        say("Please add your name, an email or phone number, and a few words about what you do.", true);
+        return;
+      }
+      button.disabled = true;
+      say("Sending…");
+      fetch(form.getAttribute("data-ks-intake"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: f.name.value, contact: f.contact.value, business: f.business.value, about: f.about.value,
+                               website: f.website.value, elapsed_ms: Date.now() - started, page: location.pathname })
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return { r: r, b: b }; }); })
+        .then(function (x) {
+          if (x.r.ok && x.b.ok) {
+            form.reset();
+            say("Thanks, it's on its way. We'll be in touch soon.");
+            return;
+          }
+          button.disabled = false;
+          if (x.b.error === "contact") say("That email or phone number doesn't look right. Could you check it?", true);
+          else if (x.b.error === "rate") say("That's a lot of messages in a short time. Please try again in an hour, or email us.", true);
+          else say("Something went wrong sending that. Please try again, or email us.", true);
+        })
+        .catch(function () { button.disabled = false; say("We couldn't reach the server. Please try again, or email us.", true); });
+    });
+  });
 })();

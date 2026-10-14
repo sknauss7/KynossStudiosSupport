@@ -622,3 +622,19 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
 .ks-hero-sys .ks-hero-copy { max-width: 46rem; padding: clamp(56px, 10vw, 128px) 0 clamp(8px, 2vw, 24px); }
 .ks-hero-sys .ks-h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); }
 .ks-page .ks-shelf + .ks-actions { margin-top: 28px; }
+/* Contact form (home, 2026-10-14) */
+.ks-contact { max-width: 46rem; }
+.ks-form { display: grid; gap: 16px; }
+.ks-form-row { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 640px) { .ks-form-row { grid-template-columns: 1fr; } }
+.ks-form label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+.ks-form label .ks-muted { font-weight: 400; }
+.ks-form input, .ks-form textarea { width: 100%; box-sizing: border-box; font: inherit; font-weight: 400; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.ks-form textarea { resize: vertical; min-height: 120px; }
+.ks-form input:focus, .ks-form textarea:focus { outline: 2px solid var(--signal); outline-offset: 1px; border-color: transparent; }
+.ks-form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.ks-form-foot p { margin: 0; flex: 1 1 16rem; }
+.ks-form .ks-button[disabled] { opacity: .6; cursor: progress; }
+.ks-form-status { margin: 0; min-height: 1.4em; color: var(--slate); }
+.ks-form-status.is-bad { color: #E5484D; }
+.ks-hp { position: absolute !important; left: -10000px; width: 1px; height: 1px; overflow: hidden; }

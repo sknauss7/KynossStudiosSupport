@@ -8,7 +8,7 @@
       <h1 class="ks-display ks-h1">Hand off the work that eats your week.</h1>
       <p class="ks-lede">Kynoss Studios designs, builds and runs custom AI systems for small businesses. Customer texts drafted or answered, jobs booked and reminded, email and documents filed, deadlines tracked, all built around the way you already work.</p>
       <div class="ks-actions">
-        <a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">Tell us about your work</a>
+        <a class="ks-button" href="#contact">Tell us about your work</a>
         <a class="ks-button is-quiet" href="/systems/">See what we build</a>
       </div>
       <p class="ks-muted">Now taking on a small number of businesses. The first conversation is free, with no obligation.</p>
@@ -58,6 +58,30 @@
       <div><span class="ks-pglyph">{{ glyph("build") }}</span><dt>Tested before it reaches you</dt><dd>Nothing counts as done until it has been seen working, not just passed its tests. <a href="/how-we-build/">How we build</a></dd></div>
       <div><span class="ks-pglyph">{{ glyph("doc") }}</span><dt>Plain answers</dt><dd>Tell us about the job and we'll say honestly whether a system would help.</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="ks-section" id="contact" aria-labelledby="contact-h">
+  <div class="ks-wrap ks-contact">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="contact-h">Tell us about your work</h2>
+      <p class="ks-lede">A few lines is plenty. We'll get back to you personally, usually within a day, and say plainly whether a system would help.</p>
+    </div>
+    <form class="ks-form" data-ks-intake="https://kynoss-intake.kynossstudios.workers.dev/lead" novalidate>
+      <div class="ks-form-row">
+        <label>Your name<input name="name" autocomplete="name" maxlength="100" required></label>
+        <label>Email or phone<input name="contact" autocomplete="email" maxlength="200" required></label>
+      </div>
+      <label>Business name <span class="ks-muted">(optional)</span><input name="business" autocomplete="organization" maxlength="150"></label>
+      <label>Tell us a little about what you do<textarea name="about" rows="5" maxlength="2000" required></textarea></label>
+      <label class="ks-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="ks-form-foot">
+        <button class="ks-button" type="submit">Send</button>
+        <p class="ks-small ks-muted">We use this only to reply to you, and never share or sell it. <a href="/privacy/#contact-form">How it's kept</a></p>
+      </div>
+      <p class="ks-form-status" role="status" aria-live="polite"></p>
+      <noscript><p class="ks-small">This form needs JavaScript. You can email us instead at <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a>.</p></noscript>
+    </form>
   </div>
 </section>
 
