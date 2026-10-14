@@ -613,7 +613,7 @@ def main():
     # Home leads with custom systems; the apps are the track record (Steven, 2026-10-14). It shows Systems' cases read-only.
     render("home.html", "index.html", page("/", "Kynoss Studios: custom AI systems for small businesses",
            f"Kynoss Studios designs, builds and runs custom AI systems built around the way you already work. Also {len(site['live'])} iPhone apps, with no ads, accounts or tracking."),
-           cases=sysd["cases"], cases_lede=sysd["cases_lede"])
+           cases=sysd["cases"], cases_lede=sysd["cases_lede"], stats=stats)
     render("apps.html", "apps/index.html", page("/apps/", "Apps · Kynoss Studios",
            "Every Kynoss Studios app for iPhone, grouped by category, with prices, help and privacy policies.", nav="apps"))
 

@@ -220,4 +220,24 @@
         .catch(function () { button.disabled = false; say("We couldn't reach the server. Please try again, or email us.", true); });
     });
   });
+  /* ---- home system core: the scan line spans the hero, and the readouts count up once ---- */
+  var hud = $(".ks-hud-hero");
+  if (hud) {
+    hud.style.setProperty("--scan-h", hud.offsetHeight + "px");
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!still) {
+      $$(".ks-hud-strip [data-count]").forEach(function (el, i) {
+        var end = parseInt(el.getAttribute("data-count"), 10), plus = el.hasAttribute("data-plus") ? "+" : "";
+        var t0 = null, delay = 1300 + i * 150, dur = 900;
+        el.textContent = "0" + plus;
+        var step = function (t) {
+          if (t0 === null) t0 = t;
+          var p = Math.min(1, Math.max(0, (t - t0 - delay) / dur));
+          el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + plus;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }
+  }
 })();
