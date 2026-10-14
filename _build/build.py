@@ -606,7 +606,7 @@ def main():
         return p
 
     render("home.html", "index.html", page("/", "Kynoss Studios: small iPhone apps that do one job well",
-           f"An independent iPhone app studio in Florida. {len(site['live'])} apps on the App Store: daily games, money tools and home organizers, with no ads, accounts or tracking."))
+           f"An independent iPhone app studio. {len(site['live'])} apps on the App Store: daily games, money tools and home organizers, with no ads, accounts or tracking."))
     render("apps.html", "apps/index.html", page("/apps/", "Apps · Kynoss Studios",
            "Every Kynoss Studios app for iPhone, grouped by category, with prices, help and privacy policies.", nav="apps"))
 
@@ -648,7 +648,7 @@ def main():
                         crumbs=[("/", "Home"), ("/guide/", "Field guide"), (None, g["title"])], **gcss),
                    g=g, num=n + 1, guides=guides, prev=guides[n - 1] if n else None, next=guides[n + 1] if n + 1 < len(guides) else None)
     render("about.html", "about/index.html", page("/about/", "About · Kynoss Studios",
-           f"Kynoss Studios LLC is an independent iPhone app studio in Florida, founded in {site['studio']['founded']}.", nav="about"))
+           f"Kynoss Studios LLC is an independent iPhone app studio, founded in {site['studio']['founded']}.", nav="about"))
     render("privacy.html", "privacy/index.html", page("/privacy/", "Privacy across our apps · Kynoss Studios",
            "How every Kynoss Studios app handles your data: what stays on your iPhone, what syncs through your iCloud, and what is sent anywhere else."))
     render("press.html", "press/index.html", page("/press/", "Press kit · Kynoss Studios",
