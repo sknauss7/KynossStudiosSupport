@@ -5,7 +5,7 @@
     <a class="ks-brand" href="/">{{ mark() }}<span>Kynoss Studios</span></a>
     <nav aria-label="Main">
       <ul class="ks-nav" id="ks-nav">
-        {%- for href, label, key in [("/apps/", "Apps", "apps"), ("/support/", "Support", "support"), ("/how-we-build/", "How we build", "build"), ("/systems/", "Custom systems", "systems"), ("/about/", "About", "about")] %}
+        {%- for href, label, key in [("/systems/", "Custom systems", "systems"), ("/how-we-build/", "How we build", "build"), ("/apps/", "Apps", "apps"), ("/support/", "Support", "support"), ("/about/", "About", "about")] %}
         <li><a href="{{ href }}"{% if active == key %} aria-current="page"{% endif %}>{{ label }}</a></li>
         {%- endfor %}
       </ul>
@@ -45,7 +45,7 @@
   <div class="ks-foot-in">
     <div class="ks-foot-about">
       <h2>{{ mark() }}Kynoss Studios</h2>
-      <p>{{ line or "Small iPhone apps that do one job well. No ads, no accounts, no tracking." }}</p>
+      <p>{{ line or "Custom AI systems built around the way you work, and small iPhone apps with no ads or tracking." }}</p>
       <p><a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a></p>
     </div>
     <div>

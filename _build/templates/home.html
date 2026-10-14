@@ -1,86 +1,97 @@
 {% extends "base.html" %}
-{%- from "_catalog.html" import catalog -%}
 {%- from "_icons.html" import glyph -%}
+{#- Home leads with custom systems; the apps are the track record (Steven, 2026-10-14). No client claims until there are clients (QUEUE 21). #}
 {% block main %}
-<section class="ks-hero ks-hero-b">
-  <div class="ks-hero-stage">
-    <div class="ks-wall" aria-hidden="true">
-      <div class="ks-wall-tilt">
-        {%- for col in site.wall %}
-        <div class="ks-wall-col" style="--dur: {{ [84, 66, 90, 72][loop.index0 % 4] }}s">
-          <div class="ks-wall-track">
-            {%- for s in col + col %}
-            <img src="{{ s }}" alt="" width="300" height="652" decoding="async"{% if loop.index > 4 %} loading="lazy"{% endif %}>
-            {%- endfor %}
-          </div>
-        </div>
-        {%- endfor %}
+<section class="ks-hero ks-hero-sys">
+  <div class="ks-wrap">
+    <div class="ks-hero-copy">
+      <h1 class="ks-display ks-h1">Hand off the work that eats your week.</h1>
+      <p class="ks-lede">Kynoss Studios designs, builds and runs custom AI systems for small businesses. Customer texts answered, jobs booked and reminded, email and documents filed, deadlines tracked, all built around the way you already work.</p>
+      <div class="ks-actions">
+        <a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">Tell us about your work</a>
+        <a class="ks-button is-quiet" href="/systems/">See what we build</a>
       </div>
-    </div>
-    <div class="ks-wrap">
-      <div class="ks-hero-copy">
-        <h1 class="ks-display ks-h1">Small iPhone apps that do one job well.</h1>
-        <p class="ks-lede">Kynoss Studios makes daily games, money tools and home organizers for iPhone. No ads, no accounts, no tracking. One developer, building with Claude.</p>
-        <div class="ks-actions">
-          <a class="ks-button" href="#apps">Browse the apps</a>
-          <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
-        </div>
-        <a class="ks-hero-also" href="/systems/">
-          <span class="ks-pglyph">{{ glyph("systems") }}</span>
-          <span><strong>Also from the studio: custom AI systems.</strong> Hand off the work that eats your week.</span>
-          <span class="ks-hero-also-go" aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
+      <p class="ks-muted">Now taking on a small number of businesses. The first conversation is free, with no obligation.</p>
     </div>
   </div>
+</section>
+
+<section class="ks-section" aria-labelledby="does-h">
   <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="does-h">The jobs it takes on</h2>
+      <p class="ks-lede">A system isn't a chat window. It's connected to where your work arrives, runs on its own schedule and checks with you on the things you want to decide.</p>
+    </div>
+    <dl class="ks-principles">
+      <div><span class="ks-pglyph">{{ glyph("people") }}</span><dt>Replies to customers</dt><dd>Texts and email answered in your tone and in your customer's language, with anything tricky handed to you.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("key") }}</span><dt>Books and reminds</dt><dd>Appointments confirmed, reminders sent the day before, and changes handled without the back-and-forth.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("inbox") }}</span><dt>Files and keeps track</dt><dd>Email, documents and deadlines sorted as they arrive, so nothing waits in a pile.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("search") }}</span><dt>Answers with its sources</dt><dd>Ask a question about your own business and get the answer with where it came from.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="ours-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="ours-h">We run our own on them</h2>
+      <p class="ks-lede">{{ cases_lede }}</p>
+    </div>
+    <dl class="ks-principles">
+      {%- for c in cases %}
+      <div><span class="ks-pglyph">{{ glyph("device" if c.glyph == "apps" else c.glyph) }}</span><dt>{{ c.title }}</dt><dd>{{ c.summary }}</dd></div>
+      {%- endfor %}
+    </dl>
+    <p><a href="/systems/#cases">See them working</a></p>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="care-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="care-h">Careful with what it touches</h2>
+      <p class="ks-lede">A system that reads your customers' messages has to earn that trust.</p>
+    </div>
+    <dl class="ks-principles">
+      <div><span class="ks-pglyph">{{ glyph("lock") }}</span><dt>Your data, your place</dt><dd>On your own computer, a private server we run just for you, or your own accounts. We agree on it before anything is built.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>Only what you allow</dt><dd>It can be read-only, ask before it sends anything, and keep a record of every change so it can be undone.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("build") }}</span><dt>Tested before it reaches you</dt><dd>Nothing counts as done until it has been seen working, not just passed its tests. <a href="/how-we-build/">How we build</a></dd></div>
+      <div><span class="ks-pglyph">{{ glyph("doc") }}</span><dt>Plain answers</dt><dd>Tell us about the job and we'll say honestly whether a system would help.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ks-section" aria-labelledby="apps-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="apps-h">{{ site.live|length }} apps on the App Store</h2>
+      <p class="ks-lede">The same studio makes small iPhone apps: daily games, money tools and home organizers. No ads, no accounts, no tracking.</p>
+    </div>
     <ul class="ks-shelf" aria-label="Our apps">
       {%- for a in site.live %}
       <li style="--i: {{ loop.index0 }}"><a href="/{{ a.id }}/" title="{{ a.name }}: {{ a.kind }}"><img src="{{ a.icon }}" alt="{{ a.name }}" width="72" height="72" style="view-transition-name: icon-{{ a.id }}"></a></li>
       {%- endfor %}
     </ul>
-    <p class="ks-shelf-note">{{ site.live|length }} apps on the App Store, {{ site.upcoming|length }} on the way.</p>
-  </div>
-</section>
-
-<section class="ks-section" id="apps" aria-labelledby="apps-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="apps-h">All the apps</h2>
-      <p class="ks-lede">Grouped by what they're for. Each one has its own page, help and privacy policy.</p>
+    <div class="ks-actions">
+      <a class="ks-button is-quiet" href="/apps/">Browse the apps</a>
+      <a class="ks-button is-quiet" href="/support/">Get help with an app</a>
     </div>
-    {{ catalog(site, morph=False) }}
   </div>
 </section>
 
-<section class="ks-section" aria-labelledby="treat-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="treat-h">We don't want your data</h2>
-      <p class="ks-lede">Every app is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers.</p>
-    </div>
-    <dl class="ks-principles">
-      <div><span class="ks-pglyph">{{ glyph("device") }}</span><dt>Your data stays yours</dt><dd>Most features run on your iPhone. Syncing, sharing and multiplayer go through Apple's iCloud and Game Center, never an account with us.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>No ads, no trackers</dt><dd>None of the apps contain advertising or third-party analytics code.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("icloud") }}</span><dt>Cloud AI only where we say so</dt><dd>Two apps send AI questions to OpenAI through a relay we run, which doesn't keep them. <a href="/privacy/">See what each app sends</a>.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("tag") }}</span><dt>Prices you can read</dt><dd>Free versions are useful on their own. Upgrades are one-time purchases or clearly priced subscriptions, listed on every app page.</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="ks-section" aria-label="The studio">
+<section class="ks-section" aria-label="More from the studio">
   <div class="ks-wrap ks-split ks-teasers">
     <div>
       <span class="ks-pglyph">{{ glyph("build") }}</span>
       <h2 class="ks-display ks-h2">One developer and Claude</h2>
-      <p class="ks-muted">Every app here is built with Claude, working through a written queue of instructions: code, tests, screenshots, uploads. I decide what gets built and what ships.</p>
+      <p class="ks-muted">Everything here is built with Claude, working through written instructions, with a person deciding what gets built and what ships.</p>
       <p><a href="/how-we-build/">See how the studio works</a></p>
     </div>
     <div>
-      <span class="ks-pglyph">{{ glyph("systems") }}</span>
-      <h2 class="ks-display ks-h2">Custom AI systems</h2>
-      <p class="ks-muted">The system that builds these apps started as one idea. We've since built others: a condo board assistant, wedding planning, a personal inbox and records keeper, and a market research desk. If you have an idea, we can build a system around it.</p>
-      <p><a href="/systems/">See what we've built</a></p>
+      <span class="ks-pglyph">{{ glyph("doc") }}</span>
+      <h2 class="ks-display ks-h2">Field guide</h2>
+      <p class="ks-muted">Short, practical notes on working with AI, from what we've learned building with it every day.</p>
+      <p><a href="/guide/">Read the field guide</a></p>
     </div>
   </div>
 </section>

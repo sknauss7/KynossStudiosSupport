@@ -595,7 +595,7 @@ def main():
         dest.write_text(html_out, encoding="utf-8")
 
     og = ROOT / "assets" / "og"
-    og_page(og / "studio.png", "Small iPhone apps that do one job well.", "No ads, no accounts, no tracking.", wall=site["wall"])
+    og_page(og / "studio.png", "Hand off the work that eats your week.", "Custom AI systems, and iPhone apps with no ads or tracking.", wall=site["wall"])
     stats = build_stats()
     pages = []
 
@@ -605,8 +605,15 @@ def main():
         pages.append(p)
         return p
 
-    render("home.html", "index.html", page("/", "Kynoss Studios: small iPhone apps that do one job well",
-           f"An independent iPhone app studio. {len(site['live'])} apps on the App Store: daily games, money tools and home organizers, with no ads, accounts or tracking."))
+    # /systems/ is owned by the Systems workspace: its words live in _build/systems.json, its styles in assets/systems.css
+    sysd = json.loads((BUILD / "systems.json").read_text())
+    fill = {"apps": len(site["live"]), "updates": stats["updates"]}
+    for c in sysd["cases"]:
+        c["win"] = [w.format(**fill) for w in c["win"]]
+    # Home leads with custom systems; the apps are the track record (Steven, 2026-10-14). It shows Systems' cases read-only.
+    render("home.html", "index.html", page("/", "Kynoss Studios: custom AI systems for small businesses",
+           f"Kynoss Studios designs, builds and runs custom AI systems built around the way you already work. Also {len(site['live'])} iPhone apps, with no ads, accounts or tracking."),
+           cases=sysd["cases"], cases_lede=sysd["cases_lede"])
     render("apps.html", "apps/index.html", page("/apps/", "Apps · Kynoss Studios",
            "Every Kynoss Studios app for iPhone, grouped by category, with prices, help and privacy policies.", nav="apps"))
 
@@ -624,11 +631,6 @@ def main():
     render("how.html", "how-we-build/index.html", page("/how-we-build/", "How we build · Kynoss Studios",
            "Kynoss Studios is one developer and Claude. How work moves from written instructions to the App Store, and what keeps it honest.",
            nav="build", og_image_path="/assets/og/how-we-build.png"), stats=stats)
-    # /systems/ is owned by the Systems workspace: its words live in _build/systems.json, its styles in assets/systems.css
-    sysd = json.loads((BUILD / "systems.json").read_text())
-    fill = {"apps": len(site["live"]), "updates": stats["updates"]}
-    for c in sysd["cases"]:
-        c["win"] = [w.format(**fill) for w in c["win"]]
     og_page(og / "systems.png", sysd["og"]["title"], sysd["og"]["subtitle"])
     render("systems.html", "systems/index.html", page("/systems/", sysd["page"]["title"], sysd["page"]["description"],
            nav="systems", og_image_path="/assets/og/systems.png", foot_line=sysd["foot_line"], css="/assets/systems.css",

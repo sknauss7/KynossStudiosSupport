@@ -618,3 +618,7 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
 .ks-logotiles a.is-light { background: #F2F2F0; }
 .ks-logotiles a.is-dark { background: #0F1522; }
 .ks-logotiles img { width: 72px; height: auto; }
+/* Home, systems-first (2026-10-14): a plain hero, no screenshot wall */
+.ks-hero-sys .ks-hero-copy { max-width: 46rem; padding: clamp(56px, 10vw, 128px) 0 clamp(8px, 2vw, 24px); }
+.ks-hero-sys .ks-h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); }
+.ks-page .ks-shelf + .ks-actions { margin-top: 28px; }
