@@ -675,7 +675,7 @@ def main():
                              '<meta name="description" content="{{ page.description }}">'
                              '<style>.ks-legacy-main > .container, .ks-legacy-main > .wrap { margin-top: 0; }</style>'
                              '{% elif part == "top" %}{{ bar("support" if kind == "support" else "") }}{{ appband(app, tabs, label, page.crumbs) }}'
-                             '{% if kind == "privacy" and not loc %}<p class="ks-stance">Kynoss Studios is built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>{% endif %}'
+                             '{% if kind == "privacy" and not loc %}<p class="ks-stance">{{ app.name }} is made by {{ site.studio.legal }} ("we") and built to know as little about you as possible: no accounts, no ads, no third-party trackers, and we never sell your data or share it with advertisers. <a href="/privacy/">Compare every app</a></p>{% endif %}'
                              '{% else %}{{ foot(site) }}{% endif %}')
     for a in site["apps"]:
         variants = [("", None)] + [(f".{loc}", loc) for loc in a.get("locales", [])]
