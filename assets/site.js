@@ -354,14 +354,10 @@
       ctx.clearRect(0, 0, W, H);
       // lines from each part toward the core
       anchors.forEach(function (a) {
-        var on = selected === "core" || a.id === selected;
         var dx = a.x - cx, dy = (a.y - cy) * 0.55, len = Math.hypot(dx, dy) || 1;
         a.ex = cx + (dx / len) * R * 1.02; a.ey = cy + (dy / len) * R * 1.02;
         a.qx = cx + dx * 0.55; a.qy = a.y;
-        if (on) { ctx.strokeStyle = rgba(hud, 0.18); ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(a.qx, a.qy, a.ex, a.ey); ctx.stroke(); }
-        ctx.strokeStyle = rgba(hud, on ? 0.85 : 0.26); ctx.lineWidth = on ? 1.6 : 1;
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(a.qx, a.qy, a.ex, a.ey); ctx.stroke();
-        ctx.fillStyle = rgba(hud, on ? 0.95 : 0.45); ctx.beginPath(); ctx.arc(a.ex, a.ey, on ? 2.6 : 1.6, 0, Math.PI * 2); ctx.fill();
+        // no drawn lines (Steven, 2026-10-14): the path is kept only for the pulses
       });
       // outer HUD: tick ring and two arc rings turning at different speeds
       ctx.save(); ctx.translate(cx, cy);
@@ -404,6 +400,31 @@
         var sz = 0.5 + 1.5 * P2.d;
         ctx.fillRect(P2.x - sz / 2, P2.y - sz / 2, sz, sz);
         if (P2.d > 0.62) front.push(P2);
+      }
+      // the living center: a heartbeat core, flickering tendrils and orbiting sparks
+      var beat = function (x) { x = x % 1.6; return Math.exp(-Math.pow((x - 0.15) / 0.07, 2)) + 0.6 * Math.exp(-Math.pow((x - 0.42) / 0.08, 2)); };
+      var pulse = still ? 0.4 : beat(t), boost = ripples.length ? 0.5 : 0;
+      var r0 = R * (0.22 + 0.045 * pulse + 0.04 * boost);
+      var cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, r0 * 2.6);
+      cg.addColorStop(0, "rgba(255,255,255," + Math.min(1, 0.85 + 0.15 * pulse).toFixed(3) + ")");
+      cg.addColorStop(0.18, rgba(warm, 0.9));
+      cg.addColorStop(0.45, rgba(warm, 0.28 + 0.2 * pulse + 0.2 * boost));
+      cg.addColorStop(1, rgba(warm, 0));
+      ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(cx, cy, r0 * 2.6, 0, Math.PI * 2); ctx.fill();
+      ctx.lineCap = "round";
+      for (var tdl = 0; tdl < 7; tdl++) {
+        var ta = tdl * 0.898 + t * (0.6 + 0.13 * tdl), tl = r0 * (1.4 + 0.8 * Math.sin(t * 1.7 + tdl * 2.1));
+        var bend = Math.sin(t * 2.3 + tdl) * 0.9;
+        ctx.strokeStyle = rgba(tdl % 2 ? hud : warm, 0.45 + 0.35 * Math.max(0, Math.sin(t * 3 + tdl * 1.3)));
+        ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.quadraticCurveTo(cx + Math.cos(ta + bend) * tl * 0.6, cy + Math.sin(ta + bend) * tl * 0.6, cx + Math.cos(ta) * tl, cy + Math.sin(ta) * tl);
+        ctx.stroke();
+      }
+      for (var o = 0; o < 5; o++) {
+        var oa = t * (0.9 + o * 0.35) * (o % 2 ? -1 : 1) + o * 1.3, orr = R * (0.32 + o * 0.06);
+        ctx.fillStyle = rgba(o % 2 ? hud : warm, 0.85);
+        ctx.beginPath(); ctx.arc(cx + Math.cos(oa) * orr, cy + Math.sin(oa) * orr * 0.55, 1.6, 0, Math.PI * 2); ctx.fill();
       }
       // neural sparks between nearby points on the front
       if (!still && now - lastSpark > 90 && front.length > 2) {
