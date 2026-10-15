@@ -28,14 +28,15 @@
        "what": "Approve each reply with a tap, and ask it anything about your business.", "status": "Built and tested"},
       {"id": "crew", "side": "r", "y": 38, "glyph": "people", "name": "Your crew",
        "what": "Their day sent by text in their language, and their updates read back in.", "status": "Built and tested"},
-      {"id": "calendar", "side": "r", "y": 62, "glyph": "calendar", "name": "Calendar or booking software",
-       "what": "Bookings reminded, confirmed and moved with your OK, in the tools you keep.", "status": "We connect it when you need it"},
+      {"id": "calendar", "side": "r", "y": 62, "glyph": "calendar", "name": "Calendar or bookings",
+       "what": "Bookings reminded, confirmed and moved with your OK, in your calendar or booking software.", "status": "We connect it when you need it"},
       {"id": "reports", "side": "r", "y": 84, "glyph": "chart", "name": "Reports",
        "what": "What came in, what's due and what needs you, in one short morning summary.", "status": "Running in our systems today"},
     ] %}
     <section class="ks-map" aria-labelledby="map-h" data-ks-map>
       <h2 class="ks-map-h" id="map-h">Example: how a system could fit together</h2>
       <p class="ks-map-hint">Tap any part to see what it does.</p>
+      <p class="ks-map-key" aria-hidden="true"><span><i class="ks-map-dot is-run"></i>Running in our systems</span><span><i class="ks-map-dot is-built"></i>Built and tested</span><span><i class="ks-map-dot is-req"></i>Connected when you need it</span></p>
       <div class="ks-map-stage">
         <svg class="ks-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {%- for p in parts %}
@@ -48,7 +49,7 @@
           <span class="ks-sr">Your system</span>
         </button>
         {%- for p in parts %}
-        <button class="ks-map-node is-{{ p.side }}" type="button" data-part="{{ p.id }}" style="--y: {{ p.y }}%"><span class="ks-pglyph">{{ glyph(p.glyph) }}</span><span>{{ p.name }}</span></button>
+        <button class="ks-map-node is-{{ p.side }} {{ 'is-built' if p.status == 'Built and tested' else ('is-req' if p.status.startswith('We connect') else 'is-run') }}" type="button" data-part="{{ p.id }}" style="--y: {{ p.y }}%"><span class="ks-pglyph">{{ glyph(p.glyph) }}</span><span class="ks-map-name">{{ p.name }}</span><i class="ks-map-dot" aria-hidden="true"></i><span class="ks-sr">({{ p.status }})</span></button>
         {%- endfor %}
       </div>
       <div class="ks-map-cards">

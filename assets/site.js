@@ -312,7 +312,7 @@
     var hud = [111, 227, 255], warm = [255, 181, 71];
     var rgba = function (c, a) { return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a.toFixed(3) + ")"; };
     var readColors = function () {
-      var cs = getComputedStyle(document.documentElement);
+      var cs = getComputedStyle(stage);
       var hex = function (v, fb) { v = (v || "").trim(); var m = /^#([0-9a-f]{6})$/i.exec(v); if (!m) return fb; var n = parseInt(m[1], 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
       hud = hex(cs.getPropertyValue("--hud"), hud); warm = hex(cs.getPropertyValue("--hud-warm"), warm);
     };
@@ -328,13 +328,13 @@
       W = b.width; H = b.height;
       holo.width = Math.round(W * dpr); holo.height = Math.round(H * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      cx = W / 2; cy = H / 2; R = Math.min(W, H) * 0.15;
+      cx = W / 2; cy = H / 2; R = Math.min(W, H) * 0.2;
       anchors = $$("[data-part]", holoMap).filter(function (n) { return n.getAttribute("data-part") !== "core"; }).map(function (n) {
         var r = n.getBoundingClientRect(), left = n.classList.contains("is-l");
         return { id: n.getAttribute("data-part"), x: (left ? r.right : r.left) - b.left, y: r.top + r.height / 2 - b.top };
       });
     };
-    var amp = 0.07, ampTarget = 0.07, packets = [], sparks = [], ripples = [], lastIdle = 0, lastSel = 0, lastSpark = 0;
+    var amp = 0.07, ampTarget = 0.07, packets = [], sparks = [], ripples = [], flashes = [], lastIdle = 0, lastSel = 0, lastSpark = 0;
     var morph = function (p, t) {
       return 1 + amp * (Math.sin(3 * p.th + t * 0.9) * Math.sin(2 * p.ph + t * 0.6) + 0.6 * Math.sin(5 * p.ph - t * 1.3) * Math.cos(4 * p.th + t * 0.7));
     };
@@ -355,21 +355,24 @@
       // lines from each part toward the core
       anchors.forEach(function (a) {
         var on = selected === "core" || a.id === selected;
-        var ex = cx + (a.x < cx ? -1 : 1) * R * 1.25, ey = cy + (a.y - cy) * 0.18;
-        ctx.strokeStyle = rgba(hud, on ? 0.75 : 0.22); ctx.lineWidth = on ? 1.6 : 1;
-        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(ex, ey); ctx.stroke();
-        a.ex = ex; a.ey = ey;
+        var dx = a.x - cx, dy = (a.y - cy) * 0.55, len = Math.hypot(dx, dy) || 1;
+        a.ex = cx + (dx / len) * R * 1.02; a.ey = cy + (dy / len) * R * 1.02;
+        a.qx = cx + dx * 0.55; a.qy = a.y;
+        if (on) { ctx.strokeStyle = rgba(hud, 0.18); ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(a.qx, a.qy, a.ex, a.ey); ctx.stroke(); }
+        ctx.strokeStyle = rgba(hud, on ? 0.85 : 0.26); ctx.lineWidth = on ? 1.6 : 1;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.quadraticCurveTo(a.qx, a.qy, a.ex, a.ey); ctx.stroke();
+        ctx.fillStyle = rgba(hud, on ? 0.95 : 0.45); ctx.beginPath(); ctx.arc(a.ex, a.ey, on ? 2.6 : 1.6, 0, Math.PI * 2); ctx.fill();
       });
       // outer HUD: tick ring and two arc rings turning at different speeds
       ctx.save(); ctx.translate(cx, cy);
       ctx.rotate(t * 0.05);
       for (var k = 0; k < 72; k++) {
-        var ang = (k / 72) * Math.PI * 2, r1 = R * 1.95, r2 = R * (k % 6 === 0 ? 1.82 : 1.88);
+        var ang = (k / 72) * Math.PI * 2, r1 = R * 1.55, r2 = R * (k % 6 === 0 ? 1.45 : 1.5);
         ctx.strokeStyle = rgba(hud, k % 6 === 0 ? 0.45 : 0.18); ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1); ctx.lineTo(Math.cos(ang) * r2, Math.sin(ang) * r2); ctx.stroke();
       }
       ctx.restore();
-      [[1.5, -0.35, 0.55, 3], [1.66, 0.22, 0.3, 1.5]].forEach(function (ring) {
+      [[1.2, -0.35, 0.55, 3], [1.32, 0.22, 0.3, 1.5]].forEach(function (ring) {
         ctx.save(); ctx.translate(cx, cy); ctx.rotate(t * ring[1]);
         ctx.strokeStyle = rgba(hud, ring[2]); ctx.lineWidth = ring[3]; ctx.lineCap = "round";
         for (var s = 0; s < 3; s++) { ctx.beginPath(); ctx.arc(0, 0, R * ring[0], s * 2.1, s * 2.1 + 1.1); ctx.stroke(); }
@@ -419,12 +422,18 @@
         ctx.strokeStyle = rgba(hud, 0.7 * k2); ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(sp.a.x, sp.a.y); ctx.lineTo(sp.b.x, sp.b.y); ctx.stroke();
       });
+      // a flash where a pulse lands on the orb
+      flashes = flashes.filter(function (fl) { return now - fl.t0 < 500; });
+      flashes.forEach(function (fl) {
+        var k5 = (now - fl.t0) / 500;
+        ctx.fillStyle = rgba(warm, 0.8 * (1 - k5)); ctx.beginPath(); ctx.arc(fl.x, fl.y, 2 + 8 * k5, 0, Math.PI * 2); ctx.fill();
+      });
       // ripples when the core takes something in
       ripples = ripples.filter(function (rp) { return now - rp < 800; });
       ripples.forEach(function (rp) {
         var k3 = (now - rp) / 800;
         ctx.strokeStyle = rgba(warm, 0.55 * (1 - k3)); ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.arc(cx, cy, R * (1.05 + 0.7 * k3), 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(cx, cy, R * (1.05 + 0.45 * k3), 0, Math.PI * 2); ctx.stroke();
       });
       // pulses travelling along the lines: in to the core, then an answer back out
       if (!still) {
@@ -435,13 +444,13 @@
       packets = packets.filter(function (pk) {
         var a = anchorOf(pk.id); if (!a || a.ex === undefined) return false;
         var k4 = (now - pk.t0) / pk.dur; if (k4 >= 1) {
-          if (pk.dir === 1) { ripples.push(now); ampTarget = Math.min(0.16, ampTarget + (pk.strong ? 0.02 : 0.008)); if (pk.strong) spawn(pk.id, -1, now, true); }
+          if (pk.dir === 1) { ripples.push(now); flashes.push({ x: a.ex, y: a.ey, t0: now }); ampTarget = Math.min(0.16, ampTarget + (pk.strong ? 0.02 : 0.008)); if (pk.strong) spawn(pk.id, -1, now, true); }
           return false;
         }
         var f = pk.dir === 1 ? k4 : 1 - k4;
         for (var tail = 0; tail < 5; tail++) {
-          var ft = Math.max(0, Math.min(1, f - pk.dir * tail * 0.025));
-          var px = a.x + (a.ex - a.x) * ft, py = a.y + (a.ey - a.y) * ft;
+          var ft = Math.max(0, Math.min(1, f - pk.dir * tail * 0.025)), u = 1 - ft;
+          var px = u * u * a.x + 2 * u * ft * a.qx + ft * ft * a.ex, py = u * u * a.y + 2 * u * ft * a.qy + ft * ft * a.ey;
           ctx.fillStyle = rgba(pk.dir === 1 ? hud : warm, (pk.strong ? 0.95 : 0.6) * (1 - tail / 5));
           ctx.beginPath(); ctx.arc(px, py, (pk.strong ? 2.6 : 1.8) * (1 - tail / 7), 0, Math.PI * 2); ctx.fill();
         }

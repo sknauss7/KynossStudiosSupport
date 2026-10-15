@@ -889,5 +889,29 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
 /* ---- Home hologram (2026-10-14; Steven: "Jarvis style hologram, constantly moving, morphing"): canvas behind the map's parts ---- */
 .ks-holo { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .ks-map-node { z-index: 1; }
-.ks-holo-k { position: absolute; left: 50%; top: 50%; width: 5.5%; translate: -50% -50%; z-index: 1; pointer-events: none; color: var(--hud-warm); filter: drop-shadow(0 0 10px color-mix(in srgb, var(--hud-warm) 70%, transparent)); }
+.ks-holo-k { position: absolute; left: 50%; top: 50%; width: 7%; translate: -50% -50%; z-index: 1; pointer-events: none; color: var(--hud-warm); filter: drop-shadow(0 0 10px color-mix(in srgb, var(--hud-warm) 70%, transparent)); }
 .ks-map.has-holo .ks-map-lines { display: none; }
+/* ---- Map v2 (2026-10-14): its own dark screen in both themes, glass parts with status dots ---- */
+.ks-map-stage { --hud: #6FE3FF; --hud-warm: #FFB547; --hud-glow: rgba(111, 227, 255, .45);
+  --hud-dim: rgba(111, 227, 255, .38); --hud-faint: rgba(111, 227, 255, .16);
+  --surface: #161E2E; --paper: #0F1522; --ink: #E8EDF6; --slate: #9AA5B8; --line: #253046;
+  color: var(--ink); border-radius: 18px; overflow: hidden; margin-top: 12px;
+  background: radial-gradient(ellipse 60% 55% at 50% 50%, #142036 0%, #0d1424 60%, #0a101c 100%);
+  border: 1px solid rgba(111, 227, 255, .22); box-shadow: inset 0 0 60px rgba(0, 0, 0, .5), 0 20px 60px -30px rgba(111, 227, 255, .35); }
+.ks-map-node { width: 29%; background: rgba(22, 30, 46, .58); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid rgba(111, 227, 255, .28); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06); }
+.ks-map-node.is-l { left: 3%; }
+.ks-map-node.is-r { right: 3%; }
+.ks-map-node.is-core { background: transparent; border-color: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.ks-map-name { flex: 1; }
+.ks-map-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ks-map-dot.is-run, .ks-map-node.is-run .ks-map-dot { background: #6FE3FF; box-shadow: 0 0 8px #6FE3FF; }
+.ks-map-dot.is-built, .ks-map-node.is-built .ks-map-dot { background: #FFB547; box-shadow: 0 0 8px #FFB547; }
+.ks-map-dot.is-req, .ks-map-node.is-req .ks-map-dot { background: transparent; border: 1.5px solid #9AA5B8; }
+.ks-map-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; margin: 8px 0 0; font-size: 12.5px; color: var(--slate); }
+.ks-map-key span { display: inline-flex; align-items: center; gap: 6px; }
+.ks-map-key .ks-map-dot.is-req { border-color: var(--slate); }
+.ks-map-card .ks-map-status { color: #0E6FA8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ks-map-card .ks-map-status { color: var(--hud); } }
+:root[data-theme="dark"] .ks-map-card .ks-map-status { color: var(--hud); }
+@media (max-width: 520px) { .ks-map-node { width: 34%; } .ks-map-node.is-l { left: 2%; } .ks-map-node.is-r { right: 2%; } }
