@@ -269,18 +269,18 @@
   },
   "build": {
     "title": "What we can build",
-    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including some our own systems haven't needed yet and a few we're still experimenting with.",
+    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including some our own systems haven't needed yet and a couple we're still working on.",
     "blocks": [
       [
         "phone",
         "Answers the phone",
         "A natural-sounding voice picks up every call, day or night, answers the common questions and books the job.",
-        "Experimental"
+        "Planned"
       ],
       [
         "chat",
         "Replies to customers",
-        "Texts, email and website chat answered in your tone and in your customer's language, with anything tricky handed to you.",
+        "Texts, email and website chat drafted in your customer's language for your OK, with anything tricky handed to you.",
         ""
       ],
       [
@@ -298,8 +298,8 @@
       [
         "money",
         "Chases the money",
-        "Quotes drafted, invoices sent and late payments followed up politely.",
-        "Experimental"
+        "Quotes drafted from your price sheet; next, invoices sent and late payments followed up politely.",
+        "In progress"
       ],
       [
         "eye",
@@ -320,7 +320,7 @@
         ""
       ]
     ],
-    "tools": "It works with what you already use: Google or Microsoft email and calendars, spreadsheets, accounting and online-shop tools, and many more."
+    "tools": "It can connect to what you already use: email and calendars, spreadsheets, accounting and online-shop tools, and many more."
   },
   "cases_lede": "Each one started as a single sentence about a job. Here's what they do now.",
   "stories": [
