@@ -346,11 +346,11 @@
       return { x: cx + x1 * R * p, y: cy + y2 * R * p, d: (z2 + 1) / 2 };
     };
     var anchorOf = function (id) { for (var i = 0; i < anchors.length; i++) if (anchors[i].id === id) return anchors[i]; return null; };
-    var spawn = function (id, dir, now, strong) { packets.push({ id: id, dir: dir, t0: now, dur: strong ? 900 : 1500, strong: strong }); };
+    var spawn = function (id, dir, now, strong) { packets.push({ id: id, dir: dir, t0: now, dur: strong ? 1700 : 2600, strong: strong }); };
     var draw = function (now) {
-      var t = now / 1000;
-      amp += (ampTarget - amp) * 0.04;
-      if (ampTarget > 0.07) ampTarget = Math.max(0.07, ampTarget - 0.0015);
+      var t = now / 1000 * 0.5; // a thoughtful pace (Steven, 2026-10-14: "slower, like a thoughtful presence")
+      amp += (ampTarget - amp) * 0.02;
+      if (ampTarget > 0.07) ampTarget = Math.max(0.07, ampTarget - 0.0006);
       ctx.clearRect(0, 0, W, H);
       // lines from each part toward the core
       anchors.forEach(function (a) {
@@ -402,8 +402,7 @@
         if (P2.d > 0.62) front.push(P2);
       }
       // the living center: a heartbeat core, flickering tendrils and orbiting sparks
-      var beat = function (x) { x = x % 1.6; return Math.exp(-Math.pow((x - 0.15) / 0.07, 2)) + 0.6 * Math.exp(-Math.pow((x - 0.42) / 0.08, 2)); };
-      var pulse = still ? 0.4 : beat(t), boost = ripples.length ? 0.5 : 0;
+      var pulse = still ? 0.4 : Math.pow((1 - Math.cos(t * Math.PI * 2 / 1.6)) / 2, 1.5), boost = ripples.length ? 0.35 : 0;
       var r0 = R * (0.22 + 0.045 * pulse + 0.04 * boost);
       var cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, r0 * 2.6);
       cg.addColorStop(0, "rgba(255,255,255," + Math.min(1, 0.85 + 0.15 * pulse).toFixed(3) + ")");
@@ -427,7 +426,7 @@
         ctx.beginPath(); ctx.arc(cx + Math.cos(oa) * orr, cy + Math.sin(oa) * orr * 0.55, 1.6, 0, Math.PI * 2); ctx.fill();
       }
       // neural sparks between nearby points on the front
-      if (!still && now - lastSpark > 90 && front.length > 2) {
+      if (!still && now - lastSpark > 420 && front.length > 2) {
         lastSpark = now;
         var A = front[(Math.random() * front.length) | 0];
         for (var tries = 0; tries < 8; tries++) {
@@ -437,35 +436,35 @@
         }
         if (sparks.length > 14) sparks.shift();
       }
-      sparks = sparks.filter(function (sp) { return now - sp.t0 < 650; });
+      sparks = sparks.filter(function (sp) { return now - sp.t0 < 1400; });
       sparks.forEach(function (sp) {
-        var k2 = 1 - (now - sp.t0) / 650;
-        ctx.strokeStyle = rgba(hud, 0.7 * k2); ctx.lineWidth = 1;
+        var k2 = Math.sin(Math.PI * (now - sp.t0) / 1400);
+        ctx.strokeStyle = rgba(hud, 0.45 * k2); ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(sp.a.x, sp.a.y); ctx.lineTo(sp.b.x, sp.b.y); ctx.stroke();
       });
       // a flash where a pulse lands on the orb
-      flashes = flashes.filter(function (fl) { return now - fl.t0 < 500; });
+      flashes = flashes.filter(function (fl) { return now - fl.t0 < 900; });
       flashes.forEach(function (fl) {
-        var k5 = (now - fl.t0) / 500;
+        var k5 = (now - fl.t0) / 900;
         ctx.fillStyle = rgba(warm, 0.8 * (1 - k5)); ctx.beginPath(); ctx.arc(fl.x, fl.y, 2 + 8 * k5, 0, Math.PI * 2); ctx.fill();
       });
       // ripples when the core takes something in
-      ripples = ripples.filter(function (rp) { return now - rp < 800; });
+      ripples = ripples.filter(function (rp) { return now - rp < 1600; });
       ripples.forEach(function (rp) {
-        var k3 = (now - rp) / 800;
-        ctx.strokeStyle = rgba(warm, 0.55 * (1 - k3)); ctx.lineWidth = 2;
+        var k3 = (now - rp) / 1600;
+        ctx.strokeStyle = rgba(warm, 0.35 * (1 - k3)); ctx.lineWidth = 2;
         ctx.beginPath(); ctx.arc(cx, cy, R * (1.05 + 0.45 * k3), 0, Math.PI * 2); ctx.stroke();
       });
       // pulses travelling along the lines: in to the core, then an answer back out
       if (!still) {
-        if (now - lastIdle > 1700 && anchors.length) { lastIdle = now; spawn(anchors[(Math.random() * anchors.length) | 0].id, 1, now, false); }
-        if (selected && selected !== "core" && now - lastSel > 520) { lastSel = now; spawn(selected, 1, now, true); }
-        if (selected === "core" && now - lastSel > 260 && anchors.length) { lastSel = now; spawn(anchors[(Math.random() * anchors.length) | 0].id, 1, now, true); }
+        if (now - lastIdle > 4200 && anchors.length) { lastIdle = now; spawn(anchors[(Math.random() * anchors.length) | 0].id, 1, now, false); }
+        if (selected && selected !== "core" && now - lastSel > 1500) { lastSel = now; spawn(selected, 1, now, true); }
+        if (selected === "core" && now - lastSel > 900 && anchors.length) { lastSel = now; spawn(anchors[(Math.random() * anchors.length) | 0].id, 1, now, true); }
       }
       packets = packets.filter(function (pk) {
         var a = anchorOf(pk.id); if (!a || a.ex === undefined) return false;
         var k4 = (now - pk.t0) / pk.dur; if (k4 >= 1) {
-          if (pk.dir === 1) { ripples.push(now); flashes.push({ x: a.ex, y: a.ey, t0: now }); ampTarget = Math.min(0.16, ampTarget + (pk.strong ? 0.02 : 0.008)); if (pk.strong) spawn(pk.id, -1, now, true); }
+          if (pk.dir === 1) { ripples.push(now); flashes.push({ x: a.ex, y: a.ey, t0: now }); ampTarget = Math.min(0.12, ampTarget + (pk.strong ? 0.012 : 0.005)); if (pk.strong) spawn(pk.id, -1, now, true); }
           return false;
         }
         var f = pk.dir === 1 ? k4 : 1 - k4;
@@ -485,7 +484,7 @@
     readColors(); layout();
     holoMap.classList.add("has-holo");
     $$("[data-part]", holoMap).forEach(function (n) {
-      n.addEventListener("click", function () { selected = n.getAttribute("data-part"); lastSel = 0; ampTarget = 0.15; if (still) draw(4000); });
+      n.addEventListener("click", function () { selected = n.getAttribute("data-part"); lastSel = 0; ampTarget = 0.11; if (still) draw(4000); });
     });
     if (window.ResizeObserver) new ResizeObserver(function () { layout(); if (still) draw(4000); }).observe(stage);
     if (window.IntersectionObserver) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); else stop(); }).observe(stage);
