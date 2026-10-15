@@ -785,3 +785,44 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
 .ks-fit td + td { color: var(--ink); font-weight: 600; background: color-mix(in srgb, var(--hud) 6%, transparent); border-left: 1px solid var(--hud-dim); }
 .ks-fit th + th { background: color-mix(in srgb, var(--hud) 6%, transparent); border-left: 1px solid var(--hud-dim); }
 @media (max-width: 560px) { .ks-fit th, .ks-fit td { padding: 12px; font-size: 14px; } }
+/* ---- Calmer home (2026-10-14; Steven: "it all pulls at once"): one focal point at a time ---- */
+/* the rings draw in once, then hold still and dim */
+@media (prefers-reduced-motion: no-preference) {
+  .ks-hud-r1, .ks-hud-r2, .ks-hud-r3, .ks-hud-r4, .ks-hud-glow { animation: none; }
+  .ks-hud-sweep-g { animation: ks-hud-in 1s 1.4s forwards; }
+}
+.ks-ops-stage .ks-hud { opacity: .38; }
+.ks-hud-grid { opacity: .3; }
+/* the example evening as a step-through the visitor controls */
+.ks-ops.is-stepper .ks-ops-item { display: none; }
+.ks-ops.is-stepper .ks-ops-item.is-current { display: grid; }
+@media (prefers-reduced-motion: no-preference) { .ks-ops.is-stepper .ks-ops-item.is-current > * { animation: ks-ops-pop .3s ease-out backwards; } .ks-ops.is-stepper .ks-ops-item.is-current > :nth-child(2) { animation-delay: .12s; } .ks-ops.is-stepper .ks-ops-item.is-current > :nth-child(3) { animation-delay: .3s; } .ks-ops.is-stepper .ks-ops-item.is-current > :nth-child(n+4) { animation-delay: .45s; } }
+.ks-ops.is-stepper .ks-ops-item { padding: 14px; min-height: 236px; align-content: start; }
+.ks-ops-count { margin: 0; font: 600 12px/1 var(--font-text); color: var(--slate); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ks-ops-nav { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; }
+.ks-ops-btn { font: 600 13px/1 var(--font-text); padding: 9px 14px; border-radius: 999px; cursor: pointer; color: var(--ink); background: transparent; border: 1px solid var(--line); }
+.ks-ops-btn.is-primary { background: var(--hud); color: var(--paper); border-color: var(--hud); }
+.ks-ops-btn:disabled { opacity: .4; cursor: default; }
+.ks-ops-btn:focus-visible { outline: 2px solid var(--hud); outline-offset: 2px; }
+.ks-ops.is-stepper .ks-ops-note { margin-top: 4px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--ink); font-size: 13.5px; }
+/* the promise panels: supporting, not shouting */
+.ks-hud-strip.is-quiet { margin: 20px 0 0; }
+.ks-hud-strip.is-quiet .ks-hud-call { opacity: 1; animation: none; background: transparent; backdrop-filter: none; padding: 14px 16px; }
+.ks-hud-strip.is-quiet .ks-hud-call::before { background: linear-gradient(90deg, var(--hud-dim), transparent); }
+.ks-hud-strip.is-quiet .ks-hud-call b { font: 650 1.05rem/1.25 var(--font-text); }
+.ks-hud-strip.is-quiet .ks-hud-call span { font-size: 13.5px; }
+/* cards below the fold: quieter, no corner brackets */
+.ks-calmcards > div { border-radius: 10px; }
+.ks-calmcards .ks-pglyph { color: var(--hud); background: var(--hud-faint); }
+/* Home topic chooser (2026-10-14; Steven: "let the visitor choose when they see more info"). Without JS every panel shows. */
+.ks-chooser { padding-block: clamp(32px, 6vw, 72px) clamp(8px, 2vw, 16px); }
+.ks-choices { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.ks-choice { font: 600 15px/1 var(--font-text); padding: 12px 18px; border-radius: 999px; color: var(--ink); text-decoration: none; border: 1px solid var(--hud-dim); background: color-mix(in srgb, var(--hud) 5%, transparent); transition: background .15s, border-color .15s; }
+.ks-choice:hover { border-color: var(--hud); }
+.ks-choice[aria-current="true"] { background: var(--hud); color: var(--paper); border-color: var(--hud); }
+.ks-choice:focus-visible { outline: 2px solid var(--hud); outline-offset: 3px; }
+.ks-panels.is-chooser .ks-panel { display: none; }
+.ks-panels.is-chooser .ks-panel.is-open { display: block; padding-top: clamp(16px, 3vw, 32px); border-top: 0; }
+@media (prefers-reduced-motion: no-preference) { .ks-panels.is-chooser .ks-panel.is-open .ks-wrap { animation: ks-ops-pop .3s ease-out; } }
+.ks-chooser { scroll-margin-top: 64px; }
+.ks-panel { scroll-margin-top: 64px; }

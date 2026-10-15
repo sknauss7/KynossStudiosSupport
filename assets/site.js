@@ -240,22 +240,52 @@
       });
     }
   }
-  /* ---- home operations view: the example evening plays once; "Play again" replays it ---- */
+  /* ---- home operations view: the visitor steps through the example evening (no autoplay) ---- */
   var ops = $("[data-ks-ops]");
-  if (ops && !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
-    var items = $$(".ks-ops-item", ops), chip = $("[data-sent]", ops), replay = $(".ks-ops-replay", ops);
-    var waiting = chip.textContent, timers = [];
-    var later = function (fn, ms) { timers.push(setTimeout(fn, ms)); };
-    var play = function () {
-      timers.forEach(clearTimeout); timers = [];
-      replay.hidden = true;
-      chip.textContent = waiting; chip.classList.remove("is-sent");
-      items.forEach(function (it) { it.classList.remove("is-arrive"); it.classList.add("is-wait"); });
-      items.forEach(function (it, i) { later(function () { it.classList.remove("is-wait"); it.classList.add("is-arrive"); }, 900 + i * 1700); });
-      later(function () { chip.textContent = chip.getAttribute("data-sent"); chip.classList.add("is-sent"); }, 900 + 1700 + 1500);
-      later(function () { replay.hidden = false; }, 900 + items.length * 1700 + 600);
+  if (ops) {
+    var items = $$(".ks-ops-item", ops), nav = $(".ks-ops-nav", ops), count = $(".ks-ops-count", ops);
+    var prev = $("[data-ops=prev]", ops), next = $("[data-ops=next]", ops), at = 0;
+    var show = function (i) {
+      at = i;
+      items.forEach(function (it, n) { it.classList.toggle("is-current", n === i); });
+      count.textContent = (i + 1) + " of " + items.length;
+      prev.disabled = i === 0;
+      next.textContent = i === items.length - 1 ? "Start over" : "Next";
     };
-    replay.addEventListener("click", play);
-    play();
+    ops.classList.add("is-stepper");
+    nav.hidden = false; count.hidden = false;
+    prev.addEventListener("click", function () { if (at > 0) show(at - 1); });
+    next.addEventListener("click", function () { show(at === items.length - 1 ? 0 : at + 1); });
+    show(0);
+  }
+  /* ---- home topic chooser: one panel at a time, opened by the visitor (or a #hash link) ---- */
+  var panelsBox = $("[data-ks-panels]");
+  if (panelsBox) {
+    var panels = $$(".ks-panel", panelsBox), choices = $$("[data-choice]");
+    var open = function (id, scroll) {
+      panels.forEach(function (p) { p.classList.toggle("is-open", p.getAttribute("data-panel") === id); });
+      choices.forEach(function (c) { c.setAttribute("aria-current", c.getAttribute("data-choice") === id ? "true" : "false"); });
+      var chooser = $(".ks-chooser");
+      if (id && scroll && chooser) chooser.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    panelsBox.classList.add("is-chooser");
+    choices.forEach(function (c) {
+      c.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = c.getAttribute("data-choice");
+        var wasOpen = c.getAttribute("aria-current") === "true";
+        open(wasOpen ? null : id, !wasOpen);
+        if (history.replaceState) history.replaceState(null, "", wasOpen ? location.pathname : "#" + id);
+      });
+    });
+    var fromHash = function () {
+      var id = location.hash.slice(1);
+      if (panels.some(function (p) { return p.getAttribute("data-panel") === id; })) {
+        open(id, false);
+        setTimeout(function () { var ch = $(".ks-chooser"); if (ch) ch.scrollIntoView({ block: "start" }); }, 0);
+      }
+    };
+    window.addEventListener("hashchange", fromHash);
+    fromHash();
   }
 })();

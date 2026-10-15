@@ -9,12 +9,12 @@
   <div class="ks-wrap ks-hud-stage">
     <div class="ks-hero-copy">
       <h1 class="ks-display ks-h1">Software built around your business, not the other way around.</h1>
-      <p class="ks-lede">Kynoss Studios builds an AI system for one business: yours. We build it into the way you already work, whether that's texts, email, your calendar or the software you already use, so there's nothing new to learn. It sorts what comes in, drafts replies and keeps track, and you decide what it does on its own. Need something changed or added? We change it.</p>
+      <p class="ks-lede">Kynoss Studios builds an AI system into the way your business already works, whether that's texts, email or your calendar. Nothing new to learn, and you decide what it does on its own.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#contact">Tell us about your work</a>
         <a class="ks-button is-quiet" href="#how">How it works</a>
       </div>
-      <p class="ks-muted">Now taking on a small number of businesses. Tell us about your work and we'll talk through how a system could fit it. You pay nothing until you decide to go ahead with a build.</p>
+      <p class="ks-muted ks-small">Now taking on a small number of businesses. You pay nothing until you decide to go ahead with a build.</p>
     </div>
     <div class="ks-ops-stage">
       <div class="ks-hud" aria-hidden="true">
@@ -67,7 +67,7 @@
       <section class="ks-ops" aria-labelledby="ops-h" data-ks-ops>
         <header class="ks-ops-head">
           <h2 id="ops-h">Example: a cleaning business on a Tuesday evening</h2>
-          <button class="ks-ops-replay" type="button" hidden>Play again</button>
+          <p class="ks-ops-count" aria-live="polite" hidden></p>
         </header>
         <ol class="ks-ops-feed">
           <li class="ks-ops-item">
@@ -80,13 +80,15 @@
             <p class="ks-ops-meta"><time>7:42 pm</time><span class="ks-ops-tag">Reschedule</span></p>
             <p class="ks-ops-in">Hi! Can we move Thursday's clean to Friday?</p>
             <p class="ks-ops-out is-draft">Of course! Friday we have openings 9–12 or 1–4. Which works better?</p>
-            <p class="ks-ops-act"><span class="ks-ops-chip" data-sent="Sent with your OK">Waiting for your OK</span></p>
+            <p class="ks-ops-act"><span class="ks-ops-chip is-sent">Sent with your OK</span></p>
+            <p class="ks-ops-note">The reply was drafted with real open times, and went out when you tapped OK.</p>
           </li>
           <li class="ks-ops-item">
             <p class="ks-ops-meta"><time>8:05 pm</time><span class="ks-ops-tag">New quote, in Portuguese</span></p>
             <p class="ks-ops-in" lang="pt">Quanto custa uma limpeza para 3 quartos?</p>
             <p class="ks-ops-out is-draft" lang="pt">Oi! Claro. Quantos banheiros são, e qual dia seria melhor para você?</p>
             <p class="ks-ops-act"><span class="ks-ops-chip">Waiting for your OK</span></p>
+            <p class="ks-ops-note">Drafted in Portuguese, the language the customer wrote in. It waits for your tap.</p>
           </li>
           <li class="ks-ops-item">
             <p class="ks-ops-meta"><time>8:31 pm</time><span class="ks-ops-tag is-safe">Entry code taken out</span></p>
@@ -94,18 +96,45 @@
             <p class="ks-ops-note">Taken out before anything else sees the message, and kept encrypted for you and the cleaner on that visit.</p>
           </li>
         </ol>
+        <div class="ks-ops-nav" hidden>
+          <button class="ks-ops-btn" type="button" data-ops="prev">Back</button>
+          <button class="ks-ops-btn is-primary" type="button" data-ops="next">Next</button>
+        </div>
       </section>
     </div>
-    <ul class="ks-hud-strip">
-      <li class="ks-hud-call"><b>Your OK</b><span>on every reply; routine messages like reminders go out on their own only if you switch them on</span></li>
-      <li class="ks-hud-call"><b>Their language</b><span>replies drafted in the language your customer writes in</span></li>
-      <li class="ks-hud-call"><b>Your own server</b><span>private, encrypted and just for your business</span></li>
-      <li class="ks-hud-call"><b>Nothing to pay</b><span>until you decide to go ahead with a build</span></li>
-    </ul>
   </div>
 </section>
 
-<section class="ks-section" aria-labelledby="fit-h">
+<section class="ks-section ks-chooser" aria-labelledby="choose-h">
+  <div class="ks-wrap">
+    <h2 class="ks-display ks-h2" id="choose-h">What would you like to know?</h2>
+    <nav class="ks-choices" aria-label="Topics">
+        <a class="ks-choice" href="#does" data-choice="does" aria-controls="does">What it can do</a>
+        <a class="ks-choice" href="#fit" data-choice="fit" aria-controls="fit">Why built for you</a>
+        <a class="ks-choice" href="#how" data-choice="how" aria-controls="how">How it works</a>
+        <a class="ks-choice" href="#care" data-choice="care" aria-controls="care">Is it safe?</a>
+        <a class="ks-choice" href="#ours" data-choice="ours" aria-controls="ours">What we've built</a>
+    </nav>
+  </div>
+</section>
+
+<div class="ks-panels" data-ks-panels>
+<section class="ks-section ks-panel" id="does" data-panel="does" aria-labelledby="does-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="does-h">The jobs it takes on</h2>
+      <p class="ks-lede">A system isn't a chat window. It's connected to where your work arrives, runs on its own schedule and checks with you on the things you want to decide.</p>
+    </div>
+    <dl class="ks-principles ks-calmcards">
+      <div><span class="ks-pglyph">{{ glyph("people") }}</span><dt>Replies to customers</dt><dd>Texts and email drafted in your customer's language, ready to send with a tap, or sent on their own once you trust them. Anything tricky comes to you.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("calendar") }}</span><dt>Books and reminds</dt><dd>Appointments confirmed, reminders sent the day before, and a change request answered with real open times to choose from.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("inbox") }}</span><dt>Files and keeps track</dt><dd>Email, documents and deadlines sorted as they arrive, so nothing waits in a pile.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("search") }}</span><dt>Answers with its sources</dt><dd>Ask a question about your own work and get the answer with where it came from.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ks-section ks-panel" id="fit" data-panel="fit" aria-labelledby="fit-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="fit-h">Made for how you already work</h2>
@@ -120,40 +149,16 @@
         <tr><td>You pay for features you'll never use</td><td>It does what your business needs, and nothing it doesn't</td></tr>
       </tbody>
     </table>
+    <ul class="ks-hud-strip is-quiet">
+      <li class="ks-hud-call"><b>Your OK</b><span>on every reply; routine messages like reminders go out on their own only if you switch them on</span></li>
+      <li class="ks-hud-call"><b>Their language</b><span>replies drafted in the language your customer writes in</span></li>
+      <li class="ks-hud-call"><b>Your own server</b><span>private, encrypted and just for your business</span></li>
+      <li class="ks-hud-call"><b>Nothing to pay</b><span>until you decide to go ahead with a build</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="ks-section" aria-labelledby="does-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="does-h">The jobs it takes on</h2>
-      <p class="ks-lede">A system isn't a chat window. It's connected to where your work arrives, runs on its own schedule and checks with you on the things you want to decide.</p>
-    </div>
-    <dl class="ks-principles ks-hudcards">
-      <div><span class="ks-pglyph">{{ glyph("people") }}</span><dt>Replies to customers</dt><dd>Texts and email drafted in your customer's language, ready to send with a tap, or sent on their own once you trust them. Anything tricky comes to you.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("calendar") }}</span><dt>Books and reminds</dt><dd>Appointments confirmed, reminders sent the day before, and a change request answered with real open times to choose from.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("inbox") }}</span><dt>Files and keeps track</dt><dd>Email, documents and deadlines sorted as they arrive, so nothing waits in a pile.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("search") }}</span><dt>Answers with its sources</dt><dd>Ask a question about your own work and get the answer with where it came from.</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="ks-section" aria-labelledby="care-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="care-h">You stay in charge</h2>
-      <p class="ks-lede">A system that reads your customers' messages has to earn that trust.</p>
-    </div>
-    <dl class="ks-principles ks-hudcards">
-      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>Nothing goes out without you</dt><dd>Replies wait for your tap. Routine messages you choose, like reminders, go out on their own, and only between 8 am and 8 pm. An instant “got your message” reply, if you switch it on, answers at any hour.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("lock") }}</span><dt>Your data, your place</dt><dd>On a private server we run just for you, on your own computer, or in your own accounts. We agree on it before anything is built.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("key") }}</span><dt>Sensitive details screened</dt><dd>Door, lockbox and alarm codes we detect are encrypted and kept away from the AI.</dd></div>
-      <div><span class="ks-pglyph">{{ glyph("build") }}</span><dt>Tested before it reaches you</dt><dd>Nothing counts as done until it has been seen working, not just passed its tests. <a href="/how-we-build/">How we build</a></dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="ks-section" id="how" aria-labelledby="how-h">
+<section class="ks-section ks-panel" id="how" data-panel="how" aria-labelledby="how-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="how-h">How it works</h2>
@@ -168,13 +173,28 @@
   </div>
 </section>
 
-<section class="ks-section" aria-labelledby="ours-h">
+<section class="ks-section ks-panel" id="care" data-panel="care" aria-labelledby="care-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="care-h">You stay in charge</h2>
+      <p class="ks-lede">A system that reads your customers' messages has to earn that trust.</p>
+    </div>
+    <dl class="ks-principles ks-calmcards">
+      <div><span class="ks-pglyph">{{ glyph("block") }}</span><dt>Nothing goes out without you</dt><dd>Replies wait for your tap. Routine messages you choose, like reminders, go out on their own, and only between 8 am and 8 pm. An instant “got your message” reply, if you switch it on, answers at any hour.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("lock") }}</span><dt>Your data, your place</dt><dd>On a private server we run just for you, on your own computer, or in your own accounts. We agree on it before anything is built.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("key") }}</span><dt>Sensitive details screened</dt><dd>Door, lockbox and alarm codes we detect are encrypted and kept away from the AI.</dd></div>
+      <div><span class="ks-pglyph">{{ glyph("build") }}</span><dt>Tested before it reaches you</dt><dd>Nothing counts as done until it has been seen working, not just passed its tests. <a href="/how-we-build/">How we build</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="ks-section ks-panel" id="ours" data-panel="ours" aria-labelledby="ours-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="ours-h">We run our own on them</h2>
       <p class="ks-lede">{{ cases_lede }}</p>
     </div>
-    <dl class="ks-principles ks-hudcards">
+    <dl class="ks-principles ks-calmcards">
       {%- for g in ["hoa", "inbox", "apps"] %}
       {%- for c in cases if c.glyph == g %}
       <div><span class="ks-pglyph">{{ glyph("device" if c.glyph == "apps" else c.glyph) }}</span><dt>{{ c.title }}</dt><dd>{{ c.summary }}</dd></div>
@@ -184,6 +204,8 @@
     <p><a href="/systems/#cases">See all {{ cases|length }} working</a></p>
   </div>
 </section>
+
+</div>
 
 <section class="ks-section" id="contact" aria-labelledby="contact-h">
   <div class="ks-wrap"><div class="ks-contact">
