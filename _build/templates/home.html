@@ -18,22 +18,20 @@
     </div>
     {#- How a custom system could fit together: an example map. Statuses are checked with Systems (QUEUE 21). #}
     {%- set parts = [
-      {"id": "texts", "side": "l", "y": 16, "glyph": "chat", "name": "Texts",
-       "what": "Customer texts read, sorted and answered in drafts, in the customer's language.", "status": "Running in our systems today"},
-      {"id": "email", "side": "l", "y": 38, "glyph": "inbox", "name": "Email",
+      {"id": "texts", "side": "l", "y": 22, "glyph": "chat", "name": "Texts",
+       "what": "Customer texts read, sorted and answered in drafts, in the customer's language.", "status": "Built and tested"},
+      {"id": "email", "side": "l", "y": 50, "glyph": "inbox", "name": "Email",
        "what": "Mail sorted as it arrives, with replies drafted for your OK.", "status": "Running in our systems today"},
-      {"id": "calls", "side": "l", "y": 62, "glyph": "phone", "name": "Phone calls",
-       "what": "A voice that picks up, answers the common questions and takes the booking.", "status": "Experimental"},
-      {"id": "docs", "side": "l", "y": 84, "glyph": "doc", "name": "Documents",
+      {"id": "docs", "side": "l", "y": 78, "glyph": "doc", "name": "Documents",
        "what": "Invoices, forms and records read and filed where they belong.", "status": "Running in our systems today"},
       {"id": "you", "side": "r", "y": 16, "glyph": "about", "name": "You",
-       "what": "Approve each reply with a tap, and ask it anything about your business.", "status": "Running in our systems today"},
+       "what": "Approve each reply with a tap, and ask it anything about your business.", "status": "Built and tested"},
       {"id": "crew", "side": "r", "y": 38, "glyph": "people", "name": "Your crew",
-       "what": "Their day sent by text in their language, and their updates read back in.", "status": "Running in our systems today"},
+       "what": "Their day sent by text in their language, and their updates read back in.", "status": "Built and tested"},
       {"id": "calendar", "side": "r", "y": 62, "glyph": "calendar", "name": "Calendar or booking software",
        "what": "Bookings reminded, confirmed and moved with your OK, in the tools you keep.", "status": "We connect it when you need it"},
       {"id": "reports", "side": "r", "y": 84, "glyph": "chart", "name": "Reports",
-       "what": "Bookings, sales and spending in one short daily summary.", "status": "We connect it when you need it"},
+       "what": "What came in, what's due and what needs you, in one short morning summary.", "status": "Running in our systems today"},
     ] %}
     <section class="ks-map" aria-labelledby="map-h" data-ks-map>
       <h2 class="ks-map-h" id="map-h">Example: how a system could fit together</h2>
@@ -109,7 +107,7 @@
         <div class="ks-map-card" data-card="{{ p.id }}">
           <b>{{ p.name }}</b>
           <p>{{ p.what }}</p>
-          <p class="ks-map-status{% if p.status == 'Experimental' %} is-exp{% elif p.status.startswith('We connect') %} is-req{% endif %}">{{ p.status }}</p>
+          <p class="ks-map-status{% if p.status == 'Built and tested' %} is-built{% elif p.status.startswith('We connect') %} is-req{% endif %}">{{ p.status }}</p>
         </div>
         {%- endfor %}
       </div>

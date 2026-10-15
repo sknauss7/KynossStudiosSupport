@@ -885,3 +885,4 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
 }
 .ks-map-node { background: var(--surface); }
 @media (min-width: 960px) { .ks-map { margin-top: 28px; } }
+.ks-map-card .ks-map-status.is-built { color: var(--hud-warm); background: color-mix(in srgb, var(--hud-warm) 16%, transparent); }
