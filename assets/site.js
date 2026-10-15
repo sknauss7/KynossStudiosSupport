@@ -288,4 +288,17 @@
     window.addEventListener("hashchange", fromHash);
     fromHash();
   }
+  /* ---- home system map: tap a part to see what it does and how ready it is ---- */
+  var map = $("[data-ks-map]");
+  if (map) {
+    var nodes = $$("[data-part]", map), cards = $$("[data-card]", map), lines = $$("[data-line]", map);
+    var pick = function (id) {
+      nodes.forEach(function (n) { n.setAttribute("aria-pressed", n.getAttribute("data-part") === id ? "true" : "false"); });
+      cards.forEach(function (c) { c.classList.toggle("is-on", c.getAttribute("data-card") === id); });
+      lines.forEach(function (l) { l.classList.toggle("is-on", id === "core" || l.getAttribute("data-line") === id); });
+    };
+    map.classList.add("is-js");
+    nodes.forEach(function (n) { n.addEventListener("click", function () { pick(n.getAttribute("data-part")); }); });
+    pick("texts");
+  }
 })();

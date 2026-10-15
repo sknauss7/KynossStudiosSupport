@@ -16,9 +16,36 @@
       </div>
       <p class="ks-muted ks-small">You pay nothing until you decide to go ahead with a build.</p>
     </div>
-    <div class="ks-ops-stage">
-      <div class="ks-hud" aria-hidden="true">
-        <svg class="ks-hud-svg" viewBox="0 0 600 600">
+    {#- How a custom system could fit together: an example map. Statuses are checked with Systems (QUEUE 21). #}
+    {%- set parts = [
+      {"id": "texts", "side": "l", "y": 16, "glyph": "chat", "name": "Texts",
+       "what": "Customer texts read, sorted and answered in drafts, in the customer's language.", "status": "Running in our systems today"},
+      {"id": "email", "side": "l", "y": 38, "glyph": "inbox", "name": "Email",
+       "what": "Mail sorted as it arrives, with replies drafted for your OK.", "status": "Running in our systems today"},
+      {"id": "calls", "side": "l", "y": 62, "glyph": "phone", "name": "Phone calls",
+       "what": "A voice that picks up, answers the common questions and takes the booking.", "status": "Experimental"},
+      {"id": "docs", "side": "l", "y": 84, "glyph": "doc", "name": "Documents",
+       "what": "Invoices, forms and records read and filed where they belong.", "status": "Running in our systems today"},
+      {"id": "you", "side": "r", "y": 16, "glyph": "about", "name": "You",
+       "what": "Approve each reply with a tap, and ask it anything about your business.", "status": "Running in our systems today"},
+      {"id": "crew", "side": "r", "y": 38, "glyph": "people", "name": "Your crew",
+       "what": "Their day sent by text in their language, and their updates read back in.", "status": "Running in our systems today"},
+      {"id": "calendar", "side": "r", "y": 62, "glyph": "calendar", "name": "Calendar or booking software",
+       "what": "Bookings reminded, confirmed and moved with your OK, in the tools you keep.", "status": "We connect it when you need it"},
+      {"id": "reports", "side": "r", "y": 84, "glyph": "chart", "name": "Reports",
+       "what": "Bookings, sales and spending in one short daily summary.", "status": "We connect it when you need it"},
+    ] %}
+    <section class="ks-map" aria-labelledby="map-h" data-ks-map>
+      <h2 class="ks-map-h" id="map-h">Example: how a system could fit together</h2>
+      <p class="ks-map-hint">Tap any part to see what it does.</p>
+      <div class="ks-map-stage">
+        <svg class="ks-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          {%- for p in parts %}
+          <line class="ks-map-line" data-line="{{ p.id }}" x1="{{ 31 if p.side == 'l' else 69 }}" y1="{{ p.y }}" x2="{{ 41 if p.side == 'l' else 59 }}" y2="50" pathLength="1"/>
+          {%- endfor %}
+        </svg>
+        <div class="ks-hud ks-map-core" aria-hidden="true">
+          <svg class="ks-hud-svg" viewBox="0 0 600 600">
   <defs>
     <radialGradient id="hud-core" cx="50%" cy="50%" r="50%">
       <stop offset="0" stop-color="var(--hud-warm)" stop-opacity=".9"/>
@@ -63,45 +90,30 @@
   <circle class="ks-hud-glow" cx="300" cy="300" r="104" fill="url(#hud-core)"/>
   <circle class="ks-hud-core" cx="300" cy="300" r="62"/>
 </svg>
-      </div>
-      <section class="ks-ops" aria-labelledby="ops-h" data-ks-ops>
-        <header class="ks-ops-head">
-          <h2 id="ops-h">Example: a cleaning business on a Tuesday evening</h2>
-          <p class="ks-ops-count" aria-live="polite" hidden></p>
-        </header>
-        <ol class="ks-ops-feed">
-          <li class="ks-ops-item">
-            <p class="ks-ops-meta"><time>4:00 pm</time><span class="ks-ops-tag is-auto">Confirmed</span></p>
-            <p class="ks-ops-out">Reminder: your clean is tomorrow at 10 am. Reply YES to confirm or CHANGE to move it.</p>
-            <p class="ks-ops-in">YES</p>
-            <p class="ks-ops-note">Reminders send themselves, because you switched them on.</p>
-          </li>
-          <li class="ks-ops-item">
-            <p class="ks-ops-meta"><time>7:42 pm</time><span class="ks-ops-tag">Reschedule</span></p>
-            <p class="ks-ops-in">Hi! Can we move Thursday's clean to Friday?</p>
-            <p class="ks-ops-out is-draft">Of course! Friday we have openings 9–12 or 1–4. Which works better?</p>
-            <p class="ks-ops-act"><span class="ks-ops-chip is-sent">Sent with your OK</span></p>
-            <p class="ks-ops-note">Drafted with your real open times. Sent when you tapped OK.</p>
-          </li>
-          <li class="ks-ops-item">
-            <p class="ks-ops-meta"><time>8:05 pm</time><span class="ks-ops-tag">New quote, in Portuguese</span></p>
-            <p class="ks-ops-in" lang="pt">Quanto custa uma limpeza para 3 quartos?</p>
-            <p class="ks-ops-out is-draft" lang="pt">Oi! Claro. Quantos banheiros são, e qual dia seria melhor para você?</p>
-            <p class="ks-ops-act"><span class="ks-ops-chip">Waiting for your OK</span></p>
-            <p class="ks-ops-note">Drafted in the customer's language. Waiting for your tap.</p>
-          </li>
-          <li class="ks-ops-item">
-            <p class="ks-ops-meta"><time>8:31 pm</time><span class="ks-ops-tag is-safe">Entry code taken out</span></p>
-            <p class="ks-ops-in">The lockbox code is <span class="ks-ops-redact">[ACCESS CODE]</span>, see you Friday!</p>
-            <p class="ks-ops-note">Taken out before anything else sees it, then kept encrypted for the visit.</p>
-          </li>
-        </ol>
-        <div class="ks-ops-nav" hidden>
-          <button class="ks-ops-btn" type="button" data-ops="prev">Back</button>
-          <button class="ks-ops-btn is-primary" type="button" data-ops="next">Next</button>
+          <span class="ks-hud-mark">{{ mark("ks-hud-k") }}</span>
         </div>
-      </section>
-    </div>
+        <button class="ks-map-node is-core" type="button" data-part="core" style="--x: 50%; --y: 50%" aria-label="Your system">
+          <span class="ks-sr">Your system</span>
+        </button>
+        {%- for p in parts %}
+        <button class="ks-map-node is-{{ p.side }}" type="button" data-part="{{ p.id }}" style="--y: {{ p.y }}%"><span class="ks-pglyph">{{ glyph(p.glyph) }}</span><span>{{ p.name }}</span></button>
+        {%- endfor %}
+      </div>
+      <div class="ks-map-cards">
+        <div class="ks-map-card" data-card="core">
+          <b>Your system</b>
+          <p>One private system, set up around how your business runs.</p>
+          <p class="ks-map-status">Running in our systems today</p>
+        </div>
+        {%- for p in parts %}
+        <div class="ks-map-card" data-card="{{ p.id }}">
+          <b>{{ p.name }}</b>
+          <p>{{ p.what }}</p>
+          <p class="ks-map-status{% if p.status == 'Experimental' %} is-exp{% elif p.status.startswith('We connect') %} is-req{% endif %}">{{ p.status }}</p>
+        </div>
+        {%- endfor %}
+      </div>
+    </section>
   </div>
 </section>
 
