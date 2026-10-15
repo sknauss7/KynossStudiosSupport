@@ -42,54 +42,8 @@
           <line class="ks-map-line" data-line="{{ p.id }}" x1="{{ 31 if p.side == 'l' else 69 }}" y1="{{ p.y }}" x2="{{ 41 if p.side == 'l' else 59 }}" y2="50" pathLength="1"/>
           {%- endfor %}
         </svg>
-        <div class="ks-hud ks-map-core" aria-hidden="true">
-          <svg class="ks-hud-svg" viewBox="0 0 600 600">
-  <defs>
-    <radialGradient id="hud-core" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="var(--hud-warm)" stop-opacity=".9"/>
-      <stop offset=".35" stop-color="var(--hud-warm)" stop-opacity=".25"/>
-      <stop offset="1" stop-color="var(--hud-warm)" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="hud-sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="var(--hud)" stop-opacity="0"/>
-      <stop offset="1" stop-color="var(--hud)" stop-opacity=".28"/>
-    </linearGradient>
-  </defs>
-  <g class="ks-hud-spin ks-hud-r1">
-    <circle class="ks-hud-draw" cx="300" cy="300" r="282" pathLength="1"/>
-    {%- for i in range(72) %}
-    {%- set major = i % 6 == 0 %}
-    <line class="ks-hud-tick{% if major %} is-major{% endif %}" x1="300" y1="{{ 18 if major else 22 }}" x2="300" y2="30" transform="rotate({{ i * 5 }} 300 300)"/>
-    {%- if major %}
-    <text class="ks-hud-deg" x="300" y="48" transform="rotate({{ i * 5 }} 300 300)">{{ '%03d' % (i * 5) }}</text>
-    {%- endif %}
-    {%- endfor %}
-  </g>
-  <g class="ks-hud-spin ks-hud-r2">
-    <circle class="ks-hud-draw ks-hud-dash" cx="300" cy="300" r="232" pathLength="1"/>
-  </g>
-  <g class="ks-hud-spin ks-hud-r3">
-    <circle class="ks-hud-draw is-faint" cx="300" cy="300" r="186" pathLength="1"/>
-    <path class="ks-hud-arc" d="M300 114 A186 186 0 0 1 461 207"/>
-    <path class="ks-hud-arc" d="M461 393 A186 186 0 0 1 300 486"/>
-    <path class="ks-hud-arc is-thin" d="M139 393 A186 186 0 0 1 114 300"/>
-  </g>
-  <g class="ks-hud-sweep-g">
-    <path d="M300 300 L300 114 A186 186 0 0 1 431 168 Z" fill="url(#hud-sweep)"/>
-  </g>
-  <g class="ks-hud-spin ks-hud-r4">
-    <circle class="ks-hud-draw" cx="300" cy="300" r="142" pathLength="1"/>
-    {%- for i in range(12) %}
-    <circle class="ks-hud-dot" cx="300" cy="158" r="{{ 3 if i % 3 == 0 else 1.6 }}" transform="rotate({{ i * 30 }} 300 300)"/>
-    {%- endfor %}
-  </g>
-  <line class="ks-hud-cross" x1="300" y1="196" x2="300" y2="404"/>
-  <line class="ks-hud-cross" x1="196" y1="300" x2="404" y2="300"/>
-  <circle class="ks-hud-glow" cx="300" cy="300" r="104" fill="url(#hud-core)"/>
-  <circle class="ks-hud-core" cx="300" cy="300" r="62"/>
-</svg>
-          <span class="ks-hud-mark">{{ mark("ks-hud-k") }}</span>
-        </div>
+        <canvas class="ks-holo" aria-hidden="true"></canvas>
+        <span class="ks-holo-k" aria-hidden="true">{{ mark("ks-hud-k") }}</span>
         <button class="ks-map-node is-core" type="button" data-part="core" style="--x: 50%; --y: 50%" aria-label="Your system">
           <span class="ks-sr">Your system</span>
         </button>

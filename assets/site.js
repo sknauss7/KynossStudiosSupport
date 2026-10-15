@@ -301,4 +301,166 @@
     nodes.forEach(function (n) { n.addEventListener("click", function () { pick(n.getAttribute("data-part")); }); });
     pick("texts");
   }
+  /* ---- home hologram: a morphing orb of light at the map's core. Pulses run along the lines;
+         picking a part makes it "respond". Pauses off screen; a still frame for reduced motion. ---- */
+  var holo = $(".ks-holo");
+  var holoMap = holo && holo.closest("[data-ks-map]");
+  if (holo && holoMap && holo.getContext) {
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var ctx = holo.getContext("2d"), stage = holo.parentElement;
+    var W = 0, H = 0, dpr = 1, cx = 0, cy = 0, R = 0, anchors = [], selected = "texts";
+    var hud = [111, 227, 255], warm = [255, 181, 71];
+    var rgba = function (c, a) { return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a.toFixed(3) + ")"; };
+    var readColors = function () {
+      var cs = getComputedStyle(document.documentElement);
+      var hex = function (v, fb) { v = (v || "").trim(); var m = /^#([0-9a-f]{6})$/i.exec(v); if (!m) return fb; var n = parseInt(m[1], 16); return [n >> 16, (n >> 8) & 255, n & 255]; };
+      hud = hex(cs.getPropertyValue("--hud"), hud); warm = hex(cs.getPropertyValue("--hud-warm"), warm);
+    };
+    // points on a sphere (Fibonacci), each with its own phase for the morph
+    var N = 420, pts = [], g = Math.PI * (3 - Math.sqrt(5));
+    for (var i = 0; i < N; i++) {
+      var y = 1 - (2 * (i + 0.5)) / N, r = Math.sqrt(1 - y * y), ph = i * g;
+      pts.push({ x: Math.cos(ph) * r, y: y, z: Math.sin(ph) * r, th: Math.acos(y), ph: ph });
+    }
+    var layout = function () {
+      var b = stage.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = b.width; H = b.height;
+      holo.width = Math.round(W * dpr); holo.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cx = W / 2; cy = H / 2; R = Math.min(W, H) * 0.15;
+      anchors = $$("[data-part]", holoMap).filter(function (n) { return n.getAttribute("data-part") !== "core"; }).map(function (n) {
+        var r = n.getBoundingClientRect(), left = n.classList.contains("is-l");
+        return { id: n.getAttribute("data-part"), x: (left ? r.right : r.left) - b.left, y: r.top + r.height / 2 - b.top };
+      });
+    };
+    var amp = 0.07, ampTarget = 0.07, packets = [], sparks = [], ripples = [], lastIdle = 0, lastSel = 0, lastSpark = 0;
+    var morph = function (p, t) {
+      return 1 + amp * (Math.sin(3 * p.th + t * 0.9) * Math.sin(2 * p.ph + t * 0.6) + 0.6 * Math.sin(5 * p.ph - t * 1.3) * Math.cos(4 * p.th + t * 0.7));
+    };
+    var project = function (x, y, z, t) {
+      var a = t * 0.22, b = 0.38;
+      var x1 = x * Math.cos(a) + z * Math.sin(a), z1 = -x * Math.sin(a) + z * Math.cos(a);
+      var y2 = y * Math.cos(b) - z1 * Math.sin(b), z2 = y * Math.sin(b) + z1 * Math.cos(b);
+      var p = 2.8 / (2.8 - z2);
+      return { x: cx + x1 * R * p, y: cy + y2 * R * p, d: (z2 + 1) / 2 };
+    };
+    var anchorOf = function (id) { for (var i = 0; i < anchors.length; i++) if (anchors[i].id === id) return anchors[i]; return null; };
+    var spawn = function (id, dir, now, strong) { packets.push({ id: id, dir: dir, t0: now, dur: strong ? 900 : 1500, strong: strong }); };
+    var draw = function (now) {
+      var t = now / 1000;
+      amp += (ampTarget - amp) * 0.04;
+      if (ampTarget > 0.07) ampTarget = Math.max(0.07, ampTarget - 0.0015);
+      ctx.clearRect(0, 0, W, H);
+      // lines from each part toward the core
+      anchors.forEach(function (a) {
+        var on = selected === "core" || a.id === selected;
+        var ex = cx + (a.x < cx ? -1 : 1) * R * 1.25, ey = cy + (a.y - cy) * 0.18;
+        ctx.strokeStyle = rgba(hud, on ? 0.75 : 0.22); ctx.lineWidth = on ? 1.6 : 1;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(ex, ey); ctx.stroke();
+        a.ex = ex; a.ey = ey;
+      });
+      // outer HUD: tick ring and two arc rings turning at different speeds
+      ctx.save(); ctx.translate(cx, cy);
+      ctx.rotate(t * 0.05);
+      for (var k = 0; k < 72; k++) {
+        var ang = (k / 72) * Math.PI * 2, r1 = R * 1.95, r2 = R * (k % 6 === 0 ? 1.82 : 1.88);
+        ctx.strokeStyle = rgba(hud, k % 6 === 0 ? 0.45 : 0.18); ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1); ctx.lineTo(Math.cos(ang) * r2, Math.sin(ang) * r2); ctx.stroke();
+      }
+      ctx.restore();
+      [[1.5, -0.35, 0.55, 3], [1.66, 0.22, 0.3, 1.5]].forEach(function (ring) {
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(t * ring[1]);
+        ctx.strokeStyle = rgba(hud, ring[2]); ctx.lineWidth = ring[3]; ctx.lineCap = "round";
+        for (var s = 0; s < 3; s++) { ctx.beginPath(); ctx.arc(0, 0, R * ring[0], s * 2.1, s * 2.1 + 1.1); ctx.stroke(); }
+        ctx.restore();
+      });
+      // core glow, breathing, flaring on a ripple
+      var flare = ripples.length ? 0.25 : 0;
+      var gl = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.3);
+      gl.addColorStop(0, rgba(warm, 0.32 + 0.08 * Math.sin(t * 2) + flare));
+      gl.addColorStop(0.35, rgba(hud, 0.12 + flare / 3));
+      gl.addColorStop(1, rgba(hud, 0));
+      ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(cx, cy, R * 1.3, 0, Math.PI * 2); ctx.fill();
+      // wireframe latitudes, morphing with the surface
+      for (var L = 1; L <= 5; L++) {
+        var th = (L / 6) * Math.PI;
+        ctx.beginPath();
+        for (var j = 0; j <= 48; j++) {
+          var ph = (j / 48) * Math.PI * 2, q = { th: th, ph: ph }, m = morph(q, t);
+          var P = project(Math.sin(th) * Math.cos(ph) * m, Math.cos(th) * m, Math.sin(th) * Math.sin(ph) * m, t);
+          if (j) ctx.lineTo(P.x, P.y); else ctx.moveTo(P.x, P.y);
+        }
+        ctx.strokeStyle = rgba(hud, 0.16); ctx.lineWidth = 1; ctx.stroke();
+      }
+      // the points of light
+      var front = [];
+      for (var n = 0; n < N; n++) {
+        var p = pts[n], m2 = morph(p, t), P2 = project(p.x * m2, p.y * m2, p.z * m2, t);
+        ctx.fillStyle = rgba(hud, 0.18 + 0.8 * P2.d * P2.d);
+        var sz = 0.5 + 1.5 * P2.d;
+        ctx.fillRect(P2.x - sz / 2, P2.y - sz / 2, sz, sz);
+        if (P2.d > 0.62) front.push(P2);
+      }
+      // neural sparks between nearby points on the front
+      if (!still && now - lastSpark > 90 && front.length > 2) {
+        lastSpark = now;
+        var A = front[(Math.random() * front.length) | 0];
+        for (var tries = 0; tries < 8; tries++) {
+          var B = front[(Math.random() * front.length) | 0];
+          var dd = Math.hypot(A.x - B.x, A.y - B.y);
+          if (dd > R * 0.12 && dd < R * 0.5) { sparks.push({ a: A, b: B, t0: now }); break; }
+        }
+        if (sparks.length > 14) sparks.shift();
+      }
+      sparks = sparks.filter(function (sp) { return now - sp.t0 < 650; });
+      sparks.forEach(function (sp) {
+        var k2 = 1 - (now - sp.t0) / 650;
+        ctx.strokeStyle = rgba(hud, 0.7 * k2); ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(sp.a.x, sp.a.y); ctx.lineTo(sp.b.x, sp.b.y); ctx.stroke();
+      });
+      // ripples when the core takes something in
+      ripples = ripples.filter(function (rp) { return now - rp < 800; });
+      ripples.forEach(function (rp) {
+        var k3 = (now - rp) / 800;
+        ctx.strokeStyle = rgba(warm, 0.55 * (1 - k3)); ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(cx, cy, R * (1.05 + 0.7 * k3), 0, Math.PI * 2); ctx.stroke();
+      });
+      // pulses travelling along the lines: in to the core, then an answer back out
+      if (!still) {
+        if (now - lastIdle > 1700 && anchors.length) { lastIdle = now; spawn(anchors[(Math.random() * anchors.length) | 0].id, 1, now, false); }
+        if (selected && selected !== "core" && now - lastSel > 520) { lastSel = now; spawn(selected, 1, now, true); }
+        if (selected === "core" && now - lastSel > 260 && anchors.length) { lastSel = now; spawn(anchors[(Math.random() * anchors.length) | 0].id, 1, now, true); }
+      }
+      packets = packets.filter(function (pk) {
+        var a = anchorOf(pk.id); if (!a || a.ex === undefined) return false;
+        var k4 = (now - pk.t0) / pk.dur; if (k4 >= 1) {
+          if (pk.dir === 1) { ripples.push(now); ampTarget = Math.min(0.16, ampTarget + (pk.strong ? 0.02 : 0.008)); if (pk.strong) spawn(pk.id, -1, now, true); }
+          return false;
+        }
+        var f = pk.dir === 1 ? k4 : 1 - k4;
+        for (var tail = 0; tail < 5; tail++) {
+          var ft = Math.max(0, Math.min(1, f - pk.dir * tail * 0.025));
+          var px = a.x + (a.ex - a.x) * ft, py = a.y + (a.ey - a.y) * ft;
+          ctx.fillStyle = rgba(pk.dir === 1 ? hud : warm, (pk.strong ? 0.95 : 0.6) * (1 - tail / 5));
+          ctx.beginPath(); ctx.arc(px, py, (pk.strong ? 2.6 : 1.8) * (1 - tail / 7), 0, Math.PI * 2); ctx.fill();
+        }
+        return true;
+      });
+    };
+    var running = false, visible = true, raf = 0;
+    var loop = function (now) { draw(now); if (running) raf = requestAnimationFrame(loop); };
+    var start = function () { if (still) { draw(4000); return; } if (!running && visible && !document.hidden) { running = true; raf = requestAnimationFrame(loop); } };
+    var stop = function () { running = false; cancelAnimationFrame(raf); };
+    readColors(); layout();
+    holoMap.classList.add("has-holo");
+    $$("[data-part]", holoMap).forEach(function (n) {
+      n.addEventListener("click", function () { selected = n.getAttribute("data-part"); lastSel = 0; ampTarget = 0.15; if (still) draw(4000); });
+    });
+    if (window.ResizeObserver) new ResizeObserver(function () { layout(); if (still) draw(4000); }).observe(stage);
+    if (window.IntersectionObserver) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); else stop(); }).observe(stage);
+    document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else start(); });
+    if (window.matchMedia) window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { readColors(); if (still) draw(4000); });
+    start();
+  }
 })();

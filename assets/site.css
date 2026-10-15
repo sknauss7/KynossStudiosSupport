@@ -886,3 +886,8 @@ body.ks-legacy .ks-legacy-main > :is(.tagline, nav:first-child, h1:first-of-type
 .ks-map-node { background: var(--surface); }
 @media (min-width: 960px) { .ks-map { margin-top: 28px; } }
 .ks-map-card .ks-map-status.is-built { color: var(--hud-warm); background: color-mix(in srgb, var(--hud-warm) 16%, transparent); }
+/* ---- Home hologram (2026-10-14; Steven: "Jarvis style hologram, constantly moving, morphing"): canvas behind the map's parts ---- */
+.ks-holo { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.ks-map-node { z-index: 1; }
+.ks-holo-k { position: absolute; left: 50%; top: 50%; width: 5.5%; translate: -50% -50%; z-index: 1; pointer-events: none; color: var(--hud-warm); filter: drop-shadow(0 0 10px color-mix(in srgb, var(--hud-warm) 70%, transparent)); }
+.ks-map.has-holo .ks-map-lines { display: none; }
