@@ -16,7 +16,7 @@
       </div>
       <p class="ks-muted ks-small">It costs nothing to find out what we could save you.</p>
     </div>
-    {#- How a custom system could fit together: an example map. Statuses are checked with Systems (QUEUE 21). #}
+    {#- How a custom system could fit together: an example map. No built/not-built labels: "It's not a promise" (Steven, 2026-10-14). #}
     {%- set parts = [
       {"id": "texts", "side": "l", "y": 22, "glyph": "chat", "name": "Texts",
        "what": "Customer texts read, sorted and answered in drafts, in the customer's language.", "status": "Built and tested"},
@@ -47,20 +47,18 @@
           <span class="ks-sr">Your system</span>
         </button>
         {%- for p in parts %}
-        <button class="ks-map-node is-{{ p.side }} {{ 'is-built' if p.status == 'Built and tested' else ('is-req' if p.status.startswith('We connect') else 'is-run') }}" type="button" data-part="{{ p.id }}" style="--y: {{ p.y }}%"><span class="ks-pglyph">{{ glyph(p.glyph) }}</span><span class="ks-map-name">{{ p.name }}</span><span class="ks-sr">({{ p.status }})</span></button>
+        <button class="ks-map-node is-{{ p.side }} {{ 'is-built' if p.status == 'Built and tested' else ('is-req' if p.status.startswith('We connect') else 'is-run') }}" type="button" data-part="{{ p.id }}" style="--y: {{ p.y }}%"><span class="ks-pglyph">{{ glyph(p.glyph) }}</span><span class="ks-map-name">{{ p.name }}</span></button>
         {%- endfor %}
       </div>
       <div class="ks-map-cards">
         <div class="ks-map-card" data-card="core">
           <b>Your system</b>
           <p>One private system, set up around how your business runs.</p>
-          <p class="ks-map-status">Running in our systems today</p>
         </div>
         {%- for p in parts %}
         <div class="ks-map-card" data-card="{{ p.id }}">
           <b>{{ p.name }}</b>
           <p>{{ p.what }}</p>
-          <p class="ks-map-status{% if p.status == 'Built and tested' %} is-built{% elif p.status.startswith('We connect') %} is-req{% endif %}">{{ p.status }}</p>
         </div>
         {%- endfor %}
       </div>
