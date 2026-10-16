@@ -660,6 +660,10 @@ def main():
            "Icons, screenshots and descriptions for every Kynoss Studios app."))
     apps_404 = [{"id": a["id"], "name": a["name"], "url": f"/{a['id']}/", "support": f"/{a['id']}-support.html",
                  "privacy": f"/{a['id']}-privacy.html"} for a in site["live"] + site["upcoming"]]
+    # /c/: the business line's tap-to-confirm page (Kynoss, QUEUE 24). Standalone, noindex, never in the sitemap or search.
+    pc = page("/c/", "Confirm a text · Kynoss Studios", "Confirm a text from the Kynoss Studios business line.")
+    render("confirm.html", "c/index.html", pc, relay="https://kynoss-relay.kynossstudios.workers.dev")
+    pages.remove(pc)
     p404 = page("/404.html", "Page not found · Kynoss Studios", "This page doesn't exist.")
     render("404.html", "404.html", p404, apps_json=json.dumps(apps_404))
     pages.remove(p404)

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src {{ relay }}; base-uri 'none'; form-action 'none'">
+<title>Confirm a text · {{ site.studio.name }}</title>
+<!-- Kynoss owns this page (QUEUE 24). Business-line confirmation links open it: /c/#<36 hex token>.
+     The token stays after "#", so it never reaches a server, and link previews can't act on it.
+     Nothing is sent without the tap. No analytics, no other scripts, not in the sitemap or search. -->
+<style>
+:root { --bg: #f6f5f1; --card: #fff; --ink: #17181a; --muted: #5d6066; --line: #e3e1da; --accent: #1f5f8b; --ok: #2f7d4f; --bad: #a33a2b; }
+@media (prefers-color-scheme: dark) { :root { --bg: #111214; --card: #1a1c1f; --ink: #ecebe6; --muted: #a3a6ad; --line: #2c2f34; --accent: #6fb0e0; --ok: #5cc08a; --bad: #e0806f; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 480px; margin: 0 auto; padding: 32px 16px 48px; }
+h1 { font-size: 20px; margin: 0 0 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.to { margin: 0 0 8px; font-weight: 600; }
+.text { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; border-left: 3px solid var(--line); padding-left: 12px; }
+button { display: block; width: 100%; margin-top: 20px; font: inherit; font-weight: 600; font-size: 19px; padding: 16px; border: 0; border-radius: 12px; background: var(--accent); color: #fff; cursor: pointer; }
+button:disabled { opacity: .5; cursor: default; }
+.msg { margin: 16px 0 0; }
+.msg.ok { color: var(--ok); font-weight: 600; }
+.msg.bad { color: var(--bad); }
+footer { margin-top: 32px; color: var(--muted); font-size: 14px; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Confirm a text</h1>
+  <div class="card" id="box" hidden>
+    <p class="to" id="to"></p>
+    <p class="text" id="text"></p>
+  </div>
+  <button type="button" id="send" hidden>Send it</button>
+  <p class="msg" id="msg" role="status" aria-live="polite">Checking the link…</p>
+  <footer>{{ site.studio.name }}</footer>
+</main>
+<script>
+(function () {
+  var RELAY = "{{ relay }}/v1/line/confirm";
+  var token = (location.hash || "").slice(1);
+  var box = document.getElementById("box"), to = document.getElementById("to"), text = document.getElementById("text");
+  var send = document.getElementById("send"), msg = document.getElementById("msg"), name = "";
+  function say(t, cls) { msg.textContent = t; msg.className = "msg" + (cls ? " " + cls : ""); }
+  function why(r) {
+    if (r && r.why === "used_or_expired") return "This link was already used or has expired.";
+    if (r && r.why === "not_set_up") return "Sending from links isn't switched on yet.";
+    if (r && r.why === "send_failed") return "It couldn't be sent. Try again from your phone or the Mac.";
+    return "Something went wrong. Try again from your phone or the Mac.";
+  }
+  function post(body) {
+    return fetch(RELAY, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer" })
+      .then(function (res) { return res.json(); });
+  }
+  if (!/^[0-9a-f]{36}$/i.test(token)) { say("This link isn't valid.", "bad"); return; }
+  // Keep the token in memory only: take it out of the address bar and history.
+  try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  post({ token: token, action: "peek" }).then(function (r) {
+    if (!r || !r.ok) { say(why(r), "bad"); return; }
+    name = String(r.name || "");
+    to.textContent = "Send to " + name + ":";
+    text.textContent = String(r.text || "");
+    box.hidden = false; send.hidden = false; say("");
+  }).catch(function () { say(why(null), "bad"); });
+  send.addEventListener("click", function () {
+    send.disabled = true; say("Sending…");
+    post({ token: token }).then(function (r) {
+      if (r && r.ok) { send.hidden = true; say("Sent to " + name + ".", "ok"); }
+      else { say(why(r), "bad"); if (!r || r.why !== "send_failed") send.hidden = true; else send.disabled = false; }
+    }).catch(function () { send.disabled = false; say(why(null), "bad"); });
+  });
+})();
+</script>
+</body>
+</html>
