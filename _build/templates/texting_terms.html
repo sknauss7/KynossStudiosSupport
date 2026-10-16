@@ -5,7 +5,7 @@
     <h1 class="ks-display ks-h1">Text messaging terms</h1>
     <p class="ks-lede">{{ site.studio.legal }} · Effective {{ effective }}</p>
   </header>
-  <p>These terms apply to text messages that {{ site.studio.legal }} ("Kynoss Studios", "we", "us" or "our") sends from its business telephone line (the "Program"). By texting us, or by giving us your mobile number in a service agreement to receive texts about your system, you agree to these terms.</p>
+  <p>These terms apply to text messages that {{ site.studio.legal }} ("Kynoss Studios", "we", "us" or "our") sends from its business telephone number, <a href="tel:{{ site.studio.phone_tel }}">{{ site.studio.phone }}</a> (the "Program"). By texting us, or by giving us your mobile number in a service agreement to receive texts about your system, you agree to these terms.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">1. The Program</h2>
   <p>We send text messages to people who contact us and to the small businesses we build AI systems for, including:</p>
@@ -17,7 +17,7 @@
   <p>We don't send marketing or promotional texts.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">2. How you join</h2>
-  <p>You join the Program when you text our business number. Clients also join by giving the mobile number to use for texts about their system in their service agreement. Agreeing to receive texts is not a condition of buying anything from us.</p>
+  <p>You join the Program when you text our business number, {{ site.studio.phone }}. Clients also join by giving the mobile number to use for texts about their system in their service agreement. Agreeing to receive texts is not a condition of buying anything from us.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">3. Message frequency</h2>
   <p>Message frequency varies with the conversation, and with your system's support if you're a client.</p>
@@ -29,7 +29,7 @@
   <p><strong>Reply STOP at any time to stop receiving text messages from us.</strong> You may also reply UNSUBSCRIBE, END, QUIT, STOPALL, REVOKE, OPTOUT or CANCEL, or the Spanish or Portuguese equivalents (PARAR, PARE, ALTO, BAJA, CANCELAR, SAIR or DESCADASTRAR). After you opt out, you'll receive one message confirming it, and no further texts. To rejoin, reply START or UNSTOP.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">6. Help</h2>
-  <p><strong>Reply HELP for help.</strong> You'll receive a message with our name and how to reach us. You can also email <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a>.</p>
+  <p><strong>Reply HELP for help.</strong> You'll receive a message with our name and how to reach us. You can also call or text {{ site.studio.phone }}, or email <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a>.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">7. Delivery</h2>
   <p>Mobile carriers are not liable for delayed or undelivered messages. Delivery depends on your carrier's network and coverage, and we can't guarantee that every message will be delivered.</p>
@@ -41,6 +41,6 @@
   <p>We may update these terms. If we do, we'll post the new version on this page with a new effective date.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">10. Contact us</h2>
-  <p>{{ site.studio.legal }} · <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a></p>
+  <p>{{ site.studio.legal }} · <a href="tel:{{ site.studio.phone_tel }}">{{ site.studio.phone }}</a> · <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a></p>
 </div>
 {% endblock %}
