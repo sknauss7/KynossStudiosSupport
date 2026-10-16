@@ -653,6 +653,9 @@ def main():
            f"Kynoss Studios LLC is an independent iPhone app studio, founded in {site['studio']['founded']}.", nav="about"))
     render("privacy.html", "privacy/index.html", page("/privacy/", "Privacy across our apps · Kynoss Studios",
            "How every Kynoss Studios app handles your data: what stays on your iPhone, what syncs through your iCloud, and what is sent anywhere else."))
+    render("texting_terms.html", "texting-terms/index.html", page("/texting-terms/", "Text messaging terms · Kynoss Studios",
+           "The terms for text messages from the Kynoss Studios LLC business line: what we send, how often, costs, STOP and HELP."),
+           effective="[[effective date]]")
     render("press.html", "press/index.html", page("/press/", "Press kit · Kynoss Studios",
            "Icons, screenshots and descriptions for every Kynoss Studios app."))
     apps_404 = [{"id": a["id"], "name": a["name"], "url": f"/{a['id']}/", "support": f"/{a['id']}-support.html",
