@@ -569,5 +569,880 @@
       "notify": "New job, tomorrow 2–4 pm: leaking water heater at 14 Oak St. Asked about a replacement."
     }
   ],
-  "ask_note": "It costs nothing to find out what we could save you."
+  "ask_note": "It costs nothing to find out what we could save you.",
+  "flow": {
+    "title": "See it at work",
+    "lede": "Four kinds of business, about 40 seconds each. Pick one and tap play."
+  },
+  "flow_demo": {
+    "order": [
+      "cleaning",
+      "auto-repair",
+      "property-management",
+      "lawn-care"
+    ],
+    "trades": {
+      "cleaning": {
+        "pick": "Cleaning",
+        "noun": "cleaning business",
+        "customer": {
+          "icon": "message-circle",
+          "label": "Client"
+        },
+        "tools": [
+          {
+            "id": "calendar",
+            "icon": "calendar-check",
+            "label": "Your schedule"
+          },
+          {
+            "id": "crew",
+            "icon": "users",
+            "label": "Your crew"
+          },
+          {
+            "id": "codes",
+            "icon": "lock-keyhole",
+            "label": "Entry codes"
+          }
+        ],
+        "scenes": [
+          {
+            "t": "Keep the tools you have.",
+            "s": "Your number, your schedule, your crew's phones.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Texts you, as usual"
+                ]
+              },
+              {
+                "chip": [
+                  "crew",
+                  "Their own phones"
+                ]
+              }
+            ],
+            "hideAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "We fit in between.",
+            "s": "Built around how your cleaning business already works.",
+            "steps": [],
+            "revealAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "A new client texts.",
+            "s": "8 pm. In Portuguese.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Limpeza na sexta?"
+                ]
+              }
+            ],
+            "ring": "customer"
+          },
+          {
+            "t": "Replies in their language.",
+            "s": "Here, Portuguese. Sent when you tap OK.",
+            "steps": [
+              {
+                "go": [
+                  "customer",
+                  "ai"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Send reply?"
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Sim! Quantos quartos?"
+                ],
+                "wait": 1100
+              }
+            ]
+          },
+          {
+            "t": "Booked into your schedule.",
+            "s": "Times you really have open. You confirm.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Book Fri 10 AM?"
+              },
+              {
+                "go": [
+                  "ai",
+                  "calendar"
+                ],
+                "chip": [
+                  "calendar",
+                  "Fri 10 AM ✓"
+                ],
+                "wait": 1100
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "You're booked ✓"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Reminders send themselves.",
+            "s": "Because you switched them on.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Tomorrow 10 AM?"
+                ]
+              },
+              {
+                "go": [
+                  "customer",
+                  "ai"
+                ],
+                "chip": [
+                  "customer",
+                  "YES ✓"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Crew running late? Covered.",
+            "s": "The client hears in one tap.",
+            "steps": [
+              {
+                "go": [
+                  "crew",
+                  "ai"
+                ],
+                "chip": [
+                  "crew",
+                  "20 min late"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Tell the client?"
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Arriving 10:20"
+                ],
+                "wait": 1100
+              }
+            ]
+          },
+          {
+            "t": "Entry codes stay locked.",
+            "s": "Only you, and your cleaner that day.",
+            "steps": [
+              {
+                "go": [
+                  "customer",
+                  "ai"
+                ],
+                "chip": [
+                  "customer",
+                  "New gate code ••••"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Keep new code?"
+              },
+              {
+                "go": [
+                  "ai",
+                  "codes"
+                ],
+                "chip": [
+                  "codes",
+                  "Locked 🔒"
+                ],
+                "wait": 1100
+              },
+              {
+                "go": [
+                  "ai",
+                  "crew"
+                ],
+                "chip": [
+                  "crew",
+                  "Shown on the day"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Nothing new to install.",
+            "s": "Clients just text. Your crew taps one link. Four taps from you.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Texts as usual ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "crew",
+                  "Own phones ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "calendar",
+                  "Same schedule ✓"
+                ]
+              }
+            ],
+            "all": true,
+            "ms": 3800
+          }
+        ]
+      },
+      "auto-repair": {
+        "pick": "Auto repair",
+        "noun": "shop",
+        "customer": {
+          "icon": "phone-call",
+          "label": "Customer"
+        },
+        "tools": [
+          {
+            "id": "records",
+            "icon": "car",
+            "label": "Your shop software"
+          },
+          {
+            "id": "calendar",
+            "icon": "calendar-check",
+            "label": "Your bay schedule"
+          },
+          {
+            "id": "parts",
+            "icon": "package",
+            "label": "Your parts supplier"
+          }
+        ],
+        "scenes": [
+          {
+            "t": "Keep the tools you have.",
+            "s": "Your number, your schedule, your shop software.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Calls your number"
+                ]
+              },
+              {
+                "chip": [
+                  "owner",
+                  "Your phone"
+                ]
+              }
+            ],
+            "hideAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "We fit in between.",
+            "s": "Built around how your shop already works.",
+            "steps": [],
+            "revealAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "A customer calls.",
+            "s": "Your team is under a car.",
+            "steps": [
+              {
+                "chip": [
+                  "owner",
+                  "Busy in the bay"
+                ]
+              }
+            ],
+            "ring": "customer"
+          },
+          {
+            "t": "Answers in the caller's language.",
+            "s": "This caller speaks Spanish. Day or night.",
+            "steps": [
+              {
+                "go": [
+                  "customer",
+                  "ai"
+                ],
+                "chip": [
+                  "customer",
+                  "¿Cambio de aceite?"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "ai",
+                  "¡Claro! ¿Martes?"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "It knows the car.",
+            "s": "History and mileage, from your records.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "records"
+                ],
+                "chip": [
+                  "records",
+                  "2019 Camry · 58k mi"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Books the bay.",
+            "s": "Straight into your schedule.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "calendar"
+                ],
+                "chip": [
+                  "calendar",
+                  "Tue 8:00 AM ✓"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Booked ✓"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Lines up the parts.",
+            "s": "You approve with one tap.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "parts"
+                ],
+                "chip": [
+                  "parts",
+                  "Filter + 5 qt oil"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Order parts · $38"
+              }
+            ]
+          },
+          {
+            "t": "Reminds the customer.",
+            "s": "The day before. Nobody picks up a phone.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Tomorrow, 8 AM 🔔"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Car's done. Customer knows.",
+            "s": "One tap when it's ready.",
+            "steps": [
+              {
+                "note": "Car ready?"
+              },
+              {
+                "go": [
+                  "owner",
+                  "ai"
+                ],
+                "wait": 1100
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Your car is ready ✓"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Nothing new to install.",
+            "s": "Same tools. Every call answered. You tapped twice.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Same number for calls ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "records",
+                  "Same shop software ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "parts",
+                  "Same supplier ✓"
+                ]
+              }
+            ],
+            "all": true,
+            "ms": 3800
+          }
+        ]
+      },
+      "property-management": {
+        "pick": "Property management",
+        "noun": "property business",
+        "customer": {
+          "icon": "phone-call",
+          "label": "Tenant"
+        },
+        "tools": [
+          {
+            "id": "units",
+            "icon": "building-2",
+            "label": "Your units & leases"
+          },
+          {
+            "id": "vendors",
+            "icon": "hammer",
+            "label": "Your vendors"
+          },
+          {
+            "id": "calendar",
+            "icon": "calendar-check",
+            "label": "Your schedule"
+          }
+        ],
+        "scenes": [
+          {
+            "t": "Keep the tools you have.",
+            "s": "Your vendors, your records, your rules.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Text you, as usual"
+                ]
+              },
+              {
+                "chip": [
+                  "owner",
+                  "Your phone"
+                ]
+              }
+            ],
+            "hideAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "We fit in between.",
+            "s": "Built around how your property business already works.",
+            "steps": [],
+            "revealAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "The AC is out.",
+            "s": "A tenant texts, in Spanish.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "El aire no funciona"
+                ]
+              }
+            ],
+            "ring": "customer"
+          },
+          {
+            "t": "Marked urgent.",
+            "s": "It's 92° out. The unit's on file.",
+            "steps": [
+              {
+                "go": [
+                  "customer",
+                  "ai"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "units"
+                ],
+                "chip": [
+                  "units",
+                  "Unit 4B ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "ai",
+                  "Urgent"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Your HVAC vendor, booked.",
+            "s": "The one you already use.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "vendors"
+                ],
+                "chip": [
+                  "vendors",
+                  "Today 2 PM ✓"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "calendar"
+                ],
+                "chip": [
+                  "calendar",
+                  "Unit 4B · 2 PM"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "You approve the repair.",
+            "s": "The vendor's quote, over your limit.",
+            "steps": [
+              {
+                "go": [
+                  "vendors",
+                  "ai"
+                ],
+                "chip": [
+                  "vendors",
+                  "Quote: $350"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Approve $350?"
+              }
+            ]
+          },
+          {
+            "t": "Tenant kept posted.",
+            "s": "In the tenant's language, start to finish.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Técnico hoy, 2 PM"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Nothing new to install.",
+            "s": "Same tools. Repair handled. You tapped once.",
+            "steps": [
+              {
+                "chip": [
+                  "vendors",
+                  "Same vendors ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "units",
+                  "Same records ✓"
+                ]
+              }
+            ],
+            "all": true,
+            "ms": 3800
+          }
+        ]
+      },
+      "lawn-care": {
+        "pick": "Lawn care",
+        "noun": "lawn care business",
+        "customer": {
+          "icon": "message-circle",
+          "label": "Customers"
+        },
+        "tools": [
+          {
+            "id": "weather",
+            "icon": "cloud-rain",
+            "label": "Weather forecast"
+          },
+          {
+            "id": "route",
+            "icon": "map-pin",
+            "label": "Your route"
+          },
+          {
+            "id": "list",
+            "icon": "users",
+            "label": "Your customer list"
+          }
+        ],
+        "scenes": [
+          {
+            "t": "Keep the tools you have.",
+            "s": "Your route, your customer list, your phone.",
+            "steps": [
+              {
+                "chip": [
+                  "customer",
+                  "Text you, as usual"
+                ]
+              },
+              {
+                "chip": [
+                  "owner",
+                  "Your phone"
+                ]
+              }
+            ],
+            "hideAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "We fit in between.",
+            "s": "Built around how your lawn care business already works.",
+            "steps": [],
+            "revealAi": true,
+            "ms": 3000
+          },
+          {
+            "t": "Rain tomorrow.",
+            "s": "The forecast, checked every evening.",
+            "steps": [
+              {
+                "go": [
+                  "weather",
+                  "ai"
+                ],
+                "chip": [
+                  "weather",
+                  "Rain Thu · 80%"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Route moves to Friday.",
+            "s": "You approve with one tap.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "route"
+                ],
+                "chip": [
+                  "route",
+                  "Thu → Fri"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "owner"
+                ]
+              },
+              {
+                "note": "Move 12 visits?"
+              }
+            ]
+          },
+          {
+            "t": "Every customer told.",
+            "s": "In English or Spanish.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "list"
+                ],
+                "chip": [
+                  "list",
+                  "12 customers"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "customer",
+                  "Moved to Friday ☀"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Questions answered.",
+            "s": "Day or night.",
+            "steps": [
+              {
+                "go": [
+                  "customer",
+                  "ai"
+                ],
+                "chip": [
+                  "customer",
+                  "¿Incluye las orillas?"
+                ]
+              },
+              {
+                "go": [
+                  "ai",
+                  "customer"
+                ],
+                "chip": [
+                  "ai",
+                  "¡Sí, están incluidas!"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Nothing new to install.",
+            "s": "Same tools. Rain day handled. You tapped once.",
+            "steps": [
+              {
+                "chip": [
+                  "route",
+                  "Same route ✓"
+                ]
+              },
+              {
+                "chip": [
+                  "list",
+                  "Same list ✓"
+                ]
+              }
+            ],
+            "all": true,
+            "ms": 3800
+          }
+        ]
+      }
+    },
+    "icons": {
+      "building-2": "<path d=\"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z\" /> <path d=\"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2\" /> <path d=\"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2\" /> <path d=\"M10 6h4\" /> <path d=\"M10 10h4\" /> <path d=\"M10 14h4\" /> <path d=\"M10 18h4\" />",
+      "calendar-check": "<path d=\"M8 2v4\" /> <path d=\"M16 2v4\" /> <rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\" /> <path d=\"M3 10h18\" /> <path d=\"m9 16 2 2 4-4\" />",
+      "car": "<path d=\"M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2\" /> <circle cx=\"7\" cy=\"17\" r=\"2\" /> <path d=\"M9 17h6\" /> <circle cx=\"17\" cy=\"17\" r=\"2\" />",
+      "cloud-rain": "<path d=\"M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242\" /> <path d=\"M16 14v6\" /> <path d=\"M8 14v6\" /> <path d=\"M12 16v6\" />",
+      "hammer": "<path d=\"m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9\" /> <path d=\"m18 15 4-4\" /> <path d=\"m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5\" />",
+      "lock-keyhole": "<circle cx=\"12\" cy=\"16\" r=\"1\" /> <rect x=\"3\" y=\"10\" width=\"18\" height=\"12\" rx=\"2\" /> <path d=\"M7 10V7a5 5 0 0 1 10 0v3\" />",
+      "map-pin": "<path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\" /> <circle cx=\"12\" cy=\"10\" r=\"3\" />",
+      "message-circle": "<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\" />",
+      "package": "<path d=\"M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z\" /> <path d=\"M12 22V12\" /> <path d=\"m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7\" /> <path d=\"m7.5 4.27 9 5.15\" />",
+      "phone-call": "<path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\" /> <path d=\"M14.05 2a9 9 0 0 1 8 7.94\" /> <path d=\"M14.05 6A5 5 0 0 1 18 10\" />",
+      "smartphone": "<rect width=\"14\" height=\"20\" x=\"5\" y=\"2\" rx=\"2\" ry=\"2\" /> <path d=\"M12 18h.01\" />",
+      "sparkles": "<path d=\"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z\" /> <path d=\"M20 3v4\" /> <path d=\"M22 5h-4\" /> <path d=\"M4 17v2\" /> <path d=\"M5 18H3\" />",
+      "users": "<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\" /> <circle cx=\"9\" cy=\"7\" r=\"4\" /> <path d=\"M22 21v-2a4 4 0 0 0-3-3.87\" /> <path d=\"M16 3.13a4 4 0 0 1 0 7.75\" />"
+    }
+  }
 }

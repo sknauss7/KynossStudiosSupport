@@ -253,3 +253,71 @@
 @media (prefers-reduced-motion: reduce) { .ks-faq summary::after { transition: none; } }
 @media (min-width: 900px) { .ks-stories.is-tabbed .ks-tabs { flex-wrap: wrap; overflow: visible; } .ks-stories .ks-feature { align-items: center; } }
 .ks-midcta p { flex: 1 1 26rem; }
+
+/* Flow demo (supplied by Kynoss 2026-10-18, scoped under .flow-demo) */
+/* Kynoss flow demo, embedded on /systems/ (supplied by Kynoss, 2026-10-18). Everything is scoped under .flow-demo and
+   uses the site's palette variables; the few extra shades are mixed from them. */
+.flow-demo { --fd-soft: color-mix(in srgb, var(--signal) 12%, var(--surface)); --fd-faint: color-mix(in srgb, var(--line) 70%, var(--surface));
+  --fd-ok: #1F7A4D; --fd-chip: var(--ink); --fd-chip-ink: var(--surface); max-width: 600px; margin: 0 auto; font-family: var(--font-text); color: var(--ink); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .flow-demo { --fd-ok: #5CC08A; } }
+:root[data-theme="dark"] .flow-demo { --fd-ok: #5CC08A; }
+.flow-demo .fd-picker { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 14px; }
+.flow-demo .fd-picker button { font: 600 14px/1 var(--font-text); border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px 14px; cursor: pointer; }
+.flow-demo .fd-picker button[aria-selected="true"] { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); }
+.flow-demo .fd-stage { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 12px 12px 16px; user-select: none; -webkit-user-select: none; outline: none; }
+.flow-demo .fd-stage:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 45%, transparent); }
+.flow-demo .fd-bars { display: flex; gap: 4px; margin: 0 2px 6px; }
+.flow-demo .fd-bars span { flex: 1; height: 4px; border-radius: 2px; background: var(--fd-faint); overflow: hidden; }
+.flow-demo .fd-bars i { display: block; height: 100%; width: 0; background: var(--signal); }
+.flow-demo .fd-map { display: block; width: 100%; height: auto; cursor: pointer; touch-action: manipulation; }
+.flow-demo .fd-edge { stroke: var(--line); stroke-width: 2; stroke-dasharray: 4 5; transition: stroke .3s, opacity .6s; }
+.flow-demo .fd-edge.fd-on { stroke: var(--signal); stroke-dasharray: none; stroke-width: 2.5; }
+.flow-demo .fd-node { transition: opacity .6s; }
+.flow-demo .fd-gone { opacity: 0; }
+.flow-demo .fd-node .fd-bg { fill: var(--surface); stroke: var(--line); stroke-width: 2; transition: fill .3s, stroke .3s; }
+.flow-demo .fd-node.fd-on .fd-bg { fill: var(--fd-soft); stroke: var(--signal); }
+.flow-demo .fd-node.fd-ai .fd-bg { fill: var(--signal); stroke: var(--signal); }
+.flow-demo .fd-node .fd-ic { color: var(--slate); transition: color .3s; }
+.flow-demo .fd-node.fd-on .fd-ic { color: var(--signal); }
+.flow-demo .fd-node.fd-ai .fd-ic { color: var(--signal-ink); }
+.flow-demo .fd-node text { font: 600 11px var(--font-text); fill: var(--slate); text-anchor: middle; paint-order: stroke; stroke: var(--surface); stroke-width: 5px; stroke-linejoin: round; }
+.flow-demo .fd-node.fd-on text { fill: var(--ink); }
+.flow-demo .fd-ring { fill: none; stroke: var(--signal); stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.flow-demo .fd-ring.fd-go { animation: fd-ring 1.2s ease-out infinite; }
+@keyframes fd-ring { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.7); } }
+.flow-demo .fd-pulse { fill: var(--signal); filter: drop-shadow(0 0 4px var(--signal)); }
+.flow-demo .fd-chip rect { fill: var(--fd-chip); }
+.flow-demo .fd-chip text { font: 600 12px var(--font-text); fill: var(--fd-chip-ink); text-anchor: middle; dominant-baseline: central; }
+.flow-demo .fd-chip, .flow-demo .fd-note { opacity: 0; transform: translateY(4px); transition: opacity .35s, transform .35s; transform-box: fill-box; }
+.flow-demo .fd-chip.fd-show, .flow-demo .fd-note.fd-show { opacity: 1; transform: none; }
+.flow-demo .fd-card { fill: var(--surface); stroke: var(--signal); stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(23,32,51,.18)); }
+.flow-demo .fd-note text { font: 600 12px var(--font-text); fill: var(--ink); dominant-baseline: central; }
+.flow-demo .fd-btn { fill: var(--signal); transition: fill .3s; }
+.flow-demo .fd-note .fd-btnt { font: 700 11px var(--font-text); fill: var(--signal-ink); text-anchor: middle; }
+.flow-demo .fd-note.fd-done .fd-btn { fill: var(--fd-ok); }
+.flow-demo .fd-tap { fill: var(--signal); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.flow-demo .fd-tap.fd-go { animation: fd-tap .6s ease-out; }
+@keyframes fd-tap { from { opacity: .5; transform: scale(.4); } to { opacity: 0; transform: scale(2.2); } }
+.flow-demo .fd-cap { min-height: 120px; padding: 4px 6px 0; }
+.flow-demo .fd-cap h3 { font: 700 26px/1.12 var(--display); margin: 0 0 4px; color: var(--ink); }
+.flow-demo .fd-cap p { margin: 0; color: var(--slate); font-size: 16px; }
+.flow-demo .fd-cap h3, .flow-demo .fd-cap p { transition: opacity .25s; }
+.flow-demo .fd-cap.fd-fade h3, .flow-demo .fd-cap.fd-fade p { opacity: 0; }
+.flow-demo .fd-ctrl { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+.flow-demo .fd-ctrl button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.flow-demo .fd-ctrl button svg { width: 20px; height: 20px; }
+.flow-demo .fd-cover { position: absolute; inset: 0; z-index: 2; border: 0; border-radius: 20px; padding: 24px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center;
+  background: color-mix(in srgb, var(--surface) 82%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--ink); font: inherit; transition: opacity .35s; }
+.flow-demo .fd-cover.fd-gone { opacity: 0; pointer-events: none; }
+.flow-demo .fd-cover-t { font: 700 26px/1.15 var(--display); max-width: 16ch; text-wrap: balance; }
+.flow-demo .fd-cover-play { width: 72px; height: 72px; border-radius: 999px; background: var(--signal); color: var(--signal-ink); display: grid; place-items: center; box-shadow: 0 8px 24px color-mix(in srgb, var(--signal) 35%, transparent); }
+.flow-demo .fd-cover-play svg { width: 30px; height: 30px; margin-left: 4px; }
+.flow-demo .fd-cover-s { font-size: 14px; color: var(--slate); font-weight: 600; }
+@media (min-width: 900px) { .flow-demo .fd-cap h3 { font-size: 30px; } .flow-demo .fd-cover-t { font-size: 32px; } }
+@media (prefers-reduced-motion: reduce) {
+  .flow-demo .fd-chip, .flow-demo .fd-note, .flow-demo .fd-cap h3, .flow-demo .fd-cap p, .flow-demo .fd-cover, .flow-demo .fd-edge, .flow-demo .fd-node { transition: none; }
+  .flow-demo .fd-ring.fd-go, .flow-demo .fd-tap.fd-go { animation: none; }
+}
+
+.ks-sysflow .flow-demo { margin-top: 8px; }
+.ks-sysflow .ks-midcta { margin-top: 24px; }
