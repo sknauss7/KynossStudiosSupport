@@ -696,20 +696,20 @@
           },
           {
             "t": "A new client texts.",
-            "s": "8 pm. In Portuguese.",
+            "s": "8 pm. You're off the clock.",
             "steps": [
               {
                 "chip": [
                   "customer",
-                  "Limpeza na sexta?"
+                  "Clean on Friday?"
                 ]
               }
             ],
             "ring": "customer"
           },
           {
-            "t": "Replies in their language.",
-            "s": "Here, Portuguese. Sent when you tap OK.",
+            "t": "Reply drafted for you.",
+            "s": "In your client's language. Sent when you tap OK.",
             "steps": [
               {
                 "go": [
@@ -733,7 +733,7 @@
                 ],
                 "chip": [
                   "customer",
-                  "Sim! Quantos quartos?"
+                  "How many bedrooms?"
                 ],
                 "wait": 1100
               }
@@ -1044,7 +1044,7 @@
           },
           {
             "t": "The AC is out.",
-            "s": "A tenant texts, in Spanish.",
+            "s": "A tenant texts at night.",
             "steps": [
               {
                 "chip": [
