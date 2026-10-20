@@ -650,7 +650,7 @@ def main():
                         crumbs=[("/", "Home"), ("/guide/", "Field guide"), (None, g["title"])], **gcss),
                    g=g, num=n + 1, guides=guides, prev=guides[n - 1] if n else None, next=guides[n + 1] if n + 1 < len(guides) else None)
     render("about.html", "about/index.html", page("/about/", "About · Kynoss Studios",
-           f"Kynoss Studios LLC is an independent iPhone app studio, founded in {site['studio']['founded']}.", nav="about"))
+           "Kynoss Studios LLC builds custom AI systems for small businesses, set up around the way they already work. Based in Jacksonville, Florida. We also make iPhone apps.", nav="about"))
     render("privacy.html", "privacy/index.html", page("/privacy/", "Privacy across our apps · Kynoss Studios",
            "How every Kynoss Studios app handles your data: what stays on your iPhone, what syncs through your iCloud, and what is sent anywhere else."))
     render("texting_terms.html", "texting-terms/index.html", page("/texting-terms/", "Text messaging terms · Kynoss Studios",
