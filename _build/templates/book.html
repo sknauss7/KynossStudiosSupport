@@ -110,7 +110,8 @@ input { width: 100%; font: inherit; padding: 10px 12px; min-height: 44px; border
     var box = $("slots"); box.textContent = ""; box.hidden = false; $("done").hidden = true;
     $("title").textContent = moving ? "Pick a new time" : "Pick a time for your 20-minute call"; $("lede").hidden = false;
     if (state.business) $("lede").textContent = "For " + state.business + ". We'll call you at the time you choose. All times are Eastern (Jacksonville).";
-    if (!state.slots || !state.slots.length) { say(why({ error: "closed" }), true); return; }
+    // closed: our calendar can't be read right now (or nothing is open). A calm note, not an error.
+    if (!state.slots || !state.slots.length) { say("We can't show open times right now. Call or text us at (904) 929-1217 and we'll find a time that suits you."); return; }
     var days = {}, order = [];
     state.slots.forEach(function (s) { var d = dayOf(s); if (!days[d]) { days[d] = []; order.push(d); } days[d].push(s); });
     order.forEach(function (d) {
