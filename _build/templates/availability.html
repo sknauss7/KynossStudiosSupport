@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src {{ relay }}; base-uri 'none'; form-action 'none'">
+<title>Your free times · {{ site.studio.name }}</title>
+<!-- Kynoss owns this page (QUEUE 24, booking). Steven's weekly free times for Nova's booking: /availability/#<owner token>.
+     The token stays after "#", so it never reaches a server; it goes to the relay only in a POST body.
+     Contract: Systems, 2026-10-20 (POST /v1/line/availability, actions "week" and "save").
+     No analytics, no other scripts, not in the sitemap or search. -->
+<style>
+:root { --bg: #f6f5f1; --card: #fff; --ink: #17181a; --muted: #5d6066; --line: #e3e1da; --accent: #1f5f8b; --accent-ink: #fff; --soft: #e8f0f6; --busy: #ecebe6; --ok: #2f7d4f; --bad: #a33a2b; }
+@media (prefers-color-scheme: dark) { :root { --bg: #111214; --card: #1a1c1f; --ink: #ecebe6; --muted: #a3a6ad; --line: #2c2f34; --accent: #6fb0e0; --accent-ink: #111214; --soft: #1f2a33; --busy: #24262a; --ok: #5cc08a; --bad: #e0806f; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 1040px; margin: 0 auto; padding: calc(24px + env(safe-area-inset-top, 0px)) 16px calc(120px + env(safe-area-inset-bottom, 0px)); }
+h1 { font-size: 22px; margin: 0 0 4px; }
+.lede { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+.weeks, .quick { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.pill { font: inherit; font-size: 15px; font-weight: 600; min-height: 44px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+.pill[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.note { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: var(--soft); font-size: 15px; }
+.note.warn { background: var(--busy); }
+.days { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 760px) { .days { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; } }
+.day { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; min-width: 0; }
+.day h2 { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 0 0 8px; font-size: 16px; }
+.day h2 button { font: inherit; font-size: 13px; font-weight: 600; color: var(--accent); background: none; border: 0; padding: 8px 4px; min-height: 44px; cursor: pointer; }
+.hours { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+@media (min-width: 760px) { .hours { grid-template-columns: 1fr; } .day h2 { flex-direction: column; gap: 0; } }
+.h { font: inherit; font-size: 14px; font-weight: 600; min-height: 44px; padding: 6px 4px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; font-variant-numeric: tabular-nums; }
+.h[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.h:disabled { background: var(--busy); color: var(--muted); cursor: default; border-style: dashed; }
+.h small { display: block; font-size: 11px; font-weight: 500; }
+.pill:focus-visible, .h:focus-visible, .day h2 button:focus-visible, #save:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line); padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
+.bar-in { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+.count { flex: 1; font-weight: 600; }
+#save { font: inherit; font-weight: 700; font-size: 17px; min-height: 48px; padding: 10px 24px; border: 0; border-radius: 12px; background: var(--accent); color: var(--accent-ink); cursor: pointer; }
+#save:disabled { opacity: .5; cursor: default; }
+.msg { margin: 12px 0 0; }
+.msg.ok { color: var(--ok); font-weight: 600; }
+.msg.bad { color: var(--bad); }
+footer { margin-top: 24px; color: var(--muted); font-size: 14px; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: no-preference) { .h, .pill { transition: background-color .15s, color .15s; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Your free times</h1>
+  <p class="lede">Tap the hours you're free. Nova only books your calls inside them, and never over anything on your calendar.</p>
+  <div class="weeks" id="weeks" aria-label="Week"></div>
+  <p class="note" id="unset" hidden>Not set yet: Nova uses your standing windows. They're ticked below; change them and save, or save as they are.</p>
+  <p class="note warn" id="stale" hidden>Your calendar was last read a while ago, so busy times may be out of date.</p>
+  <div class="quick" id="quick" hidden>
+    <button type="button" class="pill" data-quick="weekend">All weekend</button>
+    <button type="button" class="pill" data-quick="evenings">All evenings</button>
+    <button type="button" class="pill" data-quick="none">Clear all</button>
+  </div>
+  <div class="days" id="days"></div>
+  <p class="msg" id="msg" role="status" aria-live="polite">Loading your week…</p>
+  <footer>{{ site.studio.name }} · Busy hours come from your calendar and can't be picked.</footer>
+</main>
+<div class="bar" id="bar" hidden>
+  <div class="bar-in">
+    <span class="count" id="count">0 hours free</span>
+    <button type="button" id="save">Save</button>
+  </div>
+</div>
+<script>
+(function () {
+  var RELAY = "{{ relay }}/v1/line/availability";
+  var KEY = "kynoss-availability-token";
+  var EVENING = [17, 18, 19];
+  var $ = function (id) { return document.getElementById(id); };
+  var token = (location.hash || "").slice(1);
+  try { if (token) sessionStorage.setItem(KEY, token); else token = sessionStorage.getItem(KEY) || ""; } catch (e) {}
+  // Keep the token out of the address bar and history once read.
+  if (location.hash) { try { history.replaceState(null, "", location.pathname); } catch (e) {} }
+
+  var state = null, picked = {}, dirty = false, armedWeek = null, busySaving = false;
+
+  function say(t, cls) { var m = $("msg"); m.textContent = t; m.className = "msg" + (cls ? " " + cls : ""); }
+  function why(r) {
+    var w = r && r.why;
+    if (w === "bad_token") return "This link has expired or been replaced. Ask for a new one.";
+    if (w === "origin") return "This page only works from kynossstudios.com.";
+    if (w === "bad_week") return "That week can't be set any more. Pick another week.";
+    if (w === "bad_blocks") return "Something in that week didn't save. Reload the page and try again.";
+    return "Something went wrong. Try again in a moment.";
+  }
+  function post(body) {
+    return fetch(RELAY, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer" })
+      .then(function (res) { return res.json().catch(function () { return { ok: false }; }); });
+  }
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function md(iso) { var p = String(iso).split("-"); return MONTHS[+p[1] - 1] + " " + (+p[2]); }
+  function hourLabel(h) { return (h % 12 || 12) + (h < 12 ? " am" : " pm"); }
+  function key(date, h) { return date + "T" + (h < 10 ? "0" + h : h); }
+  function count() { return Object.keys(picked).length; }
+  function updateBar() {
+    var n = count();
+    $("count").textContent = n + (n === 1 ? " hour free" : " hours free");
+    $("save").disabled = busySaving || (!dirty && state && state.saved);
+  }
+
+  function render() {
+    var days = $("days"); days.textContent = "";
+    state.days.forEach(function (d) {
+      var card = document.createElement("section"); card.className = "day";
+      var h2 = document.createElement("h2");
+      var title = document.createElement("span"); title.textContent = d.day + " " + md(d.date);
+      var all = document.createElement("button"); all.type = "button"; all.textContent = "All day"; all.dataset.day = d.date;
+      h2.appendChild(title); h2.appendChild(all); card.appendChild(h2);
+      var grid = document.createElement("div"); grid.className = "hours"; grid.setAttribute("role", "group"); grid.setAttribute("aria-label", d.day + " " + md(d.date));
+      d.blocks.forEach(function (b) {
+        var btn = document.createElement("button"); btn.type = "button"; btn.className = "h";
+        btn.dataset.k = key(d.date, b.h); btn.dataset.h = b.h;
+        btn.textContent = hourLabel(b.h);
+        if (b.state === "busy") {
+          btn.disabled = true;
+          var s = document.createElement("small"); s.textContent = "Busy"; btn.appendChild(s);
+          btn.setAttribute("aria-label", hourLabel(b.h) + ", busy on your calendar");
+        } else {
+          btn.setAttribute("aria-pressed", picked[btn.dataset.k] ? "true" : "false");
+        }
+        grid.appendChild(btn);
+      });
+      card.appendChild(grid); days.appendChild(card);
+    });
+    updateBar();
+  }
+
+  function setBlock(btn, on) {
+    if (!btn || btn.disabled) return;
+    if (on) picked[btn.dataset.k] = 1; else delete picked[btn.dataset.k];
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+  function changed() { dirty = true; armedWeek = null; say(""); updateBar(); }
+
+  function load(week) {
+    say("Loading your week…"); $("bar").hidden = true; $("quick").hidden = true;
+    var body = { token: token, action: "week" }; if (week) body.week = week;
+    post(body).then(function (r) {
+      if (!r || !r.ok) { $("days").textContent = ""; say(why(r), "bad"); return; }
+      state = r; picked = {}; dirty = false; armedWeek = null;
+      r.days.forEach(function (d) { d.blocks.forEach(function (b) { if (b.state === "on" || (!r.saved && b.state === "standing")) picked[key(d.date, b.h)] = 1; }); });
+      var weeks = $("weeks"); weeks.textContent = "";
+      (r.weeks || [r.week]).forEach(function (w) {
+        var b = document.createElement("button"); b.type = "button"; b.className = "pill"; b.dataset.week = w;
+        b.textContent = "Week of " + md(w); b.setAttribute("aria-pressed", w === r.week ? "true" : "false");
+        weeks.appendChild(b);
+      });
+      $("unset").hidden = !!r.saved; $("stale").hidden = !r.stale;
+      render(); $("bar").hidden = false; $("quick").hidden = false;
+      say(r.saved ? "Saved times for the week of " + md(r.week) + ". Change any and save again." : "");
+    }).catch(function () { say("Couldn't reach the server. Check your connection and try again.", "bad"); });
+  }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("button") : null; if (!t || !state) return;
+    if (t.classList.contains("h")) { setBlock(t, t.getAttribute("aria-pressed") !== "true"); changed(); return; }
+    if (t.dataset.day) {
+      var btns = document.querySelectorAll('.h[data-k^="' + t.dataset.day + 'T"]:not(:disabled)');
+      var allOn = Array.prototype.every.call(btns, function (b) { return b.getAttribute("aria-pressed") === "true"; });
+      Array.prototype.forEach.call(btns, function (b) { setBlock(b, !allOn); }); changed(); return;
+    }
+    if (t.dataset.quick) {
+      var q = t.dataset.quick;
+      Array.prototype.forEach.call(document.querySelectorAll(".h:not(:disabled)"), function (b) {
+        var d = state.days.filter(function (x) { return b.dataset.k.indexOf(x.date) === 0; })[0];
+        if (q === "none") setBlock(b, false);
+        else if (q === "weekend" && d && (d.day === "Sat" || d.day === "Sun")) setBlock(b, true);
+        else if (q === "evenings" && EVENING.indexOf(+b.dataset.h) >= 0) setBlock(b, true);
+      });
+      changed(); return;
+    }
+    if (t.dataset.week) {
+      if (t.dataset.week === state.week) return;
+      if (dirty && armedWeek !== t.dataset.week) { armedWeek = t.dataset.week; say("You have unsaved changes. Save first, or tap that week again to leave them.", "bad"); return; }
+      load(t.dataset.week); return;
+    }
+  });
+
+  $("save").addEventListener("click", function () {
+    if (!state || busySaving) return;
+    busySaving = true; updateBar(); say("Saving…");
+    var free = Object.keys(picked).sort();
+    post({ token: token, action: "save", week: state.week, free: free }).then(function (r) {
+      busySaving = false;
+      if (r && r.ok) {
+        dirty = false; state.saved = true; $("unset").hidden = true; updateBar();
+        say(free.length ? "Saved. Nova offers these times for the week of " + md(state.week) + "." : "Saved. No free times for the week of " + md(state.week) + ", so Nova won't book that week.", "ok");
+      } else { updateBar(); say(why(r), "bad"); }
+    }).catch(function () { busySaving = false; updateBar(); say("Couldn't reach the server. Your taps are still here; try Save again.", "bad"); });
+  });
+
+  if (!/^[A-Za-z0-9_-]{16,256}$/.test(token)) { say("This link isn't valid. Use the link from Slack.", "bad"); return; }
+  load(null);
+})();
+</script>
+</body>
+</html>

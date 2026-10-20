@@ -664,6 +664,10 @@ def main():
     pc = page("/c/", "Confirm a text · Kynoss Studios", "Confirm a text from the Kynoss Studios business line.")
     render("confirm.html", "c/index.html", pc, relay="https://kynoss-relay.kynossstudios.workers.dev")
     pages.remove(pc)
+    # /availability/: Steven's weekly free times for Nova's booking (Kynoss; Systems' contract 2026-10-20). Standalone, noindex, not in the sitemap or search.
+    pa = page("/availability/", "Your free times · Kynoss Studios", "Set the hours Nova may book calls.")
+    render("availability.html", "availability/index.html", pa, relay="https://kynoss-relay.kynossstudios.workers.dev")
+    pages.remove(pa)
     p404 = page("/404.html", "Page not found · Kynoss Studios", "This page doesn't exist.")
     render("404.html", "404.html", p404, apps_json=json.dumps(apps_404))
     pages.remove(p404)
