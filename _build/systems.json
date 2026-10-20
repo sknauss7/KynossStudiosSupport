@@ -1356,7 +1356,7 @@
           },
           {
             "t": "Every customer told.",
-            "s": "In English or Spanish.",
+            "s": "In each customer's language.",
             "steps": [
               {
                 "go": [
