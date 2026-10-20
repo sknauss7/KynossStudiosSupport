@@ -58,8 +58,8 @@ input { width: 100%; font: inherit; padding: 10px 12px; min-height: 44px; border
     <input id="name" autocomplete="name" required>
     <label for="email">Email <small>(for the calendar invite)</small></label>
     <input id="email" type="email" autocomplete="email" inputmode="email" required>
-    <label for="phone">Best number to call <small id="phonehint">(optional; otherwise we call your business number)</small></label>
-    <input id="phone" type="tel" autocomplete="tel" inputmode="tel">
+    <label for="phone">Best number to call you on</label>
+    <input id="phone" type="tel" autocomplete="tel" inputmode="tel" required>
     <button class="btn" id="book" type="submit">Book this time</button>
   </form>
   <div class="done" id="done" hidden>
@@ -143,6 +143,8 @@ input { width: 100%; font: inherit; padding: 10px 12px; min-height: 44px; border
       Array.prototype.forEach.call(document.querySelectorAll(".t"), function (b) { b.setAttribute("aria-pressed", b === t ? "true" : "false"); });
       if (moving) { send({ action: "move", start: chosen.start }); return; }
       $("picked").textContent = chosen.label + " (Eastern)"; $("form").hidden = false; say("");
+      // Pre-fill their business number (from the relay), so most people only check it.
+      if (!$("phone").value && state.phone) $("phone").value = state.phone;
       $("name").focus(); return;
     }
     if (t.id === "move") { moving = true; chosen = null; load(); return; }
@@ -156,8 +158,8 @@ input { width: 100%; font: inherit; padding: 10px 12px; min-height: 44px; border
     var name = $("name").value.trim(), email = $("email").value.trim(), phone = $("phone").value.trim();
     if (!name) { say("Please add your name.", true); $("name").focus(); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say("Please check your email address.", true); $("email").focus(); return; }
-    if (phone && phone.replace(/\D/g, "").length < 10) { say("Please check the phone number, or leave it blank.", true); $("phone").focus(); return; }
-    send({ action: "book", start: chosen.start, name: name, email: email, phone: phone || undefined });
+    if (phone.replace(/\D/g, "").length < 10) { say("Please add the number we should call you on.", true); $("phone").focus(); return; }
+    send({ action: "book", start: chosen.start, name: name, email: email, phone: phone });
   });
   function send(body) {
     if (sending) return; sending = true; $("book").disabled = true; say(body.action === "cancel" ? "Cancelling…" : "Booking…");
