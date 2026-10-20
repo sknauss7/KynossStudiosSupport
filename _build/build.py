@@ -667,7 +667,11 @@ def main():
     # /availability/: Steven's weekly free times for Nova's booking (Kynoss; Systems' contract 2026-10-20). Standalone, noindex, not in the sitemap or search.
     pa = page("/availability/", "Your free times · Kynoss Studios", "Set the hours Nova may book calls.")
     render("availability.html", "availability/index.html", pa, relay="https://kynoss-relay.kynossstudios.workers.dev")
+    # /book/: a prospect picks a time for the 20-minute call by link (Kynoss; Steven, 2026-10-20). Standalone, noindex, not in the sitemap or search.
+    pb = page("/book/", "Book a call · Kynoss Studios", "Pick a time for a 20-minute call.")
+    render("book.html", "book/index.html", pb, relay="https://kynoss-relay.kynossstudios.workers.dev")
     pages.remove(pa)
+    pages.remove(pb)
     p404 = page("/404.html", "Page not found · Kynoss Studios", "This page doesn't exist.")
     render("404.html", "404.html", p404, apps_json=json.dumps(apps_404))
     pages.remove(p404)

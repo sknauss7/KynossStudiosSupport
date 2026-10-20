@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src https://kynoss-relay.kynossstudios.workers.dev; base-uri 'none'; form-action 'none'">
+<title>Book a call · Kynoss Studios</title>
+<!-- Kynoss owns this page (booking by link; Steven, 2026-10-20: "Make sure the booking link by email works as well").
+     A prospect picks a time for the 20-minute call: /book/#<token>, one token per prospect, made by Systems.
+     The token stays after "#", so it never reaches a server; it goes to the relay only in a POST body.
+     Contract: POST /v1/line/book, actions "slots", "book", "move", "cancel" (proposed by Kynoss to Systems, 2026-10-20).
+     No analytics, no other scripts, not in the sitemap or search. -->
+<style>
+:root { --bg: #f6f5f1; --card: #fff; --ink: #17181a; --muted: #5d6066; --line: #e3e1da; --accent: #1f5f8b; --accent-ink: #fff; --soft: #e8f0f6; --ok: #2f7d4f; --bad: #a33a2b; }
+@media (prefers-color-scheme: dark) { :root { --bg: #111214; --card: #1a1c1f; --ink: #ecebe6; --muted: #a3a6ad; --line: #2c2f34; --accent: #6fb0e0; --accent-ink: #111214; --soft: #1f2a33; --ok: #5cc08a; --bad: #e0806f; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 640px; margin: 0 auto; padding: calc(24px + env(safe-area-inset-top, 0px)) 16px calc(40px + env(safe-area-inset-bottom, 0px)); }
+.brand { font-weight: 700; font-size: 15px; margin: 0 0 18px; }
+.brand a { color: inherit; text-decoration: none; }
+h1 { font-size: 24px; line-height: 1.2; margin: 0 0 6px; }
+.lede { margin: 0 0 18px; color: var(--muted); font-size: 16px; }
+.day { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 0 0 10px; }
+.day h2 { font-size: 16px; margin: 0 0 8px; }
+.times { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+@media (min-width: 520px) { .times { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.t { font: inherit; font-size: 15px; font-weight: 600; min-height: 44px; padding: 6px 4px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; font-variant-numeric: tabular-nums; }
+.t[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+form { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin: 6px 0 0; }
+form h2 { font-size: 18px; margin: 0 0 12px; }
+label { display: block; font-weight: 600; font-size: 15px; margin: 10px 0 4px; }
+label small { font-weight: 400; color: var(--muted); }
+input { width: 100%; font: inherit; padding: 10px 12px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); }
+.btn { font: inherit; font-weight: 700; font-size: 17px; min-height: 48px; padding: 10px 22px; border: 0; border-radius: 12px; background: var(--accent); color: var(--accent-ink); cursor: pointer; margin-top: 16px; }
+.btn.plain { background: none; color: var(--accent); border: 1px solid var(--line); font-weight: 600; margin-right: 8px; }
+.btn:disabled { opacity: .5; cursor: default; }
+.t:focus-visible, .btn:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.done { background: var(--soft); border-radius: 12px; padding: 16px; }
+.done h2 { margin: 0 0 6px; font-size: 20px; }
+.msg { margin: 12px 0 0; }
+.msg.bad { color: var(--bad); }
+.fine { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.fine a { color: inherit; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <p class="brand"><a href="/systems/">Kynoss Studios</a></p>
+  <h1 id="title">Pick a time for your 20-minute call</h1>
+  <p class="lede" id="lede">We'll call you at the time you choose. All times are Eastern (Jacksonville).</p>
+  <div id="slots"></div>
+  <form id="form" hidden novalidate>
+    <h2 id="picked"></h2>
+    <label for="name">Your name</label>
+    <input id="name" autocomplete="name" required>
+    <label for="email">Email <small>(for the calendar invite)</small></label>
+    <input id="email" type="email" autocomplete="email" inputmode="email" required>
+    <label for="phone">Best number to call <small id="phonehint">(optional)</small></label>
+    <input id="phone" type="tel" autocomplete="tel" inputmode="tel">
+    <button class="btn" id="book" type="submit">Book this time</button>
+  </form>
+  <div class="done" id="done" hidden>
+    <h2 id="doneT"></h2>
+    <p id="doneS"></p>
+    <button class="btn plain" id="move" type="button">Pick another time</button>
+    <button class="btn plain" id="cancel" type="button">Cancel the call</button>
+  </div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+  <p class="fine">Kynoss Studios LLC, Jacksonville, Florida · <a href="/privacy/">Privacy</a> · Questions? Call or text (904) 929-1217.</p>
+</main>
+<script>
+(function () {
+  var RELAY = "https://kynoss-relay.kynossstudios.workers.dev/v1/line/book";
+  var KEY = "kynoss-book-token";
+  var $ = function (id) { return document.getElementById(id); };
+  var token = (location.hash || "").slice(1);
+  try { if (token) sessionStorage.setItem(KEY, token); else token = sessionStorage.getItem(KEY) || ""; } catch (e) {}
+  // Keep the token out of the address bar and history once read.
+  if (location.hash) { try { history.replaceState(null, "", location.pathname); } catch (e) {} }
+
+  var state = null, chosen = null, moving = false, sending = false;
+
+  function say(t, bad) { var m = $("msg"); m.textContent = t || ""; m.className = "msg" + (bad ? " bad" : ""); }
+  function why(r) {
+    var w = r && (r.error || r.why);
+    if (w === "taken") return "Sorry, that time was just taken. Here are the times still open.";
+    if (w === "expired" || w === "invalid" || w === "bad_token") return "This booking link has expired. Call or text (904) 929-1217 and we'll find a time.";
+    if (w === "closed") return "There are no open times right now. Call or text (904) 929-1217 and we'll find one.";
+    if (w === "origin") return "This page only works from kynossstudios.com.";
+    return "Something went wrong. Please try again, or call (904) 929-1217.";
+  }
+  function post(body) {
+    body.token = token;
+    return fetch(RELAY, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer" })
+      .then(function (res) { return res.json().catch(function () { return { ok: false }; }); });
+  }
+  function dayOf(s) { return s.label.replace(/,\s*[^,]*$/, ""); }      // "Wed Oct 21, 12:00 pm" -> "Wed Oct 21"
+  function timeOf(s) { return s.label.replace(/^.*,\s*/, ""); }         // -> "12:00 pm"
+
+  function showDone(label, invite) {
+    $("slots").hidden = true; $("form").hidden = true; $("done").hidden = false;
+    $("title").textContent = "You're booked"; $("lede").hidden = true;
+    $("doneT").textContent = label + " (Eastern)";
+    $("doneS").textContent = "We'll call you then. " + (invite ? "A calendar invite is on its way to your email." : "");
+  }
+  function render() {
+    var box = $("slots"); box.textContent = ""; box.hidden = false; $("done").hidden = true;
+    $("title").textContent = moving ? "Pick a new time" : "Pick a time for your 20-minute call"; $("lede").hidden = false;
+    if (state.business) $("lede").textContent = "For " + state.business + ". We'll call you at the time you choose. All times are Eastern (Jacksonville).";
+    if (!state.slots || !state.slots.length) { say(why({ error: "closed" }), true); return; }
+    var days = {}, order = [];
+    state.slots.forEach(function (s) { var d = dayOf(s); if (!days[d]) { days[d] = []; order.push(d); } days[d].push(s); });
+    order.forEach(function (d) {
+      var card = document.createElement("section"); card.className = "day";
+      var h = document.createElement("h2"); h.textContent = d; card.appendChild(h);
+      var g = document.createElement("div"); g.className = "times"; g.setAttribute("role", "group"); g.setAttribute("aria-label", d);
+      days[d].forEach(function (s) {
+        var b = document.createElement("button"); b.type = "button"; b.className = "t"; b.textContent = timeOf(s);
+        b.dataset.start = s.start; b.setAttribute("aria-pressed", chosen && chosen.start === s.start ? "true" : "false");
+        b.setAttribute("aria-label", s.label);
+        g.appendChild(b);
+      });
+      card.appendChild(g); box.appendChild(card);
+    });
+  }
+  function load() {
+    if (!token) { say(why({ error: "invalid" }), true); return; }
+    say("Loading open times…");
+    post({ action: "slots" }).then(function (r) {
+      if (!r || !r.ok) { say(why(r), true); return; }
+      state = r; say("");
+      if (r.booked && !moving) showDone(r.booked.label, false); else render();
+    }).catch(function () { say("Couldn't connect. Check your connection and try again.", true); });
+  }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("button") : null; if (!t) return;
+    if (t.classList.contains("t")) {
+      chosen = state.slots.filter(function (s) { return s.start === t.dataset.start; })[0];
+      Array.prototype.forEach.call(document.querySelectorAll(".t"), function (b) { b.setAttribute("aria-pressed", b === t ? "true" : "false"); });
+      if (moving) { send({ action: "move", start: chosen.start }); return; }
+      $("picked").textContent = chosen.label + " (Eastern)"; $("form").hidden = false; say("");
+      $("name").focus(); return;
+    }
+    if (t.id === "move") { moving = true; chosen = null; load(); return; }
+    if (t.id === "cancel") {
+      if (t.dataset.armed !== "1") { t.dataset.armed = "1"; t.textContent = "Tap again to cancel"; return; }
+      send({ action: "cancel" });
+    }
+  });
+  $("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = $("name").value.trim(), email = $("email").value.trim(), phone = $("phone").value.trim();
+    if (!name) { say("Please add your name.", true); $("name").focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say("Please check your email address.", true); $("email").focus(); return; }
+    if (phone && phone.replace(/\D/g, "").length < 10) { say("Please check the phone number, or leave it blank.", true); $("phone").focus(); return; }
+    send({ action: "book", start: chosen.start, name: name, email: email, phone: phone || undefined });
+  });
+  function send(body) {
+    if (sending) return; sending = true; $("book").disabled = true; say(body.action === "cancel" ? "Cancelling…" : "Booking…");
+    post(body).then(function (r) {
+      sending = false; $("book").disabled = false;
+      if (!r || !r.ok) {
+        say(why(r), true);
+        if (r && r.error === "taken") { chosen = null; $("form").hidden = true; load(); }
+        return;
+      }
+      say("");
+      if (body.action === "cancel") {
+        $("slots").hidden = true; $("form").hidden = true; $("done").hidden = false; $("move").hidden = true; $("cancel").hidden = true;
+        $("title").textContent = "Your call is cancelled"; $("lede").hidden = true;
+        $("doneT").textContent = "No problem."; $("doneS").textContent = "If you'd like to talk another time, call or text (904) 929-1217.";
+        return;
+      }
+      moving = false; showDone(r.label || (chosen && chosen.label) || "", !!r.invite);
+    }).catch(function () { sending = false; $("book").disabled = false; say("Couldn't connect. Your choice is still here; try again.", true); });
+  }
+  load();
+})();
+</script>
+</body>
+</html>
