@@ -274,7 +274,7 @@
       [
         "phone",
         "Answers the phone",
-        "A natural-sounding voice picks up every call, day or night, answers the common questions and books the job.",
+        "A natural-sounding voice answers the calls you can't take, day or night, handles the common questions and books the job. Or, simpler: a text back to every call you miss.",
         ""
       ],
       [
@@ -324,6 +324,78 @@
   },
   "cases_lede": "Each one started as a single sentence about a job. Here's what they do now.",
   "stories": [
+    {
+      "id": "cleaning",
+      "tab": "Cleaning company",
+      "glyph": "check",
+      "kind": "Example: a house cleaning company",
+      "title": "The 8 pm quote, answered in minutes",
+      "moment": "At 8 pm a new client texts: “Can you clean a 3-bedroom, 2-bath this Friday?” You're off the clock.",
+      "trail": [
+        {
+          "glyph": "chat",
+          "source": "Text",
+          "text": "Reads the request and asks the one thing your price sheet still needs: a regular or a deep clean?",
+          "catch": false
+        },
+        {
+          "glyph": "money",
+          "source": "Price sheet",
+          "text": "Works out the price from your own sheet, never a number you didn't set.",
+          "catch": true
+        },
+        {
+          "glyph": "calendar",
+          "source": "Schedule",
+          "text": "Finds the times you really have open on Friday.",
+          "catch": false
+        },
+        {
+          "glyph": "send",
+          "source": "Draft",
+          "text": "A reply with the price and Friday at 10, in the client's language, ready for your OK.",
+          "catch": false
+        }
+      ],
+      "notify": "New client, Friday 10 am: 3 bed, 2 bath, regular clean. Reply with the price ready for your OK.",
+      "result": "One tap and the client is booked before you've finished dinner, with a reminder going out the day before."
+    },
+    {
+      "id": "pest",
+      "tab": "Pest control",
+      "glyph": "bug",
+      "kind": "Example: a pest control company",
+      "title": "The missed call that still became a job",
+      "moment": "You're under a house at 6 pm when a customer calls about ants in the kitchen. You can't pick up.",
+      "trail": [
+        {
+          "glyph": "phone",
+          "source": "Missed call",
+          "text": "Texts them back right away from your number: sorry we missed you, how can we help?",
+          "catch": false
+        },
+        {
+          "glyph": "chat",
+          "source": "Text",
+          "text": "They reply “Ants again!” It drafts a reply with your next open times, for your OK.",
+          "catch": false
+        },
+        {
+          "glyph": "calendar",
+          "source": "Schedule",
+          "text": "Books Thursday at 9 once you tap OK, and the customer gets a confirmation.",
+          "catch": false
+        },
+        {
+          "glyph": "repeat",
+          "source": "Treatment plan",
+          "text": "Notices their quarterly treatment is due next month, so the reminder is already set.",
+          "catch": true
+        }
+      ],
+      "notify": "Missed call, now booked: ants, Thursday 9 am. Quarterly treatment due next month, reminder set.",
+      "result": "A call that would have gone to the next company on the list becomes a booked visit, and the next one is already on the calendar."
+    },
     {
       "id": "property",
       "tab": "Property manager",
