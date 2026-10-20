@@ -34,6 +34,8 @@ h1 { font-size: 22px; margin: 0 0 4px; }
 .h { font: inherit; font-size: 14px; font-weight: 600; min-height: 44px; padding: 6px 4px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; font-variant-numeric: tabular-nums; }
 .h[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .h:disabled { background: var(--busy); color: var(--muted); cursor: default; border-style: dashed; }
+.h.ad { border-style: dashed; }
+.h.ad[aria-pressed="false"] { background: var(--busy); color: var(--muted); }
 .h small { display: block; font-size: 11px; font-weight: 500; }
 .pill:focus-visible, .h:focus-visible, .day h2 button:focus-visible, #save:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .bar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line); padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); }
@@ -63,7 +65,7 @@ footer { margin-top: 24px; color: var(--muted); font-size: 14px; }
   </div>
   <div class="days" id="days"></div>
   <p class="msg" id="msg" role="status" aria-live="polite">Loading your week…</p>
-  <footer>Kynoss Studios · Busy hours come from your calendar and can't be picked.</footer>
+  <footer>Kynoss Studios · Busy hours come from your calendar and can't be picked. Hours inside an all-day event can be opened one tap at a time.</footer>
 </main>
 <div class="bar" id="bar" hidden>
   <div class="bar-in">
@@ -121,7 +123,14 @@ footer { margin-top: 24px; color: var(--muted); font-size: 14px; }
         var btn = document.createElement("button"); btn.type = "button"; btn.className = "h";
         btn.dataset.k = key(d.date, b.h); btn.dataset.h = b.h;
         btn.textContent = hourLabel(b.h);
-        if (b.state === "busy") {
+        // An hour under an all-day or multi-day event (a trip, a day off) can still be opened with a deliberate tap;
+        // the relay lets a ticked hour beat an all-day event (Steven, 2026-10-20). Timed events stay locked.
+        if (b.allDay) {
+          btn.classList.add("ad");
+          var a = document.createElement("small"); a.textContent = "All-day event"; btn.appendChild(a);
+          btn.setAttribute("aria-label", hourLabel(b.h) + ", inside an all-day event; tap to open it anyway");
+          btn.setAttribute("aria-pressed", picked[btn.dataset.k] ? "true" : "false");
+        } else if (b.state === "busy") {
           btn.disabled = true;
           var s = document.createElement("small"); s.textContent = "Busy"; btn.appendChild(s);
           btn.setAttribute("aria-label", hourLabel(b.h) + ", busy on your calendar");
@@ -165,13 +174,13 @@ footer { margin-top: 24px; color: var(--muted); font-size: 14px; }
     var t = e.target.closest ? e.target.closest("button") : null; if (!t || !state) return;
     if (t.classList.contains("h")) { setBlock(t, t.getAttribute("aria-pressed") !== "true"); changed(); return; }
     if (t.dataset.day) {
-      var btns = document.querySelectorAll('.h[data-k^="' + t.dataset.day + 'T"]:not(:disabled)');
+      var btns = document.querySelectorAll('.h[data-k^="' + t.dataset.day + 'T"]:not(:disabled):not(.ad)');
       var allOn = Array.prototype.every.call(btns, function (b) { return b.getAttribute("aria-pressed") === "true"; });
       Array.prototype.forEach.call(btns, function (b) { setBlock(b, !allOn); }); changed(); return;
     }
     if (t.dataset.quick) {
       var q = t.dataset.quick;
-      Array.prototype.forEach.call(document.querySelectorAll(".h:not(:disabled)"), function (b) {
+      Array.prototype.forEach.call(document.querySelectorAll(".h:not(:disabled):not(.ad)"), function (b) {
         var d = state.days.filter(function (x) { return b.dataset.k.indexOf(x.date) === 0; })[0];
         if (q === "none") setBlock(b, false);
         else if (q === "weekend" && d && (d.day === "Sat" || d.day === "Sun")) setBlock(b, true);
