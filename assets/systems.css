@@ -255,8 +255,9 @@
 .ks-midcta p { flex: 1 1 26rem; }
 
 /* Flow demo (supplied by Kynoss 2026-10-18, scoped under .flow-demo) */
-/* Kynoss flow demo, embedded on /systems/ (supplied by Kynoss, 2026-10-18). Everything is scoped under .flow-demo and
-   uses the site's palette variables; the few extra shades are mixed from them. */
+/* Kynoss flow demo v4, embedded on /systems/ (supplied by Kynoss, 2026-10-20; replaces the 2026-10-18 .flow-demo block).
+   Everything is scoped under .flow-demo and uses the site's palette variables; the few extra shades are mixed from them.
+   v4: a spotlight on one step at a time, progress dots, chips that fade before a new one, bigger labels on phones. */
 .flow-demo { --fd-soft: color-mix(in srgb, var(--signal) 12%, var(--surface)); --fd-faint: color-mix(in srgb, var(--line) 70%, var(--surface));
   --fd-ok: #1F7A4D; --fd-chip: var(--ink); --fd-chip-ink: var(--surface); max-width: 600px; margin: 0 auto; font-family: var(--font-text); color: var(--ink); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .flow-demo { --fd-ok: #5CC08A; } }
@@ -266,14 +267,21 @@
 .flow-demo .fd-picker button[aria-selected="true"] { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); }
 .flow-demo .fd-stage { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 12px 12px 16px; user-select: none; -webkit-user-select: none; outline: none; }
 .flow-demo .fd-stage:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 45%, transparent); }
-.flow-demo .fd-bars { display: flex; gap: 4px; margin: 0 2px 6px; }
-.flow-demo .fd-bars span { flex: 1; height: 4px; border-radius: 2px; background: var(--fd-faint); overflow: hidden; }
+/* Progress dots: the current scene stretches and fills; done scenes stay tinted. */
+.flow-demo .fd-bars { display: flex; justify-content: center; gap: 6px; margin: 2px 2px 8px; }
+.flow-demo .fd-bars span { flex: 0 0 8px; height: 8px; border-radius: 999px; background: var(--fd-faint); overflow: hidden; transition: flex-basis .3s; }
+.flow-demo .fd-bars span.fd-done { background: var(--signal); opacity: .45; }
+.flow-demo .fd-bars span.fd-cur { flex-basis: 28px; }
 .flow-demo .fd-bars i { display: block; height: 100%; width: 0; background: var(--signal); }
 .flow-demo .fd-map { display: block; width: 100%; height: auto; cursor: pointer; touch-action: manipulation; }
 .flow-demo .fd-edge { stroke: var(--line); stroke-width: 2; stroke-dasharray: 4 5; transition: stroke .3s, opacity .6s; }
 .flow-demo .fd-edge.fd-on { stroke: var(--signal); stroke-dasharray: none; stroke-width: 2.5; }
 .flow-demo .fd-node { transition: opacity .6s; }
 .flow-demo .fd-gone { opacity: 0; }
+/* Spotlight (Steven, 2026-10-19: one thing at a time): during a step only its own nodes and line are lit. */
+.flow-demo .fd-map.fd-spot .fd-node:not(.fd-on):not(.fd-gone) { opacity: .28; }
+.flow-demo .fd-map.fd-spot .fd-edge:not(.fd-on):not(.fd-gone) { opacity: .25; }
+.flow-demo .fd-map.fd-spot .fd-chip.fd-show.fd-old, .flow-demo .fd-map.fd-spot .fd-note.fd-show.fd-old { opacity: .35; }
 .flow-demo .fd-node .fd-bg { fill: var(--surface); stroke: var(--line); stroke-width: 2; transition: fill .3s, stroke .3s; }
 .flow-demo .fd-node.fd-on .fd-bg { fill: var(--fd-soft); stroke: var(--signal); }
 .flow-demo .fd-node.fd-ai .fd-bg { fill: var(--signal); stroke: var(--signal); }
@@ -290,6 +298,7 @@
 .flow-demo .fd-chip text { font: 600 12px var(--font-text); fill: var(--fd-chip-ink); text-anchor: middle; dominant-baseline: central; }
 .flow-demo .fd-chip, .flow-demo .fd-note { opacity: 0; transform: translateY(4px); transition: opacity .35s, transform .35s; transform-box: fill-box; }
 .flow-demo .fd-chip.fd-show, .flow-demo .fd-note.fd-show { opacity: 1; transform: none; }
+.flow-demo .fd-chip.fd-out { opacity: 0 !important; transition: opacity .25s; }
 .flow-demo .fd-card { fill: var(--surface); stroke: var(--signal); stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(23,32,51,.18)); }
 .flow-demo .fd-note text { font: 600 12px var(--font-text); fill: var(--ink); dominant-baseline: central; }
 .flow-demo .fd-btn { fill: var(--signal); transition: fill .3s; }
@@ -303,6 +312,7 @@
 .flow-demo .fd-cap p { margin: 0; color: var(--slate); font-size: 16px; }
 .flow-demo .fd-cap h3, .flow-demo .fd-cap p { transition: opacity .25s; }
 .flow-demo .fd-cap.fd-fade h3, .flow-demo .fd-cap.fd-fade p { opacity: 0; }
+.flow-demo .fd-cap p.fd-wait { opacity: 0; }
 .flow-demo .fd-ctrl { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
 .flow-demo .fd-ctrl button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
 .flow-demo .fd-ctrl button svg { width: 20px; height: 20px; }
@@ -313,9 +323,20 @@
 .flow-demo .fd-cover-play { width: 72px; height: 72px; border-radius: 999px; background: var(--signal); color: var(--signal-ink); display: grid; place-items: center; box-shadow: 0 8px 24px color-mix(in srgb, var(--signal) 35%, transparent); }
 .flow-demo .fd-cover-play svg { width: 30px; height: 30px; margin-left: 4px; }
 .flow-demo .fd-cover-s { font-size: 14px; color: var(--slate); font-weight: 600; }
+/* Phone first (375px): the picture is drawn at ~0.82 scale there, so these render at about 13 / 15 / 14 px. */
+@media (max-width: 700px) {
+  .flow-demo .fd-node text { font-size: 16px; stroke-width: 5.5px; }
+  .flow-demo .fd-node.fd-on text { font-weight: 700; }
+  .flow-demo .fd-chip text { font-size: 18px; }
+  .flow-demo .fd-note text { font-size: 17px; }
+  .flow-demo .fd-note .fd-btnt { font-size: 13px; }
+  .flow-demo .fd-cap h3 { font-size: 24px; }
+  .flow-demo .fd-cap p { font-size: 17px; }
+  .flow-demo .fd-stage { padding: 10px 8px 14px; }
+}
 @media (min-width: 900px) { .flow-demo .fd-cap h3 { font-size: 30px; } .flow-demo .fd-cover-t { font-size: 32px; } }
 @media (prefers-reduced-motion: reduce) {
-  .flow-demo .fd-chip, .flow-demo .fd-note, .flow-demo .fd-cap h3, .flow-demo .fd-cap p, .flow-demo .fd-cover, .flow-demo .fd-edge, .flow-demo .fd-node { transition: none; }
+  .flow-demo .fd-chip, .flow-demo .fd-note, .flow-demo .fd-cap h3, .flow-demo .fd-cap p, .flow-demo .fd-cover, .flow-demo .fd-edge, .flow-demo .fd-node, .flow-demo .fd-bars span { transition: none; }
   .flow-demo .fd-ring.fd-go, .flow-demo .fd-tap.fd-go { animation: none; }
 }
 
