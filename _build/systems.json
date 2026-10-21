@@ -1153,6 +1153,11 @@
         },
         "tools": [
           {
+            "id": "weather",
+            "icon": "cloud-rain",
+            "label": "Weather forecast"
+          },
+          {
             "id": "route",
             "icon": "calendar-check",
             "label": "Your schedule"
@@ -1166,7 +1171,7 @@
         "scenes": [
           {
             "t": "Built around how your lawn care business works.",
-            "s": "Your schedule, your customers, your phone.",
+            "s": "Your schedule, your customer list, your phone.",
             "steps": [
               {
                 "chip": [
@@ -1185,26 +1190,33 @@
             "ms": 3500
           },
           {
-            "t": "A customer texts.",
-            "s": "8 pm. You're done for the day.",
-            "steps": [
-              {
-                "chip": [
-                  "customer",
-                  "Mow on Saturday?"
-                ]
-              }
-            ],
-            "ring": "customer"
-          },
-          {
-            "t": "Booked on your schedule.",
-            "s": "Times you really have open. You confirm.",
+            "t": "Rain tomorrow.",
+            "s": "The forecast, checked every evening.",
             "steps": [
               {
                 "go": [
-                  "customer",
+                  "weather",
                   "ai"
+                ],
+                "chip": [
+                  "weather",
+                  "Rain Thu · 80%"
+                ]
+              }
+            ]
+          },
+          {
+            "t": "Thursday moves to Friday.",
+            "s": "You approve with one tap.",
+            "steps": [
+              {
+                "go": [
+                  "ai",
+                  "route"
+                ],
+                "chip": [
+                  "route",
+                  "Thu → Fri"
                 ]
               },
               {
@@ -1214,35 +1226,24 @@
                 ]
               },
               {
-                "note": "Book Sat 9 AM?"
-              },
-              {
-                "go": [
-                  "ai",
-                  "route"
-                ],
-                "chip": [
-                  "route",
-                  "Sat 9 AM ✓"
-                ],
-                "wait": 1100
-              },
-              {
-                "go": [
-                  "ai",
-                  "customer"
-                ],
-                "chip": [
-                  "customer",
-                  "You're booked ✓"
-                ]
+                "note": "Move 12 visits?"
               }
             ]
           },
           {
-            "t": "Reminders send themselves.",
-            "s": "Because you switched them on.",
+            "t": "Every customer told.",
+            "s": "In each customer's language.",
             "steps": [
+              {
+                "go": [
+                  "ai",
+                  "list"
+                ],
+                "chip": [
+                  "list",
+                  "12 customers"
+                ]
+              },
               {
                 "go": [
                   "ai",
@@ -1250,17 +1251,7 @@
                 ],
                 "chip": [
                   "customer",
-                  "Fri 9 AM tomorrow?"
-                ]
-              },
-              {
-                "go": [
-                  "customer",
-                  "ai"
-                ],
-                "chip": [
-                  "customer",
-                  "YES ✓"
+                  "Moved to Friday ☀"
                 ]
               }
             ]
@@ -1302,7 +1293,7 @@
           },
           {
             "t": "Nothing new to install.",
-            "s": "Same tools. Two taps from you.",
+            "s": "Same tools. Rain day handled in one tap.",
             "steps": [
               {
                 "chip": [
@@ -1327,6 +1318,7 @@
       "building-2": "<path d=\"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z\" /> <path d=\"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2\" /> <path d=\"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2\" /> <path d=\"M10 6h4\" /> <path d=\"M10 10h4\" /> <path d=\"M10 14h4\" /> <path d=\"M10 18h4\" />",
       "calendar-check": "<path d=\"M8 2v4\" /> <path d=\"M16 2v4\" /> <rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\" /> <path d=\"M3 10h18\" /> <path d=\"m9 16 2 2 4-4\" />",
       "clipboard-list": "<rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\" /> <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\" /> <path d=\"M12 11h4\" /> <path d=\"M12 16h4\" /> <path d=\"M8 11h.01\" /> <path d=\"M8 16h.01\" />",
+      "cloud-rain": "<path d=\"M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242\" /> <path d=\"M16 14v6\" /> <path d=\"M8 14v6\" /> <path d=\"M12 16v6\" />",
       "hammer": "<path d=\"m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9\" /> <path d=\"m18 15 4-4\" /> <path d=\"m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5\" />",
       "map-pin": "<path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\" /> <circle cx=\"12\" cy=\"10\" r=\"3\" />",
       "message-circle": "<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\" />",
