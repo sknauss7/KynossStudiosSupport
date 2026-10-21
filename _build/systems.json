@@ -45,8 +45,8 @@
       "title": "A wedding without the spreadsheets",
       "idea": "One place for the guests, the RSVPs and everything we send them.",
       "win": [
-        "Live for guests now,",
-        "with RSVPs and updates in one place."
+        "RSVPs and updates",
+        "in one place for guests."
       ],
       "summary": "A guest website with online RSVPs, a private dashboard and guest emails sent from the same place."
     },
@@ -322,7 +322,7 @@
     ],
     "tools": "It works with what you already use: Google or Microsoft email and calendars, spreadsheets, accounting and online-shop tools, and many more."
   },
-  "cases_lede": "Each one started as a single sentence about a job. Here's what they do now.",
+  "cases_lede": "Each one started as a single sentence about a job.",
   "stories": [
     {
       "id": "cleaning",
