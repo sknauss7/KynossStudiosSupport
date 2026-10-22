@@ -206,13 +206,18 @@
   var q = function (sel) { return root.querySelector(sel); };
   var map = q(".fd-map"), bars = q(".fd-bars"), stage = q(".fd-stage"), cover = q(".fd-cover"), cap = q(".fd-cap");
   var PAUSE = '<path d="M9 5v14M15 5v14"/>', PLAY = '<path d="M7 4.5v15l12-7.5z"/>', REPLAY = '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>';
-  // Pacing, as on the prospect demos (v4): steps one after another, then a still hold; at least 6 s a scene.
-  var STEP = 1350, LEAD = 1200, HOLD = 1600, MOVE = 900, GAP = 500;
+  // Pacing, as on the prospect demos (v4): steps one after another, then a still hold; at least 6 s a scene. Slower for
+  // first-time viewers (Kynoss's template, 2026-10-22: "it moves too fast"): everything x PACE, and every scene stays
+  // up long enough to read its title and subline (about 3 words a second, plus a moment to look).
+  var PACE = 1.35;
+  var STEP = 1350 * PACE, LEAD = 1200 * PACE, HOLD = 1600 * PACE, MOVE = 900 * PACE, GAP = 500 * PACE, NOTE = 900 * PACE;
+  var words = function (s) { return ((s.t || "") + " " + (s.s || "")).split(/\s+/).filter(Boolean).length; };
   function lenOf(s) {
-    var n = (s.steps || []).length;
-    if (s.revealAi || s.hideAi) return s.ms || 3500;
-    if (s.all) return Math.max(s.ms || 0, 5500);
-    return Math.max(6000, LEAD + n * STEP + HOLD);
+    var n = (s.steps || []).length, base;
+    if (s.revealAi || s.hideAi) base = (s.ms || 3500) * PACE;
+    else if (s.all) base = Math.max((s.ms || 0) * PACE, 5500 * PACE);
+    else base = Math.max(6000 * PACE, LEAD + n * STEP + HOLD);
+    return Math.max(base, 2500 + words(s) * 330);
   }
   function el(tag, attrs, parent) {
     var e = document.createElementNS(NS, tag);
@@ -383,7 +388,7 @@
         if (st.go) move(st.go[0], st.go[1], MOVE, function () { after(st); run(k + 1); });
         else { if (st.chip) light(st.chip[0]); after(st); run(k + 1); }
       };
-      if (reduce) fire(); else later(fire, k === 0 ? LEAD * 0.6 : Math.max(st.wait || 0, GAP) + (steps[k - 1] && steps[k - 1].note ? 900 : 0));
+      if (reduce) fire(); else later(fire, k === 0 ? LEAD * 0.6 : Math.max((st.wait || 0) * PACE, GAP) + (steps[k - 1] && steps[k - 1].note ? NOTE : 0));
     })(0);
     sceneLen = lenOf(s);
     elapsed = 0;
