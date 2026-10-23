@@ -670,8 +670,17 @@ def main():
     # /book/: a prospect picks a time for the 20-minute call by link (Kynoss; Steven, 2026-10-20). Standalone, noindex, not in the sitemap or search.
     pb = page("/book/", "Book a call · Kynoss Studios", "Pick a time for a 20-minute call.")
     render("book.html", "book/index.html", pb, relay="https://kynoss-relay.kynossstudios.workers.dev")
+    # /card/: where every business card's QR code and NFC tag land (Kynoss; Steven, 2026-10-22). Standalone, noindex, not in the sitemap or search.
+    card = {"phone": "(904) 929-1217", "tel": "+19049291217", "email": "support@kynossstudios.com"}
+    pk = page("/card/", site["studio"]["name"], "Try our AI assistant, save our contact, or visit kynossstudios.com.")
+    render("card.html", "card/index.html", pk, card=card)
+    (ROOT / "card" / "kynoss-studios.vcf").write_text("\r\n".join([
+        "BEGIN:VCARD", "VERSION:3.0", f"FN:{site['studio']['name']}", f"ORG:{site['studio']['legal']}",
+        f"TEL;TYPE=WORK,VOICE:{card['tel']}", f"EMAIL;TYPE=WORK:{card['email']}", f"URL:{site['studio']['domain']}",
+        "NOTE:AI systems for small businesses. Call to try our AI assistant.", "END:VCARD"]) + "\r\n")
     pages.remove(pa)
     pages.remove(pb)
+    pages.remove(pk)
     p404 = page("/404.html", "Page not found · Kynoss Studios", "This page doesn't exist.")
     render("404.html", "404.html", p404, apps_json=json.dumps(apps_404))
     pages.remove(p404)
