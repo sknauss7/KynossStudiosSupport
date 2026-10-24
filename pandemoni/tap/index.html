@@ -56,7 +56,7 @@ li span{color:var(--muted);font-size:15px}
 </main>
 <script>
 // The NFC tag opens this page with "?n"; the printed QR without it. Each gets its own App Store campaign token.
-if (/[?&]n/.test(location.search)) document.querySelectorAll(".get").forEach(a => a.href = a.href.replace("ct=sticker_qr", "ct=sticker_nfc"));
+if (new URLSearchParams(location.search).has("n")) document.querySelectorAll(".get").forEach(a => a.href = a.href.replace("ct=sticker_qr", "ct=sticker_nfc"));
 </script>
 </body>
 </html>
