@@ -235,7 +235,7 @@
     C = D.trades[key]; scenes = C.scenes; cur = -1; started = false;
     phone = !!(phoneMQ && phoneMQ.matches);
     Array.prototype.forEach.call(q(".fd-picker").children, function (b) { b.setAttribute("aria-selected", b.dataset.key === key ? "true" : "false"); });
-    q(".fd-cover-t").textContent = "See how an AI assistant could work for your " + C.noun;
+    q(".fd-cover-t").textContent = "See how an AI manager could work for your " + C.noun;
     var total = scenes.reduce(function (t, s) { return t + lenOf(s); }, 0);
     q(".fd-cover-s").textContent = "Play · " + Math.max(20, Math.round(total / 5000) * 5) + " seconds";
     cover.classList.remove("fd-gone");
@@ -252,7 +252,7 @@
     addEdge("customer", "ai"); addEdge("ai", "owner");
     C.tools.forEach(function (t) { addEdge("ai", t.id); });
     nodeG = el("g", {}, map);
-    [{ id: "customer", icon: C.customer.icon, label: C.customer.label }, { id: "ai", icon: "sparkles", label: "Your AI assistant" }, { id: "owner", icon: "smartphone", label: "You" }].concat(C.tools).forEach(function (n) {
+    [{ id: "customer", icon: C.customer.icon, label: C.customer.label }, { id: "ai", icon: "sparkles", label: "Your AI manager" }, { id: "owner", icon: "smartphone", label: "You" }].concat(C.tools).forEach(function (n) {
       var g = el("g", { "class": "fd-node" + (n.id === "ai" ? " fd-ai" : "") }, nodeG);
       var x = P[n.id][0], y = P[n.id][1], rr = r(n.id), s = n.id === "ai" ? 28 : 22;
       var ring = el("circle", { "class": "fd-ring", cx: x, cy: y, r: rr }, g);
