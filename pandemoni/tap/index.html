@@ -56,8 +56,20 @@ li span{color:var(--muted);font-size:15px}
   <p class="fine">Party games for 3 to 15 players · iPhone and iPad<br><a href="/pandemoni/">More about Pandemoni</a> · <a href="/pandemoni-privacy.html">Privacy</a></p>
 </main>
 <script>
-// The NFC tag opens this page with "?n"; the printed QR without it. Each gets its own App Store campaign token.
-if (new URLSearchParams(location.search).has("n")) document.querySelectorAll(".get").forEach(a => a.href = a.href.replace("ct=sticker_qr", "ct=sticker_nfc"));
+// Each sticker has a 3-digit number. The NFC chip opens "?n=017", a per-sticker QR "?q=017": each gets its own
+// App Store campaign token and one count on this page. A bare "?n" or no number keeps the shared tokens.
+(function () {
+  var p = new URLSearchParams(location.search), n = p.get("n"), q = p.get("q"), id = "", kind = "", ct = "sticker_qr";
+  if (/^\d{3}$/.test(n || "")) { id = n; kind = "nfc"; ct = "nfc_" + n; }
+  else if (n !== null) ct = "sticker_nfc";
+  else if (/^\d{3}$/.test(q || "")) { id = q; kind = "qr"; ct = "qr_" + q; }
+  var links = document.querySelectorAll(".get");
+  links.forEach(function (a) { a.href = a.href.replace("ct=sticker_qr", "ct=" + ct); });
+  if (!id || p.has("preview") || !navigator.sendBeacon) return;
+  var count = function (k) { try { navigator.sendBeacon("https://demo.kynossstudios.com/tap?id=" + id + "&k=" + k); } catch (e) {} };
+  count(kind);
+  links.forEach(function (a) { a.addEventListener("click", function () { count("get"); }); });
+})();
 </script>
 </body>
 </html>
