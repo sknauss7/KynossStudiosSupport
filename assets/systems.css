@@ -324,6 +324,12 @@
 .flow-demo .fd-custg .fd-pill { fill: var(--fd-soft); }
 .flow-demo .fd-custg .fd-us text { font: 700 16px var(--display); fill: var(--ink); }
 .flow-demo .fd-custg .fd-us .fd-ic { color: var(--signal); }
+/* Time-sinks slide (Kynoss's template, 2026-11-05): one pill at a time. */
+.flow-demo .fd-sinksg .fd-row { opacity: 0; transform: translateY(6px); transition: opacity .7s, transform .7s; transform-box: fill-box; }
+.flow-demo .fd-sinksg.fd-grow .fd-row { opacity: 1; transform: none; }
+.flow-demo .fd-sinksg .fd-pill { fill: var(--fd-soft); }
+.flow-demo .fd-sinksg text { font: 700 16px var(--display); fill: var(--ink); }
+.flow-demo .fd-sinksg .fd-ic { color: var(--signal); }
 .flow-demo .fd-ctrl { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
 .flow-demo .fd-ctrl button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
 .flow-demo .fd-ctrl button svg { width: 20px; height: 20px; }
@@ -346,11 +352,12 @@
   .flow-demo .fd-custg .fd-k { font-size: 14px; }
   .flow-demo .fd-custg .fd-them text { font-size: 16px; }
   .flow-demo .fd-custg .fd-us text { font-size: 17px; }
+  .flow-demo .fd-sinksg text { font-size: 17px; }
   .flow-demo .fd-stage { padding: 10px 8px 14px; }
 }
 @media (min-width: 900px) { .flow-demo .fd-cap h3 { font-size: 30px; } .flow-demo .fd-cover-t { font-size: 32px; } }
 @media (prefers-reduced-motion: reduce) {
-  .flow-demo .fd-chip, .flow-demo .fd-note, .flow-demo .fd-cap h3, .flow-demo .fd-cap p, .flow-demo .fd-cover, .flow-demo .fd-edge, .flow-demo .fd-node, .flow-demo .fd-bars span, .flow-demo .fd-custg .fd-row { transition: none; }
+  .flow-demo .fd-chip, .flow-demo .fd-note, .flow-demo .fd-cap h3, .flow-demo .fd-cap p, .flow-demo .fd-cover, .flow-demo .fd-edge, .flow-demo .fd-node, .flow-demo .fd-bars span, .flow-demo .fd-custg .fd-row, .flow-demo .fd-sinksg .fd-row { transition: none; }
   .flow-demo .fd-ring.fd-go, .flow-demo .fd-tap.fd-go { animation: none; }
 }
 

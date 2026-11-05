@@ -206,7 +206,11 @@
     });
     return t;
   }
-  function revealLen(s) { return s.custom && D.custom ? (D.custom.rows.length - 1) * ROWGAP + 1600 + LOOK : 0; }
+  function revealLen(s) {
+    if (s.custom && D.custom) return (D.custom.rows.length - 1) * ROWGAP + 1600 + LOOK;
+    if (s.sinks && D.sinks) return (D.sinks.rows.length - 1) * ROWGAP + 1600 + LOOK;
+    return 0;
+  }
   function lenOf(s) { return READ(s) + stepsLen(s) + revealLen(s) + REST; }
   function el(tag, attrs, parent) {
     var e = document.createElementNS(NS, tag);
@@ -215,7 +219,7 @@
     return e;
   }
 
-  var C, P, nodes, edges, edgeG, nodeG, chipsG, notesG, custG = null, pulse, tapC, scenes, cur, timers = [], playing = false, raf = null,
+  var C, P, nodes, edges, edgeG, nodeG, chipsG, notesG, custG = null, sinksG = null, pulse, tapC, scenes, cur, timers = [], playing = false, raf = null,
       sceneLen = 0, elapsed = 0, last = 0, barFill = null, started = false, phone = false;
   var r = function (id) { return id === "ai" ? 32 : 26; };
 
@@ -271,6 +275,21 @@
         el("rect", { "class": "fd-pill", x: 158, y: y - 23, width: 230, height: 46, rx: 23 }, bb);
         el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 172, y: y - 12, width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2.2, "stroke-linecap": "round", "stroke-linejoin": "round" }, bb).innerHTML = D.icons[row[2]] || "";
         el("text", { x: 206, y: y, "dominant-baseline": "central" }, bb).textContent = row[3];
+      });
+    }
+    // Time-sinks slide: common jobs it could take off the owner's plate, one pill at a time (Kynoss 1f76377, Steven's wording).
+    sinksG = null;
+    if (D.sinks && scenes.some(function (sc) { return sc.sinks; })) {
+      sinksG = el("g", { "class": "fd-sinksg fd-gone" }, map);
+      var many = D.sinks.rows.length > 4;
+      D.sinks.rows.forEach(function (row, i) {
+        var y = (many ? 44 : 62) + i * (many ? 56 : 64), ph = many ? 44 : 48;
+        var g = el("g", { "class": "fd-row" }, sinksG); g.style.transitionDelay = (i * ROWGAP / 1000) + "s";
+        el("rect", { "class": "fd-pill", x: 16, y: y - ph / 2, width: 368, height: ph, rx: ph / 2 }, g);
+        el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 34, y: y - 13, width: 26, height: 26, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2.2, "stroke-linecap": "round", "stroke-linejoin": "round" }, g).innerHTML = D.icons[row[0]] || "";
+        var t = el("text", { x: 74, y: y, "dominant-baseline": "central" }, g); t.textContent = row[1];
+        // A long row shrinks to fit its pill (room from x 74 to about 372).
+        if (t.getComputedTextLength) { var tl = t.getComputedTextLength(); if (tl > 292) t.style.fontSize = (parseFloat(getComputedStyle(t).fontSize) * 292 / tl).toFixed(1) + "px"; }
       });
     }
     pulse = el("circle", { "class": "fd-pulse", r: 5, cx: -20, cy: -20 }, map);
@@ -330,6 +349,7 @@
     pulse.setAttribute("cx", -20); pulse.setAttribute("cy", -20);
     edgeG.classList.remove("fd-gone"); nodeG.classList.remove("fd-gone");
     if (custG) { custG.classList.add("fd-gone"); custG.classList.remove("fd-grow"); }
+    if (sinksG) { sinksG.classList.add("fd-gone"); sinksG.classList.remove("fd-grow"); }
     map.removeAttribute("aria-describedby");
   }
   function light(id) { if (nodes[id]) nodes[id].g.classList.add("fd-on"); }
@@ -381,7 +401,12 @@
     };
     if (reduce) capSet(); else later(capSet, 180);
     Array.prototype.forEach.call(bars.children, function (b, j) { b.firstChild.style.width = j === i ? "100%" : "0"; b.classList.toggle("fd-done", j < i); b.classList.toggle("fd-cur", j === i); });
-    map.classList.toggle("fd-spot", !(s.all || opening || s.custom));
+    map.classList.toggle("fd-spot", !(s.all || opening || s.custom || s.sinks));
+    if (s.sinks && sinksG) {
+      edgeG.classList.add("fd-gone"); nodeG.classList.add("fd-gone"); sinksG.classList.remove("fd-gone");
+      map.setAttribute("aria-describedby", sinksDesc.id);
+      if (reduce) sinksG.classList.add("fd-grow"); else later(function () { sinksG.classList.add("fd-grow"); }, READ(s));
+    }
     if (s.custom && custG) {
       edgeG.classList.add("fd-gone"); nodeG.classList.add("fd-gone"); custG.classList.remove("fd-gone");
       map.setAttribute("aria-describedby", custDesc.id);
@@ -447,6 +472,10 @@
   custDesc.id = "fd-cust-desc"; custDesc.hidden = true;
   if (D.custom) custDesc.textContent = D.custom.rows.map(function (row) { return "Off the shelf: " + row[1].replace("|", " ").toLowerCase() + ". Built for you: " + row[3].toLowerCase() + "."; }).join(" ");
   stage.appendChild(custDesc);
+  var sinksDesc = document.createElement("p");
+  sinksDesc.id = "fd-sinks-desc"; sinksDesc.hidden = true;
+  if (D.sinks) sinksDesc.textContent = D.sinks.rows.map(function (row) { return row[1] + "."; }).join(" ");
+  stage.appendChild(sinksDesc);
 
   // Trade picker
   var picker = q(".fd-picker");
