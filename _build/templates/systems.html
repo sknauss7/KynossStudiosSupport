@@ -151,8 +151,8 @@
     replacing the 2026-10-18 fragment). Same data as before: the flow_demo key in systems.json (built by Kynoss
     scripts/flow_embed.py from docs/clients/demo/flow/trades.json). Styles: flow_embed_v4.css, replacing the .flow-demo
     block in assets/systems.css. The engine is the prospect demos' v4 engine (docs/clients/demo/flow/template.html):
-    one thing lit at a time, steps in sequence, scenes of at least 6 s with a still hold (Steven, 2026-10-19: "slow enough
-    to understand... one thing is highlighted at a time"). Embed rules: no built/concept badges, no cost scene, no business
+    one thing lit at a time, steps in sequence (Steven, 2026-10-19: "slow enough to understand... one thing is
+    highlighted at a time"); since 2026-11-05 pacing v2 and the "why custom" slide (Kynoss 0ca6a6a; data Kynoss 79a35a4). Embed rules: no built/concept badges, no cost scene, no business
     name, no call bar, nothing plays until tapped, keys only while the walkthrough has focus, no outside requests.
     Icons: Lucide (lucide.dev), ISC licence: Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part
     of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022. Permission to use, copy,
@@ -188,19 +188,26 @@
   var q = function (sel) { return root.querySelector(sel); };
   var map = q(".fd-map"), bars = q(".fd-bars"), stage = q(".fd-stage"), cover = q(".fd-cover"), cap = q(".fd-cap");
   var PAUSE = '<path d="M9 5v14M15 5v14"/>', PLAY = '<path d="M7 4.5v15l12-7.5z"/>', REPLAY = '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>';
-  // Pacing, as on the prospect demos (v4): steps one after another, then a still hold; at least 6 s a scene. Slower for
-  // first-time viewers (Kynoss's template, 2026-10-22: "it moves too fast"): everything x PACE, and every scene stays
-  // up long enough to read its title and subline (about 3 words a second, plus a moment to look).
+  // Pacing v2, as on the prospect demos (Kynoss's template 0ca6a6a, 2026-11-05: "too much going on with the bottom caption
+  // changing at the same time as the visuals"): read, then watch, then rest. The caption comes in alone (title, then the
+  // subline SUB later); the picture waits until it can be read (READ); steps run one at a time; the end state holds still
+  // (REST). The "why custom" slide's rows come in one at a time (ROWGAP), then a look at the whole (LOOK).
   var PACE = 1.35;
-  var STEP = 1350 * PACE, LEAD = 1200 * PACE, HOLD = 1600 * PACE, MOVE = 900 * PACE, GAP = 500 * PACE, NOTE = 900 * PACE;
+  var MOVE = 900 * PACE, GAP = 500 * PACE, NOTE = 900 * PACE;
+  var READ = function (s) { return 1200 + words(s) * 250; }, REST = 2600, SUB = 700, ROWGAP = 2200, LOOK = 1500;
   var words = function (s) { return ((s.t || "") + " " + (s.s || "")).split(/\s+/).filter(Boolean).length; };
-  function lenOf(s) {
-    var n = (s.steps || []).length, base;
-    if (s.revealAi || s.hideAi) base = (s.ms || 3500) * PACE;
-    else if (s.all) base = Math.max((s.ms || 0) * PACE, 5500 * PACE);
-    else base = Math.max(6000 * PACE, LEAD + n * STEP + HOLD);
-    return Math.max(base, 2500 + words(s) * 330);
+  function stepsLen(s) {
+    var t = 0, prev = null;
+    (s.steps || []).forEach(function (st, k) {
+      if (k) t += Math.max((st.wait || 0) * PACE, GAP) + (prev && prev.note ? NOTE : 0);
+      if (st.go) t += MOVE;
+      if (st.note && k === s.steps.length - 1) t += 1100 + 600;
+      prev = st;
+    });
+    return t;
   }
+  function revealLen(s) { return s.custom && D.custom ? (D.custom.rows.length - 1) * ROWGAP + 1600 + LOOK : 0; }
+  function lenOf(s) { return READ(s) + stepsLen(s) + revealLen(s) + REST; }
   function el(tag, attrs, parent) {
     var e = document.createElementNS(NS, tag);
     for (var k in attrs) e.setAttribute(k, attrs[k]);
@@ -208,7 +215,7 @@
     return e;
   }
 
-  var C, P, nodes, edges, edgeG, nodeG, chipsG, notesG, pulse, tapC, scenes, cur, timers = [], playing = false, raf = null,
+  var C, P, nodes, edges, edgeG, nodeG, chipsG, notesG, custG = null, pulse, tapC, scenes, cur, timers = [], playing = false, raf = null,
       sceneLen = 0, elapsed = 0, last = 0, barFill = null, started = false, phone = false;
   var r = function (id) { return id === "ai" ? 32 : 26; };
 
@@ -217,7 +224,7 @@
     C = D.trades[key]; scenes = C.scenes; cur = -1; started = false;
     phone = !!(phoneMQ && phoneMQ.matches);
     Array.prototype.forEach.call(q(".fd-picker").children, function (b) { b.setAttribute("aria-selected", b.dataset.key === key ? "true" : "false"); });
-    q(".fd-cover-t").textContent = "See how an AI manager could work for your " + C.noun;
+    q(".fd-cover-t").textContent = "See how custom AI software could work for your " + C.noun;
     var total = scenes.reduce(function (t, s) { return t + lenOf(s); }, 0);
     q(".fd-cover-s").textContent = "Play · " + Math.max(20, Math.round(total / 5000) * 5) + " seconds";
     cover.classList.remove("fd-gone");
@@ -246,6 +253,26 @@
       nodes[n.id] = { g: g, ring: ring, label: t, tool: x > 300 };
     });
     chipsG = el("g", {}, map); notesG = el("g", {}, map);
+    // "Why custom" slide: off the shelf (struck, grey) against built for you (icon pills), one row at a time (Kynoss's
+    // template 2026-11-05; the labels are D.custom, Steven's wording). "|" splits a left label onto two lines.
+    custG = null;
+    if (D.custom && scenes.some(function (sc) { return sc.custom; })) {
+      custG = el("g", { "class": "fd-custg fd-gone" }, map);
+      el("text", { "class": "fd-k", x: 20, y: 30 }, custG).textContent = D.custom.left;
+      el("text", { "class": "fd-k fd-us", x: 222, y: 30 }, custG).textContent = D.custom.right;
+      D.custom.rows.forEach(function (row, i) {
+        var y = 74 + i * 66;
+        var a = el("g", { "class": "fd-row fd-them" }, custG); a.style.transitionDelay = (i * ROWGAP / 1000) + "s";
+        el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 16, y: y - 12, width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }, a).innerHTML = D.icons[row[0]] || "";
+        var parts = row[1].split("|");
+        var ta = el("text", { x: 48, y: y - (parts.length - 1) * 9, "dominant-baseline": "central" }, a);
+        parts.forEach(function (pt, j) { el("tspan", { x: 48, dy: j ? 18 : 0 }, ta).textContent = pt; });
+        var bb = el("g", { "class": "fd-row fd-us" }, custG); bb.style.transitionDelay = (i * ROWGAP / 1000 + 0.9) + "s";
+        el("rect", { "class": "fd-pill", x: 158, y: y - 23, width: 230, height: 46, rx: 23 }, bb);
+        el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 172, y: y - 12, width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2.2, "stroke-linecap": "round", "stroke-linejoin": "round" }, bb).innerHTML = D.icons[row[2]] || "";
+        el("text", { x: 206, y: y, "dominant-baseline": "central" }, bb).textContent = row[3];
+      });
+    }
     pulse = el("circle", { "class": "fd-pulse", r: 5, cx: -20, cy: -20 }, map);
     tapC = el("circle", { "class": "fd-tap", r: 14, cx: -40, cy: -40 }, map);
     setPlaying(false);
@@ -301,6 +328,9 @@
     Object.keys(edges).forEach(function (k) { edges[k].classList.remove("fd-on", "fd-gone"); });
     nodes.ai.g.classList.remove("fd-gone");
     pulse.setAttribute("cx", -20); pulse.setAttribute("cy", -20);
+    edgeG.classList.remove("fd-gone"); nodeG.classList.remove("fd-gone");
+    if (custG) { custG.classList.add("fd-gone"); custG.classList.remove("fd-grow"); }
+    map.removeAttribute("aria-describedby");
   }
   function light(id) { if (nodes[id]) nodes[id].g.classList.add("fd-on"); }
   // Spotlight: a step lights only its own nodes and line; the rest steps back.
@@ -345,13 +375,18 @@
     cap.classList.add("fd-fade");
     var capSet = function () {
       q(".fd-cap-t").textContent = s.t; q(".fd-cap-s").textContent = s.s || "";
-      // The subtitle waits until the motion is done (v4), except on the opening and closing scenes.
-      q(".fd-cap-s").classList.toggle("fd-wait", !reduce && !!(s.steps || []).length && !opening && !s.all);
+      // Pacing v2: the title comes in alone, the subline SUB later; neither waits on the motion.
+      q(".fd-cap-s").classList.toggle("fd-wait", !reduce); if (!reduce) later(function () { q(".fd-cap-s").classList.remove("fd-wait"); }, SUB);
       cap.classList.remove("fd-fade");
     };
     if (reduce) capSet(); else later(capSet, 180);
-    Array.prototype.forEach.call(bars.children, function (b, j) { b.firstChild.style.width = "0"; b.classList.toggle("fd-done", j < i); b.classList.toggle("fd-cur", j === i); });
-    map.classList.toggle("fd-spot", !(s.all || opening));
+    Array.prototype.forEach.call(bars.children, function (b, j) { b.firstChild.style.width = j === i ? "100%" : "0"; b.classList.toggle("fd-done", j < i); b.classList.toggle("fd-cur", j === i); });
+    map.classList.toggle("fd-spot", !(s.all || opening || s.custom));
+    if (s.custom && custG) {
+      edgeG.classList.add("fd-gone"); nodeG.classList.add("fd-gone"); custG.classList.remove("fd-gone");
+      map.setAttribute("aria-describedby", custDesc.id);
+      if (reduce) custG.classList.add("fd-grow"); else later(function () { custG.classList.add("fd-grow"); }, READ(s));
+    }
     (s.lit || []).forEach(light);
     // The opening scene shows the business's own tools first, then the AI arriving between them.
     var aiEdges = Object.keys(edges).filter(function (k) { return k.indexOf("ai>") === 0; }).map(function (k) { return edges[k]; });
@@ -370,7 +405,7 @@
         if (st.go) move(st.go[0], st.go[1], MOVE, function () { after(st); run(k + 1); });
         else { if (st.chip) light(st.chip[0]); after(st); run(k + 1); }
       };
-      if (reduce) fire(); else later(fire, k === 0 ? LEAD * 0.6 : Math.max((st.wait || 0) * PACE, GAP) + (steps[k - 1] && steps[k - 1].note ? NOTE : 0));
+      if (reduce) fire(); else later(fire, k === 0 ? READ(s) : Math.max((st.wait || 0) * PACE, GAP) + (steps[k - 1] && steps[k - 1].note ? NOTE : 0));
     })(0);
     sceneLen = lenOf(s);
     elapsed = 0;
@@ -383,7 +418,6 @@
       if (playing) elapsed += now - last;
       last = now;
       var k = Math.min(1, elapsed / sceneLen);
-      bars.children[cur].firstChild.style.width = k * 100 + "%";
       if (k >= 1 && playing) { if (cur < scenes.length - 1) show(cur + 1); else setPlaying(false); return; }
       barFill = requestAnimationFrame(f);
     })(last);
@@ -407,6 +441,12 @@
     if (!playing && cur === scenes.length - 1 && elapsed >= sceneLen) { setPlaying(true); show(0); return; }
     setPlaying(!playing);
   }
+
+  // Screen readers don't hear a struck line drawn in SVG, so the slide's pairs are also given as text (made once).
+  var custDesc = document.createElement("p");
+  custDesc.id = "fd-cust-desc"; custDesc.hidden = true;
+  if (D.custom) custDesc.textContent = D.custom.rows.map(function (row) { return "Off the shelf: " + row[1].replace("|", " ").toLowerCase() + ". Built for you: " + row[3].toLowerCase() + "."; }).join(" ");
+  stage.appendChild(custDesc);
 
   // Trade picker
   var picker = q(".fd-picker");
