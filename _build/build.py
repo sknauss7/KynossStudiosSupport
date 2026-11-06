@@ -588,6 +588,7 @@ def main():
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(BUILD / "templates"), autoescape=True,
                              trim_blocks=False, lstrip_blocks=False)
 
+    ALERTS = {"phone": "(816) 775-8941"}
     def render(template, out, page, **extra):
         html_out = env.get_template(template).render(site=site, page=page, **extra)
         dest = ROOT / out
@@ -655,7 +656,11 @@ def main():
            "How every Kynoss Studios app handles your data: what stays on your iPhone, what syncs through your iCloud, and what is sent anywhere else."))
     render("texting_terms.html", "texting-terms/index.html", page("/texting-terms/", "Text messaging terms · Kynoss Studios",
            "The terms for text messages from the Kynoss Studios LLC business line: what we send, how often, costs, STOP and HELP."),
-           effective="October 19, 2026")
+           effective="November 6, 2026", alerts=ALERTS)
+    # AdmitCapture outage notices (Systems' paging-alerts campaign; Steven, 2026-11-06): the public opt-in page carriers review.
+    render("texting_optin_admitcapture.html", "texting-terms/admitcapture/index.html", page("/texting-terms/admitcapture/",
+           "AdmitCapture outage notices: how to sign up · Kynoss Studios",
+           "How doctors and emergency department contacts sign up for AdmitCapture outage texts from Kynoss Studios LLC."), alerts=ALERTS)
     render("press.html", "press/index.html", page("/press/", "Press kit · Kynoss Studios",
            "Icons, screenshots and descriptions for every Kynoss Studios app."))
     apps_404 = [{"id": a["id"], "name": a["name"], "url": f"/{a['id']}/", "support": f"/{a['id']}-support.html",
