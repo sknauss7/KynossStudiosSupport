@@ -5,7 +5,7 @@
     <h1 class="ks-display ks-h1">How to sign up for AdmitCapture outage notices</h1>
     <p class="ks-lede">{{ site.studio.legal }} · Texts from {{ alerts.phone }}</p>
   </header>
-  <p>{{ site.studio.legal }} runs AdmitCapture, the admissions paging system of a hospitalist group. When AdmitCapture isn't reaching phones, we text the people who signed up, and text again when it's working. The texts come from {{ alerts.phone }} and are signed "AdmitCapture"; Kynoss Studios runs them. There are two ways to sign up, shown below. Nobody gets these texts without signing up, and signing up is never a condition of anything. The full terms are in <a href="/texting-terms/#admitcapture-outage-notices">section 11 of our text messaging terms</a>.</p>
+  <p>{{ site.studio.legal }} runs AdmitCapture, the admissions paging system of a hospitalist group. When AdmitCapture isn't reaching phones, we text the people who signed up, and text again when it's working. The texts come from {{ alerts.phone }} and are signed "AdmitCapture"; Kynoss Studios runs them. Doctors and emergency department contacts each sign up by ticking a box, shown below. Nobody gets these texts without signing up, and signing up is never a condition of anything. The full terms are in <a href="/texting-terms/#admitcapture-outage-notices">section 11 of our text messaging terms</a>.</p>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">1. Doctors: a checkbox at AdmitCapture sign-up</h2>
   <p>When a doctor signs up for AdmitCapture, the sign-up screen shows this box. It starts unticked, and the doctor can sign up without ticking it.</p>
@@ -15,15 +15,16 @@
   </div>
   <p style="font-size: 0.9em; margin-top: 0">The wording as it appears on the sign-up screen.</p>
 
-  <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">2. Emergency department contacts: text JOIN</h2>
-  <p>Each emergency department's AdmitCapture page, and a printed card at the department's desk, shows this:</p>
-  <div style="border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 16px 18px; margin: 16px 0">
-    <p style="margin: 0 0 8px"><strong>Get a text if AdmitCapture stops working. Text JOIN to {{ alerts.phone }}.</strong></p>
-    <p style="margin: 0">AdmitCapture texts you when it isn't reaching phones, and again when it's back. Message frequency varies. Message and data rates may apply. Reply STOP to stop, HELP for help. Terms: kynossstudios.com/texting-terms. Privacy: kynossstudios.com/privacy.</p>
+  <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">2. Emergency department contacts: a checkbox when they add their mobile number</h2>
+  <p>When an emergency department contact adds their mobile number to AdmitCapture, the screen shows this box. It starts unticked, and they can save their details without ticking it.</p>
+  <div style="border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 16px 18px; margin: 16px 0 8px; display: flex; gap: 12px; align-items: flex-start">
+    <input type="checkbox" disabled aria-label="Unticked consent box, as shown when adding a mobile number" style="margin-top: 4px; flex: none; width: 18px; height: 18px">
+    <p style="margin: 0">I agree that AdmitCapture may text my phone when it isn't working and when it's back. Message frequency varies. Message and data rates may apply. I can turn texts off by replying STOP.</p>
   </div>
-  <p>After you text JOIN, you get one reply:</p>
+  <p style="font-size: 0.9em; margin-top: 0">The wording as it appears on the screen.</p>
+  <p>After they tick it, they get one text confirming it:</p>
   <div style="border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 16px 18px; margin: 16px 0">
-    <p style="margin: 0">AdmitCapture: you're signed up for outage notices. Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help, STOP to stop.</p>
+    <p style="margin: 0">AdmitCapture: you're signed up for outage texts. Msg frequency varies. Msg &amp; data rates may apply. Reply HELP for help, STOP to stop.</p>
   </div>
 
   <h2 class="ks-display ks-h3" style="margin: 40px 0 12px">Stopping, help and privacy</h2>
