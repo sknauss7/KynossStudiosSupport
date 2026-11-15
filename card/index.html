@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https://demo.kynossstudios.com; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Kynoss Studios</title>
 <meta name="description" content="Try our AI manager, save our contact, or visit kynossstudios.com.">
 <meta name="theme-color" content="#0A0E17">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <!-- Kynoss owns this page (Steven, 2026-10-22: business cards). The QR code and NFC tag on every card open /card/,
-     so where a card lands can change without reprinting. No scripts, no analytics, not in the sitemap or search. -->
+     so where a card lands can change without reprinting. Not in the sitemap or search.
+     One small script counts openings and button taps (privacy page, "Our pages for owners"): no cookies, no storage, nothing about the visitor. -->
 <style>
 @font-face { font-family: "Bricolage Grotesque"; src: url("/assets/fonts/bricolage-latin.woff2") format("woff2"); font-weight: 200 800; font-stretch: 75% 100%; font-display: swap; }
 /* Always dark, in the card's own near-black and cyan, so the scan looks like the card (2026-11-15). */
@@ -58,12 +59,36 @@ footer { margin-top: 26px; color: var(--slate); font-size: 13px; text-align: cen
     <li><b class="mono">Reminders</b><span>Sent before each visit</span></li>
     <li><b class="mono">Calls</b><span>Picked up when you can't</span></li>
   </ul>
-  <a class="btn main" href="/">See what we build</a>
-  <a class="btn call" href="tel:+19049291217">Call Nova, our AI manager</a>
+  <a class="btn main" href="/" data-ev="see">See what we build</a>
+  <a class="btn call" href="tel:+19049291217" data-ev="call2">Call Nova, our AI manager</a>
   <p class="hint">Try it live: ask how it would handle a call for your business.</p>
-  <a class="btn alt" href="/#contact">Tell us about your work</a>
-  <p class="quiet"><a href="/card/kynoss-studios.vcf">Save our contact</a><a href="mailto:support@kynossstudios.com">Email us</a></p>
+  <a class="btn alt" href="/#contact" data-ev="form">Tell us about your work</a>
+  <p class="quiet"><a href="/card/kynoss-studios.vcf" data-ev="save">Save our contact</a><a href="mailto:support@kynossstudios.com" data-ev="mail2">Email us</a></p>
   <footer>Kynoss Studios LLC · Jacksonville, Florida</footer>
 </main>
+<script>
+/* Counts one opening and each button tap, once per page load. No cookies, no storage, no IP kept.
+   Sent: the page name, a random label that lives only until the page closes, which button, and seconds to the first tap. */
+(function () {
+  var live = navigator.sendBeacon && /^(www\.)?kynossstudios\.com$/.test(location.hostname) &&
+    !/[?&]preview\b/.test(location.search) &&
+    navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl && !navigator.webdriver;
+  if (!live) return;
+  var vid = Math.random().toString(36).slice(2, 6), sent = {}, first = false, t0 = Date.now();
+  while (vid.length < 4) vid += "0";
+  function send(k) {
+    if (sent[k]) return;
+    sent[k] = 1;
+    var tail = "";
+    if (k !== "view" && !first) { first = true; tail = "&t=" + Math.min(3600, Math.round((Date.now() - t0) / 1000)); }
+    try { navigator.sendBeacon("https://demo.kynossstudios.com/lp?p=card&y=card&v=" + vid + "&k=" + k + tail); } catch (e) {}
+  }
+  send("view");
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-ev]");
+    if (a) send(a.getAttribute("data-ev"));
+  });
+})();
+</script>
 </body>
 </html>
