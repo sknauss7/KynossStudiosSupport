@@ -1,0 +1,3 @@
+# GitHub Pages skips dot-folders unless told to keep them.
+# .well-known holds the Apple app-links file for Rusti challenge invites.
+include: [".well-known"]
