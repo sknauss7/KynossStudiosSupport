@@ -680,7 +680,7 @@ def main():
     pk = page("/card/", site["studio"]["name"], "Try our AI manager, save our contact, or visit kynossstudios.com.")
     render("card.html", "card/index.html", pk, card=card)
     (ROOT / "card" / "kynoss-studios.vcf").write_text("\r\n".join([
-        "BEGIN:VCARD", "VERSION:3.0", f"FN:{site['studio']['name']}", f"ORG:{site['studio']['legal']}",
+        "BEGIN:VCARD", "VERSION:3.0", f"N:;{site['studio']['name']};;;", f"FN:{site['studio']['name']}", f"ORG:{site['studio']['legal']}",
         f"TEL;TYPE=WORK,VOICE:{card['tel']}", f"EMAIL;TYPE=WORK:{card['email']}", f"URL:{site['studio']['domain']}",
         "NOTE:AI systems for small businesses. Call to try our AI manager.", "END:VCARD"]) + "\r\n")
     # /owners/<type>/: the landing page for one search ad each (Kynoss, 2026-11-15). Standalone files copied as they are; noindex, not in the sitemap or search.

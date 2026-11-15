@@ -8,45 +8,61 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
 <title>Kynoss Studios</title>
 <meta name="description" content="Try our AI manager, save our contact, or visit kynossstudios.com.">
+<meta name="theme-color" content="#0A0E17">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <!-- Kynoss owns this page (Steven, 2026-10-22: business cards). The QR code and NFC tag on every card open /card/,
      so where a card lands can change without reprinting. No scripts, no analytics, not in the sitemap or search. -->
 <style>
 @font-face { font-family: "Bricolage Grotesque"; src: url("/assets/fonts/bricolage-latin.woff2") format("woff2"); font-weight: 200 800; font-stretch: 75% 100%; font-display: swap; }
-:root { --paper: #F5F7FA; --card: #FFFFFF; --ink: #172033; --slate: #586377; --line: #DCE1E9; --signal: #2B54E0; --signal-ink: #FFFFFF; }
-@media (prefers-color-scheme: dark) { :root { --paper: #0F1522; --card: #172033; --ink: #E8EDF6; --slate: #9AA5B8; --line: #253046; --signal: #7C9BFF; --signal-ink: #0F1522; } }
+/* Always dark, in the card's own near-black and cyan, so the scan looks like the card (2026-11-15). */
+:root { color-scheme: dark; --paper: #0A0E17; --panel: #111827; --ink: #EEF2FA; --slate: #A3AEC2; --line: #2A3448; --signal: #6ADCFF; --signal-ink: #06121A; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-main { max-width: 440px; margin: 0 auto; padding: 40px 16px 48px; }
-.mark { width: 44px; height: auto; display: block; margin-bottom: 20px; }
-@media (prefers-color-scheme: dark) { .mark { filter: invert(1); } }
-h1 { font-family: "Bricolage Grotesque", sans-serif; font-stretch: 88%; font-weight: 700; font-size: 30px; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 10px; }
-.lede { margin: 0 0 28px; color: var(--slate); }
-.try { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px 16px; margin-bottom: 14px; }
-.try h2 { font-size: 15px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; color: var(--slate); margin: 0 0 6px; }
-.try p { margin: 0 0 14px; }
+main { max-width: 440px; margin: 0 auto; padding: 18px 16px 40px; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); margin-bottom: 16px; }
+.brand img { width: 20px; height: auto; filter: invert(1); }
+.brand span { font-weight: 600; letter-spacing: .28em; }
+.eyebrow { color: var(--signal); margin: 0 0 8px; line-height: 1.5; font-size: 11px; letter-spacing: .1em; }
+.eyebrow::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--signal); margin-right: 8px; vertical-align: 1px; }
+h1 { font-family: "Bricolage Grotesque", sans-serif; font-stretch: 88%; font-weight: 700; font-size: 38px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 12px; text-wrap: balance; }
+.lede { margin: 0 0 14px; color: var(--slate); }
+.jobs { list-style: none; margin: 0 0 16px; padding: 2px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; position: relative; }
+.jobs li { display: grid; grid-template-columns: 84px 1fr; gap: 8px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.jobs b { font-size: 11px; letter-spacing: .1em; }
+.jobs li:last-child { border-bottom: 0; }
+.jobs b { color: var(--signal); font-weight: 600; }
+.jobs span { min-width: 0; }
 .btn { display: block; text-align: center; text-decoration: none; font-weight: 600; font-size: 18px; padding: 15px 16px; border-radius: 12px; }
+.btn:active { opacity: .85; }
+.btn:focus-visible, .quiet a:focus-visible, .brand:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 .btn.main { background: var(--signal); color: var(--signal-ink); }
-.btn.alt { border: 1px solid var(--line); color: var(--ink); background: var(--card); margin-top: 10px; }
-.num { font-variant-numeric: tabular-nums; }
-footer { margin-top: 32px; color: var(--slate); font-size: 14px; }
-footer a { color: inherit; }
+.btn.call { border: 1.5px solid var(--signal); color: var(--signal); margin-top: 12px; }
+.btn.alt { border: 1px solid var(--line); color: var(--ink); background: var(--panel); margin-top: 12px; }
+.hint { margin: 8px 2px 0; color: var(--slate); font-size: 14.5px; text-align: center; }
+.quiet { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 22px; font-size: 16px; }
+.quiet a { color: var(--ink); padding: 10px 2px; }
+footer { margin-top: 26px; color: var(--slate); font-size: 13px; text-align: center; }
 </style>
 </head>
 <body>
 <main>
-  <img class="mark" src="/assets/brand/kynoss-k.svg" alt="">
-  <h1>Kynoss Studios</h1>
-  <p class="lede">We build AI systems for small businesses, set up around the way you already work, so the repetitive work gets handled for you.</p>
-  <a class="btn main" href="/systems/" style="margin-bottom: 14px">See what we build</a>
-  <section class="try">
-    <h2>Try it now</h2>
-    <p>Call our AI manager and ask it anything, the way your customers would.</p>
-    <a class="btn alt" href="tel:+19049291217">Call Nova, our AI Manager</a>
-  </section>
-  <a class="btn alt" href="/card/kynoss-studios.vcf">Save our contact</a>
-  <a class="btn alt" href="mailto:support@kynossstudios.com">Email support@kynossstudios.com</a>
-  <a class="btn alt" href="/">Visit kynossstudios.com</a>
+  <a class="brand" href="/" aria-label="Kynoss Studios home"><img src="/assets/brand/kynoss-k.svg" alt=""><span class="mono">Kynoss Studios</span></a>
+  <p class="eyebrow mono">Custom AI manager for service businesses</p>
+  <h1>Your busywork, handled.</h1>
+  <p class="lede">We build a custom AI system around the way your business already runs.</p>
+  <ul class="jobs" aria-label="What it can handle">
+    <li><b class="mono">Texts</b><span>Answered while you work</span></li>
+    <li><b class="mono">Quotes</b><span>Drafted for your approval</span></li>
+    <li><b class="mono">Booking</b><span>Put on your calendar</span></li>
+    <li><b class="mono">Reminders</b><span>Sent before each visit</span></li>
+    <li><b class="mono">Calls</b><span>Picked up when you can't</span></li>
+  </ul>
+  <a class="btn main" href="/">See what we build</a>
+  <a class="btn call" href="tel:+19049291217">Call Nova, our AI manager</a>
+  <p class="hint">Try it live: ask how it would handle a call for your business.</p>
+  <a class="btn alt" href="/#contact">Tell us about your work</a>
+  <p class="quiet"><a href="/card/kynoss-studios.vcf">Save our contact</a><a href="mailto:support@kynossstudios.com">Email us</a></p>
   <footer>Kynoss Studios LLC · Jacksonville, Florida</footer>
 </main>
 </body>
