@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Kynoss owns this page: the landing page for one search ad. Standalone, noindex, not in the sitemap or search. -->
+<meta name="robots" content="noindex">
+<title>Answering every call and text yourself? · Kynoss Studios</title>
+<meta name="description" content="Kynoss Studios builds a custom AI manager that answers your calls and texts, drafts the replies and asks before anything goes out. You approve with a tap.">
+<meta name="theme-color" content="#F5F7FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1522" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Bricolage Grotesque"; src: url("/assets/fonts/bricolage-latin.woff2") format("woff2"); font-weight: 200 800; font-stretch: 75% 100%; font-display: swap; }
+:root {
+  --paper: #F5F7FA; --surface: #FFFFFF; --ink: #172033; --slate: #586377; --line: #DCE1E9;
+  --signal: #2B54E0; --signal-ink: #FFFFFF; --ok: #1E7A4C;
+  --display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+  --gutter: 16px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #0F1522; --surface: #161E2E; --ink: #E8EDF6; --slate: #9AA5B8; --line: #253046;
+          --signal: #7C9BFF; --signal-ink: #0F1522; --ok: #5FD39A; color-scheme: dark; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 var(--font-text); -webkit-font-smoothing: antialiased; }
+a { color: var(--signal); text-underline-offset: 3px; }
+.wrap { width: 100%; max-width: 560px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* top bar: who we are, nothing else to tap */
+.top { border-bottom: 1px solid var(--line); }
+.top .wrap { height: 56px; display: flex; align-items: center; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none;
+         font-family: var(--display); font-stretch: 88%; font-weight: 650; font-size: 1.12rem; letter-spacing: -0.01em; }
+.brand svg { height: 24px; width: auto; aspect-ratio: 437 / 507; }
+
+/* first screen: the owner's own words, then a button */
+.hero { padding: 24px 0 4px; }
+.eyebrow { margin: 0 0 10px; font-size: 13px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--signal); }
+h1 { margin: 0 0 12px; font-family: var(--display); font-stretch: 86%; font-weight: 700; letter-spacing: -0.025em; line-height: 1.04;
+     font-size: clamp(1.95rem, 9vw, 2.7rem); text-wrap: balance; }
+.lede { margin: 0 0 20px; color: var(--slate); font-size: 1.06rem; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 14px 18px; border-radius: 999px;
+       border: 1.5px solid transparent; font: 600 1.05rem/1.2 var(--font-text); text-align: center; text-decoration: none; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn.main { background: var(--signal); color: var(--signal-ink); }
+.btn.alt { background: transparent; color: var(--ink); border-color: var(--slate); margin-top: 10px; }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible, a:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+.micro { margin: 10px 2px 0; font-size: 14px; color: var(--slate); }
+
+/* the picture: one scene for this owner */
+.scene { margin: 26px 0 0; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
+.scene h2 { margin: 0 0 12px; font-size: 13px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--slate); }
+.msg { max-width: 88%; padding: 10px 14px; border-radius: 18px; font-size: 16px; line-height: 1.35; }
+.msg small { display: block; margin-bottom: 3px; font-size: 12px; font-weight: 600; letter-spacing: .02em; opacity: .8; }
+.in { background: color-mix(in srgb, var(--slate) 16%, var(--surface)); border-bottom-left-radius: 6px; }
+.draft { margin: 10px 0 0 auto; background: color-mix(in srgb, var(--signal) 12%, var(--surface)); border: 1.5px dashed var(--signal); border-bottom-right-radius: 6px; }
+.tap { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 0 auto; width: 150px; min-height: 44px; border-radius: 999px;
+       background: var(--signal); color: var(--signal-ink); font-weight: 650; font-size: 16px; }
+.tap svg { width: 18px; height: 18px; }
+.done { display: flex; align-items: center; gap: 10px; margin-top: 14px; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line);
+        background: color-mix(in srgb, var(--ok) 10%, var(--surface)); font-size: 15px; font-weight: 600; }
+.done svg { width: 22px; height: 22px; flex: none; color: var(--ok); }
+.fine { margin: 12px 2px 0; font-size: 13px; color: var(--slate); }
+.who-row { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 15px; font-weight: 650; }
+.who-row small { display: block; font-size: 12px; font-weight: 550; color: var(--slate); }
+.ib { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: color-mix(in srgb, var(--signal) 12%, var(--surface)); color: var(--signal); }
+.ib svg { width: 20px; height: 20px; }
+.doc { margin: 10px 0 0 auto; width: 88%; padding: 12px 14px; border-radius: 14px; border: 1.5px dashed var(--signal); background: color-mix(in srgb, var(--signal) 12%, var(--surface)); }
+.doc b { display: block; font-size: 15px; }
+.doc small { display: block; margin: 2px 0 10px; font-size: 12px; font-weight: 600; opacity: .8; }
+.bar { height: 8px; margin-top: 7px; border-radius: 4px; background: color-mix(in srgb, var(--slate) 35%, var(--surface)); }
+.cap { margin: 0 0 8px; font-size: 14px; font-weight: 650; color: var(--slate); }
+.chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 6px; margin: 0 0 16px; }
+.chips.two { grid-template-columns: 1fr 1fr; }
+.chip { padding: 8px 8px; border-radius: 999px; border: 1px solid var(--line); background: color-mix(in srgb, var(--slate) 12%, var(--surface)); font-size: 15px; font-weight: 600; text-align: center; overflow-wrap: break-word; }
+.chip.you { border-color: var(--signal); background: color-mix(in srgb, var(--signal) 12%, var(--surface)); }
+.sum { margin: 0 0 12px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.sum li { display: flex; align-items: center; gap: 10px; font-size: 15.5px; font-weight: 600; }
+.sum svg { flex: none; width: 20px; height: 20px; color: var(--ok); }
+.ask { padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--signal); background: color-mix(in srgb, var(--signal) 10%, var(--surface)); }
+.ask p { margin: 0 0 10px; font-size: 15.5px; font-weight: 600; line-height: 1.3; }
+.ask .yn { display: flex; gap: 8px; }
+.ask .yn span { flex: 1; display: grid; place-items: center; min-height: 40px; border-radius: 999px; font-weight: 650; font-size: 15px; border: 1.5px solid var(--signal); }
+.ask .yn .y { background: var(--signal); color: var(--signal-ink); }
+
+/* what we'd build */
+.build h2 { margin: 30px 0 12px; font-size: 13px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--slate); }
+.build ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.build li { display: flex; align-items: flex-start; gap: 10px; font-size: 16.5px; line-height: 1.3; font-weight: 600; }
+.build li svg { flex: none; width: 22px; height: 22px; margin-top: 0; color: var(--ok); }
+.promise { margin: 18px 2px 0; color: var(--slate); font-size: 15.5px; }
+.promise strong { color: var(--ink); }
+
+/* close */
+.close { margin: 34px 0 0; padding: 26px 0 8px; border-top: 1px solid var(--line); }
+.close h2 { margin: 0 0 8px; font-family: var(--display); font-stretch: 86%; font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; font-size: clamp(1.5rem, 6.6vw, 1.9rem); text-wrap: balance; }
+.close p { margin: 0 0 18px; color: var(--slate); }
+.close p.alt-link { margin: 14px 2px 0; }
+.alt-link { font-size: 15px; color: var(--slate); }
+.mail { overflow-wrap: anywhere; }
+
+footer { margin-top: 36px; padding: 22px 0 40px; border-top: 1px solid var(--line); font-size: 14px; color: var(--slate); }
+footer p { margin: 0 0 8px; }
+footer a { color: var(--slate); }
+footer .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 12px; }
+footer .links a { text-decoration: none; }
+footer .links a:hover { text-decoration: underline; }
+
+/* trust line, steps, form */
+.trust { margin: 12px 2px 0; font-size: 14.5px; color: var(--slate); }
+.trust b { color: var(--ink); font-weight: 600; }
+.steps h2 { margin: 30px 0 12px; font-size: 13px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--slate); }
+.steps ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: start; counter-increment: s; font-size: 16px; line-height: 1.35; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+                    background: color-mix(in srgb, var(--signal) 12%, var(--surface)); color: var(--signal); font-weight: 700; font-family: var(--display); }
+.steps li b { display: block; }
+.steps li span { color: var(--slate); }
+.price { margin: 16px 0 0; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); font-size: 16px; font-weight: 600; }
+.price span { display: block; font-weight: 400; color: var(--slate); font-size: 14.5px; margin-top: 2px; }
+form.start { display: grid; gap: 12px; }
+form.start label { display: grid; gap: 5px; font-size: 14.5px; font-weight: 600; }
+form.start label i { font-style: normal; font-weight: 400; color: var(--slate); }
+form.start input, form.start textarea { width: 100%; min-height: 48px; padding: 11px 13px; border-radius: 12px; border: 1.5px solid var(--line);
+       background: var(--surface); color: var(--ink); font: 400 16px/1.35 var(--font-text); }
+form.start textarea { resize: vertical; }
+form.start input:focus, form.start textarea:focus { outline: 3px solid color-mix(in srgb, var(--signal) 40%, transparent); border-color: var(--signal); }
+form.start .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+form.start button { width: 100%; cursor: pointer; }
+form.start button[disabled] { opacity: .6; }
+.status { margin: 0; min-height: 1.4em; font-size: 15px; font-weight: 600; color: var(--ok); }
+.status.bad { color: #B3261E; }
+@media (prefers-color-scheme: dark) { .status.bad { color: #FF8A80; } }
+.thanks { padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: color-mix(in srgb, var(--ok) 10%, var(--surface)); font-weight: 600; }
+.thanks span { display: block; font-weight: 400; color: var(--slate); margin-top: 4px; }
+.other { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15px; color: var(--slate); }
+.legal { margin: 10px 2px 0; font-size: 12.5px; line-height: 1.45; color: var(--slate); }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+@media (min-width: 640px) { .hero { padding-top: 44px; } .wrap { max-width: 600px; } }
+@media (prefers-reduced-motion: reduce) { .btn:active { transform: none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Kynoss Studios home">
+      <svg viewBox="0 0 437 507" aria-hidden="true"><path fill="currentColor" d="M437 0 193 295 339 492 237 492 137 358 0 507 0 31 85 120 85 293 145 235Z"/></svg>
+      <span>Kynoss Studios</span>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="h1">
+    <p class="eyebrow">For owners who answer every call</p>
+    <h1 id="h1">Answering every call and text yourself?</h1>
+    <p class="lede">We build an AI manager that answers your calls and texts, drafts the replies and asks before anything goes out.</p>
+    <a class="btn main" href="#start" data-ev="start"><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>Get a free example for my business</a>
+    <p class="trust"><b>Jacksonville, Florida.</b> A person replies, usually within a day. One flat monthly price, no setup fee.</p>
+  </section>
+
+  <section class="scene" aria-labelledby="scene-h">
+    <h2 id="scene-h">A 6:40 pm call, handled</h2>
+    <div class="who-row"><span class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span><span>New caller, answered<small>Call transcribed</small></span></div>
+    <div class="msg in"><small>Summary for you</small>Dana wants an estimate Saturday morning. Two dogs at home.</div>
+    <div class="msg draft"><small>Draft from your AI manager</small>Saturday at 9 works. Please keep the dogs inside.</div>
+    <div class="tap" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>You tap OK</div>
+    <div class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18m-12 6 2 2 4-4"/></svg>Booked for Saturday, reminder set</div>
+    <p class="fine">A concept of what we'd build. The names and messages are made up.</p>
+  </section>
+
+  <section class="build" aria-labelledby="build-h">
+    <h2 id="build-h">What we'd build for you</h2>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>An AI manager that answers your calls and texts</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A written summary of every call</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Replies drafted for your OK</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Bookings and reminders from your schedule</li>
+    </ul>
+    <p class="promise"><strong>You stay in charge.</strong> It asks before it sends.</p>
+  </section>
+
+  <section class="steps" aria-labelledby="steps-h">
+    <h2 id="steps-h">How it works</h2>
+    <ol>
+      <li><div><b>Tell us about your business</b><span>Four short lines, below.</span></div></li>
+      <li><div><b>We make an example for your business, free</b><span>Then we walk you through it on a 20-minute call.</span></div></li>
+      <li><div><b>You get one price and decide</b><span>No obligation.</span></div></li>
+    </ol>
+    <p class="price">One flat monthly price. No setup fee.<span>We give you the figure after the call, once we know what you need.</span></p>
+  </section>
+
+  <section class="close" id="start" aria-labelledby="close-h">
+    <h2 id="close-h">Get a free example for your business</h2>
+    <p>Tell us a little and we'll make one for you. A person replies, usually within a day.</p>
+    <form class="start" data-intake="https://kynoss-intake.kynossstudios.workers.dev/lead" novalidate>
+      <label>Your name<input name="name" autocomplete="name" maxlength="100" required></label>
+      <label>Business name<input name="business" autocomplete="organization" maxlength="150"></label>
+      <label>What would you hand off first?<textarea name="about" rows="2" maxlength="1500" placeholder="e.g. Calls I miss while I'm on a job, and booking the estimate" required></textarea></label>
+      <label>Email or phone <i>(so we can send your example)</i><input name="contact" autocomplete="email" maxlength="200" required></label>
+      <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <button class="btn main" type="submit" data-ev="form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Send, and get my example</button>
+      <p class="status" role="status" aria-live="polite"></p>
+      <noscript><p class="alt-link">This form needs JavaScript. Email us at support@kynossstudios.com instead.</p></noscript>
+    </form>
+    <div class="thanks" hidden>Thanks, it's on its way.<span>We'll reply personally, usually within a day, with next steps for your example.</span></div>
+    <p class="legal">We use this only to reply to you, and never share or sell it. <a href="/privacy/#contact-form">How it's kept</a>. If you leave a phone number, we'll call rather than text.</p>
+    <ul class="other">
+      <li>Rather text? <a href="sms:+19049291217" data-ev="text">Text us</a>, or email <a class="mail" href="mailto:support@kynossstudios.com?subject=Owner%3A%20I%20answer%20every%20call%20and%20text%20myself" data-ev="mail2">support@kynossstudios.com</a>.</li>
+      <li>Want to hear an AI manager first? <a href="tel:+19049291217" data-ev="call2">Call ours</a>. It tells you it's an AI, and that the call is transcribed.</li>
+    </ul>
+    <p class="legal">By texting us, you agree to receive text replies from Kynoss Studios about your message. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Texting is optional. <a href="/privacy/#calls-and-texts">Privacy Policy</a> · <a href="/texting-terms/">Texting Terms</a></p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Kynoss Studios LLC</strong>, Jacksonville, Florida</p>
+    <p class="links"><a href="/about/">About</a><a href="/privacy/#calls-and-texts">Privacy</a><a href="/texting-terms/">Texting terms</a><a class="mail" href="mailto:support@kynossstudios.com">support@kynossstudios.com</a></p>
+    <p>Custom AI systems built around the way you work.</p>
+  </div>
+</footer>
+
+<script>
+/* Counting is off. When on: one tiny beacon per event per page load, with no cookies, no storage, no IP address kept and no ad click id sent. */
+(function () {
+  var COUNT_ON = false;                                   /* <- off by default */
+  var COUNT_URL = "https://demo.kynossstudios.com/lp";    /* the counter host the Pandemoni tap page already uses */
+  var PAGE = "owners", TYPE = "calls";                 /* the only line that differs between the four pages */
+
+  var q = location.search, sent = {}, first = false, t0 = Date.now();
+  var live = COUNT_ON && navigator.sendBeacon &&
+    /^(www\.)?kynossstudios\.com$/.test(location.hostname) &&      /* not on previews, localhost or file: */
+    !/[?&]preview\b/.test(q) &&                                    /* our own checks add ?preview */
+    navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl && !navigator.webdriver;
+  if (!live) return;
+
+  var vid = Math.random().toString(36).slice(2, 6);                /* per page load, kept in memory only */
+  function send(k, extra) {
+    if (sent[k]) return;
+    sent[k] = 1;
+    var tail = extra || "";
+    if (k !== "view" && !first && !/^sc/.test(k)) {                /* first tap: seconds since load, once */
+      first = true;
+      tail += "&t=" + Math.min(3600, Math.round((Date.now() - t0) / 1000));
+    }
+    try { navigator.sendBeacon(COUNT_URL + "?p=" + PAGE + "&y=" + TYPE + "&v=" + vid + "&k=" + k + tail); } catch (e) {}
+  }
+
+  /* page view: from an ad click (Google adds gclid, gbraid or wbraid; only "is it there" is sent, never the value) or not */
+  send("view", "&s=" + (/[?&](gclid|gbraid|wbraid)=/.test(q) || /[?&]utm_medium=cpc\b/.test(q) ? "ad" : "other"));
+
+  /* taps on each button */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-ev]");
+    if (a) send(a.getAttribute("data-ev"));
+  });
+
+  /* scroll reach */
+  var ticking = false;
+  function reach() {
+    ticking = false;
+    var h = document.documentElement, r = (window.pageYOffset + window.innerHeight) / Math.max(1, h.scrollHeight);
+    [25, 50, 75, 100].forEach(function (p) { if (r >= (p === 100 ? 0.98 : p / 100)) send("sc" + p); });
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; setTimeout(reach, 150); } }, { passive: true });
+})();
+
+/* The form: posts to the same intake the home page's contact form uses (no server change). The owner type goes in front of the message. */
+(function () {
+  var form = document.querySelector("form.start"); if (!form) return;
+  var started = Date.now(), status = form.querySelector(".status"), button = form.querySelector("button");
+  function say(t, bad) { status.textContent = t; status.className = "status" + (bad ? " bad" : ""); }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = form.elements;
+    if (!f.name.value.trim() || !f.contact.value.trim() || !f.about.value.trim()) {
+      say("Please add your name, what you'd hand off, and an email or phone number.", true); return;
+    }
+    button.disabled = true; say("Sending\u2026");
+    fetch(form.getAttribute("data-intake"), { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: f.name.value, contact: f.contact.value, business: f.business.value,
+        about: "[calls page] " + f.about.value, website: f.website.value, elapsed_ms: Date.now() - started, page: location.pathname }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return { r: r, b: b }; }); })
+      .then(function (x) {
+        if (x.r.ok && x.b.ok) { form.hidden = true; form.nextElementSibling.hidden = false; return; }
+        button.disabled = false;
+        if (x.b.error === "contact") say("That email or phone number doesn't look right. Could you check it?", true);
+        else if (x.b.error === "rate") say("That's a lot of messages in a short time. Please try again in an hour, or email us.", true);
+        else say("Something went wrong sending that. Please try again, or email us.", true);
+      })
+      .catch(function () { button.disabled = false; say("We couldn't reach the server. Please try again, or email us.", true); });
+  });
+})();
+</script>
+</body>
+</html>

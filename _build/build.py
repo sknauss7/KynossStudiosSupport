@@ -683,6 +683,11 @@ def main():
         "BEGIN:VCARD", "VERSION:3.0", f"FN:{site['studio']['name']}", f"ORG:{site['studio']['legal']}",
         f"TEL;TYPE=WORK,VOICE:{card['tel']}", f"EMAIL;TYPE=WORK:{card['email']}", f"URL:{site['studio']['domain']}",
         "NOTE:AI systems for small businesses. Call to try our AI manager.", "END:VCARD"]) + "\r\n")
+    # /owners/<type>/: the landing page for one search ad each (Kynoss, 2026-11-15). Standalone files copied as they are; noindex, not in the sitemap or search.
+    for f in sorted((BUILD / "owners").glob("*.html")):
+        dest = ROOT / "owners" / f.stem / "index.html"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
     pages.remove(pa)
     pages.remove(pb)
     pages.remove(pk)
