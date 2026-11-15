@@ -232,9 +232,9 @@ html { scroll-behavior: smooth; }
 </footer>
 
 <script>
-/* Counting is off. When on: one tiny beacon per event per page load, with no cookies, no storage, no IP address kept and no ad click id sent. */
+/* Counting: one tiny beacon per event per page load, with no cookies, no storage, no IP address kept and no ad click id sent. */
 (function () {
-  var COUNT_ON = false;                                   /* <- off by default */
+  var COUNT_ON = true;                                    
   var COUNT_URL = "https://demo.kynossstudios.com/lp";    /* the counter host the Pandemoni tap page already uses */
   var PAGE = "owners", TYPE = "calls";                 /* the only line that differs between the four pages */
 
