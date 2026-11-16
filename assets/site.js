@@ -195,7 +195,7 @@
       e.preventDefault();
       var f = form.elements;
       if (!f.name.value.trim() || !f.contact.value.trim() || !f.about.value.trim()) {
-        say("Please add your name, an email or phone number, and a few words about what you do.", true);
+        say("Please add your name, an email or phone number, and a line about what you'd like off your plate.", true);
         return;
       }
       button.disabled = true;
