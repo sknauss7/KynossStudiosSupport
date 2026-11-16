@@ -41,7 +41,7 @@
       <p class="ks-muted">Built the way we built our own. <a href="#cases">See the five systems we run ourselves</a>.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#start" data-ev="start">Get a free example for my business</a>
-        <a class="ks-button is-quiet" href="#ideas">See what it could do</a>
+        <a class="ks-button is-quiet" href="#see-it">See it at work</a>
       </div>
       <p class="ks-hero-note">{{ ask_note }}</p>
     </div>
@@ -98,6 +98,124 @@
       {%- endfor %}
     </ul>
     <p class="ks-blocks-tools">{{ build.tools }}</p>
+  </div>
+</section>
+
+<section class="ks-section ks-sysflow" id="see-it" aria-labelledby="flow-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="flow-h">{{ flow.title }}</h2>
+      <p class="ks-lede">{{ flow.lede }}</p>
+    </div>
+{#- The walkthrough (2026-11-15, Steven: software first): the owner's own screen through one day, eight scenes a trade.
+    It replaces Kynoss's flow demo v4. Data: the walk key in systems.json; every name and figure is invented.
+    Nothing plays until tapped, keys only while it has focus, no outside requests. Draft: ~/Systems/docs/delivery/flow-draft/. -#}
+<div class="ks-walk" data-ks-walk>
+  <script type="application/json" class="kw-data">{{ walk|tojson }}</script>
+  <div class="picker" role="tablist" aria-label="Pick a business"></div>
+  <div class="stage" tabindex="0">
+    <button type="button" class="cover"><b></b><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></i><span>Play · about a minute</span></button>
+    <div class="bars" aria-hidden="true"></div>
+    <div class="win" aria-hidden="true">
+      <div class="winbar"><b class="wt"></b><span class="wc"></span></div>
+      <div class="tabs"></div>
+      <div class="pane"></div>
+    </div>
+    <div class="cap" aria-live="polite"><h3></h3><p></p></div>
+    <div class="ctrl">
+      <button type="button" class="prev" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button type="button" class="play" aria-label="Pause"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></svg></button>
+      <button type="button" class="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+  <p class="note">An example of what we'd build. Yours is laid out around your business.</p>
+</div>
+<script>
+(function () {
+  var root = document.querySelector("[data-ks-walk]");
+  if (!root) return;
+  var TR = JSON.parse(root.querySelector(".kw-data").textContent);
+  var money = function (n) { return "$" + n.toLocaleString("en-US"); };
+  function scenes(T) {
+    var st = function (o) { return [T.s1, T.s2, [money(o), "owed to you"]]; };
+    return [
+      { t: "Your " + T.noun + " on one screen.", s: "Customers, schedule, crew and money, laid out your way.", tab: "Today", stats: st(T.owed[0]),
+        rows: T.today.map(function (r) { return { k: r[0], x: r[1], tag: r[2], c: r[3] }; }) },
+      { t: "The day plans itself.", s: T.planS, tab: "Schedule", stats: st(T.owed[0]),
+        rows: T.plan.map(function (r) { return { k: r[0], x: r[1], tag: "Sent", c: "" }; }).concat([{ k: T.shift[0], x: T.shift[1], tag: "Spotted", c: "info", then: [T.shift[2], ""] }]) },
+      { t: "A new request gets an answer.", s: "Priced from your own sheet. Sent on its own, or after your OK.", tab: "Customers", stats: st(T.owed[0]),
+        rows: [{ k: "New", x: T.req, tag: "Reading", c: "info", then: [T.quote, ""] }, { k: T.slot[0], x: T.slot[1], tag: "Held", c: "info", then: ["Booked", ""] }] },
+      { t: "Finished jobs get billed.", s: "No more evenings at the kitchen table.", tab: "Money", stats: st(T.owed[0]), owedTo: T.owed[1],
+        rows: T.done.map(function (r) { return { k: r[0], x: r[1], tag: "Invoice drafted", c: "info", then: [T.billed || "Invoice sent", ""] }; }) },
+      { t: "Late payers get a polite nudge.", s: "On the schedule you set, in the words you'd use.", tab: "Money", stats: st(T.owed[1]), owedTo: T.owed[2],
+        rows: [{ k: "34 days", x: T.late, tag: "Reminder sent", c: "info", then: ["Paid", ""] }] },
+      { t: "Only what needs you reaches you.", s: "Everything else is already done.", tab: "Today", stats: [["23", "handled today"], ["1", "needs you"], [money(T.owed[2]), "owed to you"]],
+        rows: [{ k: "8:10", x: "New caller answered, visit booked", tag: "Done", c: "" }, { k: "1:15", x: "Supplier's bill read and filed", tag: "Due the 28th", c: "info" }, { k: "2:02", x: T.you, tag: "Needs you", c: "you", you: 1 }] },
+      { t: "Ask it anything.", s: "The answer comes from your own records, with the source.", tab: "Ask", ask: { q: T.q, a: T.a, src: T.src } },
+      { t: "Not off the shelf.", s: "Built for your " + T.noun + ", and nobody else's.", tab: "Today", fit: T.fit }
+    ];
+  }
+  var TABS = ["Today", "Customers", "Money", "Schedule", "Ask"];
+  var $ = function (s) { return root.querySelector(s); };
+  var pane = $(".pane"), tabs = $(".tabs"), bars = $(".bars"), capT = $(".cap h3"), capS = $(".cap p"), cover = $(".cover"), playBtn = $(".play svg");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ORDER = ["cleaning", "pest", "property", "lawn"].filter(function (k) { return TR[k]; });
+  var key = ORDER[0], S = scenes(TR[key]), idx = 0, playing = false, run = 0;
+  var PAUSE = '<path d="M9 5v14M15 5v14"/>', PLAY = '<path d="M7 4.5v15l12-7.5z"/>';
+  var wait = function (ms, id) { return new Promise(function (ok) { if (reduce) return ok(); setTimeout(function () { if (id === run) ok(); }, ms); }); };
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function setup() {
+    $(".picker").innerHTML = ""; ORDER.forEach(function (k) {
+      var b = el("button", "", TR[k].pick); b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-selected", k === key);
+      b.onclick = function () { key = k; S = scenes(TR[k]); idx = 0; playing = false; run++; setup(); }; $(".picker").appendChild(b); });
+    tabs.innerHTML = ""; TABS.forEach(function (t) { tabs.appendChild(el("span", "", t)); });
+    bars.innerHTML = ""; S.forEach(function () { var i = el("i"); i.appendChild(el("b")); bars.appendChild(i); });
+    $(".wt").textContent = "Your business, today"; $(".wc").textContent = "Tue 2:15 pm";
+    cover.querySelector("b").textContent = "See your " + TR[key].noun + " on one screen"; cover.hidden = false;
+    playBtn.innerHTML = PLAY; show(idx, true);
+  }
+  function mark(i) { [].forEach.call(bars.children, function (b, k) { b.className = k < i ? "done" : ""; b.firstChild.style.transition = "none"; b.firstChild.style.width = k < i ? "100%" : "0"; }); }
+  function tick(node, to) {   // the owed figure counts to its new value
+    var from = parseInt(node.textContent.replace(/[^0-9]/g, ""), 10), t0 = null;
+    if (reduce) { node.textContent = money(to); return; }
+    t0 = Date.now(); var iv = setInterval(function () { var p = Math.min(1, (Date.now() - t0) / 900); node.textContent = money(Math.round(from + (to - from) * p)); if (p >= 1) clearInterval(iv); }, 40);
+  }
+  async function show(i, quiet) {
+    var id = ++run, s = S[i]; idx = i; mark(i);
+    [].forEach.call(tabs.children, function (t) { t.className = t.textContent === s.tab ? "on" : ""; });
+    capT.className = capS.className = ""; capT.textContent = s.t; capS.textContent = s.s; pane.innerHTML = "";
+    var stats = null, list = null, lit = function (n) { [].forEach.call(pane.querySelectorAll(".lit"), function (x) { x.classList.remove("lit"); }); if (n) n.classList.add("lit"); };
+    if (s.stats) { stats = el("div", "stats"); s.stats.forEach(function (v) { var d = el("div"); d.appendChild(el("strong", "", v[0])); d.appendChild(el("span", "", v[1])); stats.appendChild(d); }); pane.appendChild(stats); }
+    var items = [];
+    if (s.rows) { list = el("ul", "rows"); s.rows.forEach(function (r) { var li = el("li", r.you ? "you" : ""); li.appendChild(el("time", "", r.k)); li.appendChild(el("span", "", r.x)); li.appendChild(el("em", r.c, r.tag)); list.appendChild(li); items.push([li, r]); }); pane.appendChild(list); }
+    if (s.ask) { var a = el("div", "ask"); var q = el("p", "q", s.ask.q), an = el("p", "a", s.ask.a), sr = el("p", "src"); s.ask.src.forEach(function (x) { sr.appendChild(el("i", "", x)); }); a.appendChild(q); a.appendChild(an); a.appendChild(sr); pane.appendChild(a); items = [[q, {}], [an, {}], [sr, {}]]; }
+    if (s.fit) { var f = el("ul", "fit"); s.fit.forEach(function (x) { var li = el("li", "", x); f.appendChild(li); items.push([li, {}]); }); pane.appendChild(f); }
+    var bar = bars.children[i].firstChild, words = (s.t + " " + s.s).split(/\s+/).length;
+    var total = 1900 + words * 250 + items.length * 1500 + items.filter(function (x) { return x[1].then; }).length * 1300 + (s.owedTo ? 1200 : 0) + 2600;
+    if (!quiet && !reduce) { bar.style.transition = "width " + total + "ms linear"; requestAnimationFrame(function () { bar.style.width = "100%"; }); }
+    // read, then watch, then rest: the caption comes in alone, then one thing at a time
+    capT.className = "in"; await wait(700, id); capS.className = "in"; await wait(1200 + words * 250, id);
+    for (var k = 0; k < items.length; k++) {
+      var n = items[k][0], r = items[k][1]; n.classList.add("in"); if (s.rows) lit(n); await wait(1500, id);
+      if (r.then) { var em = n.querySelector("em"); em.textContent = r.then[0]; em.className = r.then[1] + (reduce ? "" : " swap"); await wait(1300, id); }
+    }
+    if (s.owedTo) { var o = stats.children[2]; lit(o); tick(o.firstChild, s.owedTo); await wait(1200, id); }
+    lit(null); await wait(2600, id);
+    if (id === run && playing && !quiet) { if (i < S.length - 1) show(i + 1); else { playing = false; playBtn.innerHTML = PLAY; } }
+  }
+  function play() { playing = true; cover.hidden = true; playBtn.innerHTML = PAUSE; show(idx); }
+  cover.onclick = function () { idx = 0; play(); };
+  $(".play").onclick = function () { if (playing) { playing = false; run++; playBtn.innerHTML = PLAY; } else { if (idx === S.length - 1) idx = 0; play(); } };
+  $(".prev").onclick = function () { playing = false; playBtn.innerHTML = PLAY; show(Math.max(0, idx - 1), true); };
+  $(".next").onclick = function () { playing = false; playBtn.innerHTML = PLAY; show(Math.min(S.length - 1, idx + 1), true); };
+  $(".stage").addEventListener("keydown", function (e) { if (e.key === "ArrowRight") $(".next").click(); if (e.key === "ArrowLeft") $(".prev").click(); if (e.key === " ") { e.preventDefault(); $(".play").click(); } });
+  setup();
+})();
+</script>
+    <div class="ks-midcta">
+      <p><strong>Want one built around your business?</strong> Tell us how your day goes in a few sentences. {{ ask_note }}</p>
+      <a class="ks-button" href="#start" data-ev="start">Get a free example</a>
+    </div>
   </div>
 </section>
 
@@ -176,374 +294,6 @@
     </script>
     <div class="ks-midcta">
       <p><strong>Have a job like one of these?</strong> Tell us about it in a few sentences. {{ ask_note }}</p>
-      <a class="ks-button" href="#start" data-ev="start">Get a free example</a>
-    </div>
-  </div>
-</section>
-
-<section class="ks-section ks-sysflow" id="see-it" aria-labelledby="flow-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="flow-h">{{ flow.title }}</h2>
-      <p class="ks-lede">{{ flow.lede }}</p>
-    </div>
-{#- Kynoss flow demo v4, embedded on /systems/ (supplied by Kynoss, 2026-10-20; Systems places it in templates/systems.html,
-    replacing the 2026-10-18 fragment). Same data as before: the flow_demo key in systems.json (built by Kynoss
-    scripts/flow_embed.py from docs/clients/demo/flow/trades.json). Styles: flow_embed_v4.css, replacing the .flow-demo
-    block in assets/systems.css. The engine is the prospect demos' v4 engine (docs/clients/demo/flow/template.html):
-    one thing lit at a time, steps in sequence (Steven, 2026-10-19: "slow enough to understand... one thing is
-    highlighted at a time"); since 2026-11-05 pacing v2 and the "why custom" slide (Kynoss 0ca6a6a; data Kynoss 79a35a4). Embed rules: no built/concept badges, no cost scene, no business
-    name, no call bar, nothing plays until tapped, keys only while the walkthrough has focus, no outside requests.
-    Icons: Lucide (lucide.dev), ISC licence: Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part
-    of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022. Permission to use, copy,
-    modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the
-    above copyright notice and this permission notice appear in all copies. -#}
-<div class="flow-demo" data-flow-demo>
-  <script type="application/json" class="fd-data">{{ flow_demo|tojson }}</script>
-  <div class="fd-picker" role="tablist" aria-label="Pick a business"></div>
-  <div class="fd-stage" tabindex="0" aria-roledescription="walkthrough">
-    <button type="button" class="fd-cover">
-      <span class="fd-cover-t"></span>
-      <span class="fd-cover-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-      <span class="fd-cover-s"></span>
-    </button>
-    <div class="fd-bars" aria-hidden="true"></div>
-    <svg class="fd-map" viewBox="0 0 400 320" role="img"></svg>
-    <div class="fd-cap" aria-live="polite"><h3 class="fd-cap-t"></h3><p class="fd-cap-s"></p></div>
-    <div class="fd-ctrl">
-      <button type="button" class="fd-prev" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
-      <button type="button" class="fd-play" aria-label="Play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="fd-play-ic"></svg></button>
-      <button type="button" class="fd-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
-    </div>
-  </div>
-</div>
-<script>
-(function () {
-  var root = document.querySelector("[data-flow-demo]");
-  if (!root) return;
-  var D = JSON.parse(root.querySelector(".fd-data").textContent);
-  var NS = "http://www.w3.org/2000/svg";
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var phoneMQ = window.matchMedia ? window.matchMedia("(max-width: 700px)") : null;
-  var q = function (sel) { return root.querySelector(sel); };
-  var map = q(".fd-map"), bars = q(".fd-bars"), stage = q(".fd-stage"), cover = q(".fd-cover"), cap = q(".fd-cap");
-  var PAUSE = '<path d="M9 5v14M15 5v14"/>', PLAY = '<path d="M7 4.5v15l12-7.5z"/>', REPLAY = '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>';
-  // Pacing v2, as on the prospect demos (Kynoss's template 0ca6a6a, 2026-11-05: "too much going on with the bottom caption
-  // changing at the same time as the visuals"): read, then watch, then rest. The caption comes in alone (title, then the
-  // subline SUB later); the picture waits until it can be read (READ); steps run one at a time; the end state holds still
-  // (REST). The "why custom" slide's rows come in one at a time (ROWGAP), then a look at the whole (LOOK).
-  var PACE = 1.35;
-  var MOVE = 900 * PACE, GAP = 500 * PACE, NOTE = 900 * PACE;
-  var READ = function (s) { return 1200 + words(s) * 250; }, REST = 2600, SUB = 700, ROWGAP = 2200, LOOK = 1500;
-  var words = function (s) { return ((s.t || "") + " " + (s.s || "")).split(/\s+/).filter(Boolean).length; };
-  function stepsLen(s) {
-    var t = 0, prev = null;
-    (s.steps || []).forEach(function (st, k) {
-      if (k) t += Math.max((st.wait || 0) * PACE, GAP) + (prev && prev.note ? NOTE : 0);
-      if (st.go) t += MOVE;
-      if (st.note && k === s.steps.length - 1) t += 1100 + 600;
-      prev = st;
-    });
-    return t;
-  }
-  function revealLen(s) {
-    if (s.custom && D.custom) return (D.custom.rows.length - 1) * ROWGAP + 1600 + LOOK;
-    if (s.sinks && D.sinks) return (D.sinks.rows.length - 1) * ROWGAP + 1600 + LOOK;
-    return 0;
-  }
-  function lenOf(s) { return READ(s) + stepsLen(s) + revealLen(s) + REST; }
-  function el(tag, attrs, parent) {
-    var e = document.createElementNS(NS, tag);
-    for (var k in attrs) e.setAttribute(k, attrs[k]);
-    if (parent) parent.appendChild(e);
-    return e;
-  }
-
-  var C, P, nodes, edges, edgeG, nodeG, chipsG, notesG, custG = null, sinksG = null, pulse, tapC, scenes, cur, timers = [], playing = false, raf = null,
-      sceneLen = 0, elapsed = 0, last = 0, barFill = null, started = false, phone = false;
-  var r = function (id) { return id === "ai" ? 32 : 26; };
-
-  function load(key) {
-    stopAll();
-    C = D.trades[key]; scenes = C.scenes; cur = -1; started = false;
-    phone = !!(phoneMQ && phoneMQ.matches);
-    Array.prototype.forEach.call(q(".fd-picker").children, function (b) { b.setAttribute("aria-selected", b.dataset.key === key ? "true" : "false"); });
-    q(".fd-cover-t").textContent = "See how custom AI software could work for your " + C.noun;
-    var total = scenes.reduce(function (t, s) { return t + lenOf(s); }, 0);
-    q(".fd-cover-s").textContent = "Play · " + Math.max(20, Math.round(total / 5000) * 5) + " seconds";
-    cover.classList.remove("fd-gone");
-    while (map.firstChild) map.removeChild(map.firstChild);
-    bars.innerHTML = "";
-    scenes.forEach(function () { var s = document.createElement("span"); s.appendChild(document.createElement("i")); bars.appendChild(s); });
-    // Layout: customer left, AI centre, up to three tools right, the owner's phone below.
-    P = { customer: [56, 132], ai: [200, 132], owner: [200, 258] };
-    var ty = { 1: [132], 2: [84, 180], 3: [52, 132, 212] }[C.tools.length];
-    C.tools.forEach(function (t, i) { P[t.id] = [344, ty[i]]; });
-    nodes = {}; edges = {};
-    edgeG = el("g", {}, map);
-    var addEdge = function (a, b) { edges[a + ">" + b] = edges[b + ">" + a] = el("line", { "class": "fd-edge", x1: P[a][0], y1: P[a][1], x2: P[b][0], y2: P[b][1] }, edgeG); };
-    addEdge("customer", "ai"); addEdge("ai", "owner");
-    C.tools.forEach(function (t) { addEdge("ai", t.id); });
-    nodeG = el("g", {}, map);
-    [{ id: "customer", icon: C.customer.icon, label: C.customer.label }, { id: "ai", icon: "sparkles", label: "Your AI manager" }, { id: "owner", icon: "smartphone", label: "You" }].concat(C.tools).forEach(function (n) {
-      var g = el("g", { "class": "fd-node" + (n.id === "ai" ? " fd-ai" : "") }, nodeG);
-      var x = P[n.id][0], y = P[n.id][1], rr = r(n.id), s = n.id === "ai" ? 28 : 22;
-      var ring = el("circle", { "class": "fd-ring", cx: x, cy: y, r: rr }, g);
-      el("circle", { "class": "fd-bg", cx: x, cy: y, r: rr }, g);
-      var ic = el("svg", { "class": "fd-ic", x: x - s / 2, y: y - s / 2, width: s, height: s, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }, g);
-      ic.innerHTML = D.icons[n.icon] || "";
-      var t = el("text", { x: x, y: y + rr + 15 }, g); t.textContent = n.label;
-      if (t.getComputedTextLength) { var hw = t.getComputedTextLength() / 2; if (x + hw > 398) t.setAttribute("x", 398 - hw); if (x - hw < 2) t.setAttribute("x", 2 + hw); }
-      nodes[n.id] = { g: g, ring: ring, label: t, tool: x > 300 };
-    });
-    chipsG = el("g", {}, map); notesG = el("g", {}, map);
-    // "Why custom" slide: off the shelf (struck, grey) against built for you (icon pills), one row at a time (Kynoss's
-    // template 2026-11-05; the labels are D.custom, Steven's wording). "|" splits a left label onto two lines.
-    custG = null;
-    if (D.custom && scenes.some(function (sc) { return sc.custom; })) {
-      custG = el("g", { "class": "fd-custg fd-gone" }, map);
-      el("text", { "class": "fd-k", x: 20, y: 30 }, custG).textContent = D.custom.left;
-      el("text", { "class": "fd-k fd-us", x: 222, y: 30 }, custG).textContent = D.custom.right;
-      D.custom.rows.forEach(function (row, i) {
-        var y = 74 + i * 66;
-        var a = el("g", { "class": "fd-row fd-them" }, custG); a.style.transitionDelay = (i * ROWGAP / 1000) + "s";
-        el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 16, y: y - 12, width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2, "stroke-linecap": "round", "stroke-linejoin": "round" }, a).innerHTML = D.icons[row[0]] || "";
-        var parts = row[1].split("|");
-        var ta = el("text", { x: 48, y: y - (parts.length - 1) * 9, "dominant-baseline": "central" }, a);
-        parts.forEach(function (pt, j) { el("tspan", { x: 48, dy: j ? 18 : 0 }, ta).textContent = pt; });
-        var bb = el("g", { "class": "fd-row fd-us" }, custG); bb.style.transitionDelay = (i * ROWGAP / 1000 + 0.9) + "s";
-        el("rect", { "class": "fd-pill", x: 158, y: y - 23, width: 230, height: 46, rx: 23 }, bb);
-        el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 172, y: y - 12, width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2.2, "stroke-linecap": "round", "stroke-linejoin": "round" }, bb).innerHTML = D.icons[row[2]] || "";
-        el("text", { x: 206, y: y, "dominant-baseline": "central" }, bb).textContent = row[3];
-      });
-    }
-    // Time-sinks slide: common jobs it could take off the owner's plate, one pill at a time (Kynoss 1f76377, Steven's wording).
-    sinksG = null;
-    if (D.sinks && scenes.some(function (sc) { return sc.sinks; })) {
-      sinksG = el("g", { "class": "fd-sinksg fd-gone" }, map);
-      var many = D.sinks.rows.length > 4;
-      D.sinks.rows.forEach(function (row, i) {
-        var y = (many ? 44 : 62) + i * (many ? 56 : 64), ph = many ? 44 : 48;
-        var g = el("g", { "class": "fd-row" }, sinksG); g.style.transitionDelay = (i * ROWGAP / 1000) + "s";
-        el("rect", { "class": "fd-pill", x: 16, y: y - ph / 2, width: 368, height: ph, rx: ph / 2 }, g);
-        el("svg", { "class": "fd-ic", "aria-hidden": "true", x: 34, y: y - 13, width: 26, height: 26, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": 2.2, "stroke-linecap": "round", "stroke-linejoin": "round" }, g).innerHTML = D.icons[row[0]] || "";
-        var t = el("text", { x: 74, y: y, "dominant-baseline": "central" }, g); t.textContent = row[1];
-        // A long row shrinks to fit its pill (room from x 74 to about 372).
-        if (t.getComputedTextLength) { var tl = t.getComputedTextLength(); if (tl > 292) t.style.fontSize = (parseFloat(getComputedStyle(t).fontSize) * 292 / tl).toFixed(1) + "px"; }
-      });
-    }
-    pulse = el("circle", { "class": "fd-pulse", r: 5, cx: -20, cy: -20 }, map);
-    tapC = el("circle", { "class": "fd-tap", r: 14, cx: -40, cy: -40 }, map);
-    setPlaying(false);
-    show(0);
-  }
-
-  function chip(at, text) {
-    var same = false;
-    Array.prototype.forEach.call(chipsG.children, function (c) {
-      c.classList.add("fd-old");
-      // A new chip on the same node replaces the old one: fade it out first.
-      if (c.getAttribute("data-at") === at && !c.classList.contains("fd-out")) {
-        same = true; c.classList.add("fd-out"); c.classList.remove("fd-show");
-        setTimeout(function () { if (c.parentNode) c.parentNode.removeChild(c); }, 300);
-      }
-    });
-    var g = el("g", { "class": "fd-chip", "data-at": at }, chipsG);
-    g._delay = same;
-    var t = el("text", { x: 0, y: 0 }, g); t.textContent = text;
-    var w = Math.min(t.getComputedTextLength ? t.getComputedTextLength() + 22 : text.length * 8 + 22, phone ? 270 : 190);
-    // Tools sit in a tight column, so a tool's chip takes the place of its label; others sit above.
-    var x = P[at][0], y = P[at][1] - r(at) - 18;
-    if (nodes[at] && nodes[at].tool) { y = P[at][1] + r(at) + 12; nodes[at].label.style.visibility = "hidden"; }
-    if (at === "owner") y = P.owner[1] - r("owner") - 16;
-    x = Math.max(w / 2 + 4, Math.min(400 - w / 2 - 4, x));
-    var ch = phone ? 32 : 24;
-    g.insertBefore(el("rect", { x: x - w / 2, y: y - ch / 2, width: w, height: ch, rx: ch / 2 }), t);
-    t.setAttribute("x", x); t.setAttribute("y", y);
-    return g;
-  }
-  function note(text, button) {
-    Array.prototype.forEach.call(notesG.children, function (c) { c.classList.add("fd-old"); });
-    var g = el("g", { "class": "fd-note" }, notesG);
-    // The note card sits over the owner's label: hide the label while a note shows (clear() restores it).
-    if (nodes.owner) nodes.owner.label.style.visibility = "hidden";
-    var t = el("text", { x: 0, y: 0 }, g); t.textContent = text;
-    var w = Math.max(130, (t.getComputedTextLength ? t.getComputedTextLength() : text.length * 8) + 62), h = phone ? 54 : 46;
-    var x = 396 - w, y = phone ? 262 : 266;
-    g.insertBefore(el("rect", { "class": "fd-card", x: x, y: y, width: w, height: h, rx: 12 }), t);
-    t.setAttribute("x", x + 12); t.setAttribute("y", y + h / 2);
-    var bx = x + w - 26, by = y + h / 2;
-    el("circle", { "class": "fd-btn", cx: bx, cy: by, r: 15 }, g);
-    var bt = el("text", { "class": "fd-btnt", x: bx, y: by + 4 }, g); bt.textContent = button || "OK";
-    return { g: g, bx: bx, by: by, bt: bt };
-  }
-  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
-  function clear() {
-    timers.forEach(clearTimeout); timers = [];
-    if (raf) cancelAnimationFrame(raf), raf = null;
-    while (chipsG.firstChild) chipsG.removeChild(chipsG.firstChild);
-    while (notesG.firstChild) notesG.removeChild(notesG.firstChild);
-    Object.keys(nodes).forEach(function (k) { var n = nodes[k]; n.g.classList.remove("fd-on"); n.ring.classList.remove("fd-go"); n.label.style.visibility = ""; });
-    Object.keys(edges).forEach(function (k) { edges[k].classList.remove("fd-on", "fd-gone"); });
-    nodes.ai.g.classList.remove("fd-gone");
-    pulse.setAttribute("cx", -20); pulse.setAttribute("cy", -20);
-    edgeG.classList.remove("fd-gone"); nodeG.classList.remove("fd-gone");
-    if (custG) { custG.classList.add("fd-gone"); custG.classList.remove("fd-grow"); }
-    if (sinksG) { sinksG.classList.add("fd-gone"); sinksG.classList.remove("fd-grow"); }
-    map.removeAttribute("aria-describedby");
-  }
-  function light(id) { if (nodes[id]) nodes[id].g.classList.add("fd-on"); }
-  // Spotlight: a step lights only its own nodes and line; the rest steps back.
-  function focus(ids) {
-    Object.keys(nodes).forEach(function (k) { nodes[k].g.classList.toggle("fd-on", ids.indexOf(k) >= 0); });
-    Object.keys(edges).forEach(function (k) { edges[k].classList.remove("fd-on"); });
-  }
-  function move(a, b, ms, done) {
-    focus([a]);
-    if (edges[a + ">" + b]) edges[a + ">" + b].classList.add("fd-on");
-    light(a);
-    if (reduce) { light(b); done(); return; }
-    var t0 = performance.now();
-    (function step(now) {
-      var k = Math.min(1, (now - t0) / ms), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
-      pulse.setAttribute("cx", P[a][0] + (P[b][0] - P[a][0]) * e);
-      pulse.setAttribute("cy", P[a][1] + (P[b][1] - P[a][1]) * e);
-      if (k < 1) raf = requestAnimationFrame(step); else { light(b); pulse.setAttribute("cx", -20); done(); }
-    })(t0);
-  }
-  function after(st) {
-    if (st.chip) {
-      var g = chip(st.chip[0], st.chip[1]);
-      if (reduce) g.classList.add("fd-show");
-      else if (g._delay) later(function () { g.classList.add("fd-show"); }, 280);
-      else requestAnimationFrame(function () { g.classList.add("fd-show"); });
-    }
-    if (st.note) {
-      var n = note(st.note, st.button); light("owner");
-      if (reduce) n.g.classList.add("fd-show"); else requestAnimationFrame(function () { n.g.classList.add("fd-show"); });
-      (reduce ? function (f) { f(); } : function (f) { later(f, 1100); })(function () {
-        tapC.setAttribute("cx", n.bx); tapC.setAttribute("cy", n.by);
-        tapC.classList.remove("fd-go"); void tapC.getBoundingClientRect(); tapC.classList.add("fd-go");
-        n.g.classList.add("fd-done"); n.bt.textContent = "✓";
-      });
-    }
-  }
-  function show(i) {
-    clear(); cur = i;
-    var s = scenes[i];
-    var opening = !!(s.revealAi || s.hideAi);
-    cap.classList.add("fd-fade");
-    var capSet = function () {
-      q(".fd-cap-t").textContent = s.t; q(".fd-cap-s").textContent = s.s || "";
-      // Pacing v2: the title comes in alone, the subline SUB later; neither waits on the motion.
-      q(".fd-cap-s").classList.toggle("fd-wait", !reduce); if (!reduce) later(function () { q(".fd-cap-s").classList.remove("fd-wait"); }, SUB);
-      cap.classList.remove("fd-fade");
-    };
-    if (reduce) capSet(); else later(capSet, 180);
-    Array.prototype.forEach.call(bars.children, function (b, j) { b.firstChild.style.width = j === i ? "100%" : "0"; b.classList.toggle("fd-done", j < i); b.classList.toggle("fd-cur", j === i); });
-    map.classList.toggle("fd-spot", !(s.all || opening || s.custom || s.sinks));
-    if (s.sinks && sinksG) {
-      edgeG.classList.add("fd-gone"); nodeG.classList.add("fd-gone"); sinksG.classList.remove("fd-gone");
-      map.setAttribute("aria-describedby", sinksDesc.id);
-      if (reduce) sinksG.classList.add("fd-grow"); else later(function () { sinksG.classList.add("fd-grow"); }, READ(s));
-    }
-    if (s.custom && custG) {
-      edgeG.classList.add("fd-gone"); nodeG.classList.add("fd-gone"); custG.classList.remove("fd-gone");
-      map.setAttribute("aria-describedby", custDesc.id);
-      if (reduce) custG.classList.add("fd-grow"); else later(function () { custG.classList.add("fd-grow"); }, READ(s));
-    }
-    (s.lit || []).forEach(light);
-    // The opening scene shows the business's own tools first, then the AI arriving between them.
-    var aiEdges = Object.keys(edges).filter(function (k) { return k.indexOf("ai>") === 0; }).map(function (k) { return edges[k]; });
-    if (opening) { nodes.ai.g.classList.add("fd-gone"); aiEdges.forEach(function (e) { e.classList.add("fd-gone"); }); }
-    if (s.revealAi) {
-      var reveal = function () { nodes.ai.g.classList.remove("fd-gone"); light("ai"); aiEdges.forEach(function (e) { e.classList.remove("fd-gone"); e.classList.add("fd-on"); }); };
-      if (reduce) reveal(); else later(reveal, 500);
-    }
-    if (s.ring) { light(s.ring); nodes[s.ring].ring.classList.add("fd-go"); }
-    if (s.all) { Object.keys(edges).forEach(function (k) { edges[k].classList.add("fd-on"); }); Object.keys(nodes).forEach(light); }
-    var steps = s.steps || [];
-    (function run(k) {
-      if (k >= steps.length) { q(".fd-cap-s").classList.remove("fd-wait"); return; }
-      var st = steps[k];
-      var fire = function () {
-        if (st.go) move(st.go[0], st.go[1], MOVE, function () { after(st); run(k + 1); });
-        else { if (st.chip) light(st.chip[0]); after(st); run(k + 1); }
-      };
-      if (reduce) fire(); else later(fire, k === 0 ? READ(s) : Math.max((st.wait || 0) * PACE, GAP) + (steps[k - 1] && steps[k - 1].note ? NOTE : 0));
-    })(0);
-    sceneLen = lenOf(s);
-    elapsed = 0;
-    tick();
-  }
-  function tick() {
-    if (barFill) cancelAnimationFrame(barFill);
-    last = performance.now();
-    (function f(now) {
-      if (playing) elapsed += now - last;
-      last = now;
-      var k = Math.min(1, elapsed / sceneLen);
-      if (k >= 1 && playing) { if (cur < scenes.length - 1) show(cur + 1); else setPlaying(false); return; }
-      barFill = requestAnimationFrame(f);
-    })(last);
-  }
-  function stopAll() {
-    timers.forEach(clearTimeout); timers = [];
-    if (raf) cancelAnimationFrame(raf), raf = null;
-    if (barFill) cancelAnimationFrame(barFill), barFill = null;
-    playing = false;
-  }
-  function setPlaying(p) {
-    playing = p;
-    var end = !p && scenes && cur === scenes.length - 1 && elapsed >= sceneLen;
-    q(".fd-play-ic").innerHTML = p ? PAUSE : end ? REPLAY : PLAY;
-    q(".fd-play").setAttribute("aria-label", p ? "Pause" : end ? "Replay" : "Play");
-  }
-  function go(d) { var n = cur + d; if (!started || n < 0 || n >= scenes.length) return; show(n); }
-  function start() { started = true; cover.classList.add("fd-gone"); setPlaying(true); show(0); stage.focus({ preventScroll: true }); }
-  function togglePlay() {
-    if (!started) { start(); return; }
-    if (!playing && cur === scenes.length - 1 && elapsed >= sceneLen) { setPlaying(true); show(0); return; }
-    setPlaying(!playing);
-  }
-
-  // Screen readers don't hear a struck line drawn in SVG, so the slide's pairs are also given as text (made once).
-  var custDesc = document.createElement("p");
-  custDesc.id = "fd-cust-desc"; custDesc.hidden = true;
-  if (D.custom) custDesc.textContent = D.custom.rows.map(function (row) { return "Off the shelf: " + row[1].replace("|", " ").toLowerCase() + ". Built for you: " + row[3].toLowerCase() + "."; }).join(" ");
-  stage.appendChild(custDesc);
-  var sinksDesc = document.createElement("p");
-  sinksDesc.id = "fd-sinks-desc"; sinksDesc.hidden = true;
-  if (D.sinks) sinksDesc.textContent = D.sinks.rows.map(function (row) { return row[1] + "."; }).join(" ");
-  stage.appendChild(sinksDesc);
-
-  // Trade picker
-  var picker = q(".fd-picker");
-  D.order.forEach(function (key) {
-    var b = document.createElement("button");
-    b.type = "button"; b.setAttribute("role", "tab"); b.dataset.key = key; b.textContent = D.trades[key].pick;
-    b.addEventListener("click", function () { load(key); });
-    picker.appendChild(b);
-  });
-  cover.addEventListener("click", function (e) { e.stopPropagation(); start(); });
-  q(".fd-prev").addEventListener("click", function () { go(-1); });
-  q(".fd-next").addEventListener("click", function () { go(1); });
-  q(".fd-play").addEventListener("click", togglePlay);
-  // Tapping the picture pauses or plays (v4).
-  map.addEventListener("click", function () { togglePlay(); });
-  // Keys only while the walkthrough has focus: never a page-wide handler.
-  stage.addEventListener("keydown", function (e) {
-    if (e.target !== stage) return;
-    if (!started) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); start(); } return; }
-    if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
-    else if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
-    else if (e.key === " ") { e.preventDefault(); togglePlay(); }
-  });
-  load(D.order[0]);
-})();
-</script>
-    <div class="ks-midcta">
-      <p><strong>Want one built around your business?</strong> Tell us how your day goes in a few sentences. {{ ask_note }}</p>
       <a class="ks-button" href="#start" data-ev="start">Get a free example</a>
     </div>
   </div>

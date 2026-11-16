@@ -254,114 +254,72 @@
 @media (min-width: 900px) { .ks-stories.is-tabbed .ks-tabs { flex-wrap: wrap; overflow: visible; } .ks-stories .ks-feature { align-items: center; } }
 .ks-midcta p { flex: 1 1 26rem; }
 
-/* Flow demo (supplied by Kynoss 2026-10-18, scoped under .flow-demo) */
-/* Kynoss flow demo v4, embedded on /systems/ (supplied by Kynoss, 2026-10-20; replaces the 2026-10-18 .flow-demo block).
-   Everything is scoped under .flow-demo and uses the site's palette variables; the few extra shades are mixed from them.
-   v4: a spotlight on one step at a time, progress dots, chips that fade before a new one, bigger labels on phones. */
-.flow-demo { --fd-soft: color-mix(in srgb, var(--signal) 12%, var(--surface)); --fd-faint: color-mix(in srgb, var(--line) 70%, var(--surface));
-  --fd-ok: #1F7A4D; --fd-chip: var(--ink); --fd-chip-ink: var(--surface); max-width: 600px; margin: 0 auto; font-family: var(--font-text); color: var(--ink); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .flow-demo { --fd-ok: #5CC08A; } }
-:root[data-theme="dark"] .flow-demo { --fd-ok: #5CC08A; }
-.flow-demo .fd-picker { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 14px; }
-.flow-demo .fd-picker button { font: 600 14px/1 var(--font-text); border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px 14px; cursor: pointer; }
-.flow-demo .fd-picker button[aria-selected="true"] { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); }
-.flow-demo .fd-stage { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 12px 12px 16px; user-select: none; -webkit-user-select: none; outline: none; }
-.flow-demo .fd-stage:focus-visible { box-shadow: 0 0 0 3px color-mix(in srgb, var(--signal) 45%, transparent); }
-/* Progress dots: the current scene stretches and fills; done scenes stay tinted. */
-.flow-demo .fd-bars { display: flex; justify-content: center; gap: 6px; margin: 2px 2px 8px; }
-.flow-demo .fd-bars span { flex: 0 0 8px; height: 8px; border-radius: 999px; background: var(--fd-faint); overflow: hidden; transition: flex-basis .3s; }
-.flow-demo .fd-bars span.fd-done { background: var(--signal); opacity: .45; }
-.flow-demo .fd-bars span.fd-cur { flex-basis: 28px; }
-.flow-demo .fd-bars i { display: block; height: 100%; width: 0; background: var(--signal); }
-.flow-demo .fd-map { display: block; width: 100%; height: auto; cursor: pointer; touch-action: manipulation; }
-.flow-demo .fd-edge { stroke: var(--line); stroke-width: 2; stroke-dasharray: 4 5; transition: stroke .3s, opacity .6s; }
-.flow-demo .fd-edge.fd-on { stroke: var(--signal); stroke-dasharray: none; stroke-width: 2.5; }
-.flow-demo .fd-node { transition: opacity .6s; }
-.flow-demo .fd-gone { opacity: 0; }
-/* Spotlight (Steven, 2026-10-19: one thing at a time): during a step only its own nodes and line are lit. */
-.flow-demo .fd-map.fd-spot .fd-node:not(.fd-on):not(.fd-gone) { opacity: .28; }
-.flow-demo .fd-map.fd-spot .fd-edge:not(.fd-on):not(.fd-gone) { opacity: .25; }
-.flow-demo .fd-map.fd-spot .fd-chip.fd-show.fd-old, .flow-demo .fd-map.fd-spot .fd-note.fd-show.fd-old { opacity: .35; }
-.flow-demo .fd-node .fd-bg { fill: var(--surface); stroke: var(--line); stroke-width: 2; transition: fill .3s, stroke .3s; }
-.flow-demo .fd-node.fd-on .fd-bg { fill: var(--fd-soft); stroke: var(--signal); }
-.flow-demo .fd-node.fd-ai .fd-bg { fill: var(--signal); stroke: var(--signal); }
-.flow-demo .fd-node .fd-ic { color: var(--slate); transition: color .3s; }
-.flow-demo .fd-node.fd-on .fd-ic { color: var(--signal); }
-.flow-demo .fd-node.fd-ai .fd-ic { color: var(--signal-ink); }
-.flow-demo .fd-node text { font: 600 11px var(--font-text); fill: var(--slate); text-anchor: middle; paint-order: stroke; stroke: var(--surface); stroke-width: 5px; stroke-linejoin: round; }
-.flow-demo .fd-node.fd-on text { fill: var(--ink); }
-.flow-demo .fd-ring { fill: none; stroke: var(--signal); stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; }
-.flow-demo .fd-ring.fd-go { animation: fd-ring 1.2s ease-out infinite; }
-@keyframes fd-ring { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.7); } }
-.flow-demo .fd-pulse { fill: var(--signal); filter: drop-shadow(0 0 4px var(--signal)); }
-.flow-demo .fd-chip rect { fill: var(--fd-chip); }
-.flow-demo .fd-chip text { font: 600 12px var(--font-text); fill: var(--fd-chip-ink); text-anchor: middle; dominant-baseline: central; }
-.flow-demo .fd-chip, .flow-demo .fd-note { opacity: 0; transform: translateY(4px); transition: opacity .35s, transform .35s; transform-box: fill-box; }
-.flow-demo .fd-chip.fd-show, .flow-demo .fd-note.fd-show { opacity: 1; transform: none; }
-.flow-demo .fd-chip.fd-out { opacity: 0 !important; transition: opacity .25s; }
-.flow-demo .fd-card { fill: var(--surface); stroke: var(--signal); stroke-width: 1.5; filter: drop-shadow(0 4px 10px rgba(23,32,51,.18)); }
-.flow-demo .fd-note text { font: 600 12px var(--font-text); fill: var(--ink); dominant-baseline: central; }
-.flow-demo .fd-btn { fill: var(--signal); transition: fill .3s; }
-.flow-demo .fd-note .fd-btnt { font: 700 11px var(--font-text); fill: var(--signal-ink); text-anchor: middle; }
-.flow-demo .fd-note.fd-done .fd-btn { fill: var(--fd-ok); }
-.flow-demo .fd-tap { fill: var(--signal); opacity: 0; transform-box: fill-box; transform-origin: center; }
-.flow-demo .fd-tap.fd-go { animation: fd-tap .6s ease-out; }
-@keyframes fd-tap { from { opacity: .5; transform: scale(.4); } to { opacity: 0; transform: scale(2.2); } }
-.flow-demo .fd-cap { min-height: 120px; padding: 4px 6px 0; }
-.flow-demo .fd-cap h3 { font: 700 26px/1.12 var(--display); margin: 0 0 4px; color: var(--ink); }
-.flow-demo .fd-cap p { margin: 0; color: var(--slate); font-size: 16px; }
-.flow-demo .fd-cap h3, .flow-demo .fd-cap p { transition: opacity .25s; }
-.flow-demo .fd-cap.fd-fade h3, .flow-demo .fd-cap.fd-fade p { opacity: 0; }
-.flow-demo .fd-cap p.fd-wait { opacity: 0; }
-/* "Why custom" slide (Kynoss's template, 2026-11-05): off the shelf (struck, grey) against built for you (icon pills). */
-.flow-demo .fd-custg .fd-k { font: 700 11px var(--font-text); letter-spacing: .06em; fill: var(--slate); }
-.flow-demo .fd-custg .fd-k.fd-us { fill: var(--signal); }
-.flow-demo .fd-custg .fd-row { opacity: 0; transform: translateX(-6px); transition: opacity .7s, transform .7s; transform-box: fill-box; }
-.flow-demo .fd-custg .fd-row.fd-us { transform: translateX(6px); }
-.flow-demo .fd-custg.fd-grow .fd-row { opacity: 1; transform: none; }
-.flow-demo .fd-custg .fd-them text { font: 600 15px var(--font-text); fill: var(--slate); text-decoration: line-through; }
-.flow-demo .fd-custg .fd-them .fd-ic { color: var(--slate); }
-.flow-demo .fd-custg .fd-pill { fill: var(--fd-soft); }
-.flow-demo .fd-custg .fd-us text { font: 700 16px var(--display); fill: var(--ink); }
-.flow-demo .fd-custg .fd-us .fd-ic { color: var(--signal); }
-/* Time-sinks slide (Kynoss's template, 2026-11-05): one pill at a time. */
-.flow-demo .fd-sinksg .fd-row { opacity: 0; transform: translateY(6px); transition: opacity .7s, transform .7s; transform-box: fill-box; }
-.flow-demo .fd-sinksg.fd-grow .fd-row { opacity: 1; transform: none; }
-.flow-demo .fd-sinksg .fd-pill { fill: var(--fd-soft); }
-.flow-demo .fd-sinksg text { font: 700 16px var(--display); fill: var(--ink); }
-.flow-demo .fd-sinksg .fd-ic { color: var(--signal); }
-.flow-demo .fd-ctrl { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
-.flow-demo .fd-ctrl button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
-.flow-demo .fd-ctrl button svg { width: 20px; height: 20px; }
-.flow-demo .fd-cover { position: absolute; inset: 0; z-index: 2; border: 0; border-radius: 20px; padding: 24px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center;
-  background: color-mix(in srgb, var(--surface) 82%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--ink); font: inherit; transition: opacity .35s; }
-.flow-demo .fd-cover.fd-gone { opacity: 0; pointer-events: none; }
-.flow-demo .fd-cover-t { font: 700 26px/1.15 var(--display); max-width: 16ch; text-wrap: balance; }
-.flow-demo .fd-cover-play { width: 72px; height: 72px; border-radius: 999px; background: var(--signal); color: var(--signal-ink); display: grid; place-items: center; box-shadow: 0 8px 24px color-mix(in srgb, var(--signal) 35%, transparent); }
-.flow-demo .fd-cover-play svg { width: 30px; height: 30px; margin-left: 4px; }
-.flow-demo .fd-cover-s { font-size: 14px; color: var(--slate); font-weight: 600; }
-/* Phone first (375px): the picture is drawn at ~0.82 scale there, so these render at about 13 / 15 / 14 px. */
-@media (max-width: 700px) {
-  .flow-demo .fd-node text { font-size: 16px; stroke-width: 5.5px; }
-  .flow-demo .fd-node.fd-on text { font-weight: 700; }
-  .flow-demo .fd-chip text { font-size: 18px; }
-  .flow-demo .fd-note text { font-size: 17px; }
-  .flow-demo .fd-note .fd-btnt { font-size: 13px; }
-  .flow-demo .fd-cap h3 { font-size: 24px; }
-  .flow-demo .fd-cap p { font-size: 17px; }
-  .flow-demo .fd-custg .fd-k { font-size: 14px; }
-  .flow-demo .fd-custg .fd-them text { font-size: 16px; }
-  .flow-demo .fd-custg .fd-us text { font-size: 17px; }
-  .flow-demo .fd-sinksg text { font-size: 17px; }
-  .flow-demo .fd-stage { padding: 10px 8px 14px; }
-}
-@media (min-width: 900px) { .flow-demo .fd-cap h3 { font-size: 30px; } .flow-demo .fd-cover-t { font-size: 32px; } }
-@media (prefers-reduced-motion: reduce) {
-  .flow-demo .fd-chip, .flow-demo .fd-note, .flow-demo .fd-cap h3, .flow-demo .fd-cap p, .flow-demo .fd-cover, .flow-demo .fd-edge, .flow-demo .fd-node, .flow-demo .fd-bars span, .flow-demo .fd-custg .fd-row, .flow-demo .fd-sinksg .fd-row { transition: none; }
-  .flow-demo .fd-ring.fd-go, .flow-demo .fd-tap.fd-go { animation: none; }
-}
+/* The walkthrough under "See it at work" (2026-11-15, Steven: software first). The owner's own screen through one day,
+   replacing Kynoss's flow demo v4 (messages between customer, AI and owner). Draft and stills: ~/Systems/docs/delivery/flow-draft/.
+   Scoped under .ks-walk, on the site's palette. Nothing plays until tapped; one thing lit at a time. */
+.ks-walk { max-width: 600px; margin: 0 auto; --ok: #1F7A4D; --ok-bg: #E3F3EA; --info-bg: #E6ECFD; --you: #7A4A00; --you-bg: #FBE7C6; --you-row: #FDF3E0; --lit: #EEF2FF; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ks-walk { --ok: #7FD9AA; --ok-bg: #173527; --info-bg: #1E2A52; --you: #FFD08A; --you-bg: #4A3413; --you-row: #2E2616; --lit: #1F2947; } }
+:root[data-theme="dark"] .ks-walk { --ok: #7FD9AA; --ok-bg: #173527; --info-bg: #1E2A52; --you: #FFD08A; --you-bg: #4A3413; --you-row: #2E2616; --lit: #1F2947; }
+.ks-walk .picker { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 12px; }
+.ks-walk .picker button { font: 600 14px/1 var(--font-text); border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px 14px; cursor: pointer; }
+.ks-walk .picker button[aria-selected="true"] { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); }
+.ks-walk .stage { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 12px 12px 14px; outline: none; }
+.ks-walk .bars { display: flex; gap: 4px; margin: 2px 4px 12px; }
+.ks-walk .bars i { flex: 1; height: 3px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.ks-walk .bars i b { display: block; height: 100%; width: 0; background: var(--signal); }
+.ks-walk .bars i.done b { width: 100%; }
+.ks-walk .win { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--paper); min-height: 372px; }
+.ks-walk .winbar { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 12px 14px 10px; }
+.ks-walk .winbar b { font-weight: 700; font-size: 15px; }
+.ks-walk .winbar span { font-size: 12.5px; color: var(--slate); }
+.ks-walk .tabs { display: flex; gap: 2px; padding: 0 10px; border-bottom: 1px solid var(--line); }
+.ks-walk .tabs span { font-size: 13px; font-weight: 600; color: var(--slate); padding: 8px 10px; border-bottom: 2px solid transparent; transition: color .3s, border-color .3s; }
+.ks-walk .tabs span.on { color: var(--signal); border-color: var(--signal); }
+.ks-walk .pane { padding: 12px 14px 14px; display: grid; gap: 10px; align-content: start; }
+.ks-walk .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ks-walk .stats div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 9px 10px; display: grid; gap: 1px; transition: background .4s, border-color .4s; }
+.ks-walk .stats div.lit { background: var(--lit); border-color: var(--signal); }
+.ks-walk .stats strong { font-size: clamp(17px, 4.6vw, 22px); line-height: 1.15; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.ks-walk .stats span { font-size: 12px; color: var(--slate); }
+.ks-walk .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ks-walk .rows li { display: grid; grid-template-columns: 4.4em minmax(0, 1fr) auto; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 9px 10px; opacity: 0; transform: translateY(6px); transition: opacity .5s, transform .5s, background .4s, border-color .4s; }
+.ks-walk .rows li.in { opacity: 1; transform: none; }
+.ks-walk .rows li.lit { background: var(--lit); border-color: var(--signal); }
+.ks-walk .rows li.you { background: var(--you-row); border-color: var(--you-bg); }
+.ks-walk .rows time { font-size: 12.5px; color: var(--slate); font-variant-numeric: tabular-nums; }
+.ks-walk .rows span { font-size: 14px; font-weight: 550; }
+.ks-walk .rows em { font-style: normal; font-size: 12px; font-weight: 650; padding: 3px 9px; border-radius: 999px; white-space: nowrap; color: var(--ok); background: var(--ok-bg); transition: background .3s, color .3s; }
+.ks-walk .rows em.info { color: var(--signal); background: var(--info-bg); }
+.ks-walk .rows em.you { color: var(--you); background: var(--you-bg); }
+.ks-walk .rows em.swap { animation: ks-walk-pop .5s; }
+@keyframes ks-walk-pop { 0% { transform: scale(.8); opacity: .2; } 100% { transform: none; opacity: 1; } }
+.ks-walk .ask { display: grid; gap: 10px; }
+.ks-walk .ask p { margin: 0; padding: 10px 12px; border-radius: 14px; font-size: 14.5px; opacity: 0; transform: translateY(6px); transition: opacity .5s, transform .5s; max-width: 92%; }
+.ks-walk .ask p.in { opacity: 1; transform: none; }
+.ks-walk .ask .q { justify-self: end; background: var(--signal); color: var(--signal-ink); font-weight: 600; border-bottom-right-radius: 4px; }
+.ks-walk .ask .a { background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+.ks-walk .ask .src { display: flex; gap: 6px; padding: 0; background: none; border: 0; }
+.ks-walk .ask .src i { font-style: normal; font-size: 12px; font-weight: 650; color: var(--signal); background: var(--info-bg); padding: 3px 9px; border-radius: 999px; }
+.ks-walk .fit { list-style: none; margin: 0; padding: 4px 0; display: grid; gap: 8px; }
+.ks-walk .fit li { display: flex; gap: 10px; align-items: center; font-weight: 600; opacity: 0; transform: translateY(6px); transition: opacity .5s, transform .5s; }
+.ks-walk .fit li.in { opacity: 1; transform: none; }
+.ks-walk .fit li::before { content: "✓"; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--ok-bg); color: var(--ok); font-size: 13px; flex: none; }
+.ks-walk .cap { min-height: 124px; padding: 14px 6px 4px; text-align: center; }
+.ks-walk .cap h3 { margin: 0; font-size: clamp(20px, 5vw, 26px); line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; opacity: 0; transition: opacity .45s; }
+.ks-walk .cap p { margin: 6px 0 0; color: var(--slate); text-wrap: balance; opacity: 0; transition: opacity .45s; }
+.ks-walk .cap .in { opacity: 1; }
+.ks-walk .ctrl { display: flex; justify-content: center; gap: 10px; }
+.ks-walk .ctrl button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.ks-walk .ctrl svg { width: 20px; height: 20px; }
+.ks-walk .cover { position: absolute; inset: 0; z-index: 2; border: 0; border-radius: 20px; cursor: pointer; display: grid; place-content: center; justify-items: center; gap: 14px; color: var(--ink); background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); font: inherit; font-family: var(--font-text); }
+.ks-walk .cover[hidden] { display: none; }
+.ks-walk .cover b { font-size: clamp(22px, 5.5vw, 30px); line-height: 1.15; max-width: 16ch; text-wrap: balance; }
+.ks-walk .cover i { width: 68px; height: 68px; border-radius: 50%; background: var(--signal); color: var(--signal-ink); display: grid; place-items: center; }
+.ks-walk .cover i svg { width: 26px; height: 26px; }
+.ks-walk .cover span { font-size: 14px; color: var(--slate); font-weight: 600; }
+.ks-walk .note { margin: 14px 0 0; font-size: 12.5px; color: var(--slate); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .ks-walk * { transition: none !important; animation: none !important; } }
 
-.ks-sysflow .flow-demo { margin-top: 8px; }
 .ks-sysflow .ks-midcta { margin-top: 24px; }
 
 /* Hero: an example of the owner's own screen (2026-11-15). A picture, not a live view. */
