@@ -114,7 +114,7 @@
     ],
     [
       "What does it cost?",
-      "It depends on what the system does. Tell us the idea and we'll come back with a plan and a price. You pay nothing until you decide to go ahead with a build."
+      "One flat monthly price, with no setup fee. We make a free example for your business first, walk you through it on a 20-minute call and give you the price after that. You pay nothing until you decide to go ahead."
     ],
     [
       "What happens once it's built?",
@@ -159,16 +159,16 @@
   },
   "steps": [
     [
-      "Tell us the idea",
-      "A sentence is enough: the thing you keep losing track of, the job that eats your evenings, the question you wish you could just ask."
+      "Tell us about your business",
+      "A few lines is enough: what wears you down, what eats your evenings, what keeps slipping."
     ],
     [
-      "We map how the work happens",
-      "Where information arrives, what decisions you make, who else is involved and what a great result looks like to you."
+      "We make a free example",
+      "Built for your business, not a generic demo. We walk you through it on a 20-minute call."
     ],
     [
-      "You decide what it handles",
-      "What it does on its own, what it checks with you first and how it reaches you. It's your system, set up your way."
+      "You get one price and decide",
+      "A flat monthly price, with no setup fee and no obligation."
     ],
     [
       "We build it and switch it on",
@@ -210,62 +210,28 @@
     ]
   },
   "custom": {
-    "title": "Why one built for you?",
-    "lede": "General AI assistants are made for everyone, and they're great for one-off questions. A system is made for the work that keeps coming back.",
-    "them": "A general AI assistant",
-    "us": "A system built for you",
+    "title": "Why not off-the-shelf software?",
+    "lede": "Off-the-shelf software is made for the average business. Yours is built for one, and it does the work instead of waiting for you to enter it.",
+    "them": "Off-the-shelf software",
+    "us": "Software built for you",
     "rows": [
       [
-        "Built around a chat: you bring it the work",
-        "Built around your job: the work comes to it"
+        "You change how you work to fit it",
+        "Built around how you already work"
       ],
       [
-        "Set up by you, one prompt at a time",
-        "Designed, built and tested for you"
+        "A bundle of features, most of them unused",
+        "Only what your business needs"
       ],
       [
-        "Made to suit everyone",
-        "Your categories, your rules, your format"
+        "You type everything in, and it stores it",
+        "It sorts, tracks, drafts and follows up for you"
       ],
       [
-        "One more tool next to the others",
-        "Your email, files and calendars joined in one place"
+        "You wait for the feature you need",
+        "Ask, and we build it"
       ]
     ]
-  },
-  "story": {
-    "title": "It connects the dots",
-    "lede": "A real question to our personal system, with the details changed. Nobody told it where to look.",
-    "ask": "When did I get the truck serviced, and what did it all cost?",
-    "answer": "Your truck was serviced on the 14th: one shop receipt and one matching card charge. The parts ordered that same week were for the other car, so I left them out.",
-    "sources": [
-      "Email",
-      "Card charges",
-      "Texts"
-    ],
-    "steps": [
-      [
-        "mail",
-        "Email",
-        "Finds the shop's service receipt and the date."
-      ],
-      [
-        "card",
-        "Card charges",
-        "Matches the charge that goes with it."
-      ],
-      [
-        "bag",
-        "Orders",
-        "Spots a parts order from the same week that looks like part of the job."
-      ],
-      [
-        "chat",
-        "Texts",
-        "Finds a text thread about fixing someone else's car, and sets those parts aside."
-      ]
-    ],
-    "kicker": "Nobody mentioned the other car. It worked that out on its own."
   },
   "build": {
     "title": "What we can build",
@@ -679,8 +645,8 @@
   ],
   "ask_note": "It costs nothing to find out what we could save you.",
   "flow": {
-    "title": "See it at work",
-    "lede": "Four kinds of business, one to two minutes each. Pick one and tap play."
+    "title": "If you want it to talk to your customers",
+    "lede": "Answering customers is one option, not the whole system. Four kinds of business, one to two minutes each. Pick one and tap play."
   },
   "flow_demo": {
     "order": [

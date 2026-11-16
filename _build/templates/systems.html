@@ -38,41 +38,31 @@
       <p class="ks-eyebrow">Custom software, AI built in</p>
       <h1 class="ks-display ks-h1">Hand off the work that eats your week</h1>
       <p class="ks-lede">Software built around your business, with AI inside it. One place for your customers, jobs, schedule and money, and the sorting, tracking and drafting done for you, day and night, without being asked.</p>
-      <p class="ks-muted">Built around the way you already work. <a href="#cases">See five examples</a>: an app studio, a condo board, a wedding, a household and a research desk.</p>
+      <p class="ks-muted">Built the way we built our own. <a href="#cases">See the five systems we run ourselves</a>.</p>
       <div class="ks-actions">
-        <a class="ks-button" href="#start">Tell us your idea</a>
-        <a class="ks-button is-quiet" href="#see-it">See it at work</a>
+        <a class="ks-button" href="#start" data-ev="start">Get a free example for my business</a>
+        <a class="ks-button is-quiet" href="#ideas">See what it could do</a>
       </div>
       <p class="ks-hero-note">{{ ask_note }}</p>
     </div>
-    <figure class="ks-sysphone-wrap" role="img" aria-label="Illustration: a phone showing one morning message that pulls together updates from several systems: new app reviews, a board deadline, wedding RSVPs, a birthday reminder and a finished forecast report.">
-      <div class="ks-phone ks-sysphone" aria-hidden="true">
-        <div class="ks-phone-screen">
-          <div class="ks-phone-status"><span>7:00</span><i></i></div>
-          <p class="ks-phone-app">Morning brief</p>
-          <p class="ks-phone-hi">Good morning.</p>
-          <div class="ks-phone-card">
-            <p class="ks-phone-k">Overnight</p>
-            <ul>
-              <li><b>2 new app reviews</b><span>Both 5 stars</span></li>
-              <li><b>4 new RSVPs</b><span>Wedding</span></li>
-              <li><b>Forecast report</b><span>Ready</span></li>
-            </ul>
-          </div>
-          <div class="ks-phone-card">
-            <p class="ks-phone-k">Coming up</p>
-            <ul>
-              <li><b>Budget to owners</b><span class="is-amber">Nov 14</span></li>
-              <li><b>Mom's birthday</b><span>Saturday</span></li>
-            </ul>
-          </div>
-          <div class="ks-phone-card is-cta">
-            <p class="ks-phone-k">Needs you</p>
-            <ul><li><b>Roof bids, side by side</b><span>Open</span></li></ul>
-          </div>
+    <figure class="ks-sysdash-wrap" role="img" aria-label="An example of an owner's screen: seven jobs today, 4,280 dollars owed, two new requests, and a list of things already handled today, with one refund request waiting for the owner.">
+      <div class="ks-sysdash" aria-hidden="true">
+        <div class="ks-dash-bar"><b>Your business, today</b><span>Tue 2:15 pm</span></div>
+        <div class="ks-dash-stats">
+          <div><strong>7</strong><span>jobs today</span></div>
+          <div><strong>$4,280</strong><span>owed to you</span></div>
+          <div><strong>2</strong><span>new requests</span></div>
         </div>
+        <p class="ks-dash-k">Handled for you today</p>
+        <ul class="ks-dash-rows">
+          <li><time>8:10</time><span>Quote sent for the Hill St job</span><em>Done</em></li>
+          <li><time>9:05</time><span>Reminder on an overdue invoice</span><em>Paid 11:20</em></li>
+          <li><time>10:30</time><span>Thursday's visit moved to Friday</span><em>Done</em></li>
+          <li><time>1:15</time><span>Supplier's bill read and filed</span><em class="is-info">Due the 28th</em></li>
+          <li class="is-you"><time>2:02</time><span>A customer asked for a refund</span><em>Needs you</em></li>
+        </ul>
       </div>
-      <figcaption class="ks-syscap">Illustration</figcaption>
+      <figcaption class="ks-syscap">An example of what we'd build for your business</figcaption>
     </figure>
   </div>
 </section>
@@ -96,36 +86,6 @@
   </div>
 </section>
 
-<section class="ks-section ks-sysstory" id="story" aria-labelledby="story-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="story-h">{{ story.title }}</h2>
-      <p class="ks-lede">{{ story.lede }}</p>
-    </div>
-    <div class="ks-story">
-      <div class="ks-story-chat">
-        <div class="ks-call-head ks-story-head"><span class="ks-call-dot"></span>Text to your personal system</div>
-        <p class="ks-bubble is-me"><span class="ks-sr">The question: </span>{{ story.ask }}</p>
-        <div class="ks-bubble is-it">
-          <p><span class="ks-sr">The answer: </span>{{ story.answer }}</p>
-          <ul class="ks-story-src" aria-label="Sources">
-            {%- for src in story.sources %}<li>{{ src }}</li>{%- endfor %}
-          </ul>
-        </div>
-      </div>
-      <div class="ks-story-how">
-        <h3>How it got there</h3>
-        <ol class="ks-story-steps">
-          {%- for g, src, t in story.steps %}
-          <li><span class="ks-pglyph">{{ sg(g) }}</span><div><strong>{{ src }}</strong><p>{{ t }}</p></div></li>
-          {%- endfor %}
-        </ol>
-        <p class="ks-story-kicker">{{ story.kicker }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="ks-section ks-sysbuild" id="build" aria-labelledby="buildcap-h">
   <div class="ks-wrap">
     <div class="ks-section-head">
@@ -138,6 +98,86 @@
       {%- endfor %}
     </ul>
     <p class="ks-blocks-tools">{{ build.tools }}</p>
+  </div>
+</section>
+
+<section class="ks-section ks-sysideas" id="ideas" aria-labelledby="ideas-h">
+  <div class="ks-wrap">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
+      <p class="ks-lede">If you can describe the job, we can probably build software for it. Pick one to see it work.</p>
+    </div>
+    <div class="ks-stories" data-stories>
+      <div class="ks-tabs" role="tablist" aria-label="Examples">
+        {%- for st in stories %}
+        <button type="button" role="tab" id="tab-{{ st.id }}" aria-controls="story-{{ st.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}"{% if not loop.first %} tabindex="-1"{% endif %}>{{ sg(st.glyph) }}{{ st.tab }}</button>
+        {%- endfor %}
+      </div>
+      {%- for st in stories %}
+      <article class="ks-feature" role="tabpanel" id="story-{{ st.id }}" aria-labelledby="tab-{{ st.id }}">
+        <div class="ks-feature-copy">
+          <p class="ks-feature-kind">{{ st.kind }}{% if st.experimental %} <span class="ks-tag">Experimental</span>{% endif %}</p>
+          <h3 class="ks-display">{{ st.title }}</h3>
+          <p class="ks-feature-moment">{{ st.moment }}</p>
+          <p class="ks-feature-result"><strong>The result:</strong> {{ st.result }}</p>
+        </div>
+        <figure class="ks-call" aria-label="Illustration of how the system handles it">
+          {%- if st.call %}
+          <div class="ks-call-head"><span class="ks-call-dot"></span>Incoming call · answered by your receptionist</div>
+          <ol class="ks-call-lines">
+            {%- for who, line in st.call %}
+            <li class="is-{{ who }}"><span>{{ "Caller" if who == "caller" else "Receptionist" }}</span>{{ line }}</li>
+            {%- endfor %}
+          </ol>
+          {%- else %}
+          <div class="ks-call-head"><span class="ks-call-dot"></span>What your system does</div>
+          <ol class="ks-trail">
+            {%- for t in st.trail %}
+            <li{% if t.catch %} class="is-catch"{% endif %}><span class="ks-trail-ic">{{ sg(t.glyph) }}</span><div><strong>{{ t.source }}{% if t.catch %} <em>The catch</em>{% endif %}</strong><p>{{ t.text }}</p></div></li>
+            {%- endfor %}
+          </ol>
+          {%- endif %}
+          <div class="ks-call-text"><span>What you see</span>{{ st.notify }}</div>
+          <figcaption class="ks-syscap">Illustration</figcaption>
+        </figure>
+      </article>
+      {%- endfor %}
+    </div>
+    <script>
+    (function () {
+      var root = document.querySelector("[data-stories]");
+      if (!root) return;
+      var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+      root.classList.add("is-tabbed");
+      function show(i, focus) {
+        tabs.forEach(function (t, j) {
+          var on = j === i;
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.tabIndex = on ? 0 : -1;
+          panels[j].hidden = !on;
+        });
+        if (focus) { tabs[i].focus(); }
+        var bar = tabs[i].parentNode;
+        bar.scrollTo({ left: tabs[i].offsetLeft - 16, behavior: "smooth" });
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener("click", function () { show(i, false); });
+        t.addEventListener("keydown", function (e) {
+          var k = e.key, n = tabs.length;
+          if (k === "ArrowRight") { e.preventDefault(); show((i + 1) % n, true); }
+          if (k === "ArrowLeft") { e.preventDefault(); show((i - 1 + n) % n, true); }
+          if (k === "Home") { e.preventDefault(); show(0, true); }
+          if (k === "End") { e.preventDefault(); show(n - 1, true); }
+        });
+      });
+      panels.forEach(function (p, j) { p.hidden = j !== 0; });
+    })();
+    </script>
+    <div class="ks-midcta">
+      <p><strong>Have a job like one of these?</strong> Tell us about it in a few sentences. {{ ask_note }}</p>
+      <a class="ks-button" href="#start" data-ev="start">Get a free example</a>
+    </div>
   </div>
 </section>
 
@@ -504,87 +544,7 @@
 </script>
     <div class="ks-midcta">
       <p><strong>Want one built around your business?</strong> Tell us how your day goes in a few sentences. {{ ask_note }}</p>
-      <a class="ks-button" href="#start">Tell us about it</a>
-    </div>
-  </div>
-</section>
-
-<section class="ks-section ks-sysideas" aria-labelledby="ideas-h">
-  <div class="ks-wrap">
-    <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="ideas-h">What could yours do?</h2>
-      <p class="ks-lede">If you can describe the job, we can probably build software for it. Pick one to see it work.</p>
-    </div>
-    <div class="ks-stories" data-stories>
-      <div class="ks-tabs" role="tablist" aria-label="Examples">
-        {%- for st in stories %}
-        <button type="button" role="tab" id="tab-{{ st.id }}" aria-controls="story-{{ st.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}"{% if not loop.first %} tabindex="-1"{% endif %}>{{ sg(st.glyph) }}{{ st.tab }}</button>
-        {%- endfor %}
-      </div>
-      {%- for st in stories %}
-      <article class="ks-feature" role="tabpanel" id="story-{{ st.id }}" aria-labelledby="tab-{{ st.id }}">
-        <div class="ks-feature-copy">
-          <p class="ks-feature-kind">{{ st.kind }}{% if st.experimental %} <span class="ks-tag">Experimental</span>{% endif %}</p>
-          <h3 class="ks-display">{{ st.title }}</h3>
-          <p class="ks-feature-moment">{{ st.moment }}</p>
-          <p class="ks-feature-result"><strong>The result:</strong> {{ st.result }}</p>
-        </div>
-        <figure class="ks-call" aria-label="Illustration of how the system handles it">
-          {%- if st.call %}
-          <div class="ks-call-head"><span class="ks-call-dot"></span>Incoming call · answered by your receptionist</div>
-          <ol class="ks-call-lines">
-            {%- for who, line in st.call %}
-            <li class="is-{{ who }}"><span>{{ "Caller" if who == "caller" else "Receptionist" }}</span>{{ line }}</li>
-            {%- endfor %}
-          </ol>
-          {%- else %}
-          <div class="ks-call-head"><span class="ks-call-dot"></span>What your system does</div>
-          <ol class="ks-trail">
-            {%- for t in st.trail %}
-            <li{% if t.catch %} class="is-catch"{% endif %}><span class="ks-trail-ic">{{ sg(t.glyph) }}</span><div><strong>{{ t.source }}{% if t.catch %} <em>The catch</em>{% endif %}</strong><p>{{ t.text }}</p></div></li>
-            {%- endfor %}
-          </ol>
-          {%- endif %}
-          <div class="ks-call-text"><span>What you see</span>{{ st.notify }}</div>
-          <figcaption class="ks-syscap">Illustration</figcaption>
-        </figure>
-      </article>
-      {%- endfor %}
-    </div>
-    <script>
-    (function () {
-      var root = document.querySelector("[data-stories]");
-      if (!root) return;
-      var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
-      var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
-      root.classList.add("is-tabbed");
-      function show(i, focus) {
-        tabs.forEach(function (t, j) {
-          var on = j === i;
-          t.setAttribute("aria-selected", on ? "true" : "false");
-          t.tabIndex = on ? 0 : -1;
-          panels[j].hidden = !on;
-        });
-        if (focus) { tabs[i].focus(); }
-        var bar = tabs[i].parentNode;
-        bar.scrollTo({ left: tabs[i].offsetLeft - 16, behavior: "smooth" });
-      }
-      tabs.forEach(function (t, i) {
-        t.addEventListener("click", function () { show(i, false); });
-        t.addEventListener("keydown", function (e) {
-          var k = e.key, n = tabs.length;
-          if (k === "ArrowRight") { e.preventDefault(); show((i + 1) % n, true); }
-          if (k === "ArrowLeft") { e.preventDefault(); show((i - 1 + n) % n, true); }
-          if (k === "Home") { e.preventDefault(); show(0, true); }
-          if (k === "End") { e.preventDefault(); show(n - 1, true); }
-        });
-      });
-      panels.forEach(function (p, j) { p.hidden = j !== 0; });
-    })();
-    </script>
-    <div class="ks-midcta">
-      <p><strong>Have a job like one of these?</strong> Tell us about it in a few sentences. {{ ask_note }}</p>
-      <a class="ks-button" href="#start">Tell us your idea</a>
+      <a class="ks-button" href="#start" data-ev="start">Get a free example</a>
     </div>
   </div>
 </section>
@@ -661,34 +621,45 @@
   </div>
 </section>
 
-<section class="ks-section ks-sysclose" id="start" aria-labelledby="build-h">
+<section class="ks-section ks-sysclose" aria-labelledby="build-h">
   <div class="ks-wrap">
     <div class="ks-band">
       <div class="ks-section-head">
-        <h2 class="ks-display ks-h2" id="build-h">How we'd build yours</h2>
-        <p class="ks-lede">The same way we built ours: start from the idea, build around how you actually work, and keep improving it once it's running.</p>
+        <h2 class="ks-display ks-h2" id="build-h">See yours before you decide</h2>
+        <p class="ks-lede">You don't buy anything to find out what it would do for you.</p>
       </div>
       <ol class="ks-path">
         {%- for t, d in steps %}
         <li><span class="ks-path-n">{{ loop.index }}</span><h3>{{ t }}</h3><p>{{ d }}</p></li>
         {%- endfor %}
       </ol>
-      <div class="ks-close-in">
-        <div class="ks-close-cta">
-          <h2 class="ks-display" id="start-h">Have an idea that needs its own system?</h2>
-          <p>Send us a few sentences about what you want handled. We'll come back with what your system could do and what the first version would look like. {{ ask_note }}</p>
-          <div class="ks-close-act">
-            <a class="ks-button" href="mailto:{{ site.studio.email }}?subject=Custom%20system%20idea">{{ sg("mail") }}Email us your idea</a>
-            <span>{{ site.studio.email }}</span>
-          </div>
-        </div>
-        <div class="ks-close-me">
-          <h3>Who builds it</h3>
-          <p>Kynoss Studios designs and builds with Claude, Anthropic's AI. So far that's {{ site.live|length }} iPhone apps on the App Store with {{ stats.updates }}+ updates, a live wedding website, an assistant for a condo board, a personal records system and a forecasting research desk.</p>
-          <p><a href="/how-we-build/">See how the studio works</a></p>
-        </div>
-      </div>
+      <p class="ks-band-price"><strong>One flat monthly price. No setup fee.</strong> We give you the figure after the call, once we know what you need.</p>
     </div>
   </div>
+</section>
+
+<section class="ks-section ks-sysstart" id="start" aria-labelledby="start-h">
+  <div class="ks-wrap"><div class="ks-contact">
+    <div class="ks-section-head">
+      <h2 class="ks-display ks-h2" id="start-h">Get a free example for your business</h2>
+      <p class="ks-lede">Tell us what wears you down about running your business. A person replies, usually within a day, with an example of how we'd take it off you.</p>
+    </div>
+    <form class="ks-form" data-ks-intake="https://kynoss-intake.kynossstudios.workers.dev/lead" novalidate>
+      <div class="ks-form-row">
+        <label>Your name<input name="name" autocomplete="name" maxlength="100" required></label>
+        <label>Email or phone<input name="contact" autocomplete="email" maxlength="200" required></label>
+      </div>
+      <label><span>Business name <span class="ks-muted">(optional)</span></span><input name="business" autocomplete="organization" maxlength="150"></label>
+      <label>What frustrates you most, or eats the most time, in running your business?<textarea name="about" rows="4" maxlength="2000" required placeholder="A line or two is plenty."></textarea></label>
+      <label class="ks-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="ks-form-foot">
+        <button class="ks-button" type="submit">Send</button>
+        <p class="ks-small ks-muted">We use this only to reply to you, and never share or sell it. <a href="/privacy/#contact-form">How it's kept</a></p>
+      </div>
+      <p class="ks-form-status" role="status" aria-live="polite"></p>
+      <noscript><p class="ks-small">This form needs JavaScript. You can email us instead at <a href="mailto:{{ site.studio.email }}">{{ site.studio.email }}</a>.</p></noscript>
+    </form>
+    <p class="ks-small ks-muted ks-sysstart-who">Prefer email? <a href="mailto:{{ site.studio.email }}?subject=Custom%20software">{{ site.studio.email }}</a>. Kynoss Studios designs and builds with Claude, Anthropic's AI: {{ site.live|length }} iPhone apps on the App Store with {{ stats.updates }}+ updates, and the five systems above. <a href="/how-we-build/">See how the studio works</a>.</p>
+  </div></div>
 </section>
 {% endblock %}
