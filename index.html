@@ -20,6 +20,135 @@
 <meta property="og:description" content="Kynoss Studios designs, builds and runs custom AI systems built around the way you already work. Also 17 iPhone apps, with no ads, accounts or tracking.">
 <meta property="og:image" content="https://kynossstudios.com/assets/og/studio.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0E17">
+<style>
+:root:root:root { --paper: #0A0E17; --surface: #111827; --ink: #EEF2FA; --slate: #A3AEC2; --line: #232D40; --signal: #6ADCFF; --signal-ink: #06121A; --screen: #151D2E; --screen-label: #EEF2FA; --you: #FFB454; --you-ink: #1F1300; color-scheme: dark; }
+.hx { --pad: clamp(56px, 9vw, 112px); }
+.hx-wrap { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gutter); }
+.hx h2 { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: clamp(30px, 5.2vw, 52px); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 14px; text-wrap: balance; }
+.hx p.hx-sub { color: var(--slate); font-size: clamp(17px, 2vw, 20px); max-width: 56ch; margin: 0; }
+.hx section { padding: var(--pad) 0; }
+.hx section + section { border-top: 1px solid var(--line); }
+
+/* ---- hero ---- */
+.hx-hero { position: relative; overflow: hidden; padding: clamp(28px, 6vw, 72px) 0 var(--pad) !important; }
+.hx-hero::before { content: ""; position: absolute; inset: -20% -10% auto auto; width: 70vw; max-width: 900px; aspect-ratio: 1; background: radial-gradient(closest-side, rgba(106, 220, 255, .13), transparent 70%); pointer-events: none; }
+.hx-hero-grid { position: relative; display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .hx-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; } }
+.hx p.hx-kicker { color: var(--signal); font-weight: 600; font-size: 15px; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+.hx-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 5px rgba(106, 220, 255, .16); }
+.hx-hero h1 { font-family: var(--display); font-stretch: 88%; font-weight: 800; font-size: clamp(50px, 11.5vw, 100px); line-height: .94; letter-spacing: -0.02em; margin: 0 0 22px; }
+.hx-hero h1 span { display: block; }
+.hx p.hx-lede { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.45; color: var(--slate); max-width: 34ch; margin: 0 0 26px; }
+.hx p.hx-lede b { color: var(--ink); font-weight: 600; }
+.hx-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+.hx-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 14px 22px; border-radius: 14px; font-weight: 650; font-size: 17.5px; text-decoration: none; border: 1.5px solid transparent; cursor: pointer; font-family: inherit; }
+.hx-btn.is-main { background: var(--signal); color: var(--signal-ink); box-shadow: 0 10px 30px -12px rgba(106, 220, 255, .7); }
+.hx-btn.is-line { border-color: color-mix(in srgb, var(--signal) 55%, transparent); color: var(--signal); background: transparent; }
+.hx-btn:active { transform: translateY(1px); }
+.hx-btn:focus-visible, .hx-tab:focus-visible, .hx-ok:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.hx-btn svg { width: 19px; height: 19px; flex: none; }
+@media (max-width: 480px) { .hx-cta .hx-btn { width: 100%; } }
+.hx p.hx-note { color: var(--slate); font-size: 15px; margin: 0; }
+
+/* ---- the scene: one job, start to finish ---- */
+.hx-scene { justify-self: center; width: 100%; max-width: 400px; }
+.hx-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.hx-tab { flex: 1; min-height: 44px; padding: 8px 6px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--slate); font: 600 14.5px/1.15 var(--font-text); cursor: pointer; }
+.hx-tab[aria-selected="true"] { background: var(--surface); color: var(--ink); border-color: color-mix(in srgb, var(--signal) 50%, var(--line)); }
+.hx-phone { position: relative; border-radius: 34px; padding: 10px; background: linear-gradient(160deg, #1B2538, #0D1320); box-shadow: 0 0 0 1px #2A3650, 0 40px 80px -30px rgba(0, 0, 0, .9), 0 0 90px -30px rgba(106, 220, 255, .35); }
+.hx-screen { border-radius: 26px; background: #070B13; min-height: 468px; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.hx-bar { display: flex; align-items: center; justify-content: space-between; color: var(--slate); font-size: 13px; padding: 0 4px 8px; border-bottom: 1px solid #172033; }
+.hx-bar b { color: var(--ink); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.hx-bar b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #5EE6A0; }
+.hx-beat { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
+.hx-beat.is-on { opacity: 1; transform: none; }
+.hx-in { align-self: flex-start; max-width: 86%; background: #1A2233; border-radius: 18px 18px 18px 6px; padding: 10px 13px; font-size: 15.5px; line-height: 1.35; }
+.hx-in small, .hx-out small { display: block; color: var(--slate); font-size: 12px; margin-bottom: 3px; }
+.hx-sys { display: flex; align-items: center; gap: 8px; color: var(--signal); font-size: 13.5px; padding: 0 4px; }
+.hx-sys::before { content: ""; flex: none; width: 11px; height: 6px; margin: 0 2px 3px 1px; border-left: 2px solid var(--signal); border-bottom: 2px solid var(--signal); transform: rotate(-45deg); }
+.hx-draft { border: 1px solid color-mix(in srgb, var(--you) 45%, transparent); background: linear-gradient(180deg, rgba(255, 180, 84, .09), rgba(255, 180, 84, .03)); border-radius: 16px; padding: 12px 13px 13px; }
+.hx-draft small { display: block; color: var(--you); font-weight: 600; font-size: 12.5px; margin-bottom: 5px; }
+.hx .hx-draft p { margin: 0 0 11px; font-size: 15.5px; line-height: 1.38; }
+.hx-draft table { width: 100%; border-collapse: collapse; margin: 0 0 11px; font-size: 14.5px; }
+.hx-draft td { padding: 3px 0; }
+.hx-draft td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.hx-draft tr:last-child td { border-top: 1px solid rgba(255, 180, 84, .3); padding-top: 6px; font-weight: 700; }
+.hx-row { display: flex; gap: 8px; }
+.hx-ok { flex: 1; min-height: 46px; border: 0; border-radius: 12px; background: var(--you); color: var(--you-ink); font: 700 16px var(--font-text); cursor: pointer; position: relative; }
+.hx-ok.is-wait::after { content: ""; position: absolute; inset: -5px; border-radius: 16px; border: 2px solid var(--you); opacity: 0; animation: hx-ring 1.4s ease-out infinite; }
+@keyframes hx-ring { from { opacity: .8; transform: scale(.96); } to { opacity: 0; transform: scale(1.06); } }
+.hx-edit { min-height: 46px; padding: 0 14px; border-radius: 12px; border: 1px solid #2A3650; color: var(--slate); font: 600 15px var(--font-text); display: flex; align-items: center; }
+.hx-draft.is-done { border-color: #1E2A3F; background: transparent; padding: 0; }
+.hx-draft.is-done > * { display: none; }
+.hx-out { align-self: flex-end; max-width: 86%; background: color-mix(in srgb, var(--signal) 88%, #fff); color: #04121A; border-radius: 18px 18px 6px 18px; padding: 10px 13px; font-size: 15.5px; line-height: 1.35; }
+.hx-out small { color: rgba(4, 18, 26, .65); }
+.hx-done { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.hx-done span { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #1F3B33; background: rgba(94, 230, 160, .08); color: #9FF0C4; border-radius: 99px; padding: 6px 11px; font-size: 13px; font-weight: 600; }
+.hx-done span::before { content: "✓"; }
+.hx p.hx-fine { color: var(--slate); font-size: 12.5px; text-align: center; margin: 12px 0 0; }
+@media (prefers-reduced-motion: reduce) { .hx-beat { transition: none; } .hx-ok.is-wait::after { animation: none; } }
+
+/* ---- a day ---- */
+.hx-day { display: grid; gap: 36px; }
+@media (min-width: 900px) { .hx-day { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 72px; align-items: start; } .hx-day-head { position: sticky; top: 96px; } }
+.hx-line { list-style: none; margin: 0; padding: 0; position: relative; }
+.hx-line::before { content: ""; position: absolute; left: 86px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--signal), color-mix(in srgb, var(--signal) 25%, transparent) 80%, var(--you)); }
+.hx-line li { position: relative; display: grid; grid-template-columns: 70px 1fr; column-gap: 40px; padding: 0 0 30px; }
+.hx-line li:last-child { padding-bottom: 0; }
+.hx-line li::before { content: ""; position: absolute; left: 80px; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid var(--signal); }
+.hx-line li.is-you::before { border-color: var(--you); background: var(--you); box-shadow: 0 0 0 6px rgba(255, 180, 84, .16); }
+.hx-line time { font-family: var(--display); font-stretch: 84%; font-weight: 700; font-size: 19px; color: var(--slate); text-align: right; white-space: nowrap; padding-top: 1px; }
+.hx-line b { display: block; font-size: 19px; line-height: 1.25; margin-bottom: 4px; }
+.hx-line span { color: var(--slate); font-size: 16px; }
+.hx-line li.is-you b { color: var(--you); }
+@media (max-width: 480px) { .hx-line::before { left: 70px; } .hx-line li { grid-template-columns: 58px 1fr; column-gap: 32px; } .hx-line li::before { left: 64px; } .hx-line time { font-size: 16px; } }
+
+/* ---- built for you ---- */
+.hx-vs { display: grid; grid-template-columns: 1fr 1fr; margin-top: 34px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); }
+.hx-vs > div { padding: clamp(16px, 3vw, 32px); }
+.hx-vs h3 { margin: 0 0 16px; font-size: 15px; font-weight: 600; color: var(--slate); }
+.hx-vs ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-auto-rows: 1fr; }
+.hx-vs li { font-size: clamp(16px, 2.3vw, 22px); line-height: 1.2; font-weight: 600; min-height: 2.4em; display: flex; align-items: center; }
+.hx-them li { color: #6B7690; text-decoration: line-through; text-decoration-color: rgba(107, 118, 144, .6); font-weight: 500; }
+.hx-us { background: linear-gradient(180deg, rgba(106, 220, 255, .12), rgba(106, 220, 255, .03)); border-left: 1px solid color-mix(in srgb, var(--signal) 40%, transparent); }
+.hx-us h3 { color: var(--signal); }
+
+/* ---- in charge ---- */
+.hx-charge { display: grid; gap: 34px; }
+@media (min-width: 900px) { .hx-charge { grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; } }
+.hx-charge h2 em { font-style: normal; color: var(--you); }
+.hx-flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.hx-flow li { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; font-size: 17px; }
+.hx-flow li i { font-style: normal; flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; background: #1B2538; color: var(--slate); }
+.hx-flow li.is-you { border-color: var(--you); background: rgba(255, 180, 84, .1); color: var(--you); }
+.hx-flow li.is-you i { background: var(--you); color: var(--you-ink); }
+.hx .hx-points { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; color: var(--slate); }
+.hx-points li { padding-left: 26px; position: relative; }
+.hx-points li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 12px; height: 7px; border-left: 2px solid var(--signal); border-bottom: 2px solid var(--signal); transform: rotate(-45deg); }
+
+/* ---- hear it ---- */
+.hx-hear { text-align: center; }
+.hx-hear .hx-wrap { max-width: 760px; }
+.hx .hx-hear p.hx-sub { margin: 0 auto 26px; }
+.hx-wave { display: flex; justify-content: center; align-items: center; gap: 5px; height: 56px; margin-bottom: 22px; }
+.hx-wave i { width: 5px; border-radius: 3px; background: var(--signal); height: 20%; animation: hx-wave 1.3s ease-in-out infinite; animation-delay: calc(var(--i) * -0.11s); }
+@keyframes hx-wave { 0%, 100% { height: 18%; opacity: .5; } 50% { height: 100%; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hx-wave i { animation: none; height: calc(25% + var(--i) * 4%); } }
+.hx-hear a.hx-quiet { display: inline-block; margin-top: 18px; color: var(--slate); font-size: 15.5px; }
+
+/* ---- start ---- */
+.hx .hx-steps { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+@media (min-width: 800px) { .hx-steps { grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+.hx-steps li { counter-increment: s; border-top: 2px solid var(--signal); padding: 18px 0 0; }
+.hx-steps li::before { content: counter(s); font-family: var(--display); font-stretch: 84%; font-weight: 800; font-size: 44px; line-height: 1; color: var(--signal); display: block; margin-bottom: 10px; }
+.hx-steps b { display: block; font-size: 20px; line-height: 1.2; margin-bottom: 6px; }
+.hx-steps span { color: var(--slate); }
+.hx p.hx-price { margin: 34px 0 0; font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: clamp(24px, 3.6vw, 36px); line-height: 1.1; }
+.hx p.hx-price span { display: block; font: 400 16px/1.5 var(--font-text); color: var(--slate); margin-top: 8px; }
+.hx-contact { border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(106, 220, 255, .06), transparent 340px); }
+</style>
+
 </head>
 <body class="ks-page">
 <a class="ks-sr" href="#main">Skip to content</a>
@@ -40,172 +169,115 @@
   </div>
 </div>
 <main id="main">
-<section class="ks-hero ks-hero-sys ks-hud-hero">
-  <div class="ks-hud-grid" aria-hidden="true"></div>
-  <div class="ks-hud-scan" aria-hidden="true"></div>
-  <div class="ks-wrap ks-hud-stage">
-    <div class="ks-hero-copy">
-      <h1 class="ks-display ks-h1">Software built around your business, not the other way around.</h1>
-      <p class="ks-lede">Custom software used to mean a long project and a big budget. Now it&#39;s within reach: we build yours around the way you already work.</p>
-      <div class="ks-actions">
-        <a class="ks-button" href="#contact">Tell us about your work</a>
-        <a class="ks-button is-quiet" href="#how">How it works</a>
+<div class="hx">
+<section class="hx-hero">
+  <div class="hx-wrap hx-hero-grid">
+    <div>
+      <p class="hx-kicker">Custom AI systems for service businesses</p>
+      <h1><span>Your busywork,</span><span>handled.</span></h1>
+      <p class="hx-lede">We build one AI system around the way your business already runs. It answers, drafts, books and reminds. <b>You approve with a tap.</b></p>
+      <div class="hx-cta">
+        <a class="hx-btn is-main" href="#contact">Get a free example for my business</a>
+        <a class="hx-btn is-line" href="tel:+19049291217"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a11 11 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg>Call our AI manager</a>
       </div>
-      <p class="ks-muted ks-small">It costs nothing to find out what we could save you.</p>
+      <p class="hx-note">It costs nothing to find out what we could save you.</p>
     </div>
-    <section class="ks-map" aria-labelledby="map-h" data-ks-map>
-      <h2 class="ks-map-h" id="map-h">Example: how a system could fit together</h2>
-      <p class="ks-map-hint">Tap any part to see what it does.</p>
-      <div class="ks-map-stage">
-        <svg class="ks-map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <line class="ks-map-line" data-line="texts" x1="31" y1="22" x2="41" y2="50" pathLength="1"/>
-          <line class="ks-map-line" data-line="email" x1="31" y1="50" x2="41" y2="50" pathLength="1"/>
-          <line class="ks-map-line" data-line="docs" x1="31" y1="78" x2="41" y2="50" pathLength="1"/>
-          <line class="ks-map-line" data-line="you" x1="69" y1="16" x2="59" y2="50" pathLength="1"/>
-          <line class="ks-map-line" data-line="crew" x1="69" y1="38" x2="59" y2="50" pathLength="1"/>
-          <line class="ks-map-line" data-line="calendar" x1="69" y1="62" x2="59" y2="50" pathLength="1"/>
-          <line class="ks-map-line" data-line="reports" x1="69" y1="84" x2="59" y2="50" pathLength="1"/>
-        </svg>
-        <canvas class="ks-holo" aria-hidden="true"></canvas>
-        <button class="ks-map-node is-core" type="button" data-part="core" style="--x: 50%; --y: 50%" aria-label="Your system">
-          <span class="ks-sr">Your system</span>
-        </button>
-        <button class="ks-map-node is-l is-built" type="button" data-part="texts" style="--y: 22%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.5a7.5 7.5 0 0 1-10.9 6.7L4 20.5l1.4-4.6A7.5 7.5 0 1 1 20 12.5Z"/></svg></span><span class="ks-map-name">Texts</span></button>
-        <button class="ks-map-node is-l is-run" type="button" data-part="email" style="--y: 50%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h5l1.5 3h5l1.5-3h5"/><path d="M5.6 5h12.8L21 13v5.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5V13Z"/></svg></span><span class="ks-map-name">Email</span></button>
-        <button class="ks-map-node is-l is-run" type="button" data-part="docs" style="--y: 78%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span class="ks-map-name">Documents</span></button>
-        <button class="ks-map-node is-r is-built" type="button" data-part="you" style="--y: 16%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span class="ks-map-name">You</span></button>
-        <button class="ks-map-node is-r is-built" type="button" data-part="crew" style="--y: 38%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.9-3.4 3.4-5.5 6.5-5.5s5.6 2.1 6.5 5.5"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.8c1.7.8 2.9 2.6 3.5 5.2"/></svg></span><span class="ks-map-name">Employees</span></button>
-        <button class="ks-map-node is-r is-req" type="button" data-part="calendar" style="--y: 62%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14.5h.01M12 14.5h.01M16 14.5h.01"/></svg></span><span class="ks-map-name">Calendar</span></button>
-        <button class="ks-map-node is-r is-run" type="button" data-part="reports" style="--y: 84%"><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="m7.5 14.5 3.5-4 3 2.5 5-6.5"/></svg></span><span class="ks-map-name">Reports</span></button>
+    <div class="hx-scene" data-hx-scene>
+      <div class="hx-tabs" role="tablist" aria-label="Pick an example">
+        <button class="hx-tab" role="tab" type="button" aria-selected="true" data-s="0">A late text</button>
+        <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="1">A missed call</button>
+        <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="2">A quote</button>
       </div>
-      <div class="ks-map-cards">
-        <div class="ks-map-card" data-card="core">
-          <b>Your system</b>
-          <p>One private system, set up around how your business runs.</p>
-        </div>
-        <div class="ks-map-card" data-card="texts">
-          <b>Texts</b>
-          <p>Customer texts read, sorted and answered in drafts, in the customer&#39;s language.</p>
-        </div>
-        <div class="ks-map-card" data-card="email">
-          <b>Email</b>
-          <p>Mail sorted as it arrives, with replies drafted for your OK.</p>
-        </div>
-        <div class="ks-map-card" data-card="docs">
-          <b>Documents</b>
-          <p>Invoices, forms and records read and filed where they belong.</p>
-        </div>
-        <div class="ks-map-card" data-card="you">
-          <b>You</b>
-          <p>Approve each reply with a tap, and ask it anything about your business.</p>
-        </div>
-        <div class="ks-map-card" data-card="crew">
-          <b>Employees</b>
-          <p>Their day sent by text in their language, and their updates read back in.</p>
-        </div>
-        <div class="ks-map-card" data-card="calendar">
-          <b>Calendar</b>
-          <p>Bookings reminded, confirmed and moved with your OK, in your calendar.</p>
-        </div>
-        <div class="ks-map-card" data-card="reports">
-          <b>Reports</b>
-          <p>What came in, what&#39;s due and what needs you, in one short morning summary.</p>
+      <div class="hx-phone">
+        <div class="hx-screen" aria-live="off">
+          <div class="hx-bar"><b>Your AI manager</b><span data-hx-clock>7:42 pm</span></div>
+          <div class="hx-beat is-on hx-in"><small>Dana, a customer</small>Hi, my breaker keeps tripping. Any chance you can come out this week?</div>
+          <div class="hx-beat is-on hx-sys">Checked your calendar. Thursday at 2:00 is open.</div>
+          <div class="hx-beat is-on hx-draft"><small>Reply drafted for you</small><p>Hi Dana, sorry about the breaker. We can come Thursday at 2:00. Does that work for you?</p><div class="hx-row"><button class="hx-ok" type="button">Approve</button><span class="hx-edit">Edit</span></div></div>
         </div>
       </div>
-    </section>
+      <p class="hx-fine">An example of what we'd build. Tap Approve to see what happens.</p>
+    </div>
   </div>
 </section>
 
-<section class="ks-section ks-chooser" aria-labelledby="choose-h">
-  <div class="ks-wrap">
-    <h2 class="ks-display ks-h2" id="choose-h">What would you like to know?</h2>
-    <nav class="ks-choices" aria-label="Topics">
-        <a class="ks-choice" href="#does" data-choice="does" aria-controls="does">What it can do</a>
-        <a class="ks-choice" href="#fit" data-choice="fit" aria-controls="fit">Why built for you</a>
-        <a class="ks-choice" href="#how" data-choice="how" aria-controls="how">How it works</a>
-        <a class="ks-choice" href="#care" data-choice="care" aria-controls="care">Is it safe?</a>
-        <a class="ks-choice" href="#ours" data-choice="ours" aria-controls="ours">What we've built</a>
-    </nav>
-  </div>
-</section>
-
-<div class="ks-panels" data-ks-panels>
-<section class="ks-section ks-panel" id="does" data-panel="does" aria-labelledby="does-h">
-  <div class="ks-wrap">
-    <h2 class="ks-display ks-h2" id="does-h">It takes the repetitive work</h2>
-    <ul class="ks-tiles">
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.9-3.4 3.4-5.5 6.5-5.5s5.6 2.1 6.5 5.5"/><path d="M16 4.7a3.5 3.5 0 0 1 0 6.6M18 14.8c1.7.8 2.9 2.6 3.5 5.2"/></svg></span><b>Replies</b><span>drafted in your customer's language</span></li>
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14.5h.01M12 14.5h.01M16 14.5h.01"/></svg></span><b>Bookings</b><span>reminded, confirmed, moved with your OK</span></li>
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h5l1.5 3h5l1.5-3h5"/><path d="M5.6 5h12.8L21 13v5.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5V13Z"/></svg></span><b>Email and documents</b><span>sorted as they arrive</span></li>
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg></span><b>Answers</b><span>about your business, with sources</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="ks-section ks-panel" id="fit" data-panel="fit" aria-labelledby="fit-h">
-  <div class="ks-wrap">
-    <h2 class="ks-display ks-h2" id="fit-h">Built for one business: yours</h2>
-    <table class="ks-fit">
-      <thead><tr><th scope="col">Off-the-shelf software</th><th scope="col">Built for you</th></tr></thead>
-      <tbody>
-        <tr><td>You adapt to it</td><td>It adapts to you</td></tr>
-        <tr><td>New software to install</td><td>Nothing new to install</td></tr>
-        <tr><td>Wait for the feature you need</td><td>Ask, and we build it</td></tr>
-        <tr><td>A bundle of features, most unused</td><td>Only what your business needs</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section class="ks-section ks-panel" id="how" data-panel="how" aria-labelledby="how-h">
-  <div class="ks-wrap">
-    <h2 class="ks-display ks-h2" id="how-h">Four steps, about 7 hours of your time</h2>
-    <ol class="ks-hsteps">
-      <li><b>Tell us the job</b><span>A sentence is enough.</span></li>
-      <li><b>We map your work</b><span>Where it arrives, who decides, what good looks like.</span></li>
-      <li><b>You set the rules</b><span>What it does alone, what it asks first.</span></li>
-      <li><b>We switch it on</b><span>Then it grows as you need.</span></li>
+<section aria-labelledby="day-h">
+  <div class="hx-wrap hx-day">
+    <div class="hx-day-head">
+      <h2 id="day-h">One Tuesday, with the busywork gone</h2>
+      <p class="hx-sub">The work that follows you home gets done while you do the job you're paid for.</p>
+    </div>
+    <ol class="hx-line">
+      <li><time>6:45 am</time><div><b>Your morning summary is waiting</b><span>Today's jobs, who needs a reply, and what is waiting on you.</span></div></li>
+      <li><time>10:20 am</time><div><b>The phone rings while you're on a job</b><span>It's answered. The caller's name, problem and best time are in your pocket.</span></div></li>
+      <li><time>12:40 pm</time><div><b>You talk through a job for half a minute</b><span>The quote is written up and ready for you to check.</span></div></li>
+      <li><time>4:00 pm</time><div><b>Tomorrow's customers get their reminders</b><span>Sent on time, and nobody had to remember.</span></div></li>
+      <li class="is-you"><time>7:42 pm</time><div><b>A late text. You tap Approve from the couch.</b><span>The reply goes out and the visit is on your calendar.</span></div></li>
     </ol>
   </div>
 </section>
 
-<section class="ks-section ks-panel" id="care" data-panel="care" aria-labelledby="care-h">
-  <div class="ks-wrap">
-    <h2 class="ks-display ks-h2" id="care-h">You stay in charge</h2>
-    <ol class="ks-flow" aria-label="What happens to a customer's text">
-      <li>A customer texts</li>
-      <li>Codes we detect are taken out</li>
-      <li>The AI drafts a reply</li>
-      <li class="is-you">You tap OK</li>
-      <li>It's sent</li>
+<section id="fit" aria-labelledby="fit-h">
+  <div class="hx-wrap">
+    <h2 id="fit-h">Built for one business: yours</h2>
+    <p class="hx-sub">Most software makes you change how you work. We start from how you already work and build around it.</p>
+    <div class="hx-vs">
+      <div class="hx-them"><h3>Off-the-shelf software</h3><ul><li>You adapt to it</li><li>New software to learn</li><li>Wait for the feature you need</li><li>A bundle, most of it unused</li></ul></div>
+      <div class="hx-us"><h3>Built for you</h3><ul><li>It adapts to you</li><li>Nothing new to install</li><li>Ask, and we build it</li><li>Only what your business needs</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="care" aria-labelledby="care-h">
+  <div class="hx-wrap hx-charge">
+    <div>
+      <h2 id="care-h">Nothing goes out until <em>you tap OK</em></h2>
+      <p class="hx-sub">It does the reading, sorting and drafting. The decision stays yours.</p>
+      <ul class="hx-points">
+        <li>Routine messages send on their own only if you switch them on</li>
+        <li>Your own private server, encrypted</li>
+        <li>Anthropic's AI doesn't train on your data</li>
+      </ul>
+    </div>
+    <ol class="hx-flow" aria-label="What happens to a customer's text">
+      <li><i>1</i>A customer texts</li>
+      <li><i>2</i>Codes we detect are taken out</li>
+      <li><i>3</i>The AI drafts a reply</li>
+      <li class="is-you"><i>4</i>You tap OK</li>
+      <li><i>5</i>It's sent</li>
     </ol>
-    <ul class="ks-points">
-      <li>Routine messages send alone only if you switch them on</li>
-      <li>Your own private server, encrypted</li>
-      <li>Anthropic's AI doesn't train on your data</li>
-    </ul>
   </div>
 </section>
 
-<section class="ks-section ks-panel" id="ours" data-panel="ours" aria-labelledby="ours-h">
-  <div class="ks-wrap">
-    <h2 class="ks-display ks-h2" id="ours-h">We run our own on them</h2>
-    <ul class="ks-proof">
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M8 11h.01M12 11h.01M16 11h.01"/></svg></span><b>A volunteer board&#39;s assistant</b><span>2,800+ board emails, texts and documents filed, so any question gets answered with its source.</span></li>
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h5l1.5 3h5l1.5-3h5"/><path d="M5.6 5h12.8L21 13v5.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5V13Z"/></svg></span><b>A memory for everyday life</b><span>Of about 65 emails a day, 15 reach the inbox. Scams are trashed, and every move can be undone.</span></li>
-      <li><span class="ks-pglyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/></svg></span><b>An app studio run by one person</b><span>17 apps on the App Store, 200+ updates and counting.</span></li>
-    </ul>
-    <p><a href="/systems/#cases">See all 5</a></p>
+<section class="hx-hear" aria-labelledby="hear-h">
+  <div class="hx-wrap">
+    <div class="hx-wave" aria-hidden="true"><i style="--i: 0"></i><i style="--i: 1"></i><i style="--i: 2"></i><i style="--i: 3"></i><i style="--i: 4"></i><i style="--i: 5"></i><i style="--i: 6"></i><i style="--i: 7"></i><i style="--i: 8"></i><i style="--i: 9"></i><i style="--i: 10"></i><i style="--i: 11"></i><i style="--i: 12"></i><i style="--i: 13"></i><i style="--i: 14"></i><i style="--i: 15"></i><i style="--i: 16"></i></div>
+    <h2 id="hear-h">Don't take our word for it. Call it.</h2>
+    <p class="hx-sub">Our own line is answered by Nova, an AI manager we built. Ask how it would handle a call for your business.</p>
+    <a class="hx-btn is-main" href="tel:+19049291217"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a11 11 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg>Call Nova, our AI manager</a>
+    <br><a class="hx-quiet" href="/systems/#cases">Or see the systems we run ourselves</a>
   </div>
 </section>
 
+<section id="how" aria-labelledby="how-h">
+  <div class="hx-wrap">
+    <h2 id="how-h">See yours before you decide</h2>
+    <p class="hx-sub">You don't buy anything to find out what it would do for you.</p>
+    <ol class="hx-steps">
+      <li><b>Tell us about your business</b><span>A few lines, below.</span></li>
+      <li><b>We make an example for your business, free</b><span>Then we walk you through it on a 20-minute call.</span></li>
+      <li><b>You get one price and decide</b><span>No obligation.</span></li>
+    </ol>
+    <p class="hx-price">One flat monthly price. No setup fee.<span>We give you the figure after the call, once we know what you need.</span></p>
+  </div>
+</section>
 </div>
 
-<section class="ks-section" id="contact" aria-labelledby="contact-h">
+<section class="ks-section hx-contact" id="contact" aria-labelledby="contact-h">
   <div class="ks-wrap"><div class="ks-contact">
     <div class="ks-section-head">
-      <h2 class="ks-display ks-h2" id="contact-h">Tell us about your work</h2>
-      <p class="ks-lede">A few lines is plenty. We reply personally, usually within a day.</p>
+      <h2 class="ks-display ks-h2" id="contact-h">Get a free example for your business</h2>
+      <p class="ks-lede">A few lines is plenty. A person replies, usually within a day, with an example made for your business.</p>
     </div>
     <form class="ks-form" data-ks-intake="https://kynoss-intake.kynossstudios.workers.dev/lead" novalidate>
       <div class="ks-form-row">
@@ -258,6 +330,78 @@
     </div>
   </div>
 </section>
+
+<script>
+/* The hero scene: one job played start to finish. Nothing is sent anywhere; it is a picture that moves. */
+(function () {
+  var root = document.querySelector("[data-hx-scene]");
+  if (!root) return;
+  var screen = root.querySelector(".hx-screen"), clock = root.querySelector("[data-hx-clock]"), fine = root.querySelector(".hx-fine");
+  var tabs = [].slice.call(root.querySelectorAll(".hx-tab"));
+  var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var S = [
+    { clock: "7:42 pm", beats: [
+      ["in", "<small>Dana, a customer</small>Hi, my breaker keeps tripping. Any chance you can come out this week?"],
+      ["sys", "Checked your calendar. Thursday at 2:00 is open."],
+      ["draft", "<small>Reply drafted for you</small><p>Hi Dana, sorry about the breaker. We can come Thursday at 2:00. Does that work for you?</p>", "Approve"]],
+      out: "<small>Sent to Dana</small>Hi Dana, sorry about the breaker. We can come Thursday at 2:00. Does that work for you?",
+      done: ["On your calendar, Thu 2:00", "Reminder set for Wed"] },
+    { clock: "10:20 am", beats: [
+      ["sys", "You're on a job. A call came in and was answered."],
+      ["in", "<small>Maria, a new caller</small>Leak under the kitchen sink. Home tomorrow before noon. Wants a call back today if possible."],
+      ["draft", "<small>Next step drafted for you</small><p>Book Maria for tomorrow at 9:00 and send her a confirmation.</p>", "Book it"]],
+      out: "<small>Sent to Maria</small>You're booked for tomorrow at 9:00. We'll see you then.",
+      done: ["On your calendar, 9:00", "Her number saved"] },
+    { clock: "12:40 pm", beats: [
+      ["in", "<small>You, speaking after the visit</small>Replace two outlets, add a GFCI in the bath, about three hours."],
+      ["sys", "Priced from your own rate sheet."],
+      ["draft", "<small>Quote drafted for you</small><table><tr><td>Labor, 3 hours</td><td>$285</td></tr><tr><td>Outlets and GFCI</td><td>$96</td></tr><tr><td>Total</td><td>$381</td></tr></table>", "Send quote"]],
+      out: "<small>Sent to the customer</small>Your quote is attached: $381 for the outlets and the bathroom GFCI.",
+      done: ["Quote sent", "Follow-up set for Friday"] }
+  ];
+  var timers = [], cur = 0;
+  function later(fn, ms) { timers.push(setTimeout(fn, still ? 0 : ms)); }
+  function el(cls, html) { var d = document.createElement("div"); d.className = "hx-beat " + cls; d.innerHTML = html; screen.appendChild(d); return d; }
+  function show(d) { setTimeout(function () { d.classList.add("is-on"); }, 30); }
+  function play(i, auto) {
+    timers.forEach(clearTimeout); timers = []; cur = i;
+    tabs.forEach(function (t, n) { t.setAttribute("aria-selected", n === i ? "true" : "false"); });
+    while (screen.children.length > 1) screen.removeChild(screen.lastChild);
+    clock.textContent = S[i].clock;
+    fine.textContent = "An example of what we'd build. Tap " + S[i].beats[2][2] + " to see what happens.";
+    var t = 150;
+    S[i].beats.forEach(function (b) {
+      later(function () {
+        if (b[0] !== "draft") { show(el("hx-" + b[0], b[1])); return; }
+        var d = el("hx-draft", b[1] + '<div class="hx-row"><button class="hx-ok is-wait" type="button">' + b[2] + '</button><span class="hx-edit">Edit</span></div>');
+        show(d);
+        var fired = false;
+        function ok() {
+          if (fired) return; fired = true;
+          d.parentNode.removeChild(d);
+          show(el("hx-out", S[i].out));
+          later(function () {
+            var c = el("hx-done", S[i].done.map(function (x) { return "<span>" + x + "</span>"; }).join(""));
+            show(c);
+            fine.textContent = "An example of what we'd build for your business.";
+            if (auto) later(function () { play((i + 1) % S.length, true); }, 5200);
+          }, 550);
+        }
+        d.querySelector(".hx-ok").addEventListener("click", function () { auto = false; ok(); });
+        if (auto) later(ok, 4200);
+      }, t);
+      t += b[0] === "sys" ? 1100 : 1300;
+    });
+  }
+  tabs.forEach(function (tb, n) { tb.addEventListener("click", function () { play(n, false); }); });
+  if (still) { play(0, false); return; } /* reduced motion: no autoplay; tabs and the button still work */
+  var started = false;
+  function start() { if (!started) { started = true; play(0, true); } }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); start(); } }, { threshold: .35 }).observe(root);
+  } else start();
+})();
+</script>
 
 </main>
 <div class="ks-foot" role="contentinfo">
