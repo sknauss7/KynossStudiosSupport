@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {%- from "_icons.html" import glyph, mark -%}
 {#- Home, rebuilt 2026-11-15 (Steven: "Set a high bar for the visuals ... the final chance, if someone gets to this, to get them to reach out").
-    Always dark, in the business card's near-black and cyan; amber marks what needs the owner. The hero scene is a labelled example of an owner's own view (Steven, 2026-11-15: lead with what it does; approval and texting are options, not the focus).
+    Framed as Steven put it on 2026-11-15: "custom software for business management with AI capabilities". Always dark, in the business card's near-black and cyan; amber marks what needs the owner. The hero scene is a labelled example of an owner's own view (Steven, 2026-11-15: lead with what it does; approval and texting are options, not the focus).
     No client claims, no prices, no build-time promises. #}
 {% block head %}
 <meta name="theme-color" content="#0A0E17">
@@ -21,7 +21,7 @@
 @media (min-width: 900px) { .hx-hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; } }
 .hx p.hx-kicker { color: var(--signal); font-weight: 600; font-size: 15px; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
 .hx-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 5px rgba(106, 220, 255, .16); }
-.hx-hero h1 { font-family: var(--display); font-stretch: 88%; font-weight: 800; font-size: clamp(50px, 11.5vw, 100px); line-height: .94; letter-spacing: -0.02em; margin: 0 0 22px; }
+.hx-hero h1 { font-family: var(--display); font-stretch: 88%; font-weight: 800; font-size: clamp(46px, 10.5vw, 92px); line-height: .96; letter-spacing: -0.02em; margin: 0 0 22px; }
 .hx-hero h1 span { display: block; }
 .hx p.hx-lede { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.45; color: var(--slate); max-width: 38ch; margin: 0 0 26px; }
 .hx p.hx-lede b { color: var(--ink); font-weight: 600; }
@@ -63,10 +63,11 @@
 @media (min-width: 700px) { .hx .hx-plate { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) { .hx .hx-plate { grid-template-columns: 1fr 1fr 1fr; } }
 .hx-plate li { display: grid; grid-template-columns: 44px 1fr; gap: 4px 14px; padding: 22px 0; border-top: 1px solid var(--line); }
-.hx-plate i { grid-row: 1 / 3; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--signal); background: rgba(106, 220, 255, .09); border: 1px solid rgba(106, 220, 255, .22); }
+.hx-plate i { grid-row: 1 / 4; align-self: start; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--signal); background: rgba(106, 220, 255, .09); border: 1px solid rgba(106, 220, 255, .22); }
 .hx-plate i svg { width: 22px; height: 22px; }
-.hx-plate b { font-size: 19px; line-height: 1.2; align-self: end; }
-.hx-plate span { color: var(--slate); font-size: 16px; }
+.hx-plate b { font-size: 21px; line-height: 1.2; }
+.hx-plate span { color: var(--slate); font-size: 16px; grid-column: 2; }
+.hx-plate em { grid-column: 2; font-style: normal; color: var(--signal); font-size: 15.5px; margin-top: 4px; }
 
 /* ---- a day ---- */
 .hx-day { display: grid; gap: 36px; }
@@ -134,9 +135,9 @@
 <section class="hx-hero">
   <div class="hx-wrap hx-hero-grid">
     <div>
-      <p class="hx-kicker">Custom AI systems for small businesses</p>
-      <h1><span>Your busywork,</span><span>handled.</span></h1>
-      <p class="hx-lede">We build one AI system around the way your business already runs. It answers your customers, keeps your calendar, chases your invoices and shows you where everything stands.</p>
+      <p class="hx-kicker">Custom business software, with AI built in</p>
+      <h1><span>Software built</span><span>around your</span><span>business.</span></h1>
+      <p class="hx-lede">One system to run your business: customers, schedule, money and paperwork, made to fit the way you already work. The AI inside it does the busywork for you.</p>
       <div class="hx-cta">
         <a class="hx-btn is-main" href="#contact">Get a free example for my business</a>
         <a class="hx-btn is-line" href="tel:{{ site.studio.phone_tel }}">{{ glyph("phone") }}Call our AI manager</a>
@@ -170,15 +171,15 @@
 
 <section aria-labelledby="plate-h">
   <div class="hx-wrap">
-    <h2 id="plate-h">What it takes off your plate</h2>
-    <p class="hx-sub">The work every small business has, and nobody started a business to do.</p>
+    <h2 id="plate-h">Everything you run, in one place</h2>
+    <p class="hx-sub">Most small businesses run on a phone, an inbox, a calendar and a few spreadsheets that don't talk to each other. Yours becomes one system, and the AI in it does the work.</p>
     <ul class="hx-plate">
-      <li><i>{{ glyph("phone") }}</i><b>Calls and messages you can't get to</b><span>Answered, with the details waiting for you.</span></li>
-      <li><i>{{ glyph("calendar") }}</i><b>Booking and rescheduling</b><span>Appointments made, moved and reminded.</span></li>
-      <li><i>{{ glyph("doc") }}</i><b>Invoices and late payers</b><span>Sent on time and followed up politely.</span></li>
-      <li><i>{{ glyph("inbox") }}</i><b>Email and paperwork</b><span>Read, sorted and filed where it belongs.</span></li>
-      <li><i>{{ glyph("chart") }}</i><b>Knowing where things stand</b><span>What came in, what's due and what needs you, in one place.</span></li>
-      <li><i>{{ glyph("search") }}</i><b>Digging for an answer</b><span>Ask about your own business and get the answer, with its source.</span></li>
+      <li><i>{{ glyph("people") }}</i><b>Customers</b><span>Everyone you deal with, and their history.</span><em>Calls and messages get answered.</em></li>
+      <li><i>{{ glyph("calendar") }}</i><b>Schedule</b><span>Appointments, and who is where.</span><em>Bookings made, moved and reminded.</em></li>
+      <li><i>{{ glyph("tag") }}</i><b>Money</b><span>Quotes, invoices and who owes what.</span><em>Late payers followed up politely.</em></li>
+      <li><i>{{ glyph("doc") }}</i><b>Paperwork</b><span>Documents, forms and email.</span><em>Read, sorted and filed where they belong.</em></li>
+      <li><i>{{ glyph("about") }}</i><b>Your team</b><span>Who is doing what today.</span><em>Their day sent out, their updates read back in.</em></li>
+      <li><i>{{ glyph("chart") }}</i><b>The numbers</b><span>Where the business stands, any time.</span><em>Ask a question, get the answer with its source.</em></li>
     </ul>
   </div>
 </section>
@@ -186,8 +187,8 @@
 <section aria-labelledby="day-h">
   <div class="hx-wrap hx-day">
     <div class="hx-day-head">
-      <h2 id="day-h">One Tuesday, with the busywork gone</h2>
-      <p class="hx-sub">The work that follows you home gets done while you do the work you're paid for.</p>
+      <h2 id="day-h">One Tuesday, with the busywork handled</h2>
+      <p class="hx-sub">This is the AI part. The work that follows you home gets done while you do the work you're paid for.</p>
     </div>
     <ol class="hx-line">
       <li><time>6:45 am</time><div><b>Your morning summary is waiting</b><span>Today's appointments, who needs a reply, and what is waiting on you.</span></div></li>
@@ -202,7 +203,7 @@
 <section id="fit" aria-labelledby="fit-h">
   <div class="hx-wrap">
     <h2 id="fit-h">Built for one business: yours</h2>
-    <p class="hx-sub">Most software makes you change how you work. We start from how you already work and build around it.</p>
+    <p class="hx-sub">Custom software used to mean a long project and a big budget. Now it's within reach, so you no longer have to bend your business to fit someone else's software.</p>
     <div class="hx-vs">
       <div class="hx-them"><h3>Off-the-shelf software</h3><ul><li>You adapt to it</li><li>New software to learn</li><li>Wait for the feature you need</li><li>A bundle, most of it unused</li></ul></div>
       <div class="hx-us"><h3>Built for you</h3><ul><li>It adapts to you</li><li>Nothing new to install</li><li>Ask, and we build it</li><li>Only what your business needs</li></ul></div>
