@@ -38,7 +38,7 @@
 /* ---- the scene: one job, start to finish ---- */
 .hx-scene { justify-self: center; width: 100%; max-width: 400px; }
 .hx-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
-.hx-tab { flex: 1; min-height: 44px; padding: 8px 6px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--slate); font: 600 14.5px/1.15 var(--font-text); cursor: pointer; }
+.hx-tab { flex: 1 1 auto; min-height: 44px; padding: 8px 6px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--slate); font: 600 14.5px/1.15 var(--font-text); cursor: pointer; }
 .hx-tab[aria-selected="true"] { background: var(--surface); color: var(--ink); border-color: color-mix(in srgb, var(--signal) 50%, var(--line)); }
 .hx-phone { position: relative; border-radius: 34px; padding: 10px; background: linear-gradient(160deg, #1B2538, #0D1320); box-shadow: 0 0 0 1px #2A3650, 0 40px 80px -30px rgba(0, 0, 0, .9), 0 0 90px -30px rgba(106, 220, 255, .35); }
 .hx-screen { border-radius: 26px; background: #070B13; min-height: 468px; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
@@ -138,7 +138,7 @@
 <section class="hx-hero">
   <div class="hx-wrap hx-hero-grid">
     <div>
-      <p class="hx-kicker">Custom AI systems for service businesses</p>
+      <p class="hx-kicker">Custom AI systems for small businesses</p>
       <h1><span>Your busywork,</span><span>handled.</span></h1>
       <p class="hx-lede">We build one AI system around the way your business already runs. It answers, drafts, books and reminds. <b>You approve with a tap.</b></p>
       <div class="hx-cta">
@@ -151,14 +151,14 @@
       <div class="hx-tabs" role="tablist" aria-label="Pick an example">
         <button class="hx-tab" role="tab" type="button" aria-selected="true" data-s="0">A late text</button>
         <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="1">A missed call</button>
-        <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="2">A quote</button>
+        <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="2">An unpaid invoice</button>
       </div>
       <div class="hx-phone">
         <div class="hx-screen" aria-live="off">
           <div class="hx-bar"><b>Your AI manager</b><span data-hx-clock>7:42 pm</span></div>
-          <div class="hx-beat is-on hx-in"><small>Dana, a customer</small>Hi, my breaker keeps tripping. Any chance you can come out this week?</div>
+          <div class="hx-beat is-on hx-in"><small>Dana, a customer</small>Hi, could you fit me in this week? Thursday afternoon would be ideal.</div>
           <div class="hx-beat is-on hx-sys">Checked your calendar. Thursday at 2:00 is open.</div>
-          <div class="hx-beat is-on hx-draft"><small>Reply drafted for you</small><p>Hi Dana, sorry about the breaker. We can come Thursday at 2:00. Does that work for you?</p><div class="hx-row"><button class="hx-ok" type="button">Approve</button><span class="hx-edit">Edit</span></div></div>
+          <div class="hx-beat is-on hx-draft"><small>Reply drafted for you</small><p>Hi Dana, yes. Thursday at 2:00 is open. Shall I put you down?</p><div class="hx-row"><button class="hx-ok" type="button">Approve</button><span class="hx-edit">Edit</span></div></div>
         </div>
       </div>
       <p class="hx-fine">An example of what we'd build. Tap Approve to see what happens.</p>
@@ -170,14 +170,14 @@
   <div class="hx-wrap hx-day">
     <div class="hx-day-head">
       <h2 id="day-h">One Tuesday, with the busywork gone</h2>
-      <p class="hx-sub">The work that follows you home gets done while you do the job you're paid for.</p>
+      <p class="hx-sub">The work that follows you home gets done while you do the work you're paid for.</p>
     </div>
     <ol class="hx-line">
-      <li><time>6:45 am</time><div><b>Your morning summary is waiting</b><span>Today's jobs, who needs a reply, and what is waiting on you.</span></div></li>
-      <li><time>10:20 am</time><div><b>The phone rings while you're on a job</b><span>It's answered. The caller's name, problem and best time are in your pocket.</span></div></li>
-      <li><time>12:40 pm</time><div><b>You talk through a job for half a minute</b><span>The quote is written up and ready for you to check.</span></div></li>
-      <li><time>4:00 pm</time><div><b>Tomorrow's customers get their reminders</b><span>Sent on time, and nobody had to remember.</span></div></li>
-      <li class="is-you"><time>7:42 pm</time><div><b>A late text. You tap Approve from the couch.</b><span>The reply goes out and the visit is on your calendar.</span></div></li>
+      <li><time>6:45 am</time><div><b>Your morning summary is waiting</b><span>Today's appointments, who needs a reply, and what is waiting on you.</span></div></li>
+      <li><time>10:20 am</time><div><b>The phone rings while you're with a customer</b><span>It's answered. The caller's name, what they need and the best time to reach them are in your pocket.</span></div></li>
+      <li><time>12:40 pm</time><div><b>You say a few notes out loud after a meeting</b><span>The follow-up and the paperwork are drafted, ready for you to check.</span></div></li>
+      <li><time>4:00 pm</time><div><b>Tomorrow's appointments get their reminders</b><span>Sent on time, and nobody had to remember.</span></div></li>
+      <li class="is-you"><time>7:42 pm</time><div><b>A late message. You tap Approve from the couch.</b><span>The reply goes out and the appointment is on your calendar.</span></div></li>
     </ol>
   </div>
 </section>
@@ -292,23 +292,23 @@
   var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var S = [
     { clock: "7:42 pm", beats: [
-      ["in", "<small>Dana, a customer</small>Hi, my breaker keeps tripping. Any chance you can come out this week?"],
+      ["in", "<small>Dana, a customer</small>Hi, could you fit me in this week? Thursday afternoon would be ideal."],
       ["sys", "Checked your calendar. Thursday at 2:00 is open."],
-      ["draft", "<small>Reply drafted for you</small><p>Hi Dana, sorry about the breaker. We can come Thursday at 2:00. Does that work for you?</p>", "Approve"]],
-      out: "<small>Sent to Dana</small>Hi Dana, sorry about the breaker. We can come Thursday at 2:00. Does that work for you?",
+      ["draft", "<small>Reply drafted for you</small><p>Hi Dana, yes. Thursday at 2:00 is open. Shall I put you down?</p>", "Approve"]],
+      out: "<small>Sent to Dana</small>Hi Dana, yes. Thursday at 2:00 is open. Shall I put you down?",
       done: ["On your calendar, Thu 2:00", "Reminder set for Wed"] },
     { clock: "10:20 am", beats: [
-      ["sys", "You're on a job. A call came in and was answered."],
-      ["in", "<small>Maria, a new caller</small>Leak under the kitchen sink. Home tomorrow before noon. Wants a call back today if possible."],
-      ["draft", "<small>Next step drafted for you</small><p>Book Maria for tomorrow at 9:00 and send her a confirmation.</p>", "Book it"]],
-      out: "<small>Sent to Maria</small>You're booked for tomorrow at 9:00. We'll see you then.",
+      ["sys", "You're with a customer. A call came in and was answered."],
+      ["in", "<small>Maria, a new caller</small>Wants to know if you can take on new work next week. Best reached before noon."],
+      ["draft", "<small>Next step drafted for you</small><p>Set a call back with Maria for tomorrow at 9:00 and send her a confirmation.</p>", "Set it up"]],
+      out: "<small>Sent to Maria</small>Thanks for calling. We'll ring you tomorrow at 9:00.",
       done: ["On your calendar, 9:00", "Her number saved"] },
-    { clock: "12:40 pm", beats: [
-      ["in", "<small>You, speaking after the visit</small>Replace two outlets, add a GFCI in the bath, about three hours."],
-      ["sys", "Priced from your own rate sheet."],
-      ["draft", "<small>Quote drafted for you</small><table><tr><td>Labor, 3 hours</td><td>$285</td></tr><tr><td>Outlets and GFCI</td><td>$96</td></tr><tr><td>Total</td><td>$381</td></tr></table>", "Send quote"]],
-      out: "<small>Sent to the customer</small>Your quote is attached: $381 for the outlets and the bathroom GFCI.",
-      done: ["Quote sent", "Follow-up set for Friday"] }
+    { clock: "9:05 am", beats: [
+      ["sys", "An invoice went 14 days past due today."],
+      ["in", "<small>What it found</small>Invoice 1042, Sam Ortiz, $640. One reminder sent a week ago, no reply."],
+      ["draft", "<small>Reminder drafted for you</small><p>Hi Sam, a quick note that invoice 1042 for $640 is still open. Could you let us know when to expect it? Thank you.</p>", "Send reminder"]],
+      out: "<small>Sent to Sam</small>Hi Sam, a quick note that invoice 1042 for $640 is still open. Could you let us know when to expect it? Thank you.",
+      done: ["Reminder sent", "Checks again in 7 days"] }
   ];
   var timers = [], cur = 0;
   function later(fn, ms) { timers.push(setTimeout(fn, still ? 0 : ms)); }
