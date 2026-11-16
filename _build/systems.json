@@ -1,14 +1,14 @@
 {
   "_comment": "Owned by the Systems workspace (~/Systems, Callia session 'systems'). Content for /systems/ only. {apps} and {updates} are filled in by build.py from live App Store data.",
   "og": {
-    "title": "Custom AI systems",
+    "title": "Custom software, AI built in",
     "subtitle": "Hand off the work that eats your week."
   },
   "page": {
-    "title": "Custom AI systems · Kynoss Studios",
-    "description": "Kynoss Studios builds custom AI systems that take a whole job off your plate: sorting, tracking, answering and drafting, every day, built around the way you already work."
+    "title": "Custom software with AI built in · Kynoss Studios",
+    "description": "Kynoss Studios builds custom software to run your business, with AI built in: your customers, jobs, schedule and money in one place, and the sorting, tracking and drafting done for you."
   },
-  "foot_line": "Custom AI systems, designed around the way you work.",
+  "foot_line": "Custom software with AI built in, designed around the way you work.",
   "cases": [
     {
       "glyph": "apps",
@@ -106,7 +106,7 @@
     ],
     [
       "Does it have to be an app?",
-      "No. It can be a message on your phone each morning, a website, a private dashboard, an iPhone app, or a mix of them."
+      "No. It can be a private dashboard, a website, an iPhone app, a short summary on your phone each morning, or a mix of them."
     ],
     [
       "How much does it do on its own?",
@@ -176,8 +176,8 @@
     ]
   ],
   "why": {
-    "title": "Why build an AI system?",
-    "lede": "Because the work doesn't stop when you do. A system takes on the jobs that eat your time and keeps them moving, every day, without being asked.",
+    "title": "Why software with AI built in?",
+    "lede": "Because the work doesn't stop when you do. Ordinary software waits for you to type things in. Yours takes on the jobs that eat your time and keeps them moving, every day, without being asked.",
     "points": [
       {
         "glyph": "moon",
@@ -269,24 +269,18 @@
   },
   "build": {
     "title": "What we can build",
-    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including some our own systems haven't needed yet.",
+    "lede": "Our five systems use only part of what's possible. These are the building blocks for yours, including some our own systems haven't needed yet. Take the ones you want.",
     "blocks": [
       [
-        "phone",
-        "Answers the phone",
-        "A natural-sounding voice answers the calls you can't take, day or night, handles the common questions and books the job. Or, simpler: a text back to every call you miss.",
+        "apps",
+        "Runs it all in one place",
+        "Customers, jobs, schedule and money on one screen, laid out the way you run the business.",
         ""
       ],
       [
-        "chat",
-        "Replies to customers",
-        "Texts, email and website chat answered in your tone and in your customer's language, with anything tricky handed to you.",
-        ""
-      ],
-      [
-        "calendar",
-        "Books and reminds",
-        "Appointments scheduled, confirmed and moved, with reminders so fewer people forget.",
+        "chart",
+        "Reports the numbers",
+        "Sales, bookings and spending pulled into a live dashboard or one short daily report.",
         ""
       ],
       [
@@ -308,15 +302,21 @@
         ""
       ],
       [
-        "chart",
-        "Reports the numbers",
-        "Sales, bookings and spending pulled into one short daily report or a live dashboard.",
+        "calendar",
+        "Books and reminds",
+        "Appointments scheduled, confirmed and moved, with reminders so fewer people forget.",
         ""
       ],
       [
         "send",
         "Writes for you",
         "Replies, posts, newsletters and listings drafted in your voice, ready for your OK.",
+        ""
+      ],
+      [
+        "chat",
+        "Talks to customers, if you want",
+        "Texts, email and website chat answered in your tone and your customer's language, or a natural-sounding voice for the calls you can't take.",
         ""
       ]
     ],
@@ -325,112 +325,40 @@
   "cases_lede": "Each one started as a single sentence about a job.",
   "stories": [
     {
-      "id": "cleaning",
-      "tab": "Cleaning company",
-      "glyph": "check",
-      "kind": "Example: a house cleaning company",
-      "title": "The 8 pm quote, answered in minutes",
-      "moment": "At 8 pm a new client texts: “Can you clean a 3-bedroom, 2-bath this Friday?” You're off the clock.",
+      "id": "landscaper",
+      "tab": "Landscaper",
+      "glyph": "chart",
+      "kind": "Example: a landscaping company",
+      "title": "Monday's numbers, before the first coffee",
+      "moment": "Monday morning. Last week's jobs are done, but you don't know yet what was billed, what was paid or how full this week is.",
       "trail": [
         {
-          "glyph": "chat",
-          "source": "Text",
-          "text": "Reads the request and asks the one thing your price sheet still needs: a regular or a deep clean?",
+          "glyph": "folder",
+          "source": "Jobs",
+          "text": "Goes through last week's 31 jobs and finds two that were finished but never invoiced.",
+          "catch": true
+        },
+        {
+          "glyph": "doc",
+          "source": "Invoices",
+          "text": "Drafts both invoices from your own price sheet.",
           "catch": false
         },
         {
           "glyph": "money",
-          "source": "Price sheet",
-          "text": "Works out the price from your own sheet, never a number you didn't set.",
-          "catch": true
-        },
-        {
-          "glyph": "calendar",
-          "source": "Schedule",
-          "text": "Finds the times you really have open on Friday.",
-          "catch": false
-        },
-        {
-          "glyph": "send",
-          "source": "Draft",
-          "text": "A reply with the price and Friday at 10, in the client's language, ready for your OK.",
-          "catch": false
-        }
-      ],
-      "notify": "New client, Friday 10 am: 3 bed, 2 bath, regular clean. Reply with the price ready for your OK.",
-      "result": "One tap and the client is booked before you've finished dinner, with a reminder going out the day before."
-    },
-    {
-      "id": "pest",
-      "tab": "Pest control",
-      "glyph": "bug",
-      "kind": "Example: a pest control company",
-      "title": "The missed call that still became a job",
-      "moment": "You're under a house at 6 pm when a customer calls about ants in the kitchen. You can't pick up.",
-      "trail": [
-        {
-          "glyph": "phone",
-          "source": "Missed call",
-          "text": "Texts them back right away: sorry we missed you, how can we help?",
-          "catch": false
-        },
-        {
-          "glyph": "chat",
-          "source": "Text",
-          "text": "They reply “Ants again!” It drafts a reply with your next open times, for your OK.",
+          "source": "Payments",
+          "text": "Three invoices are more than 30 days late. A polite reminder is drafted for each.",
           "catch": false
         },
         {
           "glyph": "calendar",
           "source": "Schedule",
-          "text": "Books Thursday at 9 once you tap OK, and the customer gets a confirmation.",
-          "catch": false
-        },
-        {
-          "glyph": "repeat",
-          "source": "Treatment plan",
-          "text": "Notices their quarterly treatment is due next month, so the reminder is already set.",
-          "catch": true
-        }
-      ],
-      "notify": "Missed call, now booked: ants, Thursday 9 am. Quarterly treatment due next month, reminder set.",
-      "result": "A call that would have gone to the next company on the list becomes a booked visit, and the next one is already on the calendar."
-    },
-    {
-      "id": "property",
-      "tab": "Property manager",
-      "glyph": "key",
-      "kind": "Example: a property manager",
-      "title": "The repair that turned out to be free",
-      "moment": "At 11 pm a tenant emails: the dishwasher leaked and the kitchen floor feels soft.",
-      "trail": [
-        {
-          "glyph": "mail",
-          "source": "Email",
-          "text": "Reads the message and the photo, and marks it urgent: water near a floor.",
-          "catch": false
-        },
-        {
-          "glyph": "doc",
-          "source": "Lease",
-          "text": "Finds the clause that makes appliance repairs the owner's job.",
-          "catch": false
-        },
-        {
-          "glyph": "folder",
-          "source": "Repair history",
-          "text": "Notices the same dishwasher was fixed six weeks ago, and the plumber guarantees his work for 90 days.",
-          "catch": true
-        },
-        {
-          "glyph": "send",
-          "source": "Drafts",
-          "text": "A reply to the tenant, a note to the owner and a request to the same plumber under his guarantee.",
+          "text": "This week has 28 jobs booked, and Thursday has two more than your crews can do.",
           "catch": false
         }
       ],
-      "notify": "Unit 4B leak: same plumber, covered by his 90-day guarantee. Three drafts ready for your OK.",
-      "result": "A repair that would have cost a few hundred dollars costs nothing, and the tenant hears back first thing in the morning."
+      "notify": "Last week: 31 jobs, 2 not yet invoiced, 3 payments late. Thursday is overbooked by 2.",
+      "result": "You start the week knowing where the money and the time are, and two jobs that would have gone unbilled get paid."
     },
     {
       "id": "contractor",
@@ -467,6 +395,78 @@
       ],
       "notify": "Oak St permit expires the 20th. Inspector offered the 17th; reply drafted.",
       "result": "The inspection moves up, the permit stays valid, and nobody pays to re-file."
+    },
+    {
+      "id": "shop",
+      "tab": "Online shop",
+      "glyph": "bag",
+      "kind": "Example: a small online shop",
+      "title": "Restocked before it sold out",
+      "moment": "Overnight, one product starts selling three times faster than usual.",
+      "trail": [
+        {
+          "glyph": "chart",
+          "source": "Orders",
+          "text": "Spots the jump in sales before you're awake.",
+          "catch": false
+        },
+        {
+          "glyph": "bag",
+          "source": "Stock",
+          "text": "Works out that at this pace it sells out in four days.",
+          "catch": false
+        },
+        {
+          "glyph": "mail",
+          "source": "Supplier emails",
+          "text": "Finds your supplier usually takes ten days to deliver.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Drafts",
+          "text": "A reorder email to the supplier, and a note to ease off the ads for that product until it arrives.",
+          "catch": false
+        }
+      ],
+      "notify": "Linen tote selling 3× normal: out in about 4 days, supplier needs about 10. Reorder drafted.",
+      "result": "The reorder goes out on day one instead of the day it sells out."
+    },
+    {
+      "id": "property",
+      "tab": "Property manager",
+      "glyph": "key",
+      "kind": "Example: a property manager",
+      "title": "The repair that turned out to be free",
+      "moment": "At 11 pm a tenant emails: the dishwasher leaked and the kitchen floor feels soft.",
+      "trail": [
+        {
+          "glyph": "mail",
+          "source": "Email",
+          "text": "Reads the message and the photo, and marks it urgent: water near a floor.",
+          "catch": false
+        },
+        {
+          "glyph": "doc",
+          "source": "Lease",
+          "text": "Finds the clause that makes appliance repairs the owner's job.",
+          "catch": false
+        },
+        {
+          "glyph": "folder",
+          "source": "Repair history",
+          "text": "Notices the same dishwasher was fixed six weeks ago, and the plumber guarantees his work for 90 days.",
+          "catch": true
+        },
+        {
+          "glyph": "send",
+          "source": "Drafts",
+          "text": "A reply to the tenant, a note to the owner and a request to the same plumber under his guarantee.",
+          "catch": false
+        }
+      ],
+      "notify": "Unit 4B leak: same plumber, covered by his 90-day guarantee. Three drafts ready for your OK.",
+      "result": "A repair that would have cost a few hundred dollars costs nothing, and the tenant hears back first thing in the morning."
     },
     {
       "id": "events",
@@ -541,40 +541,76 @@
       "result": "You finish dinner. Sunday morning you call your sellers with a counter already written."
     },
     {
-      "id": "shop",
-      "tab": "Online shop",
-      "glyph": "bag",
-      "kind": "Example: a small online shop",
-      "title": "Restocked before it sold out",
-      "moment": "Overnight, one product starts selling three times faster than usual.",
+      "id": "cleaning",
+      "tab": "Cleaning company",
+      "glyph": "check",
+      "kind": "Example: a house cleaning company",
+      "title": "The 8 pm quote, answered in minutes",
+      "moment": "At 8 pm a new client texts: “Can you clean a 3-bedroom, 2-bath this Friday?” You're off the clock.",
       "trail": [
         {
-          "glyph": "chart",
-          "source": "Orders",
-          "text": "Spots the jump in sales before you're awake.",
+          "glyph": "chat",
+          "source": "Text",
+          "text": "Reads the request and asks the one thing your price sheet still needs: a regular or a deep clean?",
           "catch": false
         },
         {
-          "glyph": "bag",
-          "source": "Stock",
-          "text": "Works out that at this pace it sells out in four days.",
-          "catch": false
-        },
-        {
-          "glyph": "mail",
-          "source": "Supplier emails",
-          "text": "Finds your supplier usually takes ten days to deliver.",
+          "glyph": "money",
+          "source": "Price sheet",
+          "text": "Works out the price from your own sheet, never a number you didn't set.",
           "catch": true
         },
         {
+          "glyph": "calendar",
+          "source": "Schedule",
+          "text": "Finds the times you really have open on Friday.",
+          "catch": false
+        },
+        {
           "glyph": "send",
-          "source": "Drafts",
-          "text": "A reorder email to the supplier, and a note to ease off the ads for that product until it arrives.",
+          "source": "Draft",
+          "text": "A reply with the price and Friday at 10, in the client's language, ready for your OK.",
           "catch": false
         }
       ],
-      "notify": "Linen tote selling 3× normal: out in about 4 days, supplier needs about 10. Reorder drafted.",
-      "result": "The reorder goes out on day one instead of the day it sells out."
+      "notify": "New client, Friday 10 am: 3 bed, 2 bath, regular clean. Reply with the price ready for your OK.",
+      "result": "One tap and the client is booked before you've finished dinner, with a reminder going out the day before."
+    },
+    {
+      "id": "pest",
+      "tab": "Pest control",
+      "glyph": "bug",
+      "kind": "Example: a pest control company",
+      "title": "The missed call that still became a job",
+      "moment": "You're under a house at 6 pm when a customer calls about ants in the kitchen. You can't pick up.",
+      "trail": [
+        {
+          "glyph": "phone",
+          "source": "Missed call",
+          "text": "Texts them back right away: sorry we missed you, how can we help?",
+          "catch": false
+        },
+        {
+          "glyph": "chat",
+          "source": "Text",
+          "text": "They reply “Ants again!” It drafts a reply with your next open times, for your OK.",
+          "catch": false
+        },
+        {
+          "glyph": "calendar",
+          "source": "Schedule",
+          "text": "Books Thursday at 9 once you tap OK, and the customer gets a confirmation.",
+          "catch": false
+        },
+        {
+          "glyph": "repeat",
+          "source": "Treatment plan",
+          "text": "Notices their quarterly treatment is due next month, so the reminder is already set.",
+          "catch": true
+        }
+      ],
+      "notify": "Missed call, now booked: ants, Thursday 9 am. Quarterly treatment due next month, reminder set.",
+      "result": "A call that would have gone to the next company on the list becomes a booked visit, and the next one is already on the calendar."
     },
     {
       "id": "family",
