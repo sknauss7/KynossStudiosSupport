@@ -41,7 +41,7 @@
       <p class="ks-muted">Built the way we built our own. <a href="#cases">See the five systems we run ourselves</a>.</p>
       <div class="ks-actions">
         <a class="ks-button" href="#start" data-ev="start">Get a free example for my business</a>
-        <a class="ks-button is-quiet" href="#see-it">See it at work</a>
+        <a class="ks-button is-quiet" href="#see-it" data-ev="see">See it at work</a>
       </div>
       <p class="ks-hero-note">{{ ask_note }}</p>
     </div>
@@ -412,4 +412,38 @@
     <p class="ks-small ks-muted ks-sysstart-who">Prefer email? <a href="mailto:{{ site.studio.email }}?subject=Custom%20software">{{ site.studio.email }}</a>. Kynoss Studios designs and builds with Claude, Anthropic's AI: {{ site.live|length }} iPhone apps on the App Store with {{ stats.updates }}+ updates, and the five systems above. <a href="/how-we-build/">See how the studio works</a>.</p>
   </div></div>
 </section>
+{#- Page count (Kynoss ea45d5f, 2026-11-15; Steven's yes in the Kynoss session, per Kynoss): the same counter as the home page,
+    under its own page name. No cookies, nothing stored, nothing typed is sent; off for Do Not Track, Global Privacy Control,
+    previews and any host but the live one. The privacy page names this page (site 3da323c). Supplied by Kynoss, unchanged. -#}
+<script>
+(function () {
+  var q = location.search;
+  var live = navigator.sendBeacon && /^(www\.)?kynossstudios\.com$/.test(location.hostname) && location.pathname === "/systems/" &&
+    !/[?&]preview\b/.test(q) && navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl && !navigator.webdriver;
+  if (!live) return;
+  var vid = Math.random().toString(36).slice(2, 6), sent = {}, first = false, t0 = Date.now();
+  while (vid.length < 4) vid += "0";
+  function send(k, extra) {
+    if (sent[k]) return;
+    sent[k] = 1;
+    var tail = extra || "";
+    if (k !== "view" && !first && !/^sc/.test(k)) { first = true; tail += "&t=" + Math.min(3600, Math.round((Date.now() - t0) / 1000)); }
+    try { navigator.sendBeacon("https://demo.kynossstudios.com/lp?p=systems&y=systems&v=" + vid + "&k=" + k + tail); } catch (e) {}
+  }
+  send("view", "&s=" + (/[?&](gclid|gbraid|wbraid)=/.test(q) || /[?&]utm_medium=cpc\b/.test(q) ? "ad" : "other"));
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-ev]");
+    if (a) send(a.getAttribute("data-ev"));
+  });
+  var f = document.querySelector("form[data-ks-intake]");
+  if (f) f.addEventListener("submit", function () { send("form"); });
+  var ticking = false;
+  function reach() {
+    ticking = false;
+    var d = document.documentElement, pct = (window.scrollY + window.innerHeight) / d.scrollHeight * 100;
+    [25, 50, 75, 100].forEach(function (n) { if (pct >= n - .5) send("sc" + n); });
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(reach); } }, { passive: true });
+})();
+</script>
 {% endblock %}
