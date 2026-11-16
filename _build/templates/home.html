@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {%- from "_icons.html" import glyph, mark -%}
 {#- Home, rebuilt 2026-11-15 (Steven: "Set a high bar for the visuals ... the final chance, if someone gets to this, to get them to reach out").
-    Always dark, in the business card's near-black and cyan; amber marks the owner's own tap. The hero scene is a labelled example.
+    Always dark, in the business card's near-black and cyan; amber marks what needs the owner. The hero scene is a labelled example of an owner's own view (Steven, 2026-11-15: lead with what it does; approval and texting are options, not the focus).
     No client claims, no prices, no build-time promises. #}
 {% block head %}
 <meta name="theme-color" content="#0A0E17">
@@ -23,7 +23,7 @@
 .hx-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 5px rgba(106, 220, 255, .16); }
 .hx-hero h1 { font-family: var(--display); font-stretch: 88%; font-weight: 800; font-size: clamp(50px, 11.5vw, 100px); line-height: .94; letter-spacing: -0.02em; margin: 0 0 22px; }
 .hx-hero h1 span { display: block; }
-.hx p.hx-lede { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.45; color: var(--slate); max-width: 34ch; margin: 0 0 26px; }
+.hx p.hx-lede { font-size: clamp(18px, 2.2vw, 22px); line-height: 1.45; color: var(--slate); max-width: 38ch; margin: 0 0 26px; }
 .hx p.hx-lede b { color: var(--ink); font-weight: 600; }
 .hx-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
 .hx-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 14px 22px; border-radius: 14px; font-weight: 650; font-size: 17.5px; text-decoration: none; border: 1.5px solid transparent; cursor: pointer; font-family: inherit; }
@@ -35,49 +35,44 @@
 @media (max-width: 480px) { .hx-cta .hx-btn { width: 100%; } }
 .hx p.hx-note { color: var(--slate); font-size: 15px; margin: 0; }
 
-/* ---- the scene: one job, start to finish ---- */
-.hx-scene { justify-self: center; width: 100%; max-width: 400px; }
-.hx-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
-.hx-tab { flex: 1 1 auto; min-height: 44px; padding: 8px 6px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--slate); font: 600 14.5px/1.15 var(--font-text); cursor: pointer; }
-.hx-tab[aria-selected="true"] { background: var(--surface); color: var(--ink); border-color: color-mix(in srgb, var(--signal) 50%, var(--line)); }
-.hx-phone { position: relative; border-radius: 34px; padding: 10px; background: linear-gradient(160deg, #1B2538, #0D1320); box-shadow: 0 0 0 1px #2A3650, 0 40px 80px -30px rgba(0, 0, 0, .9), 0 0 90px -30px rgba(106, 220, 255, .35); }
-.hx-screen { border-radius: 26px; background: #070B13; min-height: 468px; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
-.hx-bar { display: flex; align-items: center; justify-content: space-between; color: var(--slate); font-size: 13px; padding: 0 4px 8px; border-bottom: 1px solid #172033; }
-.hx-bar b { color: var(--ink); font-weight: 600; display: flex; align-items: center; gap: 8px; }
-.hx-bar b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #5EE6A0; }
-.hx-beat { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
-.hx-beat.is-on { opacity: 1; transform: none; }
-.hx-in { align-self: flex-start; max-width: 86%; background: #1A2233; border-radius: 18px 18px 18px 6px; padding: 10px 13px; font-size: 15.5px; line-height: 1.35; }
-.hx-in small, .hx-out small { display: block; color: var(--slate); font-size: 12px; margin-bottom: 3px; }
-.hx-sys { display: flex; align-items: center; gap: 8px; color: var(--signal); font-size: 13.5px; padding: 0 4px; }
-.hx-sys::before { content: ""; flex: none; width: 11px; height: 6px; margin: 0 2px 3px 1px; border-left: 2px solid var(--signal); border-bottom: 2px solid var(--signal); transform: rotate(-45deg); }
-.hx-draft { border: 1px solid color-mix(in srgb, var(--you) 45%, transparent); background: linear-gradient(180deg, rgba(255, 180, 84, .09), rgba(255, 180, 84, .03)); border-radius: 16px; padding: 12px 13px 13px; }
-.hx-draft small { display: block; color: var(--you); font-weight: 600; font-size: 12.5px; margin-bottom: 5px; }
-.hx .hx-draft p { margin: 0 0 11px; font-size: 15.5px; line-height: 1.38; }
-.hx-draft table { width: 100%; border-collapse: collapse; margin: 0 0 11px; font-size: 14.5px; }
-.hx-draft td { padding: 3px 0; }
-.hx-draft td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-.hx-draft tr:last-child td { border-top: 1px solid rgba(255, 180, 84, .3); padding-top: 6px; font-weight: 700; }
-.hx-row { display: flex; gap: 8px; }
-.hx-ok { flex: 1; min-height: 46px; border: 0; border-radius: 12px; background: var(--you); color: var(--you-ink); font: 700 16px var(--font-text); cursor: pointer; position: relative; }
-.hx-ok.is-wait::after { content: ""; position: absolute; inset: -5px; border-radius: 16px; border: 2px solid var(--you); opacity: 0; animation: hx-ring 1.4s ease-out infinite; }
-@keyframes hx-ring { from { opacity: .8; transform: scale(.96); } to { opacity: 0; transform: scale(1.06); } }
-.hx-edit { min-height: 46px; padding: 0 14px; border-radius: 12px; border: 1px solid #2A3650; color: var(--slate); font: 600 15px var(--font-text); display: flex; align-items: center; }
-.hx-draft.is-done { border-color: #1E2A3F; background: transparent; padding: 0; }
-.hx-draft.is-done > * { display: none; }
-.hx-out { align-self: flex-end; max-width: 86%; background: color-mix(in srgb, var(--signal) 88%, #fff); color: #04121A; border-radius: 18px 18px 6px 18px; padding: 10px 13px; font-size: 15.5px; line-height: 1.35; }
-.hx-out small { color: rgba(4, 18, 26, .65); }
-.hx-done { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-.hx-done span { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #1F3B33; background: rgba(94, 230, 160, .08); color: #9FF0C4; border-radius: 99px; padding: 6px 11px; font-size: 13px; font-weight: 600; }
-.hx-done span::before { content: "✓"; }
+/* ---- the scene: the owner's own view of the day ---- */
+.hx-scene { justify-self: center; width: 100%; max-width: 480px; }
+.hx-win { border-radius: 22px; background: linear-gradient(170deg, #131C2C, #0B111C); box-shadow: 0 0 0 1px #2A3650, 0 40px 80px -30px rgba(0, 0, 0, .9), 0 0 100px -30px rgba(106, 220, 255, .4); overflow: hidden; }
+.hx-winbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 16px; border-bottom: 1px solid #1C2638; color: var(--slate); font-size: 13.5px; }
+.hx-winbar b { color: var(--ink); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.hx-winbar b::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #5EE6A0; box-shadow: 0 0 0 4px rgba(94, 230, 160, .15); }
+.hx-tabs { display: flex; gap: 2px; padding: 8px 8px 0; border-bottom: 1px solid #1C2638; }
+.hx-tab { flex: 1 1 auto; min-height: 44px; padding: 8px 4px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--slate); font: 600 14.5px/1.15 var(--font-text); cursor: pointer; }
+.hx-tab[aria-selected="true"] { color: var(--signal); border-bottom-color: var(--signal); }
+.hx-pane { padding: 18px 16px 16px; min-height: 372px; }
+.hx-stat { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+.hx-stat strong { font-family: var(--display); font-stretch: 84%; font-weight: 800; font-size: 64px; line-height: .9; letter-spacing: -0.02em; color: var(--signal); font-variant-numeric: tabular-nums; }
+.hx-stat span { color: var(--slate); font-size: 15px; line-height: 1.3; max-width: 17ch; }
+.hx .hx-rows { list-style: none; margin: 0; padding: 0; }
+.hx-rows li { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #1A2334; font-size: 15px; line-height: 1.3; opacity: 0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
+.hx-rows li.is-on { opacity: 1; transform: none; }
+.hx-rows time { color: var(--slate); font-size: 13px; font-variant-numeric: tabular-nums; }
+.hx-rows em { font-style: normal; font-size: 12.5px; font-weight: 600; white-space: nowrap; padding: 4px 9px; border-radius: 99px; border: 1px solid #1F3B33; background: rgba(94, 230, 160, .08); color: #9FF0C4; }
+.hx-rows em.is-info { border-color: #24405A; background: rgba(106, 220, 255, .08); color: var(--signal); }
+.hx-rows em.is-you { border-color: color-mix(in srgb, var(--you) 55%, transparent); background: rgba(255, 180, 84, .1); color: var(--you); }
 .hx p.hx-fine { color: var(--slate); font-size: 12.5px; text-align: center; margin: 12px 0 0; }
-@media (prefers-reduced-motion: reduce) { .hx-beat { transition: none; } .hx-ok.is-wait::after { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hx-rows li { transition: none; } }
+
+/* ---- off your plate ---- */
+.hx .hx-plate { list-style: none; margin: 38px 0 0; padding: 0; display: grid; gap: 0 40px; }
+@media (min-width: 700px) { .hx .hx-plate { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .hx .hx-plate { grid-template-columns: 1fr 1fr 1fr; } }
+.hx-plate li { display: grid; grid-template-columns: 44px 1fr; gap: 4px 14px; padding: 22px 0; border-top: 1px solid var(--line); }
+.hx-plate i { grid-row: 1 / 3; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--signal); background: rgba(106, 220, 255, .09); border: 1px solid rgba(106, 220, 255, .22); }
+.hx-plate i svg { width: 22px; height: 22px; }
+.hx-plate b { font-size: 19px; line-height: 1.2; align-self: end; }
+.hx-plate span { color: var(--slate); font-size: 16px; }
 
 /* ---- a day ---- */
 .hx-day { display: grid; gap: 36px; }
 @media (min-width: 900px) { .hx-day { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 72px; align-items: start; } .hx-day-head { position: sticky; top: 96px; } }
 .hx-line { list-style: none; margin: 0; padding: 0; position: relative; }
-.hx-line::before { content: ""; position: absolute; left: 86px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--signal), color-mix(in srgb, var(--signal) 25%, transparent) 80%, var(--you)); }
+.hx-line::before { content: ""; position: absolute; left: 86px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--signal), color-mix(in srgb, var(--signal) 25%, transparent)); }
 .hx-line li { position: relative; display: grid; grid-template-columns: 70px 1fr; column-gap: 40px; padding: 0 0 30px; }
 .hx-line li:last-child { padding-bottom: 0; }
 .hx-line li::before { content: ""; position: absolute; left: 80px; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid var(--signal); }
@@ -98,16 +93,17 @@
 .hx-us { background: linear-gradient(180deg, rgba(106, 220, 255, .12), rgba(106, 220, 255, .03)); border-left: 1px solid color-mix(in srgb, var(--signal) 40%, transparent); }
 .hx-us h3 { color: var(--signal); }
 
-/* ---- in charge ---- */
-.hx-charge { display: grid; gap: 34px; }
-@media (min-width: 900px) { .hx-charge { grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; } }
-.hx-charge h2 em { font-style: normal; color: var(--you); }
-.hx-flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.hx-flow li { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; font-size: 17px; }
-.hx-flow li i { font-style: normal; flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; background: #1B2538; color: var(--slate); }
-.hx-flow li.is-you { border-color: var(--you); background: rgba(255, 180, 84, .1); color: var(--you); }
-.hx-flow li.is-you i { background: var(--you); color: var(--you-ink); }
-.hx .hx-points { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; color: var(--slate); }
+/* ---- your way ---- */
+.hx .hx-ways { list-style: none; margin: 38px 0 0; padding: 0; display: grid; gap: 14px; }
+@media (min-width: 640px) { .hx .hx-ways { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .hx .hx-ways { grid-template-columns: repeat(4, 1fr); } }
+.hx-ways li { border-radius: 18px; padding: 20px 18px 22px; background: var(--surface); border: 1px solid var(--line); }
+.hx-ways i { display: block; color: var(--signal); margin-bottom: 14px; }
+.hx-ways i svg { width: 26px; height: 26px; }
+.hx-ways b { display: block; font-size: 19px; margin-bottom: 6px; }
+.hx-ways span { color: var(--slate); font-size: 16px; }
+.hx .hx-points { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 10px 32px; color: var(--slate); font-size: 15.5px; }
+@media (min-width: 900px) { .hx .hx-points { grid-template-columns: repeat(3, auto); justify-content: start; } }
 .hx-points li { padding-left: 26px; position: relative; }
 .hx-points li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 12px; height: 7px; border-left: 2px solid var(--signal); border-bottom: 2px solid var(--signal); transform: rotate(-45deg); }
 
@@ -140,7 +136,7 @@
     <div>
       <p class="hx-kicker">Custom AI systems for small businesses</p>
       <h1><span>Your busywork,</span><span>handled.</span></h1>
-      <p class="hx-lede">We build one AI system around the way your business already runs. It answers, drafts, books and reminds. <b>You approve with a tap.</b></p>
+      <p class="hx-lede">We build one AI system around the way your business already runs. It answers your customers, keeps your calendar, chases your invoices and shows you where everything stands.</p>
       <div class="hx-cta">
         <a class="hx-btn is-main" href="#contact">Get a free example for my business</a>
         <a class="hx-btn is-line" href="tel:{{ site.studio.phone_tel }}">{{ glyph("phone") }}Call our AI manager</a>
@@ -148,21 +144,42 @@
       <p class="hx-note">It costs nothing to find out what we could save you.</p>
     </div>
     <div class="hx-scene" data-hx-scene>
-      <div class="hx-tabs" role="tablist" aria-label="Pick an example">
-        <button class="hx-tab" role="tab" type="button" aria-selected="true" data-s="0">A late text</button>
-        <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="1">A missed call</button>
-        <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="2">An unpaid invoice</button>
-      </div>
-      <div class="hx-phone">
-        <div class="hx-screen" aria-live="off">
-          <div class="hx-bar"><b>Your AI manager</b><span data-hx-clock>7:42 pm</span></div>
-          <div class="hx-beat is-on hx-in"><small>Dana, a customer</small>Hi, could you fit me in this week? Thursday afternoon would be ideal.</div>
-          <div class="hx-beat is-on hx-sys">Checked your calendar. Thursday at 2:00 is open.</div>
-          <div class="hx-beat is-on hx-draft"><small>Reply drafted for you</small><p>Hi Dana, yes. Thursday at 2:00 is open. Shall I put you down?</p><div class="hx-row"><button class="hx-ok" type="button">Approve</button><span class="hx-edit">Edit</span></div></div>
+      <div class="hx-win">
+        <div class="hx-winbar"><b>Your business, today</b><span>Tue 2:15 pm</span></div>
+        <div class="hx-tabs" role="tablist" aria-label="Pick a view">
+          <button class="hx-tab" role="tab" type="button" aria-selected="true" data-s="0">Today</button>
+          <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="1">Customers</button>
+          <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="2">Money</button>
+          <button class="hx-tab" role="tab" type="button" aria-selected="false" data-s="3">Schedule</button>
+        </div>
+        <div class="hx-pane">
+          <div class="hx-stat"><strong>23</strong><span>things handled so far today</span></div>
+          <ul class="hx-rows">
+            <li class="is-on"><time>8:10</time><span>New caller answered, call back booked</span><em>Done</em></li>
+            <li class="is-on"><time>9:05</time><span>Reminder sent on an overdue invoice</span><em>Paid 11:20</em></li>
+            <li class="is-on"><time>10:30</time><span>Appointment moved to Thursday</span><em>Done</em></li>
+            <li class="is-on"><time>1:15</time><span>Supplier's bill read and filed</span><em class="is-info">Due the 28th</em></li>
+            <li class="is-on"><time>2:02</time><span>A customer asked for a refund</span><em class="is-you">Needs you</em></li>
+          </ul>
         </div>
       </div>
-      <p class="hx-fine">An example of what we'd build. Tap Approve to see what happens.</p>
+      <p class="hx-fine">An example of what we'd build for your business.</p>
     </div>
+  </div>
+</section>
+
+<section aria-labelledby="plate-h">
+  <div class="hx-wrap">
+    <h2 id="plate-h">What it takes off your plate</h2>
+    <p class="hx-sub">The work every small business has, and nobody started a business to do.</p>
+    <ul class="hx-plate">
+      <li><i>{{ glyph("phone") }}</i><b>Calls and messages you can't get to</b><span>Answered, with the details waiting for you.</span></li>
+      <li><i>{{ glyph("calendar") }}</i><b>Booking and rescheduling</b><span>Appointments made, moved and reminded.</span></li>
+      <li><i>{{ glyph("doc") }}</i><b>Invoices and late payers</b><span>Sent on time and followed up politely.</span></li>
+      <li><i>{{ glyph("inbox") }}</i><b>Email and paperwork</b><span>Read, sorted and filed where it belongs.</span></li>
+      <li><i>{{ glyph("chart") }}</i><b>Knowing where things stand</b><span>What came in, what's due and what needs you, in one place.</span></li>
+      <li><i>{{ glyph("search") }}</i><b>Digging for an answer</b><span>Ask about your own business and get the answer, with its source.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -177,7 +194,7 @@
       <li><time>10:20 am</time><div><b>The phone rings while you're with a customer</b><span>It's answered. The caller's name, what they need and the best time to reach them are in your pocket.</span></div></li>
       <li><time>12:40 pm</time><div><b>You say a few notes out loud after a meeting</b><span>The follow-up and the paperwork are drafted, ready for you to check.</span></div></li>
       <li><time>4:00 pm</time><div><b>Tomorrow's appointments get their reminders</b><span>Sent on time, and nobody had to remember.</span></div></li>
-      <li class="is-you"><time>7:42 pm</time><div><b>A late message. You tap Approve from the couch.</b><span>The reply goes out and the appointment is on your calendar.</span></div></li>
+      <li><time>7:42 pm</time><div><b>A customer writes after you've closed</b><span>They get an answer tonight. You read about it in the morning.</span></div></li>
     </ol>
   </div>
 </section>
@@ -194,23 +211,20 @@
 </section>
 
 <section id="care" aria-labelledby="care-h">
-  <div class="hx-wrap hx-charge">
-    <div>
-      <h2 id="care-h">Nothing goes out until <em>you tap OK</em></h2>
-      <p class="hx-sub">It does the reading, sorting and drafting. The decision stays yours.</p>
-      <ul class="hx-points">
-        <li>Routine messages send on their own only if you switch them on</li>
-        <li>Your own private server, encrypted</li>
-        <li>Anthropic's AI doesn't train on your data</li>
-      </ul>
-    </div>
-    <ol class="hx-flow" aria-label="What happens to a customer's text">
-      <li><i>1</i>A customer texts</li>
-      <li><i>2</i>Codes we detect are taken out</li>
-      <li><i>3</i>The AI drafts a reply</li>
-      <li class="is-you"><i>4</i>You tap OK</li>
-      <li><i>5</i>It's sent</li>
-    </ol>
+  <div class="hx-wrap">
+    <h2 id="care-h">It fits how you already work</h2>
+    <p class="hx-sub">Some owners want one screen. Some want a short email each morning. Some run the day from their phone. We build yours around you.</p>
+    <ul class="hx-ways">
+      <li><i>{{ glyph("chart") }}</i><b>A dashboard</b><span>Everything in one place, on your computer or your phone.</span></li>
+      <li><i>{{ glyph("inbox") }}</i><b>A morning email</b><span>What came in, what's due and what needs you.</span></li>
+      <li><i>{{ glyph("chat") }}</i><b>Text messages</b><span>If you run your day from your phone, it works there too.</span></li>
+      <li><i>{{ glyph("phone") }}</i><b>Your phone line</b><span>Calls answered when you can't pick up.</span></li>
+    </ul>
+    <ul class="hx-points">
+      <li>You decide what it does on its own and what it checks with you first</li>
+      <li>Your own private server, encrypted</li>
+      <li>Anthropic's AI doesn't train on your data</li>
+    </ul>
   </div>
 </section>
 
@@ -283,74 +297,64 @@
 </section>
 
 <script>
-/* The hero scene: one job played start to finish. Nothing is sent anywhere; it is a picture that moves. */
+/* The hero scene: an example of the owner's own view. Nothing is sent anywhere; it is a picture that moves. */
 (function () {
   var root = document.querySelector("[data-hx-scene]");
   if (!root) return;
-  var screen = root.querySelector(".hx-screen"), clock = root.querySelector("[data-hx-clock]"), fine = root.querySelector(".hx-fine");
-  var tabs = [].slice.call(root.querySelectorAll(".hx-tab"));
+  var pane = root.querySelector(".hx-pane"), tabs = [].slice.call(root.querySelectorAll(".hx-tab"));
   var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var S = [
-    { clock: "7:42 pm", beats: [
-      ["in", "<small>Dana, a customer</small>Hi, could you fit me in this week? Thursday afternoon would be ideal."],
-      ["sys", "Checked your calendar. Thursday at 2:00 is open."],
-      ["draft", "<small>Reply drafted for you</small><p>Hi Dana, yes. Thursday at 2:00 is open. Shall I put you down?</p>", "Approve"]],
-      out: "<small>Sent to Dana</small>Hi Dana, yes. Thursday at 2:00 is open. Shall I put you down?",
-      done: ["On your calendar, Thu 2:00", "Reminder set for Wed"] },
-    { clock: "10:20 am", beats: [
-      ["sys", "You're with a customer. A call came in and was answered."],
-      ["in", "<small>Maria, a new caller</small>Wants to know if you can take on new work next week. Best reached before noon."],
-      ["draft", "<small>Next step drafted for you</small><p>Set a call back with Maria for tomorrow at 9:00 and send her a confirmation.</p>", "Set it up"]],
-      out: "<small>Sent to Maria</small>Thanks for calling. We'll ring you tomorrow at 9:00.",
-      done: ["On your calendar, 9:00", "Her number saved"] },
-    { clock: "9:05 am", beats: [
-      ["sys", "An invoice went 14 days past due today."],
-      ["in", "<small>What it found</small>Invoice 1042, Sam Ortiz, $640. One reminder sent a week ago, no reply."],
-      ["draft", "<small>Reminder drafted for you</small><p>Hi Sam, a quick note that invoice 1042 for $640 is still open. Could you let us know when to expect it? Thank you.</p>", "Send reminder"]],
-      out: "<small>Sent to Sam</small>Hi Sam, a quick note that invoice 1042 for $640 is still open. Could you let us know when to expect it? Thank you.",
-      done: ["Reminder sent", "Checks again in 7 days"] }
+  var V = [
+    { n: 23, pre: "", label: "things handled so far today", rows: [
+      ["8:10", "New caller answered, call back booked", "Done", ""],
+      ["9:05", "Reminder sent on an overdue invoice", "Paid 11:20", ""],
+      ["10:30", "Appointment moved to Thursday", "Done", ""],
+      ["1:15", "Supplier's bill read and filed", "Due the 28th", "is-info"],
+      ["2:02", "A customer asked for a refund", "Needs you", "is-you"]] },
+    { n: 30, pre: "", label: "enquiries answered this week, none left waiting", rows: [
+      ["Calls", "7 answered, 3 turned into bookings", "Done", ""],
+      ["Messages", "9 replied to, day or night", "Done", ""],
+      ["Email", "14 read and sorted", "2 need you", "is-you"],
+      ["New", "4 first-time customers this week", "Followed up", "is-info"]] },
+    { n: 4860, pre: "$", label: "came in this week", rows: [
+      ["Sent", "6 invoices went out on time", "$5,300", "is-info"],
+      ["Paid", "5 invoices paid", "$4,860", ""],
+      ["Chased", "2 polite reminders sent", "1 paid", ""],
+      ["Open", "1 invoice, 9 days old", "$440", "is-you"]] },
+    { n: 14, pre: "", label: "appointments this week, every one reminded", rows: [
+      ["Mon", "3 appointments", "Reminded", ""],
+      ["Tue", "4 appointments", "Reminded", ""],
+      ["Wed", "2 appointments, 1 moved", "Updated", "is-info"],
+      ["Thu", "3 appointments", "At 4:00", "is-info"],
+      ["Fri", "2 appointments, 1 opening left", "Open", "is-you"]] }
   ];
-  var timers = [], cur = 0;
+  var timers = [], auto = true;
   function later(fn, ms) { timers.push(setTimeout(fn, still ? 0 : ms)); }
-  function el(cls, html) { var d = document.createElement("div"); d.className = "hx-beat " + cls; d.innerHTML = html; screen.appendChild(d); return d; }
-  function show(d) { setTimeout(function () { d.classList.add("is-on"); }, 30); }
-  function play(i, auto) {
-    timers.forEach(clearTimeout); timers = []; cur = i;
+  function fmt(v) { return String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  function play(i) {
+    timers.forEach(clearTimeout); timers = [];
     tabs.forEach(function (t, n) { t.setAttribute("aria-selected", n === i ? "true" : "false"); });
-    while (screen.children.length > 1) screen.removeChild(screen.lastChild);
-    clock.textContent = S[i].clock;
-    fine.textContent = "An example of what we'd build. Tap " + S[i].beats[2][2] + " to see what happens.";
-    var t = 150;
-    S[i].beats.forEach(function (b) {
-      later(function () {
-        if (b[0] !== "draft") { show(el("hx-" + b[0], b[1])); return; }
-        var d = el("hx-draft", b[1] + '<div class="hx-row"><button class="hx-ok is-wait" type="button">' + b[2] + '</button><span class="hx-edit">Edit</span></div>');
-        show(d);
-        var fired = false;
-        function ok() {
-          if (fired) return; fired = true;
-          d.parentNode.removeChild(d);
-          show(el("hx-out", S[i].out));
-          later(function () {
-            var c = el("hx-done", S[i].done.map(function (x) { return "<span>" + x + "</span>"; }).join(""));
-            show(c);
-            fine.textContent = "An example of what we'd build for your business.";
-            if (auto) later(function () { play((i + 1) % S.length, true); }, 5200);
-          }, 550);
-        }
-        d.querySelector(".hx-ok").addEventListener("click", function () { auto = false; ok(); });
-        if (auto) later(ok, 4200);
-      }, t);
-      t += b[0] === "sys" ? 1100 : 1300;
+    var v = V[i];
+    pane.innerHTML = '<div class="hx-stat"><strong></strong><span></span></div><ul class="hx-rows"></ul>';
+    var num = pane.querySelector("strong"), ul = pane.querySelector("ul");
+    pane.querySelector(".hx-stat span").textContent = v.label;
+    var steps = still ? 1 : 22, k = 0;
+    (function tick() { k++; num.textContent = v.pre + fmt(v.n * Math.min(1, k / steps)); if (k < steps) timers.push(setTimeout(tick, 28)); })();
+    v.rows.forEach(function (r, n) {
+      var li = document.createElement("li");
+      li.innerHTML = "<time></time><span></span><em></em>";
+      li.children[0].textContent = r[0]; li.children[1].textContent = r[1]; li.children[2].textContent = r[2];
+      if (r[3]) li.children[2].className = r[3];
+      ul.appendChild(li);
+      later(function () { li.classList.add("is-on"); }, 250 + n * 260);
     });
+    if (auto && !still) later(function () { play((i + 1) % V.length); }, 6500);
   }
-  tabs.forEach(function (tb, n) { tb.addEventListener("click", function () { play(n, false); }); });
-  if (still) { play(0, false); return; } /* reduced motion: no autoplay; tabs and the button still work */
+  tabs.forEach(function (tb, n) { tb.addEventListener("click", function () { auto = false; play(n); }); });
+  if (still) return; /* reduced motion: the first view stays as drawn; the tabs still work */
   var started = false;
-  function start() { if (!started) { started = true; play(0, true); } }
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); start(); } }, { threshold: .35 }).observe(root);
-  } else start();
+    new IntersectionObserver(function (es, o) { if (es[0].isIntersecting && !started) { started = true; o.disconnect(); play(0); } }, { threshold: .35 }).observe(root);
+  } else play(0);
 })();
 </script>
 {% endblock %}
