@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Kynoss Studios: custom AI systems for small businesses</title>
 <meta name="description" content="Kynoss Studios designs, builds and runs custom AI systems built around the way you already work. Also 17 iPhone apps, with no ads, accounts or tracking.">
-<link rel="stylesheet" href="/assets/site.css?v=cfc58b97b4">
+<link rel="stylesheet" href="/assets/site.css?v=c1985ea47c">
 <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -143,6 +143,12 @@
 .hx-steps span { color: var(--slate); }
 .hx p.hx-price { margin: 34px 0 0; font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: clamp(24px, 3.6vw, 36px); line-height: 1.1; }
 .hx p.hx-price span { display: block; font: 400 16px/1.5 var(--font-text); color: var(--slate); margin-top: 8px; }
+.hx-pain > label { display: block; font-weight: 600; margin-bottom: 10px; }
+.hx-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.hx-chips button { min-height: 40px; padding: 8px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 14.5px var(--font-text); cursor: pointer; }
+.hx-chips button[aria-pressed="true"] { border-color: var(--signal); color: var(--signal); background: rgba(106, 220, 255, .1); }
+.hx-pain textarea { width: 100%; }
+@media (max-width: 899px) { .hx-cta .hx-btn.is-line, .hx p.hx-note { display: none; } .hx-hero-grid { gap: 26px; } .hx p.hx-lede { margin-bottom: 20px; } }
 .hx-contact { border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(106, 220, 255, .06), transparent 340px); }
 </style>
 
@@ -174,8 +180,8 @@
       <h1><span>Software built</span><span>around your</span><span>business.</span></h1>
       <p class="hx-lede">One system to run your business: customers, schedule, money and paperwork, made to fit the way you already work. The AI inside it does the busywork for you.</p>
       <div class="hx-cta">
-        <a class="hx-btn is-main" href="#contact">Get a free example for my business</a>
-        <a class="hx-btn is-line" href="tel:+19049291217"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a11 11 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg>Call our AI manager</a>
+        <a class="hx-btn is-main" href="#contact" data-ev="start">Get a free example for my business</a>
+        <a class="hx-btn is-line" href="tel:+19049291217" data-ev="call2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a11 11 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg>Call our AI manager</a>
       </div>
       <p class="hx-note">It costs nothing to find out what we could save you.</p>
     </div>
@@ -269,7 +275,7 @@
     <div class="hx-wave" aria-hidden="true"><i style="--i: 0"></i><i style="--i: 1"></i><i style="--i: 2"></i><i style="--i: 3"></i><i style="--i: 4"></i><i style="--i: 5"></i><i style="--i: 6"></i><i style="--i: 7"></i><i style="--i: 8"></i><i style="--i: 9"></i><i style="--i: 10"></i><i style="--i: 11"></i><i style="--i: 12"></i><i style="--i: 13"></i><i style="--i: 14"></i><i style="--i: 15"></i><i style="--i: 16"></i></div>
     <h2 id="hear-h">Don't take our word for it. Call it.</h2>
     <p class="hx-sub">Our own line is answered by Nova, an AI manager we built. Ask how it would handle a call for your business.</p>
-    <a class="hx-btn is-main" href="tel:+19049291217"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a11 11 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg>Call Nova, our AI manager</a>
+    <a class="hx-btn is-main" href="tel:+19049291217" data-ev="call2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.2 1.5a11 11 0 0 0 7.2 7.2l1.5-2.2 4.2 1.6V19a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7 2 2 0 0 1 5 3.5Z"/></svg>Call Nova, our AI manager</a>
     <br><a class="hx-quiet" href="/systems/#cases">Or see the systems we run ourselves</a>
   </div>
 </section>
@@ -292,7 +298,7 @@
   <div class="ks-wrap"><div class="ks-contact">
     <div class="ks-section-head">
       <h2 class="ks-display ks-h2" id="contact-h">Get a free example for your business</h2>
-      <p class="ks-lede">A few lines is plenty. A person replies, usually within a day, with an example made for your business.</p>
+      <p class="ks-lede">Tell us what wears you down about running your business. A person replies, usually within a day, with an example of how we'd take it off you.</p>
     </div>
     <form class="ks-form" data-ks-intake="https://kynoss-intake.kynossstudios.workers.dev/lead" novalidate>
       <div class="ks-form-row">
@@ -300,7 +306,17 @@
         <label>Email or phone<input name="contact" autocomplete="email" maxlength="200" required></label>
       </div>
       <label><span>Business name <span class="ks-muted">(optional)</span></span><input name="business" autocomplete="organization" maxlength="150"></label>
-      <label>Tell us a little about what you do<textarea name="about" rows="5" maxlength="2000" required></textarea></label>
+      <div class="hx-pain">
+        <label for="hx-about">What frustrates you most, or eats the most time, in running your business?</label>
+        <div class="hx-chips" data-hx-chips aria-label="Tap any that fit">
+          <button type="button">Invoices and chasing money</button>
+          <button type="button">Customer calls and messages</button>
+          <button type="button">Scheduling</button>
+          <button type="button">Paperwork</button>
+          <button type="button">Keeping track of everything</button>
+        </div>
+        <textarea id="hx-about" name="about" rows="4" maxlength="2000" required placeholder="Tap any that fit, or say it in your own words. A line or two is plenty."></textarea>
+      </div>
       <label class="ks-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
       <div class="ks-form-foot">
         <button class="ks-button" type="submit">Send</button>
@@ -407,6 +423,53 @@
   } else play(0);
 })();
 </script>
+<script>
+/* Form chips: a tap adds that line to the box, so an owner can answer without typing. */
+(function () {
+  var box = document.querySelector("[data-hx-chips]"), ta = document.getElementById("hx-about");
+  if (!box || !ta) return;
+  box.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("button");
+    if (!b) return;
+    var t = b.textContent, lines = ta.value.split("\n").filter(function (x) { return x.trim(); });
+    var at = lines.indexOf(t);
+    if (at >= 0) { lines.splice(at, 1); b.setAttribute("aria-pressed", "false"); }
+    else { lines.push(t); b.setAttribute("aria-pressed", "true"); }
+    ta.value = lines.join("\n");
+  });
+})();
+/* Counts one opening, scroll reach, and taps on the main buttons and the form's Send, once per page load.
+   No cookies, no storage, no IP kept, nothing typed in the form. See the privacy page, "Our pages for owners". */
+(function () {
+  var q = location.search;
+  var live = navigator.sendBeacon && /^(www\.)?kynossstudios\.com$/.test(location.hostname) && location.pathname === "/" &&
+    !/[?&]preview\b/.test(q) && navigator.doNotTrack !== "1" && !navigator.globalPrivacyControl && !navigator.webdriver;
+  if (!live) return;
+  var vid = Math.random().toString(36).slice(2, 6), sent = {}, first = false, t0 = Date.now();
+  while (vid.length < 4) vid += "0";
+  function send(k, extra) {
+    if (sent[k]) return;
+    sent[k] = 1;
+    var tail = extra || "";
+    if (k !== "view" && !first && !/^sc/.test(k)) { first = true; tail += "&t=" + Math.min(3600, Math.round((Date.now() - t0) / 1000)); }
+    try { navigator.sendBeacon("https://demo.kynossstudios.com/lp?p=home&y=home&v=" + vid + "&k=" + k + tail); } catch (e) {}
+  }
+  send("view", "&s=" + (/[?&](gclid|gbraid|wbraid)=/.test(q) || /[?&]utm_medium=cpc\b/.test(q) ? "ad" : "other"));
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-ev]");
+    if (a) send(a.getAttribute("data-ev"));
+  });
+  var f = document.querySelector("form[data-ks-intake]");
+  if (f) f.addEventListener("submit", function () { send("form"); });
+  var ticking = false;
+  function reach() {
+    ticking = false;
+    var d = document.documentElement, pct = (window.scrollY + window.innerHeight) / d.scrollHeight * 100;
+    [25, 50, 75, 100].forEach(function (n) { if (pct >= n - .5) send("sc" + n); });
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(reach); } }, { passive: true });
+})();
+</script>
 
 </main>
 <div class="ks-foot" role="contentinfo">
@@ -454,6 +517,6 @@
   </form>
   <ul class="ks-search-results" aria-live="polite"></ul>
 </dialog>
-<script src="/assets/site.js?v=cfc58b97b4" defer></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
